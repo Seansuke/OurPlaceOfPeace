@@ -1,0 +1,12 @@
+//party_set(num, hmn,hp,party, artes........);
+global.pty[argument0,PTY_HMN] = argument1;
+global.pty[argument0,PTY_HP] = argument2;
+global.pty[argument0,PTY_PLAYER] = argument3;
+global.pty[argument0,PTY_A1_IDLE] = argument4;
+global.pty[argument0,PTY_A1_UP] = argument5;
+global.pty[argument0,PTY_A1_SIDE] = argument6;
+global.pty[argument0,PTY_A1_DOWN] = argument7;
+global.pty[argument0,PTY_A2_IDLE] = argument8;
+global.pty[argument0,PTY_A2_UP] = argument9;
+global.pty[argument0,PTY_A2_SIDE] = argument10;
+global.pty[argument0,PTY_A2_DOWN] = argument11;

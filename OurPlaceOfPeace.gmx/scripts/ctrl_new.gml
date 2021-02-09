@@ -1,0 +1,13 @@
+//ctrl_new(num,"type". up,right,down,left, att,guard,arte1,arte2, target,action, menu);
+global.ctrl[argument0,BTN_TYPE] = argument1;
+global.ctrl[argument0,BTN_UP] = argument2;
+global.ctrl[argument0,BTN_RIGHT] = argument3;
+global.ctrl[argument0,BTN_DOWN] = argument4;
+global.ctrl[argument0,BTN_LEFT] = argument5;
+global.ctrl[argument0,BTN_ATTACK] = argument6;
+global.ctrl[argument0,BTN_GUARD] = argument7;
+global.ctrl[argument0,BTN_ARTES1] = argument8;
+global.ctrl[argument0,BTN_ARTES2] = argument9;
+global.ctrl[argument0,BTN_TARGET] = argument10;
+global.ctrl[argument0,BTN_ACTION] = argument11;
+global.ctrl[argument0,BTN_MENU] = argument12;
