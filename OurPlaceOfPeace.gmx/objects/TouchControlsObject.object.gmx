@@ -85,7 +85,12 @@ if(ds_list_size(global.touchList) &gt; 0) {
 }
 else {
     TouchControlsOn();
-    canvas_fullscreen();
+    if(room == rm_init) {
+        canvas_window();
+    }
+    else {
+        canvas_fullscreen();
+    }
 }
 </string>
           </argument>

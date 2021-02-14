@@ -15,8 +15,10 @@ switch(subMenu)
     case "Party Swap":
         menu_call("Party");
     break;
+    case "Settings":
+        menu_call("Main");
+    break;
     default:
         menu_call("Main");
     break;
 }
-menuPos = 1;

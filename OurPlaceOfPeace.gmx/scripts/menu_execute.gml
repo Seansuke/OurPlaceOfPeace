@@ -18,7 +18,10 @@ switch(subMenu)
             case 5://player
                 menu_call("Player");
             break;
-            case 6://battle
+            case 6://settings
+                menu_call("Settings");
+            break;
+            case 7://battle
                 global.menu = false;
                 global.monFight[1] = round(random(MAX_MONSTERS));
                 global.monFight[2] = round(random(MAX_MONSTERS));
@@ -90,5 +93,9 @@ switch(subMenu)
     case "Stats":
         global.monsterLevel += 1;
     break;
+    case "Settings":
+        with(menus[menuPos]) {
+            event_user(1);
+        }
+    break;
 }
-menuPos = 1;

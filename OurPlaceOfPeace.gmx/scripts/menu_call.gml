@@ -1,41 +1,50 @@
+// Save the last known menu position before switching
+ds_map_replace(lastMenuPos, subMenu, menuPos);
+
 subMenu = argument0;
 with(obj_areaMenu){instance_destroy();}
+
+// Reset the menu position to the last known value.
+if(!ds_map_exists(lastMenuPos, subMenu)) {
+    ds_map_add(lastMenuPos, subMenu, 1);
+}
+else {
+    menuPos = ds_map_find_value(lastMenuPos, subMenu);
+}
+
 switch(subMenu)
 {
     case "Main":
-        menus[0] = 6;
-        i = 1;
-        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_artes);
-        i += 1;
-        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_skills);
-        i += 1;
-        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_party);
-        i += 1;
-        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_stats); 
-        i += 1;
-        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_player);
-        i += 1;
-        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_battle);
+        var i = 1;
+        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_artes); i++;
+        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_skills); i++;
+        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_party); i++;
+        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_stats); i++;
+        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_player); i++;
+        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,AreaMenuOptions); i++;
+        menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_battle);i++;
+        i--; menus[0] = i;
     break;
     case "Artes Player":
-        menus[0] = 3;//can only have a party of 3
+        var i = 1;
         for(i = 1;i <= 3;i += 1)
         {
             menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_artes_player);
             (menus[i]).v_set = i;
         }
+        i--; menus[0] = i;
     break;
     case "Artes Slot":
-        menus[0] = 8;
-        for(i = 0;i < 8;i += 1)
+        var i = 1;
+        for(i = 1;i <= 8;i += 1)
         {
-            menus[i + 1] = instance_create(view_xview[0] + 20,view_yview[0] + 140 + 40*i,obj_areaMenu_artes_set);
-            (menus[i + 1]).v_set = PTY_A1_IDLE + i;
-            (menus[i + 1]).v_plyr = menuSubset[0];
+            menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 140 + 40*i,obj_areaMenu_artes_set);
+            (menus[i]).v_set = PTY_A1_IDLE + i - 1;
+            (menus[i]).v_plyr = menuSubset[0];
         }
+        i--; menus[0] = i;
     break;
     case "Artes Slot Select":
-        menuPos = 1;
         menus[0] = 0;
         tmp_char = party_get(menuSubset[0],PTY_PLAYER);//party member 1~3 change the party member to the player member 0~max
         tmp_cap = 0;
@@ -53,16 +62,15 @@ switch(subMenu)
         }
     break;
     case "Skill Player":
-        menuPos = 1;
-        menus[0] = MAX_PLAYERS;
+        var i = 1;
         for(i = 1;i <= MAX_PLAYERS;i += 1)
         {
             menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_skills_player);
             (menus[i]).v_set = i - 1;
         }
+        i--; menus[0] = i;
     break;
     case "Skill Arte":
-        menuPos = 1;
         menus[0] = 0;
         tmp_char = menuSubset[0] - 1//player member, WAS 1~3, NOW 0~2
         tmp_cap = 0;
@@ -106,7 +114,6 @@ switch(subMenu)
         (menus[i]).v_text2 = "Uses Needed: " + str(arte_upgrade_cost(arteId,ARTE_COST));
     break;
     case "Party":
-        menuPos = 1;
         menus[0] = MAX_PLAYERS;
         for(i = 1;i <= MAX_PLAYERS;i += 1)
         {
@@ -116,7 +123,6 @@ switch(subMenu)
         obj_areaMenu_artes_desc.v_desc = "Switch who?";
     break;
     case "Party Swap":
-        menuPos = 1;
         menus[0] = MAX_PLAYERS;
         for(i = 1;i <= MAX_PLAYERS;i += 1)
         {
@@ -127,7 +133,6 @@ switch(subMenu)
         obj_areaMenu_artes_desc.v_desc = "Switch " + str(name_get(tmp_player)) + " with whom?";
     break;
     case "Stats":
-        menuPos = 1;
         menus[0] = MAX_PLAYERS;
         i = 1;
         for(i = 1;i <= MAX_PLAYERS;i += 1)
@@ -142,8 +147,22 @@ switch(subMenu)
         menus[0] = 3;//can only have a party of 3
         for(i = 1;i <= 3;i += 1)
         {
-            menus[i] = instance_create(view_xview[0] + 20,view_yview[0] + 100 + 40*i,obj_areaMenu_player_human);
+            menus[i] = instance_create(view_xview[0] + 20 + CameraZoomCycle.bbox_left,view_yview[0] + 100 + 40*i,obj_areaMenu_player_human);
             (menus[i]).v_set = i;
         }
     break;
+    case "Settings":
+        // TODO - execute the action from the menu instead.  Revamp this.
+        // TODO - Make menu page scrolling happen when some menu items are offscreen.
+        i = 1;
+        menus[i] = instance_create(view_xview[0] + 52, view_yview[0] + 100 + 40*i,CameraZoomCycle); i++;
+        menus[i] = instance_create(view_xview[0] + 52, view_yview[0] + 100 + 40*i,SaveGameMenu); i++;
+        menus[i] = instance_create(view_xview[0] + 52, view_yview[0] + 100 + 40*i,LoadGameMenu); i++;
+        menus[i] = instance_create(view_xview[0] + 52, view_yview[0] + 100 + 40*i,GoToTitleMenu); i++;
+        menus[i] = instance_create(view_xview[0] + 52, view_yview[0] + 100 + 40*i,QuitGameMenu); i++;
+        i--; menus[0] = i;
+    break;
 }
+
+menu_wrapMenuPos();
+

@@ -1,9 +1,9 @@
 //init
-v_gfx = GFX_MAX;//special exception
+v_gfx = GFX_MAX;//special exception - will be set in the arte scripts below.
 v_img += 1/3;
 v_timer += 1;
 
-maintain_falling();
+//maintain_falling();
 
 switch(playerNum)
 {

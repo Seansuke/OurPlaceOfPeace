@@ -7,7 +7,7 @@ if(v_guard <= 0)
 {
     v_img = 0;
     v_vel = 10;
-    sound_play(sfx_crash);
+    audio_play_sound(sfx_crash, 3, false);
     animate(spr_pop,1/3,false,DIR_RIGHT);
     v_act = "damage";
     exit;

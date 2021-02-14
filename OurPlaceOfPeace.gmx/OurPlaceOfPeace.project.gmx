@@ -3,9 +3,11 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\WebSaveExtension</extension>
+  </NewExtensions>
   <sounds name="sound">
-    <sounds name="midi">
+    <sounds name="bgm">
       <sounds name="arena">
         <sound>sound\AccionBgm</sound>
       </sounds>
@@ -182,10 +184,12 @@
       <sprite>sprites\spr_menu_party</sprite>
       <sprite>sprites\spr_menu_stats</sprite>
       <sprite>sprites\spr_menu_player</sprite>
+      <sprite>sprites\SettingsMenuSprite</sprite>
       <sprite>sprites\spr_menu_battle</sprite>
       <sprite>sprites\spr_menu_empty</sprite>
       <sprite>sprites\MenuTouchSprite</sprite>
       <sprite>sprites\spr_menu_empty_white</sprite>
+      <sprite>sprites\spr_menu_down_up</sprite>
     </sprites>
     <sprites name="monster">
       <sprites name="arach">
@@ -235,7 +239,7 @@
       <script>scripts\draw_camera.gml</script>
       <script>scripts\init_camera.gml</script>
       <script>scripts\camera_step.gml</script>
-      <script>scripts\sound_play_arena.gml</script>
+      <script>scripts\audio_play_arena.gml</script>
     </scripts>
     <scripts name="battle - monster">
       <scripts name="externals">
@@ -343,6 +347,7 @@
       <script>scripts\TouchControlsOn.gml</script>
       <script>scripts\TouchControlsOff.gml</script>
       <script>scripts\canvas_fullscreen.gml</script>
+      <script>scripts\canvas_window.gml</script>
     </scripts>
     <scripts name="MENUS">
       <script>scripts\init_menu.gml</script>
@@ -352,12 +357,60 @@
       <script>scripts\menu_position_action.gml</script>
       <script>scripts\menu_maintain.gml</script>
       <script>scripts\menu_back.gml</script>
+      <script>scripts\menu_wrapMenuPos.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_courier</font>
   </fonts>
   <objects name="objects">
+    <objects name="menu">
+      <object>objects\obj_areaMenu</object>
+      <object>objects\CycleButtonParent</object>
+      <object>objects\obj_areaMenu_artes</object>
+      <object>objects\obj_areaMenu_skills</object>
+      <object>objects\obj_areaMenu_party</object>
+      <object>objects\obj_areaMenu_stats</object>
+      <object>objects\obj_areaMenu_player</object>
+      <object>objects\AreaMenuOptions</object>
+      <object>objects\obj_areaMenu_battle</object>
+      <objects name="artes">
+        <object>objects\obj_areaMenu_artes_player</object>
+        <object>objects\obj_areaMenu_artes_set</object>
+        <object>objects\obj_areaMenu_artes_select</object>
+        <object>objects\obj_areaMenu_artes_desc</object>
+      </objects>
+      <objects name="skills">
+        <object>objects\obj_areaMenu_skills_player</object>
+        <object>objects\obj_areaMenu_skills_arte</object>
+        <object>objects\obj_areaMenu_skills_upgrade</object>
+      </objects>
+      <objects name="stats">
+        <object>objects\obj_areaMenu_stats_desc</object>
+        <object>objects\obj_areaMenu_monster_level</object>
+      </objects>
+      <objects name="player">
+        <object>objects\obj_areaMenu_player_human</object>
+      </objects>
+      <objects name="sidemenu">
+        <object>objects\obj_controls</object>
+        <object>objects\TouchControlsObject</object>
+      </objects>
+      <objects name="title">
+        <object>objects\obj_init</object>
+        <object>objects\obj_newGame</object>
+        <object>objects\obj_loadGame</object>
+        <object>objects\obj_quit</object>
+        <object>objects\CreditsObject</object>
+      </objects>
+      <objects name="settings">
+        <object>objects\CameraZoomCycle</object>
+        <object>objects\GoToTitleMenu</object>
+        <object>objects\QuitGameMenu</object>
+        <object>objects\SaveGameMenu</object>
+        <object>objects\LoadGameMenu</object>
+      </objects>
+    </objects>
     <objects name="area">
       <object>objects\obj_areaCam</object>
       <object>objects\obj_areaPlayer</object>
@@ -382,50 +435,12 @@
         <object>objects\obj_marker4</object>
         <object>objects\obj_item_save</object>
       </objects>
-      <objects name="menu">
-        <object>objects\obj_areaMenu</object>
-        <object>objects\obj_areaMenu_artes</object>
-        <object>objects\obj_areaMenu_skills</object>
-        <object>objects\obj_areaMenu_party</object>
-        <object>objects\obj_areaMenu_stats</object>
-        <object>objects\obj_areaMenu_player</object>
-        <object>objects\obj_areaMenu_battle</object>
-        <object>objects\obj_areaMenu_artes_desc</object>
-        <objects name="artes">
-          <object>objects\obj_areaMenu_artes_player</object>
-          <object>objects\obj_areaMenu_artes_set</object>
-          <object>objects\obj_areaMenu_artes_select</object>
-        </objects>
-        <objects name="skills">
-          <object>objects\obj_areaMenu_skills_player</object>
-          <object>objects\obj_areaMenu_skills_arte</object>
-          <object>objects\obj_areaMenu_skills_upgrade</object>
-        </objects>
-        <objects name="stats">
-          <object>objects\obj_areaMenu_stats_desc</object>
-          <object>objects\obj_areaMenu_monster_level</object>
-        </objects>
-        <objects name="player">
-          <object>objects\obj_areaMenu_player_human</object>
-        </objects>
-      </objects>
     </objects>
     <objects name="battle">
       <object>objects\obj_camera</object>
       <object>objects\obj_player</object>
       <object>objects\obj_mon</object>
       <object>objects\obj_attack</object>
-    </objects>
-    <objects name="menu">
-      <object>objects\obj_controls</object>
-      <object>objects\TouchControlsObject</object>
-      <objects name="title">
-        <object>objects\obj_init</object>
-        <object>objects\obj_newGame</object>
-        <object>objects\obj_loadGame</object>
-        <object>objects\obj_quit</object>
-        <object>objects\CreditsObject</object>
-      </objects>
     </objects>
     <objects name="misc">
       <object>objects\obj_animate</object>

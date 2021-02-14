@@ -8,7 +8,7 @@ if(v_guard <= 0)
     v_guard = 0;
     v_img = 0;
     v_vel = 10;
-    sound_play(sfx_crash);
+    audio_play_sound(sfx_crash, 3, false);
     animate(spr_pop,1/3,false,DIR_RIGHT);
     v_act = "damage";
     exit;
@@ -49,7 +49,7 @@ if(place_clear(x,y + v_vel) == false)
     {
         v_vel = 10;
         v_img = 0;
-        sound_play(sfx_jump);
+        audio_play_sound(sfx_jump, 3, false);
         animate(spr_jump,0,0,1);
         v_act = "jump";
         exit;

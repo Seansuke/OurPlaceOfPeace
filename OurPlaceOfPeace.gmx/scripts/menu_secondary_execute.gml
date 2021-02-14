@@ -35,8 +35,12 @@ switch(subMenu)
     break;
     case "Player":
     break;
+    case "Settings":
+        with(menus[menuPos]) {
+            event_user(0);
+        }
+    break;
     case "Stats":
         global.monsterLevel = max(global.monsterLevel - 1, 1);
     break;
 }
-menuPos = 1;

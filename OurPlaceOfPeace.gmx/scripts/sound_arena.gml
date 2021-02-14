@@ -1,9 +1,2 @@
-sound_stop_all();
-/*
-sound_loop(
-    choose(
-        midi_el_battle,
-        midi_tov_reverse
-    )
-);
-*/
+audio_pause_all();
+audio_play_sound(AccionBgm, 0, true);

@@ -49,7 +49,7 @@ else if(ctrl_press(BTN_ARTES2))
 if(v_v == BTN_UP)
 {
     v_vel = 10;
-    sound_play(sfx_jump);
+    audio_play_sound(sfx_jump, 3, false);
     animate(spr_jump,0,1,v_dir);
     v_act = "jump";
     exit;

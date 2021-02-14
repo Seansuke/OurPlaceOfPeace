@@ -1,4 +1,5 @@
-
+// Refresh the window every time.
+canvas_fullscreen();
 
 var size = 55;
 var xSet = size;

@@ -8,46 +8,44 @@ if(ctrl_press(BTN_MENU) == true || (subMenu == "Main" && (ctrl_press(BTN_GUARD) 
     with(obj_areaMenu){instance_destroy();}
     with(obj_areaMenu_artes_desc){instance_destroy();}
     with(obj_areaMenu_stats_desc){instance_destroy();}
+    ds_map_destroy(lastMenuPos);
     exit;
 }
 
 if(ctrl_press(BTN_UP) == true)
 {
-    sound_play(sfx_zelda_cursor);
+    audio_play_sound(sfx_zelda_cursor, 3, false);
     menuPos -= 1;
 }
 if(ctrl_press(BTN_DOWN) == true)
 {
-    sound_play(sfx_zelda_cursor);
+    audio_play_sound(sfx_zelda_cursor, 3, false);
     menuPos += 1;
 }
-if(menuPos < 1){menuPos = menus[0];}
-if(menuPos > menus[0]){menuPos = 1;}
+
+menu_wrapMenuPos();
 
 menu_position_action();
 
 if(ctrl_press(BTN_ATTACK) == true || ctrl_press(BTN_RIGHT) == true)
 {
-    sound_play(sfx_zelda_select);
+    audio_play_sound(sfx_zelda_select, 3, false);
     menu_execute();
-    menuPos = 1;
     with(obj_controls){instance_destroy();}
     with(TouchControlsObject){instance_destroy();}
     exit;
 }
 if(ctrl_press(BTN_ARTES2) == true || ctrl_press(BTN_LEFT) == true)
 {
-    sound_play(sfx_zelda_select);
+    audio_play_sound(sfx_zelda_select, 3, false);
     menu_secondary_execute();
-    menuPos = 1;
     with(obj_controls){instance_destroy();}
     with(TouchControlsObject){instance_destroy();}
     exit;
 }
 if(ctrl_press(BTN_GUARD) == true || ctrl_press(BTN_ARTES1) == true)
 {
-    sound_play(sfx_zelda_select);
+    audio_play_sound(sfx_zelda_select, 3, false);
     menu_back();
-    menuPos = 1;
     exit;
 }

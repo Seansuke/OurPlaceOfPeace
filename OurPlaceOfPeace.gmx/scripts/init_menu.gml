@@ -12,7 +12,8 @@ if(ctrl_press(BTN_MENU) == true)    //menu
     menuPos = 1;
     subMenu = "Main";
     subMenuPos = 1;
-    menu_call("Main");
+    lastMenuPos = ds_map_create();
+    menu_call(subMenu);
     return true;
 }
 return false;

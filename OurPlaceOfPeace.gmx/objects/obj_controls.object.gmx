@@ -122,42 +122,44 @@ if(v_on == false || v_timer &gt; 0)
 global.menu = true;//keep menu up
 
 /* Draw text relative to current key */
+v_text[0] = "PRESS"; 
 switch(v_currentKey)
 {
     case BTN_UP:
-        v_text = "PRESS UP KEY";
+        v_text[1] = "UP";
     break;
     case BTN_RIGHT:
-        v_text = "PRESS RIGHT KEY";
+        v_text[1] = "RIGHT";
     break;
     case BTN_DOWN:
-        v_text = "PRESS DOWN KEY";
+        v_text[1] = "DOWN";
     break;
     case BTN_LEFT:
-        v_text = "PRESS LEFT KEY";
+        v_text[1] = "LEFT";
     break;
     case BTN_ATTACK:
-        v_text = "PRESS ATTACK KEY";
+        v_text[1] = "ATTACK";
     break;
     case BTN_GUARD:
-        v_text = "PRESS GUARD KEY";
+        v_text[1] = "GUARD";
     break;
     case BTN_ARTES1:
-        v_text = "PRESS ARTES 1 KEY";
+        v_text[1] = "ARTES 1";
     break;
     case BTN_ARTES2:
-        v_text = "PRESS ARTES 2 KEY";
+        v_text[1] = "ARTES 2";
     break;
     case BTN_TARGET:
-        v_text = "PRESS TARGET KEY";
+        v_text[1] = "TARGET";
     break;
     case BTN_ACTION:
-        v_text = "PRESS ACTION KEY";
+        v_text[1] = "ACTION";
     break;
     case BTN_MENU:
-        v_text = "PRESS MENU KEY";
+        v_text[1] = "MENU";
     break;
 }
+v_text[2] = "KEY";
 
 /* Set Key */
 switch(v_type)
@@ -223,7 +225,9 @@ if(v_currentKey &gt;= BTN_MAX)
         ctrls[BTN_TARGET],ctrls[BTN_ACTION],ctrls[BTN_MENU]);   
     /* Reset data */
     v_type = "";
-    v_text = "";
+    v_text[0] = "PLAYER " + str(v_plyr);
+    v_text[1] = "CONTROLS";
+    v_text[2] = "SET!";
     v_currentKey = 0;
     v_timer = 0;
     v_on = false;

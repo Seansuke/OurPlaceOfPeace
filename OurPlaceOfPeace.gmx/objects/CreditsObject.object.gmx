@@ -49,6 +49,12 @@
           <argument>
             <kind>1</kind>
             <string>display = ! display;
+if(display) {
+    instance_deactivate_all(self);
+}
+else {
+    instance_activate_all();
+}
 </string>
           </argument>
         </arguments>
@@ -71,13 +77,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_bold_text(x,y, "Credits", c_black, c_white);
+            <string>draw_self();
+draw_bold_text(x,y, "Credits", c_black, c_white);
 textY = 0;
 if(!display) exit;
 
-draw_bold_text(x, y + 16 * textY++, "Title Screen - Voices From Heaven by Patrick De Arteaga - https://patrickdearteaga.com/arcade-music/", c_black, c_white);
-draw_bold_text(x, y + 16 * textY++, "Ruined Road Map - Ruined Planet by Patrick De Arteaga - https://patrickdearteaga.com/arcade-music/", c_black, c_white);
-draw_bold_text(x, y + 16 * textY++, "Ruined Road Battle - Accion (Merodeador Nocturno) by Patrick De Arteaga - https://patrickdearteaga.com/arcade-music/", c_black, c_white);
+draw_bold_text(16, 16 * textY++, "Title Screen - Voices From Heaven by Patrick De Arteaga - https://patrickdearteaga.com/arcade-music/", c_black, c_white);
+draw_bold_text(16, 16 * textY++, "Ruined Road Map - Ruined Planet by Patrick De Arteaga - https://patrickdearteaga.com/arcade-music/", c_black, c_white);
+draw_bold_text(16, 16 * textY++, "Ruined Road Battle - Accion (Merodeador Nocturno) by Patrick De Arteaga - https://patrickdearteaga.com/arcade-music/", c_black, c_white);
 
 </string>
           </argument>
