@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>v_gfx = spr_sean_idle;
+            <string>gfx[GFX_IDLE] = spr_sean_idle;
+gfx[GFX_RUN] = spr_sean_run;
+v_gfx = gfx[GFX_IDLE];
 v_dir = 1;
 plyr = 1;
 v_speed = 5;//walking speed

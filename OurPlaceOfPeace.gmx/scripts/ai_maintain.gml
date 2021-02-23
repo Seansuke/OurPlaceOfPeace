@@ -3,7 +3,7 @@ target = choose(obj_camera.mon[1], obj_camera.mon[2], obj_camera.mon[3])
 if(target != -1)
 {
     //closer to target if a fighter, farther if not
-    if(playerNum == AD || playerNum == Dan)
+    if(playerNum == AD || playerNum == Dan || playerNum == Taliko)
     {    
         if(abs(x - target.x) < 200)
         {
@@ -31,16 +31,23 @@ if(target != -1)
     }
     else
     {
+        var isHealer = playerNum == AD || playerNum == Taliko;
         // Special logic for the healer.
-        if(SP > 10 && playerNum == AD && 
+        if(SP > 10 && isHealer && 
             ((obj_camera.ids[1]).HP != (obj_camera.ids[1]).MHP ||
             (obj_camera.ids[2]).HP != (obj_camera.ids[2]).MHP ||
             (obj_camera.ids[3]).HP != (obj_camera.ids[3]).MHP))
         {
             v_btn = BTN_ARTES1;
-            v_arteNum = arte_find("Medic");
-            for(i=0;i<ARTE_MAX;i+=1)
-                {skill[i] = arte_get(v_arteNum,i);}
+            if(playerNum == AD) {
+                v_arteNum = arte_find("Restore");
+            }
+            else {
+                v_arteNum = arte_find("Chill Wounds");
+            }
+            for(i=0;i<ARTE_MAX;i+=1) {
+                skill[i] = arte_get(v_arteNum,i);
+            }
             v_act = "arte";
             v_ally_target = 1;
             if((obj_camera.ids[2]).HP / (obj_camera.ids[2]).MHP < (obj_camera.ids[1]).HP / (obj_camera.ids[1]).MHP &&

@@ -1,6 +1,5 @@
-/*
-scr_player_arte_create( );
-*/
+///scr_player_arte_create( );
+
 animate_text(skill[ARTE_NAME], 0,60);
 
 //create
@@ -33,6 +32,7 @@ switch(skill[ARTE_NAME])
         (tmp_id).v_timer[0] = 3*5 - skill[ARTE_WAIT];    //off of wait time
         (tmp_id).POW += v_charge / 3;   //out of 30
         (tmp_id).effect = "back";
+        (tmp_id).visible = false; // No double sprites.
     break;
     case "Uprise":
         (tmp_id).v_type = "Special";   //attack type
@@ -44,6 +44,11 @@ switch(skill[ARTE_NAME])
     case "Wall":
         (tmp_id).v_timer[0] = 3*7;    //off of wait time
         (tmp_id).effect = "back";
+    break;
+    case "Shove":
+        (tmp_id).v_timer[0] = 3;    //off of wait time
+        (tmp_id).effect = "back";
+        (tmp_id).visible = false; // No double sprites.
     break;
     case "Divide":
         (tmp_id).v_typeB = "Self";//attack2 type
@@ -64,6 +69,13 @@ switch(skill[ARTE_NAME])
         (tmp_id).v_timer[0] = 3*16;    //off of wait time
         (tmp_id).effect = "heal";
     break;
+    case "Chill Wounds":
+        (tmp_id).v_typeB = "Self";//attack2 type
+        (tmp_id).x = (obj_camera.ids[v_ally_target]).x;
+        (tmp_id).y = (obj_camera.ids[v_ally_target]).y;
+        (tmp_id).v_timer[0] = 3*16;    //off of wait time
+        (tmp_id).effect = "heal";
+    break;
     case "Might":
         (tmp_id).v_typeB = "Self";//attack2 type
         (tmp_id).DMG = skill[ARTE_DMG];
@@ -72,7 +84,23 @@ switch(skill[ARTE_NAME])
         (tmp_id).v_timer[0] = 3*15;    //off of wait time
         (tmp_id).effect = "att buff";
     break;
+    case "Tension":
+        (tmp_id).v_typeB = "Self";//attack2 type
+        (tmp_id).DMG = skill[ARTE_DMG];
+        (tmp_id).x = x;
+        (tmp_id).y = y;
+        (tmp_id).v_timer[0] = skill[ARTE_WAIT];    //off of wait time
+        (tmp_id).effect = "att buff";
+    break;
     case "Endure":
+        (tmp_id).v_typeB = "Self";//attack2 type
+        (tmp_id).DMG = skill[ARTE_DMG];
+        (tmp_id).x = (obj_camera.ids[v_ally_target]).x;
+        (tmp_id).y = (obj_camera.ids[v_ally_target]).y;
+        (tmp_id).v_timer[0] = 3*15;    //off of wait time
+        (tmp_id).effect = "def buff";
+    break;
+    case "Frosted Defense":
         (tmp_id).v_typeB = "Self";//attack2 type
         (tmp_id).DMG = skill[ARTE_DMG];
         (tmp_id).x = (obj_camera.ids[v_ally_target]).x;
@@ -128,6 +156,10 @@ switch(skill[ARTE_NAME])
         (tmp_id).v_typeB = "Self";//attack2 type
         (tmp_id).v_timer[0] = 3*5;    //off of wait time
     break;
+    case "Falling Tree":
+        (tmp_id).v_typeB = "Self";//attack2 type
+        (tmp_id).v_timer[0] = 3*5;    //off of wait time
+    break;
     case "Retreating Flame":
         (tmp_id).v_typeB = "Self";//attack2 type
         (tmp_id).v_timer[0] = 3*5;    //off of wait time
@@ -143,6 +175,27 @@ switch(skill[ARTE_NAME])
     case "Petal Beam":
         (tmp_id).v_typeB = "Self";//attack2 type
         (tmp_id).v_timer[0] = 3*9;    //off of wait time
+    break;
+    case "Bullet Blaze":
+        (tmp_id).v_type = "Special";   //attack type
+        (tmp_id).v_typeB = "Shot";    //attack2 type
+        (tmp_id).v_timer[0] = 3*5;    //off of wait time
+        (tmp_id).amove = 30;
+        (tmp_id).effect = "back";
+    break;
+    case "Cross Gun":
+        (tmp_id).v_type = "Special";   //attack type
+        (tmp_id).v_typeB = "Shot";    //attack2 type
+        (tmp_id).v_timer[0] = 3*5;    //off of wait time
+        (tmp_id).amove = 30;
+        (tmp_id).effect = "back";
+    break;
+    case "Rushing Leaves":
+        (tmp_id).v_type = "Special";   //attack type
+        (tmp_id).v_typeB = "Shot";    //attack2 type
+        (tmp_id).v_timer[0] = 3*7;    //off of wait time
+        (tmp_id).amove = 7;
+        (tmp_id).effect = "back";
     break;
 }
 

@@ -3,6 +3,16 @@ v_gfx = GFX_EVADE;
 v_img += 1/3;
 v_vel = abs(v_vel);
 
+if(v_flyer) {
+    if(place_clear(x,y + SPD) == true){
+        y += SPD
+    };
+    if(v_v != BTN_DOWN) {
+        v_act = "idle";
+    }
+    exit;
+}
+
 maintain_falling();
 
 if(place_clear(x,y + 1) == false)//stop falling

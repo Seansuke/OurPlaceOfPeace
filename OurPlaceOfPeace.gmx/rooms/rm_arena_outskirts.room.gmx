@@ -10,7 +10,10 @@
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>view_wview[0] = global.width_view;
+view_hview[0] = global.height_view;
+view_hborder[0] = global.horizontal_border;
+view_vborder[0] = global.vertical_border;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

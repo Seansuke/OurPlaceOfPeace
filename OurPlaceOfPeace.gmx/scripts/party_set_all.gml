@@ -1,4 +1,4 @@
-//party_set(num, hmn,hp,party, artes........);
+///party_set(partyId, isHuman, currentHp, playerId, arteName,arteName,arteName,arteName, arteName,arteName,arteName,arteName);
 global.pty[argument0,PTY_HMN] = argument1;
 global.pty[argument0,PTY_HP] = argument2;
 global.pty[argument0,PTY_PLAYER] = argument3;

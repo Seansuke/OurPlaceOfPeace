@@ -3,6 +3,25 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles">
+    <datafile>
+      <name>saveAndLoadFile.js</name>
+      <exists>-1</exists>
+      <size>1885</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>saveAndLoadFile.js</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\WebSaveExtension</extension>
   </NewExtensions>
@@ -23,6 +42,8 @@
       <sound>sound\sfx_zelda_select</sound>
       <sound>sound\sfx_jump</sound>
       <sound>sound\sfx_crash</sound>
+      <sound>sound\sfx_miss</sound>
+      <sound>sound\sfx_heal</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -59,6 +80,8 @@
           <sprite>sprites\spr_sean_evade</sprite>
           <sprite>sprites\spr_sean_dmg</sprite>
           <sprite>sprites\spr_sean_dead</sprite>
+          <sprite>sprites\SeanCastSprite</sprite>
+          <sprite>sprites\SeanJumpSprite</sprite>
         </sprites>
         <sprites name="artes">
           <sprite>sprites\spr_wave</sprite>
@@ -73,13 +96,13 @@
           <sprite>sprites\spr_ad_idle</sprite>
           <sprite>sprites\spr_ad_run</sprite>
           <sprite>sprites\spr_ad_att</sprite>
-          <sprite>sprites\spr_wand</sprite>
           <sprite>sprites\spr_ad_def</sprite>
           <sprite>sprites\spr_ad_cast</sprite>
           <sprite>sprites\spr_ad_dmg</sprite>
           <sprite>sprites\spr_ad_dead</sprite>
         </sprites>
         <sprites name="artes">
+          <sprite>sprites\spr_wand</sprite>
           <sprite>sprites\spr_medic</sprite>
           <sprite>sprites\spr_restore</sprite>
           <sprite>sprites\spr_might</sprite>
@@ -100,7 +123,7 @@
         </sprites>
         <sprites name="artes">
           <sprite>sprites\spr_arrow</sprite>
-          <sprite>sprites\spr_knife</sprite>
+          <sprite>sprites\spr_dan_knife</sprite>
           <sprite>sprites\spr_icearrow</sprite>
           <sprite>sprites\spr_firearrow</sprite>
         </sprites>
@@ -166,6 +189,82 @@
           <sprite>sprites\spr_petal_storm</sprite>
           <sprite>sprites\spr_petal_beam</sprite>
         </sprites>
+      </sprites>
+      <sprites name="taliko">
+        <sprites name="char">
+          <sprite>sprites\TalikoIdleSprite</sprite>
+          <sprite>sprites\TalikoFaceSprite</sprite>
+          <sprite>sprites\TalikoItemSprite</sprite>
+          <sprite>sprites\TalikoDownSprite</sprite>
+          <sprite>sprites\TalikoHurtSprite</sprite>
+          <sprite>sprites\TalikoJumpSprite</sprite>
+          <sprite>sprites\TalikoEvadeSprite</sprite>
+          <sprite>sprites\TalikoCastSprite</sprite>
+          <sprite>sprites\TalikoRunSprite</sprite>
+          <sprite>sprites\TalikoAttackSprite</sprite>
+          <sprite>sprites\TalikoDefendSprite</sprite>
+        </sprites>
+        <sprites name="arte">
+          <sprite>sprites\IceBallSprite</sprite>
+          <sprite>sprites\IceWallSprite</sprite>
+          <sprite>sprites\ClearIceWallSprite</sprite>
+          <sprite>sprites\IceBlockSprite</sprite>
+          <sprite>sprites\ClearIceBlockSprite</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="alister">
+        <sprites name="char">
+          <sprite>sprites\AlisterIdleSprite</sprite>
+          <sprite>sprites\AlisterFaceSprite</sprite>
+          <sprite>sprites\AlisterDownSprite</sprite>
+          <sprite>sprites\AlisterDefendSprite</sprite>
+          <sprite>sprites\AlisterHurtSprite</sprite>
+          <sprite>sprites\AlisterDashSprite</sprite>
+          <sprite>sprites\AlisterGunsSprite</sprite>
+          <sprite>sprites\AlisterJumpSprite</sprite>
+          <sprite>sprites\AlisterSideGunsSprite</sprite>
+          <sprite>sprites\AlisterSlashSprite</sprite>
+        </sprites>
+        <sprites name="arte">
+          <sprite>sprites\BulletSprite</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="chloe">
+        <sprite>sprites\ChloeFaceSprite</sprite>
+        <sprite>sprites\ChloeIdleSprite</sprite>
+        <sprite>sprites\ChloeDefendSprite</sprite>
+        <sprite>sprites\ChloeGunsSprite</sprite>
+        <sprite>sprites\ChloeJumpSprite</sprite>
+        <sprite>sprites\ChloeDashSprite</sprite>
+        <sprite>sprites\ChloeHammerSlashSprite</sprite>
+        <sprite>sprites\ChloeSideGunsSprite</sprite>
+        <sprite>sprites\ChloeDownSprite</sprite>
+      </sprites>
+      <sprites name="raka">
+        <sprites name="char">
+          <sprite>sprites\RakaHurtSprite</sprite>
+          <sprite>sprites\RakaFlyBackwards</sprite>
+          <sprite>sprites\RakaFlyForward</sprite>
+          <sprite>sprites\RakaDefendSprite</sprite>
+          <sprite>sprites\RakaFaceSprite</sprite>
+          <sprite>sprites\RakaHammerSwingSprite</sprite>
+          <sprite>sprites\RakaIdleSprite</sprite>
+          <sprite>sprites\RakaCastSprite</sprite>
+          <sprite>sprites\RakaDownSprite</sprite>
+        </sprites>
+        <sprites name="arte">
+          <sprite>sprites\ShortWindSprite</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="noel">
+        <sprite>sprites\NoelFaceSprite</sprite>
+        <sprite>sprites\NoelIdleSprite</sprite>
+        <sprite>sprites\NoelDefendSprite</sprite>
+        <sprite>sprites\NoelGrabSprite</sprite>
+        <sprite>sprites\NoelDashSprite</sprite>
+        <sprite>sprites\NoelHammerSlashSprite</sprite>
+        <sprite>sprites\NoelHurtSprite</sprite>
+        <sprite>sprites\NoelDownSprite</sprite>
       </sprites>
     </sprites>
     <sprites name="menu">
@@ -329,25 +428,27 @@
       <script>scripts\str.gml</script>
       <script>scripts\animate_text.gml</script>
       <script>scripts\animate.gml</script>
-    </scripts>
-    <scripts name="library">
-      <script>scripts\init_game.gml</script>
-      <script>scripts\init_game_artes.gml</script>
-      <script>scripts\arte_init.gml</script>
-      <script>scripts\arte_new.gml</script>
-      <script>scripts\arte_replace.gml</script>
-      <script>scripts\player_new.gml</script>
+      <script>scripts\party_swap.gml</script>
       <script>scripts\sound_area.gml</script>
       <script>scripts\sound_arena.gml</script>
       <script>scripts\save_settings.gml</script>
-      <script>scripts\load_settings.gml</script>
       <script>scripts\write.gml</script>
       <script>scripts\arte_upgrade_cost.gml</script>
-      <script>scripts\party_swap.gml</script>
-      <script>scripts\TouchControlsOn.gml</script>
-      <script>scripts\TouchControlsOff.gml</script>
-      <script>scripts\canvas_fullscreen.gml</script>
-      <script>scripts\canvas_window.gml</script>
+      <script>scripts\load_settings.gml</script>
+    </scripts>
+    <scripts name="init">
+      <script>scripts\init_game.gml</script>
+      <script>scripts\init_game_misc.gml</script>
+      <script>scripts\init_game_controls.gml</script>
+      <script>scripts\init_party_and_players.gml</script>
+      <script>scripts\init_game_artes.gml</script>
+      <script>scripts\init_game_gfx.gml</script>
+      <script>scripts\arte_init.gml</script>
+      <script>scripts\arte_new.gml</script>
+      <script>scripts\arte_replace.gml</script>
+      <script>scripts\arte_replace_by_id.gml</script>
+      <script>scripts\player_new.gml</script>
+      <script>scripts\new_gfx.gml</script>
     </scripts>
     <scripts name="MENUS">
       <script>scripts\init_menu.gml</script>
@@ -358,6 +459,10 @@
       <script>scripts\menu_maintain.gml</script>
       <script>scripts\menu_back.gml</script>
       <script>scripts\menu_wrapMenuPos.gml</script>
+      <script>scripts\TouchControlsOn.gml</script>
+      <script>scripts\TouchControlsOff.gml</script>
+      <script>scripts\canvas_fullscreen.gml</script>
+      <script>scripts\canvas_window.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -455,14 +560,19 @@
       <room>rooms\rm_arena_outskirts</room>
     </rooms>
   </rooms>
-  <constants number="80">
+  <constants number="92">
     <constant name="Sean">0</constant>
     <constant name="AD">1</constant>
     <constant name="Dan">2</constant>
     <constant name="John">3</constant>
     <constant name="Serena">4</constant>
     <constant name="James">5</constant>
-    <constant name="MAX_PLAYERS">6</constant>
+    <constant name="Taliko">6</constant>
+    <constant name="Noel">7</constant>
+    <constant name="Alister">8</constant>
+    <constant name="Raka">9</constant>
+    <constant name="Chloe">10</constant>
+    <constant name="MAX_PLAYERS">11</constant>
     <constant name="Arach">0</constant>
     <constant name="Zombie">1</constant>
     <constant name="MAX_MONSTERS">2</constant>
@@ -490,7 +600,8 @@
     <constant name="ARTE_USES">8</constant>
     <constant name="ARTE_DESC">9</constant>
     <constant name="ARTE_POINTS">10</constant>
-    <constant name="ARTE_MAX">11</constant>
+    <constant name="ARTE_USER_GFX">11</constant>
+    <constant name="ARTE_MAX">12</constant>
     <constant name="PLY_NAME">0</constant>
     <constant name="PLY_HP">1</constant>
     <constant name="PLY_SP">2</constant>
@@ -508,7 +619,13 @@
     <constant name="GFX_EVADE">4</constant>
     <constant name="GFX_DMG">5</constant>
     <constant name="GFX_DEAD">6</constant>
-    <constant name="GFX_MAX">7</constant>
+    <constant name="GFX_ATTACK">7</constant>
+    <constant name="GFX_ATTACK_UP">8</constant>
+    <constant name="GFX_ATTACK_SIDE">9</constant>
+    <constant name="GFX_ATTACK_DOWN">10</constant>
+    <constant name="GFX_ATTACK_AIR">11</constant>
+    <constant name="GFX_CAST">12</constant>
+    <constant name="GFX_MAX">13</constant>
     <constant name="PTY_AMNT">3</constant>
     <constant name="PTY_HMN">0</constant>
     <constant name="PTY_HP">1</constant>

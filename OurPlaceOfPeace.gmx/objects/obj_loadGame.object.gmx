@@ -74,7 +74,7 @@ message = load_settings();
             <kind>1</kind>
             <string>draw_self();
 draw_text(x,y,"Load Game");
-draw_text(x,y+16,message);
+draw_bold_text(x,y+16,message, c_black, c_white);
 </string>
           </argument>
         </arguments>

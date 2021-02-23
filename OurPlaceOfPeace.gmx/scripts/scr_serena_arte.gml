@@ -1,7 +1,7 @@
+
 switch(skill[ARTE_NAME])
 {
     case "Ocean's Whirlpool":
-        v_gfx2 = spr_serena_att_air;
         
         if(floor(v_timer) == skill[ARTE_WAIT] + 1)
             {scr_player_arte_create();} //create attack
@@ -13,7 +13,6 @@ switch(skill[ARTE_NAME])
             {v_act = "idle";}
     break;
     case "Wind's Pierce":
-        v_gfx2 = spr_serena_att_air;
         
         if(floor(v_timer) == skill[ARTE_WAIT] + 1)
             {scr_player_arte_create();} //create attack
@@ -28,7 +27,6 @@ switch(skill[ARTE_NAME])
             {v_act = "idle";}
     break;
     case "Raging Hurricane":
-        v_gfx2 = spr_serena_att_air;
         
         if(floor(v_timer) == skill[ARTE_WAIT] + 1)
             {scr_player_arte_create();} //create attack
@@ -40,7 +38,6 @@ switch(skill[ARTE_NAME])
             {v_act = "idle";}
     break;
     case "Retreating Flame":
-        v_gfx2 = spr_serena_att_up;
         
         if(floor(v_timer) == skill[ARTE_WAIT] + 1)
             {scr_player_arte_create();} //create attack
@@ -55,7 +52,8 @@ switch(skill[ARTE_NAME])
     case "Descending Waterfall":
         if(floor(v_timer) < skill[ARTE_WAIT] + 1)
         {
-            v_gfx2 = spr_serena_run;
+            gfxId = GFX_RUN;
+            v_gfx2 = gfx[gfxId];
             if(place_clear(x,y - SPD) == true){y -= SPD};
         } //dash up
 
@@ -64,17 +62,47 @@ switch(skill[ARTE_NAME])
 
         if(floor(v_timer) > skill[ARTE_WAIT] + 1)
         {
-            v_gfx2 = spr_serena_att_down;
+            gfxId = skill[ARTE_USER_GFX];
+            v_gfx2 = gfx[gfxId];
+
             if(place_clear(x,y + SPD) == true){y += SPD};
         } //dash down
 
         if(v_timer > 3*5)
             {v_act = "idle";}
     break;
+    case "Rushing Leaves":
+        
+        if(floor(v_timer) == skill[ARTE_WAIT] + 1)
+            {scr_player_arte_create();} //create attack
+
+        if(v_timer > skill[ARTE_WAIT] + 3*4)
+            {v_act = "idle";}
+    break;
+    case "Falling Tree":
+        if(floor(v_timer) < skill[ARTE_WAIT] + 1)
+        {
+            gfxId = GFX_RUN;
+            v_gfx2 = gfx[gfxId];
+            if(place_clear(x,y - 1.5 * SPD) == true){y -= 1.5 * SPD};
+        } //dash up
+
+        if(floor(v_timer) == skill[ARTE_WAIT] + 1)
+            {scr_player_arte_create();} //create attack
+
+        if(floor(v_timer) > skill[ARTE_WAIT] + 1)
+        {
+            gfxId = skill[ARTE_USER_GFX];
+            v_gfx2 = gfx[gfxId];
+
+            //dash down-forward
+            if(place_clear(x + 1.5 * SPD * v_dir,y) == true){
+                x += 1.5 * SPD * v_dir
+            };
+        } 
+
+        if(v_timer > skill[ARTE_WAIT] + 3*3)
+            {v_act = "idle";}
+    break;
 }
-gfx[GFX_MAX] = v_gfx2;
-
-
-
-
 

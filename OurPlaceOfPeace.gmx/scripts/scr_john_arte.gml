@@ -1,8 +1,7 @@
+
 switch(skill[ARTE_NAME])
 {
     case "Incapacitate":
-        v_gfx2 = spr_john_att_down;
-        
         if(floor(v_timer) == skill[ARTE_WAIT] + 1)
         {
             scr_player_arte_create();
@@ -15,8 +14,6 @@ switch(skill[ARTE_NAME])
             {v_act = "idle";}
     break;
     case "Jolt":
-        v_gfx2 = spr_john_cast;
-        
         if(floor(v_timer) == skill[ARTE_WAIT] + 1)
             {scr_player_arte_create();} //create attack
 
@@ -24,4 +21,3 @@ switch(skill[ARTE_NAME])
             {v_act = "idle";}
     break;
 }
-gfx[GFX_MAX] = v_gfx2;

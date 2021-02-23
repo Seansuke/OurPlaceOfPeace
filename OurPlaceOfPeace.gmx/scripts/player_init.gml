@@ -12,6 +12,7 @@ v_enr = 0;//enertia
 v_vel = 0;//velocity
 v_team = "Players";
 v_arteNum = -1;
+v_flyer = false;
 v_charge = 0;v_chargeMax = 0;v_uber = 0;v_uberMax = 0;
 for(tmp_i = 0;tmp_i < 20;tmp_i += 1){dmg[tmp_i,DMG_ID] = -1;dmg[tmp_i,DMG_TIMER] = -1;}//taken damage array
 for(tmp_i = 0;tmp_i < BTN_MAX;tmp_i += 1){press[tmp_i] = 0;}//button presses

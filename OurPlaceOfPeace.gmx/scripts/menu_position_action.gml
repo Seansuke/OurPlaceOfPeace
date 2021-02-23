@@ -82,3 +82,31 @@ switch(subMenu)
         }
     break;
 }
+/*
+// Scroll menu items
+if(menuPos > 1) {
+    var nextMenuItemId = menus[menuPos - 1];
+    var nextMenuY = (nextMenuItemId).y;
+    var nextMenuHeight = (nextMenuItemId).bbox_top;
+    var nextMenuTopY = nextMenuY - abs(nextMenuHeight) * 2;
+    if(nextMenuTopY < view_yview[0]) {
+        menuYOffset = view_yview[0] - nextMenuTopY;
+        with(obj_areaMenu) {
+            y -= other.menuYOffset;
+        }
+    }
+}
+if(menuPos + 1 <= menus[menuPos]) {
+    var nextMenuItemId = menus[menuPos + 1];    
+    var nextMenuY = (nextMenuItemId).y;
+    var nextMenuHeight = (nextMenuItemId).bbox_bottom;
+    var nextMenuBottomY = nextMenuY + abs(nextMenuHeight) * 2;
+    if(nextMenuBottomY > view_yview[0] + view_hview[0]) {
+        menuYOffset = nextMenuBottomY - view_yview[0] + view_hview[0];
+        with(obj_areaMenu) {
+            y += other.menuYOffset;
+        }        
+    }
+}
+*/
+

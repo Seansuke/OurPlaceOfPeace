@@ -2,6 +2,17 @@
 v_gfx = GFX_EVADE;
 v_img += 1/3;
 
+if(v_flyer) {
+    // Flying characters do not fall.
+    if(place_clear(x,y - SPD) == true){
+        y -= SPD
+    };
+    if(v_v != BTN_UP) {
+        v_act = "idle";
+    }
+    exit;
+}
+
 //continue jumpping
 if(place_clear(x,y - v_vel) == true)
 {
@@ -13,7 +24,7 @@ if(place_clear(x,y - v_vel) == true)
 }
 
 //start falling
-if(place_clear(x,y - v_vel) == false || v_vel <= 0)
+if(place_clear(x,y - v_vel) == false || v_vel <= 0 || v_v == BTN_DOWN)
 {
     v_img = 0;
     v_act = "fall";

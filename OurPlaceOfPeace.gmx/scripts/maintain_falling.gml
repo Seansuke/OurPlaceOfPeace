@@ -1,3 +1,8 @@
+if(v_flyer) {
+    // Flying characters do not fall.
+    exit;
+}
+
 //continue falling
 if(place_clear(x,y + v_vel) == true)
 {

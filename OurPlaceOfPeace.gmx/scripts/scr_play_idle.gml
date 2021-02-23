@@ -51,8 +51,10 @@ switch(v_v)
         {
             v_vel = 10;
             v_img = 0;
-            audio_play_sound(sfx_jump, 3, false);
-            animate(spr_jump,0,0,1);
+            if(!v_flyer) {
+                audio_play_sound(sfx_jump, 3, false);
+                animate(spr_jump,0,1,v_dir);
+            }
             v_act = "jump";
             exit;
         }
@@ -72,6 +74,12 @@ switch(v_v)
         {
             v_attType = PTY_A2_DOWN;
             if(player_arte_init()){exit;}
+        }
+        else {
+            if(v_flyer) {
+                v_act = "fall";
+                exit;
+            }
         }
         exit;
     break;

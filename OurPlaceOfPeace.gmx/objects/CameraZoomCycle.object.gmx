@@ -52,6 +52,12 @@
 view_hview[0] *= 0.75;
 view_hborder[0] *= 0.75;
 view_vborder[0] *= 0.75;
+
+global.width_view = view_wview[0];
+global.height_view = view_hview[0];
+global.horizontal_border = view_hborder[0];
+global.vertical_border = view_vborder[0];
+
 </string>
           </argument>
         </arguments>
@@ -78,6 +84,11 @@ view_vborder[0] *= 0.75;
 view_hview[0] *= 1.25;
 view_hborder[0] *= 1.25;
 view_vborder[0] *= 1.25;
+
+global.width_view = view_wview[0];
+global.height_view = view_hview[0];
+global.horizontal_border = view_hborder[0];
+global.vertical_border = view_vborder[0];
 
 </string>
           </argument>

@@ -1,7 +1,7 @@
+
 switch(skill[ARTE_NAME])
 {
     case "Medic":
-        v_gfx2 = spr_ad_cast;
         v_chargeMax = skill[ARTE_WAIT];
         
         if(v_timer <= skill[ARTE_WAIT]) //charging the cast
@@ -17,12 +17,10 @@ switch(skill[ARTE_NAME])
         
         if(ctrl_press(BTN_RIGHT))
             {v_ally_target += 1;}
-
-        if(v_ally_target < 1)
-            {v_ally_target = 3;}
-        if(v_ally_target > 3)
-            {v_ally_target = 1;}
-            
+    
+        // Wrappinng 1~3
+        v_ally_target = (v_ally_target + 2) mod 3 + 1;
+        
         if(floor(v_timer) > skill[ARTE_WAIT])  //using the spell
         {
             if(SP > 1)
@@ -35,8 +33,36 @@ switch(skill[ARTE_NAME])
         if(v_btn != BTN_ARTES1 && v_btn != BTN_ARTES2)
             {v_ally_target = 0;v_act = "idle";}
     break;
+    case "Chill Wounds":
+        v_chargeMax = skill[ARTE_WAIT];
+        v_uberMax = 30;
+        
+        if(v_timer <= skill[ARTE_WAIT]) //charging the cast
+        {
+            if(v_charge < v_chargeMax)
+                {v_charge += 1;}
+            if(ctrl_press(BTN_GUARD))
+                {SP += skill[ARTE_COST];v_act = "idle";exit;} //if guard, leave
+        }
+        
+        if(v_btn == BTN_ARTES1 || v_btn == BTN_ARTES2 && v_timer > skill[ARTE_WAIT])
+        {
+            if(v_uber < v_uberMax)
+                {v_uber += 1;}
+        }
+        
+        if(ctrl_press(BTN_LEFT))
+            {v_ally_target -= 1;}
+        
+        if(ctrl_press(BTN_RIGHT))
+            {v_ally_target += 1;}
+
+        v_ally_target = (v_ally_target + 3) mod 3 + 1;
+            
+        if(v_btn != BTN_ARTES1 && v_btn != BTN_ARTES2 && v_timer > skill[ARTE_WAIT])
+            {scr_player_arte_create();v_ally_target = 0;v_act = "idle";}
+    break;
     case "Restore":
-        v_gfx2 = spr_ad_cast;
         v_chargeMax = skill[ARTE_WAIT];
         v_uberMax = 30;
         
@@ -69,7 +95,31 @@ switch(skill[ARTE_NAME])
             {scr_player_arte_create();v_ally_target = 0;v_act = "idle";}
     break;
     case "Might":
-        v_gfx2 = spr_ad_cast;
+        v_chargeMax = skill[ARTE_WAIT];
+        
+        if(ctrl_press(BTN_LEFT))
+            {v_ally_target -= 1;}
+        
+        if(ctrl_press(BTN_RIGHT))
+            {v_ally_target += 1;}
+
+        if(v_ally_target < 1)
+            {v_ally_target = 3;}
+        if(v_ally_target > 3)
+            {v_ally_target = 1;}
+
+        if(v_timer <= skill[ARTE_WAIT]) //charging the cast
+        {
+            if(v_charge < v_chargeMax)
+                {v_charge += 1;}
+            if(ctrl_press(BTN_GUARD))
+                {SP += skill[ARTE_COST];v_act = "idle";exit;} //if guard, leave
+        }
+                            
+        if(v_btn != BTN_ARTES1 && v_btn != BTN_ARTES2 && v_timer > skill[ARTE_WAIT])
+            {scr_player_arte_create();v_ally_target = 0;v_act = "idle";}
+    break;
+    case "Frosted Defense":
         v_chargeMax = skill[ARTE_WAIT];
         
         if(ctrl_press(BTN_LEFT))
@@ -95,7 +145,6 @@ switch(skill[ARTE_NAME])
             {scr_player_arte_create();v_ally_target = 0;v_act = "idle";}
     break;
     case "Endure":
-        v_gfx2 = spr_ad_cast;
         v_chargeMax = skill[ARTE_WAIT];
         
         if(ctrl_press(BTN_LEFT))
@@ -121,7 +170,6 @@ switch(skill[ARTE_NAME])
             {scr_player_arte_create();v_ally_target = 0;v_act = "idle";}
     break;
     case "Holy Beam":
-        v_gfx2 = spr_ad_cast;
         v_color = c_white;
         v_chargeMax = skill[ARTE_WAIT];
         
@@ -137,4 +185,3 @@ switch(skill[ARTE_NAME])
             {scr_player_arte_create();v_ally_target = 0;v_act = "idle";}
     break;
 }
-gfx[GFX_MAX] = v_gfx2;

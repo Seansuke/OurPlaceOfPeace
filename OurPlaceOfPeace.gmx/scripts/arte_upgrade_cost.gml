@@ -1,3 +1,4 @@
+///arte_upgrade_cost(arteId, ARTE_statPicked);
 temp_arteId = argument0;
 temp_up = argument1;
 

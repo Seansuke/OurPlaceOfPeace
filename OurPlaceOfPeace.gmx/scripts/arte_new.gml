@@ -1,14 +1,15 @@
-//arte_new(player,name,gfx, dmg,pow, wait,cost, lvl,desc);
-for(i = 0;global.arte[i,ARTE_NAME] != "";i += 1){}//search for next spot
-global.arte[i,ARTE_PLAYER] = argument0;
-global.arte[i,ARTE_NAME] = argument1;
-global.arte[i,ARTE_GFX] = argument2;
-global.arte[i,ARTE_DMG] = argument3;
-global.arte[i,ARTE_POW] = argument4;
-global.arte[i,ARTE_WAIT] = argument5;
-global.arte[i,ARTE_COST] = argument6;
-global.arte[i,ARTE_LVL] = argument7;
-global.arte[i,ARTE_DESC] = argument8;
-global.arte[i,ARTE_USES] = 0;
-global.arte[i,ARTE_POINTS] = 10;
-global.arte[i + 1,ARTE_NAME] = "";//make next slot empty
+///arte_new(playerId,arteName,gfx,userGfx, dmg,pow,waittime,cost, lvl,desc);
+
+//search for next empty arte spot in the array
+for(i = 0;global.arte[i,ARTE_NAME] != "";i += 1){}
+
+// Replace the empty spot with our new arte
+arte_replace_by_id(i, argument0, argument1, argument2, argument3,
+    argument4, argument5, argument6, argument7, argument8, 
+    argument9, 0, 0);
+
+// Set the arte cost now that the arte has been created.
+global.arte[i, ARTE_POINTS] = arte_upgrade_cost(i, ARTE_DMG);
+
+// Make next slot empty.
+global.arte[i + 1,ARTE_NAME] = "";
