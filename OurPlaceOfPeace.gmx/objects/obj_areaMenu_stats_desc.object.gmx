@@ -30,14 +30,14 @@ for(i = 1;i &lt; PLY_MAX;i += 1)
 {
     st[i] = "";
 }
-v_txt[PLY_HP] = "HP";
-v_txt[PLY_SP] = "SP";
-v_txt[PLY_ATT] = "ATT";
-v_txt[PLY_DEF] = "DEF";
-v_txt[PLY_ADEF] = "ADEF";
-v_txt[PLY_SPD] = "SPD";
-v_txt[PLY_LVL] = "LVL";
-v_txt[PLY_XP] = "XP";
+v_txt[PLY_HP] = "Health Points";
+v_txt[PLY_SP] = "Stamina Points";
+v_txt[PLY_ATT] = "Attack";
+v_txt[PLY_DEF] = "Defense";
+v_txt[PLY_ADEF] = "Artes Defense";
+v_txt[PLY_SPD] = "Running Speed";
+v_txt[PLY_LVL] = "Level";
+v_txt[PLY_XP] = "Experience Points";
 </string>
           </argument>
         </arguments>
@@ -64,7 +64,7 @@ v_txt[PLY_XP] = "XP";
 {
     if(str(st[i]) != "")
     {
-        draw_bold_text(view_xview[0] + 300,view_yview[0] + 105 + i*15,v_txt[i] + ":" + str(st[i]),c_white,c_black);
+        draw_bold_text(getMenuXPosition(),view_yview[0] + i*15,v_txt[i] + ":" + str(st[i]),c_white,c_black);
     }
 }
 </string>

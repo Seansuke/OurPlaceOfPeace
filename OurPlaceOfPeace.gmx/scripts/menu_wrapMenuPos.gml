@@ -1,3 +1,2 @@
+menuPos = ((menuPos + menus[0] - 1) mod menus[0]) + 1;
 
-if(menuPos < 1){menuPos = menus[0];}
-if(menuPos > menus[0]){menuPos = 1;}

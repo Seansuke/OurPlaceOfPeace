@@ -4,9 +4,17 @@ v_img += 1/3;
 
 if(v_flyer) {
     // Flying characters do not fall.
-    if(place_clear(x,y - SPD) == true){
-        y -= SPD
-    };
+    if(place_clear(x,y - SPD/2) == true){
+        y -= SPD/2;
+    }
+
+    if(v_h == BTN_LEFT && place_clear(x - SPD/2, y)) {
+        x -= SPD/2;
+    }
+    else if(v_h == BTN_RIGHT && place_clear(x + SPD/2, y)) {
+        x += SPD/2;
+    }
+    
     if(v_v != BTN_UP) {
         v_act = "idle";
     }

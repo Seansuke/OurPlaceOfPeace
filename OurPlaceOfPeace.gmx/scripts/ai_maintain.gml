@@ -12,6 +12,13 @@ if(target != -1)
             else
                 {v_h = BTN_RIGHT;}
         }
+        else if(abs(x - target.x) > 250)
+        {
+            if(x < target.x)
+                {v_h = BTN_RIGHT;}
+            else
+                {v_h = BTN_LEFT;}
+        }
     }
     else
     {    
@@ -24,38 +31,51 @@ if(target != -1)
         }
     }
     
-    if(SP >= MSP)
+    var attackRandomly = true;
+    var isHealer = playerNum == AD || playerNum == Taliko;
+    if(isHealer)
     {
-        press[choose(BTN_ATTACK, BTN_GUARD, BTN_ARTES1, BTN_ARTES2, 0)] = 1;
-        press[choose(BTN_UP, choose(BTN_RIGHT, BTN_LEFT), BTN_DOWN, 0)] = 1;
-    }
-    else
-    {
-        var isHealer = playerNum == AD || playerNum == Taliko;
+        if(playerNum == AD) {
+            v_arteNum = arte_find("Restore");
+        }
+        else {
+            v_arteNum = arte_find("Chill Wounds");
+        }
+        for(i=0;i<ARTE_MAX;i+=1) {
+            skill[i] = arte_get(v_arteNum,i);
+        }
+        
         // Special logic for the healer.
-        if(SP > 10 && isHealer && 
-            ((obj_camera.ids[1]).HP != (obj_camera.ids[1]).MHP ||
-            (obj_camera.ids[2]).HP != (obj_camera.ids[2]).MHP ||
-            (obj_camera.ids[3]).HP != (obj_camera.ids[3]).MHP))
+        var p1HpRatio = (obj_camera.ids[1]).HP / (obj_camera.ids[1]).MHP;
+        var p2HpRatio = (obj_camera.ids[2]).HP / (obj_camera.ids[2]).MHP;
+        var p3HpRatio = (obj_camera.ids[3]).HP / (obj_camera.ids[3]).MHP;
+        if(SP >= skill[ARTE_COST] && 
+            (p1HpRatio < 0.8 || p2HpRatio < 0.8 || p3HpRatio < 0.8))
         {
+            SP -= skill[ARTE_COST];
+            global.arte[v_arteNum, ARTE_USES] += 1;
             v_btn = BTN_ARTES1;
-            if(playerNum == AD) {
-                v_arteNum = arte_find("Restore");
-            }
-            else {
-                v_arteNum = arte_find("Chill Wounds");
-            }
-            for(i=0;i<ARTE_MAX;i+=1) {
-                skill[i] = arte_get(v_arteNum,i);
-            }
             v_act = "arte";
             v_ally_target = 1;
-            if((obj_camera.ids[2]).HP / (obj_camera.ids[2]).MHP < (obj_camera.ids[1]).HP / (obj_camera.ids[1]).MHP &&
-                (obj_camera.ids[2]).HP / (obj_camera.ids[2]).MHP < (obj_camera.ids[3]).HP / (obj_camera.ids[3]).MHP)
-                    {v_ally_target = 2;}
-            if((obj_camera.ids[3]).HP / (obj_camera.ids[3]).MHP < (obj_camera.ids[1]).HP / (obj_camera.ids[1]).MHP &&
-                (obj_camera.ids[3]).HP / (obj_camera.ids[3]).MHP < (obj_camera.ids[2]).HP / (obj_camera.ids[2]).MHP)
-                    {v_ally_target = 3;}
+            if(p2HpRatio < min(p1HpRatio, p3HpRatio)) {
+                v_ally_target = 2;
+            }
+            if(p3HpRatio > min(p1HpRatio, p2HpRatio)) {
+                v_ally_target = 2;
+            }
+            attackRandomly = false;
+        }
+    }
+    
+    // random attacking
+    if(attackRandomly) {
+        if(SP >= MSP) {
+            press[choose(BTN_ARTES1, BTN_ARTES2, BTN_MAX)] = 1;
+            press[choose(BTN_UP, BTN_RIGHT, BTN_LEFT, BTN_DOWN, BTN_MAX)] = 1;
+        }
+        else {
+            press[choose(BTN_ATTACK, BTN_GUARD, BTN_ARTES1, BTN_ARTES2, BTN_MAX)] = 1;
+            press[choose(BTN_UP, BTN_RIGHT, BTN_LEFT, BTN_DOWN, BTN_MAX)] = 1;
         }
     }
     

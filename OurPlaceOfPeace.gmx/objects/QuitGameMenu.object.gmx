@@ -28,6 +28,7 @@
             <string>v_gfx = sprite_index;
 v_text = "Quit Game";
 depth = -999;
+v_confirm = false;
 </string>
           </argument>
         </arguments>
@@ -50,7 +51,15 @@ depth = -999;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_end();
+            <string>
+v_text = "Are you sure you want to quit?";
+if(v_confirm) {
+    game_end();
+}
+else {
+    v_confirm = true;
+}
+
 </string>
           </argument>
         </arguments>

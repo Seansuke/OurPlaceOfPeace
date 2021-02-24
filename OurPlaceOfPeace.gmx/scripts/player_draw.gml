@@ -1,10 +1,11 @@
+
+//draw player offscreen
 if(party_get(plyr,PTY_HMN) == "Human")
 {
-    //draw player offscreen
-    if(x > view_xview[0] + 640)//right
+    if(x > view_xview[0] + view_wview[0])//right
     {
-        draw_sprite(spr_bubble,0,view_xview[0] + 620,y);
-        draw_sprite_ext(gfx[v_gfx],v_img,view_xview[0] + 620,y,0.5 * v_dir,0.5,0,c_white,1);
+        draw_sprite(spr_bubble,0,view_xview[0] + view_wview[0]-30,y);
+        draw_sprite_ext(gfx[v_gfx],v_img,view_xview[0] + view_wview[0]-30,y,0.5 * v_dir,0.5,0,c_white,1);
     }
     else if(x < view_xview[0])//left
     {
@@ -13,17 +14,19 @@ if(party_get(plyr,PTY_HMN) == "Human")
     }
 }
 
+//draw afterimage
+draw_sprite_ext(previousGfx,v_img - 1,previousX,previousY,v_dir,1,0,c_white,0.3);
 if(previousX != x || previousY != y)
 {
     if(v_act == "counter")
-        {draw_sprite_ext(gfx[v_gfx],v_img,previousX,previousY,v_dir,1,0,c_red,0.5);}
-    else
-        {draw_sprite_ext(gfx[v_gfx],v_img,previousX,previousY,v_dir,1,0,c_navy,0.5);}
-} //draw afterimage
+        {draw_sprite_ext(previousGfx,v_img,previousX,previousY,v_dir,1,0,c_red,0.5);}
+} 
 
-draw_sprite_ext(gfx[v_gfx],v_img,x,y,v_dir,1,0,v_color,true); //draw player
+//draw player
+draw_sprite_ext(gfx[v_gfx],v_img,x,y,v_dir,1,0,v_color,true); 
 
-if(v_act == "guardian")  //draw guardian
+//draw guardian
+if(v_act == "guardian")  
     {draw_sprite_ext(spr_bubble,v_img,x,y - 30,1.5,1.5,0,c_aqua,0.6);}
 
 if(global.menu == true && global.menu_plyr == plyr)  //draw menu hand

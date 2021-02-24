@@ -8,9 +8,16 @@ rollHP_maintain();
 dmg_maintain();
 guard_maintain();
 
-v_tmp = choose(obj_camera.ids[1],obj_camera.ids[2],obj_camera.ids[3]);
-if(v_tmp != -1)
-    {v_target = v_tmp}
+// Randomly choose a new target, unless they are downed.
+// TODO - add aggro.
+if(random(500) == 1 || v_target == -1 || (v_target).HP <= 0) {
+    v_tmp = choose(obj_camera.ids[1],obj_camera.ids[2],obj_camera.ids[3]);
+    if(v_tmp != -1) {
+        if((v_tmp).HP > 0) {
+            v_target = v_tmp;
+        }
+    }
+}
 
 if(v_act == "idle" || v_act == "run" || v_act == "fall" || v_act == "jump" || v_act == "guard" || v_act == "guardian")
 {

@@ -96,8 +96,11 @@ switch(skill[ARTE_NAME])
             v_gfx2 = gfx[gfxId];
 
             //dash down-forward
-            if(place_clear(x + 1.5 * SPD * v_dir,y) == true){
-                x += 1.5 * SPD * v_dir
+            if(place_clear(x + 1.5 * SPD * v_dir, y)){
+                x += 1.5 * SPD * v_dir;
+            };
+            if(place_clear(x, y + 1.5 * SPD)){
+                y += 1.5 * SPD;
             };
         } 
 

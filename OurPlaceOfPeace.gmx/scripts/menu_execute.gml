@@ -90,9 +90,6 @@ switch(subMenu)
         {global.pty[menuPos,PTY_HMN] = "CPU"}
         menu_call("Player");
     break;
-    case "Stats":
-        global.monsterLevel += 1;
-    break;
     case "Settings":
         with(menus[menuPos]) {
             event_user(1);

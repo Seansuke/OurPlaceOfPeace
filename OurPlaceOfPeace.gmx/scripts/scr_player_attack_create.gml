@@ -35,6 +35,7 @@ switch(playerNum)
         (tmp_id).v_typeB = "Shot";//attack2 type
         (tmp_id).amove = 8;
         (tmp_id).effect = "out";
+        (tmp_id).v_visible = true;//invisible attack
     break;
     case Dan:
         (tmp_id).sprite_index = spr_arrow;//graphic
@@ -45,6 +46,7 @@ switch(playerNum)
         (tmp_id).v_typeB = "Grav Shot";//attack2 type
         (tmp_id).amove = 20;
         (tmp_id).effect = "out";
+        (tmp_id).v_visible = true;//invisible attack
     break;
     case Taliko:
         (tmp_id).sprite_index = IceBallSprite;//graphic
@@ -55,6 +57,7 @@ switch(playerNum)
         (tmp_id).v_typeB = "Shot";//attack2 type
         (tmp_id).amove = 8;
         (tmp_id).effect = "out";
+        (tmp_id).v_visible = true;//invisible attack
     break;
 }
 

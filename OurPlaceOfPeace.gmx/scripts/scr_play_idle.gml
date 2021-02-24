@@ -4,7 +4,7 @@ v_img += 1/3;
 v_color = c_white;
 
 //fall check
-if(place_clear(x,y + 1) == true)
+if(place_clear(x,y + 1) && !v_flyer)
 {
     v_vel = 1;
     v_act = "fall";

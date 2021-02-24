@@ -57,8 +57,9 @@ switch(skill[ARTE_NAME])
         if(ctrl_press(BTN_RIGHT))
             {v_ally_target += 1;}
 
-        v_ally_target = (v_ally_target + 3) mod 3 + 1;
-            
+        // Wrappinng 1~3
+        v_ally_target = (v_ally_target + 2) mod 3 + 1;
+        
         if(v_btn != BTN_ARTES1 && v_btn != BTN_ARTES2 && v_timer > skill[ARTE_WAIT])
             {scr_player_arte_create();v_ally_target = 0;v_act = "idle";}
     break;
@@ -86,11 +87,9 @@ switch(skill[ARTE_NAME])
         if(ctrl_press(BTN_RIGHT))
             {v_ally_target += 1;}
 
-        if(v_ally_target < 1)
-            {v_ally_target = 3;}
-        if(v_ally_target > 3)
-            {v_ally_target = 1;}
-            
+        // Wrappinng 1~3
+        v_ally_target = (v_ally_target + 2) mod 3 + 1;
+        
         if(v_btn != BTN_ARTES1 && v_btn != BTN_ARTES2 && v_timer > skill[ARTE_WAIT])
             {scr_player_arte_create();v_ally_target = 0;v_act = "idle";}
     break;
@@ -103,11 +102,9 @@ switch(skill[ARTE_NAME])
         if(ctrl_press(BTN_RIGHT))
             {v_ally_target += 1;}
 
-        if(v_ally_target < 1)
-            {v_ally_target = 3;}
-        if(v_ally_target > 3)
-            {v_ally_target = 1;}
-
+        // Wrappinng 1~3
+        v_ally_target = (v_ally_target + 2) mod 3 + 1;
+        
         if(v_timer <= skill[ARTE_WAIT]) //charging the cast
         {
             if(v_charge < v_chargeMax)
@@ -128,11 +125,9 @@ switch(skill[ARTE_NAME])
         if(ctrl_press(BTN_RIGHT))
             {v_ally_target += 1;}
 
-        if(v_ally_target < 1)
-            {v_ally_target = 3;}
-        if(v_ally_target > 3)
-            {v_ally_target = 1;}
-
+        // Wrappinng 1~3
+        v_ally_target = (v_ally_target + 2) mod 3 + 1;
+        
         if(v_timer <= skill[ARTE_WAIT]) //charging the cast
         {
             if(v_charge < v_chargeMax)
@@ -153,11 +148,9 @@ switch(skill[ARTE_NAME])
         if(ctrl_press(BTN_RIGHT))
             {v_ally_target += 1;}
 
-        if(v_ally_target < 1)
-            {v_ally_target = 3;}
-        if(v_ally_target > 3)
-            {v_ally_target = 1;}
-
+        // Wrappinng 1~3
+        v_ally_target = (v_ally_target + 2) mod 3 + 1;
+        
         if(v_timer <= skill[ARTE_WAIT]) //charging the cast
         {
             if(v_charge < v_chargeMax)

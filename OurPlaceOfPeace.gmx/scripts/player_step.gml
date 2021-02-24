@@ -16,6 +16,7 @@ else
         {global.menu_plyr = plyr;exit;}
 }
 press_maintain();
+previousGfx = gfx[v_gfx];
 previousX = x;
 previousY = y;
 rollHP_maintain();

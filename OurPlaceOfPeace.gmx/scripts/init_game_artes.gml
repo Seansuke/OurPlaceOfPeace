@@ -111,10 +111,10 @@ arte_new(Noel,"Tension",spr_might,GFX_DEF,
 
 //======================Alister======================
 arte_new(Alister,"Bullet Blaze",BulletSprite,GFX_CAST, 
-    1,0,  3,10, 1,
+    1,0,  3,20, 1,
     "Fill your foes with lead."); 
 arte_new(Alister,"Cross Gun",BulletSprite,GFX_CAST, 
-    1,0,  3,10, 1,
+    1,0,  3,20, 1,
     "Fill foes with lead from both sides.");
 
 //======================Raka======================
@@ -127,10 +127,10 @@ arte_new(Raka,"Falling Tree",spr_thrust,GFX_ATTACK_DOWN,
 
 //======================Chloe======================
 arte_new(Chloe,"Bullet Blaze",BulletSprite,GFX_CAST,           
-    3,0,  9,10, 1,
+    3,0,  9,20, 1,
     "Fill your foes with lead."); 
 arte_new(Chloe,"Cross Gun",BulletSprite,GFX_CAST,        
-    3,0,  9,10, 1,
+    3,0,  9,20, 1,
     "Fill foes with lead from both sides.");
 
 //======================Monsters======================

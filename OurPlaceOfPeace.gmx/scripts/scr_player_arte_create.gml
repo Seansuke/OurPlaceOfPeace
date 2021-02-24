@@ -28,6 +28,8 @@ switch(skill[ARTE_NAME])
         (tmp_id).effect = "back";
     break;
     case "Smash":
+        (tmp_id).v_type = "Physical";
+        (tmp_id).v_typeB = "Simple";
         (tmp_id).visible = false;
         (tmp_id).v_timer[0] = 3*5 - skill[ARTE_WAIT];    //off of wait time
         (tmp_id).POW += v_charge / 3;   //out of 30
@@ -46,6 +48,8 @@ switch(skill[ARTE_NAME])
         (tmp_id).effect = "back";
     break;
     case "Shove":
+        (tmp_id).v_type = "Physical";
+        (tmp_id).v_typeB = "Simple";
         (tmp_id).v_timer[0] = 3;    //off of wait time
         (tmp_id).effect = "back";
         (tmp_id).visible = false; // No double sprites.
@@ -113,6 +117,8 @@ switch(skill[ARTE_NAME])
         (tmp_id).v_timer[0] = 3*9;    //off of wait time
     break;
     case "Combat Knife":
+        (tmp_id).v_type = "Physical";
+        (tmp_id).v_typeB = "Simple";
         (tmp_id).v_timer[0] = 3*2;    //off of wait time
         (tmp_id).visible = false;
     break;
@@ -145,19 +151,23 @@ switch(skill[ARTE_NAME])
         (tmp_id).amove = 20;
     break;
     case "Ocean's Whirlpool":
-        (tmp_id).v_typeB = "Self";//attack2 type
+        (tmp_id).v_type = "Physical";
+        (tmp_id).v_typeB = "Simple";
         (tmp_id).v_timer[0] = 3*5;    //off of wait time
     break;
     case "Raging Hurricane":
-        (tmp_id).v_typeB = "Self";//attack2 type
+        (tmp_id).v_type = "Physical";
+        (tmp_id).v_typeB = "Simple";
         (tmp_id).v_timer[0] = 3*5;    //off of wait time
     break;
     case "Wind's Pierce":
-        (tmp_id).v_typeB = "Self";//attack2 type
+        (tmp_id).v_type = "Physical";
+        (tmp_id).v_typeB = "Simple";
         (tmp_id).v_timer[0] = 3*5;    //off of wait time
     break;
     case "Falling Tree":
-        (tmp_id).v_typeB = "Self";//attack2 type
+        (tmp_id).v_type = "Physical";
+        (tmp_id).v_typeB = "Simple";
         (tmp_id).v_timer[0] = 3*5;    //off of wait time
     break;
     case "Retreating Flame":
@@ -165,6 +175,8 @@ switch(skill[ARTE_NAME])
         (tmp_id).v_timer[0] = 3*5;    //off of wait time
     break;
     case "Descending Waterfall":
+        (tmp_id).v_type = "Physical";
+        (tmp_id).v_typeB = "Simple";
         (tmp_id).v_typeB = "Self";//attack2 type
         (tmp_id).v_timer[0] = 3*8;    //off of wait time
     break;

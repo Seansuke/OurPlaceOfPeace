@@ -32,6 +32,7 @@ v_wait = 0;
 v_cost = 0;
 v_uses = 0;
 v_desc = "";
+depth = -1;
 </string>
           </argument>
         </arguments>

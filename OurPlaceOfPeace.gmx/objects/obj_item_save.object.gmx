@@ -57,7 +57,7 @@ image_speed = 1/3;
         }
     }
     save_settings();
-    animate_text("Game Saved",x,y);
+    animate_text("Saved Game", x,y);
 }
 </string>
           </argument>

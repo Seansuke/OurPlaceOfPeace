@@ -51,6 +51,7 @@ depth = -999;
           <argument>
             <kind>1</kind>
             <string>save_settings();
+animate_text("Saved Game", x,y);
 </string>
           </argument>
         </arguments>

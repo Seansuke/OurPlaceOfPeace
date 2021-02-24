@@ -463,6 +463,7 @@
       <script>scripts\TouchControlsOff.gml</script>
       <script>scripts\canvas_fullscreen.gml</script>
       <script>scripts\canvas_window.gml</script>
+      <script>scripts\getMenuXPosition.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -492,7 +493,6 @@
       </objects>
       <objects name="stats">
         <object>objects\obj_areaMenu_stats_desc</object>
-        <object>objects\obj_areaMenu_monster_level</object>
       </objects>
       <objects name="player">
         <object>objects\obj_areaMenu_player_human</object>
@@ -510,6 +510,7 @@
       </objects>
       <objects name="settings">
         <object>objects\CameraZoomCycle</object>
+        <object>objects\obj_areaMenu_monster_level</object>
         <object>objects\GoToTitleMenu</object>
         <object>objects\QuitGameMenu</object>
         <object>objects\SaveGameMenu</object>
