@@ -4,15 +4,15 @@ v_img += 1/3;
 
 if(v_flyer) {
     // Flying characters do not fall.
-    if(place_clear(x,y - SPD/2) == true){
-        y -= SPD/2;
+    if(place_clear(x,y - getMoveSpeed()/2) == true){
+        y -= getMoveSpeed()/2;
     }
 
-    if(v_h == BTN_LEFT && place_clear(x - SPD/2, y)) {
-        x -= SPD/2;
+    if(v_h == BTN_LEFT && place_clear(x - getMoveSpeed()/2, y)) {
+        x -= getMoveSpeed()/2;
     }
-    else if(v_h == BTN_RIGHT && place_clear(x + SPD/2, y)) {
-        x += SPD/2;
+    else if(v_h == BTN_RIGHT && place_clear(x + getMoveSpeed()/2, y)) {
+        x += getMoveSpeed()/2;
     }
     
     if(v_v != BTN_UP) {
@@ -36,13 +36,13 @@ if(place_clear(x,y - v_vel) == false || v_vel <= 0 || v_v == BTN_DOWN)
 {
     v_img = 0;
     v_act = "fall";
-    if(place_clear(x + SPD,y) == true && v_h == BTN_RIGHT)
+    if(place_clear(x + getMoveSpeed(),y) == true && v_h == BTN_RIGHT)
     {
-        x += SPD;
+        x += getMoveSpeed();
     }
-    else if(place_clear(x - SPD,y) == true && v_h == BTN_LEFT)
+    else if(place_clear(x - getMoveSpeed(),y) == true && v_h == BTN_LEFT)
     {
-        x -= SPD;
+        x -= getMoveSpeed();
     }
     exit;
 }
@@ -69,9 +69,9 @@ switch(v_h)
         }
 
         //move while jumping
-        if(place_clear(x - SPD,y) == true)
+        if(place_clear(x - getMoveSpeed(),y) == true)
         {
-            x -= SPD;
+            x -= getMoveSpeed();
         }
     break;
     case BTN_RIGHT:
@@ -93,9 +93,9 @@ switch(v_h)
         }
 
           //move while jumping
-         if(place_clear(x + SPD,y) == true)
+         if(place_clear(x + getMoveSpeed(),y) == true)
          {
-            x += SPD;
+            x += getMoveSpeed();
          }
     break;
 }

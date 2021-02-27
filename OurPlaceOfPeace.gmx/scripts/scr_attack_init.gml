@@ -7,7 +7,7 @@ v_type = "None";//attack type
 v_typeB = "None";//attack type2
 v_visible = true;//visible
 ids = 0;//id of user
-effect = "";//effect from attack
+effect = ARTE_EFFECT_NONE;//effect from attack
 image_speed = 0.3;
 v_team = "Players";
 
@@ -17,4 +17,4 @@ v_timer[1] = 0;//current time
 
 //stats
 DMG = 0;//attack dmg
-POW = 0;//throwing power
+stat[PLY_POW] = 0;//throwing power

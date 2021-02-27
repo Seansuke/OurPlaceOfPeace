@@ -12,7 +12,6 @@ switch(skill[ARTE_NAME])
     break;
     case "Smash": 
         v_color = c_white;
-        v_chargeMax = 30;
         
         //charge
         if(v_timer <= skill[ARTE_WAIT])
@@ -53,7 +52,6 @@ switch(skill[ARTE_NAME])
     break;
     case "Divide": 
         v_color = c_white;
-        v_chargeMax = 30;
         
         //charge
         if(v_timer <= skill[ARTE_WAIT])
@@ -77,8 +75,10 @@ switch(skill[ARTE_NAME])
             {v_act = "idle";}
     break;
     case "Shove": 
-        v_gfx2 = NoelGrabSprite;
-        
+        if(playerNum == Noel) {
+            v_gfx2 = Noel;
+        }
+                
         if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
             scr_player_arte_create();
         } //create attack

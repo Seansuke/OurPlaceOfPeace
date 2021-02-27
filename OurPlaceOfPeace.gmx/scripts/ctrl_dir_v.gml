@@ -2,11 +2,11 @@
 switch(global.ctrl[plyr,BTN_TYPE])
 {
     case "Keyboard":
-        if(keyboard_check_direct(global.ctrl[plyr,BTN_UP]) == true)
+        if(keyboard_check(global.ctrl[plyr,BTN_UP]) == true)
         {
             return BTN_UP;
         }
-        else if(keyboard_check_direct(global.ctrl[plyr,BTN_DOWN]) == true)
+        else if(keyboard_check(global.ctrl[plyr,BTN_DOWN]) == true)
         {
             return BTN_DOWN;
         }

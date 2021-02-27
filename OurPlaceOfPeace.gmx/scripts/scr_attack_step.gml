@@ -24,20 +24,8 @@ if((ids).v_act == "damage" && v_type == "Physical"){
 //effect effects
 switch(effect)
 {
-    case "upthrow":
+    case ARTE_EFFECT_LIFT:
          v_dir2 = 90;
-    break;
-    case "attack":
-            if(v_dir == 1)
-            {
-                v_dir2 = 25;
-            }
-            else
-            {
-                v_dir2 = 155;
-            }
-    break;
-    case "throw":
     break;
 }
 

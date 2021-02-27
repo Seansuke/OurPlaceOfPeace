@@ -26,6 +26,23 @@
           <argument>
             <kind>1</kind>
             <string>/// Refresh Message
+var i = 0;
+res[i] = 426;
+i++;
+res[i] = 640;
+i++;
+res[i] = 854;
+i++;
+res[i] = 1280;
+i++;
+res[i] = 1920;
+i++;
+res[i] = 2560;
+i++;
+res[i] = 3840;
+i++;
+maxRes = i;
+
 event_user(2);
 </string>
           </argument>
@@ -74,10 +91,16 @@ message = "Camera Zoom: " + string(view_wview[0]);
           <argument>
             <kind>1</kind>
             <string>/// Zoom In
-view_wview[0] *= 0.75;
-view_hview[0] *= 0.75;
-view_hborder[0] *= 0.75;
-view_vborder[0] *= 0.75;
+var previousWidth = res[0];
+for(var i = 0; res[i] &lt; view_wview[0] &amp;&amp; i &lt; maxRes; i++) {
+    previousWidth = res[i];
+}
+var ratio = browser_height / browser_width;
+var previousHeight = previousWidth * ratio;
+view_wview[0] = previousWidth;
+view_hview[0] = previousHeight;
+view_hborder[0] = previousWidth / 2;
+view_vborder[0] = previousHeight / 2;
 
 global.width_view = view_wview[0];
 global.height_view = view_hview[0];
@@ -108,16 +131,17 @@ event_user(2);
           <argument>
             <kind>1</kind>
             <string>/// Zoom Out
-
-view_wview[0] *= 1.25;
-view_hview[0] *= 1.25;
-view_hborder[0] *= 1.25;
-view_vborder[0] *= 1.25;
-
-global.width_view = view_wview[0];
-global.height_view = view_hview[0];
-global.horizontal_border = view_hborder[0];
-global.vertical_border = view_vborder[0];
+var nextWidth = res[0];
+for(var i = 0; res[i] &lt;= view_wview[0] &amp;&amp; i &lt; maxRes; i++) {
+    nextWidth = res[i];
+}
+nextWidth = res[min(i, maxRes)];
+var ratio = browser_height / browser_width;
+var nextHeight = nextWidth * ratio;
+view_wview[0] = nextWidth;
+view_hview[0] = nextHeight;
+view_hborder[0] = nextWidth / 2;
+view_vborder[0] = nextHeight / 2;
 
 event_user(2);
 </string>

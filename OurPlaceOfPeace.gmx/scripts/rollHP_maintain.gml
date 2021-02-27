@@ -5,60 +5,32 @@ if(HP < rollHP)
 else if(rollHP < HP)
     {HP -= 1;}
 
-if(rollHP > MHP)
-    {rollHP = MHP;}
+if(rollHP > stat[PLY_HP])
+    {rollHP = stat[PLY_HP];}
 else if(rollHP < 0)
     {rollHP = 0;}
 
-if(HP > MHP)
-    {HP = MHP;}
+if(HP > stat[PLY_HP])
+    {HP = stat[PLY_HP];}
 else if(HP < 1)
 {
     HP = 0;
     v_act = "dead";
 }
-    
-if(bonusATT > ATT * 0.25)
-    {bonusATT = ATT * 0.25;}
-else if(bonusATT < - ATT * 0.25)
-    {bonusATT = - ATT * 0.25;}
-if(bonusATT > 0.02)
-    {bonusATT -= 0.01;}
-else if(bonusATT < -0.02)
-    {bonusATT += 0.01;}
-else
-    {bonusATT = 0;}
 
-if(bonusDEF > DEF * 0.25)
-    {bonusDEF = DEF * 0.25;}
-else if(bonusDEF < - DEF * 0.25)
-    {bonusDEF = - DEF * 0.25;}
-if(bonusDEF > 0.02)
-    {bonusDEF -= 0.01;}
-else if(bonusDEF < -0.02)
-    {bonusDEF += 0.01;}
-else
-    {bonusDEF = 0;}
+bonusATT = min(bonusATT, stat[PLY_ATT] * 0.3);
+bonusATT = max(bonusATT, - stat[PLY_ATT] * 0.3);
+bonusATT += sign(bonusATT) * 0.01;
 
-if(bonusADEF > ADEF * 0.25)
-    {bonusADEF = ADEF * 0.25;}
-else if(bonusADEF < - ADEF * 0.25)
-    {bonusADEF = - ADEF * 0.25;}
-if(bonusADEF > 0.02)
-    {bonusADEF -= 0.01;}
-else if(bonusADEF < -0.02)
-    {bonusADEF += 0.01;}
-else
-    {bonusADEF = 0;}
+bonusDEF = min(bonusDEF, stat[PLY_DEF] * 0.3);
+bonusDEF = max(bonusDEF, - stat[PLY_DEF] * 0.3);
+bonusDEF += sign(bonusDEF) * 0.01;
 
-if(bonusSPD > SPD * 0.25)
-    {bonusSPD = SPD * 0.25;}
-else if(bonusSPD < - SPD * 0.25)
-    {bonusSPD = - SPD * 0.25;}
-if(bonusSPD > 0.02)
-    {bonusSPD -= 0.01;}
-else if(bonusSPD < -0.02)
-    {bonusSPD += 0.01;}
-else
-    {bonusSPD = 0;}
+bonusDEF = min(bonusDEF, stat[PLY_DEF] * 0.3);
+bonusDEF = max(bonusDEF, - stat[PLY_DEF] * 0.3);
+bonusDEF += sign(bonusDEF) * 0.01;
+
+bonusSPD = min(bonusSPD, stat[PLY_SPD] * 0.3);
+bonusSPD = max(bonusSPD, - stat[PLY_SPD] * 0.3);
+bonusSPD += sign(bonusSPD) * 0.01;
 

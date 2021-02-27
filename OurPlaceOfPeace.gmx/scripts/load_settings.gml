@@ -13,9 +13,14 @@ else {
     var horizontal_border = ds_map_find_value(saveDataMap, "horizontal_border");
     var vertical_border = ds_map_find_value(saveDataMap, "vertical_border");
     
+    var audioLevel = ds_map_find_value(saveDataMap, "audioLevel");
     var currentMap = ds_map_find_value(saveDataMap, "currentMap");
     var areaPlayerX = ds_map_find_value(saveDataMap, "areaPlayerX");
     var areaPlayerY = ds_map_find_value(saveDataMap, "areaPlayerY");
+    
+    var playerLevel = ds_map_find_value(saveDataMap, "playerLevel");
+    var maxPlayerLevel = ds_map_find_value(saveDataMap, "maxPlayerLevel");
+    var experience = ds_map_find_value(saveDataMap, "experience");
     
     var ptyMatrix = saveDataMap[? "pty"];
     
@@ -27,19 +32,6 @@ else {
             // Retrieve column item j
             var ptyCell = ptyRow[| j];
             pty[i, j] = ptyCell;
-        }
-    }
-    
-    var playerMatrix = saveDataMap[? "player"];
-    
-    // Ignore the first one because it is skipped :/
-    for(var i = 0; i < ds_list_size(playerMatrix); i++) { 
-        // Retrieve row item i
-        var playerRow = playerMatrix[| i];
-        for(var j = 0; j < ds_list_size(playerRow); j++) {
-            // Retrieve column item j
-            var playerCell = playerRow[| j];
-            player[i, j] = playerCell;
         }
     }
     
@@ -96,14 +88,21 @@ else {
         return "ctrl save data invalid: " + string(ctrl);
     }
 
+    global.audioLevel = audioLevel;
     global.currentMap = currentMap;
     global.areaPlayerX = areaPlayerX;
     global.areaPlayerY = areaPlayerY;
+    
+    global.playerLevel = playerLevel;
+    global.maxPlayerLevel = maxPlayerLevel;
+    global.experience = experience;
+    
     global.pty = pty;
     global.player = player;
     global.arte = arte;
     global.ctrl = ctrl;
     
+audio_set_volume(global.audioLevel)
     room_goto(global.currentMap);
 }
 return "Nothing happened?";

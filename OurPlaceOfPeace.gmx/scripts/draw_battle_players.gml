@@ -16,13 +16,13 @@ for(i = 1;i <= playerCount;i += 1) {
     //draw face
     draw_sprite((me).gfx[GFX_FACE],-1,v_x + 1,v_y + 1);
     draw_sprite_stretched(spr_hp_under,-1,v_x + 34,v_y + 9, maxPlayerHpGuiWidth, hpBarHeight);//draw HP bars
-    draw_sprite_stretched(spr_hp_over,-1, v_x + 34,v_y + 9, (me).rollHP / (me).MHP * maxPlayerHpGuiWidth,hpBarHeight);
-    draw_sprite_stretched(spr_hp_top,-1, v_x + 34,v_y + 9, (me).HP / (me).MHP * maxPlayerHpGuiWidth,hpBarHeight);
+    draw_sprite_stretched(spr_hp_over,-1, v_x + 34,v_y + 9, (me).rollHP / (me).stat[PLY_HP] * maxPlayerHpGuiWidth,hpBarHeight);
+    draw_sprite_stretched(spr_hp_top,-1, v_x + 34,v_y + 9, (me).HP / (me).stat[PLY_HP] * maxPlayerHpGuiWidth,hpBarHeight);
 
     //draw HP text
-    draw_bold_text(v_x + 40,v_y + 2,string(floor((me).HP)) + "/" + string(floor((me).MHP)),c_white,c_black);
+    draw_bold_text(v_x + 40,v_y + 2,string(floor((me).HP)) + "/" + string(floor((me).stat[PLY_HP])),c_white,c_black);
     
-    draw_sp_blocks((me).SP, (me).MSP, v_x + 36,v_y + 19);
+    draw_sp_blocks((me).SP, (me).stat[PLY_SP], v_x + 36,v_y + 19);
     
     //draw bonuses
     if(floor((me).bonusATT) != 0)

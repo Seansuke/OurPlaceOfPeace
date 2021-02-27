@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>PlayerObject</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -109,7 +109,8 @@ global.areaPlayerX = obj_areaPlayer.x;
 global.areaPlayerY = obj_areaPlayer.y;
 global.currentMap = room;
 room = rm_arena_outskirts;
-
+instance_destroy();
+animate(spr_divide, 0,0,DIR_RIGHT);
 </string>
           </argument>
         </arguments>
@@ -133,14 +134,15 @@ room = rm_arena_outskirts;
           <argument>
             <kind>1</kind>
             <string>depth = -y;
-draw_sprite_ext(sprite_index,-1,x,y,1,1,0,c_black,true);
-draw_sprite_ext(v_gfx,v_img,x,y,v_dir,1,0,c_white,true);
 if(global.menu == true)
 {
     depth = -2000;
     draw_sprite(spr_hand,-1,(menus[menuPos]).x,(menus[menuPos]).y);
     draw_bold_text((menus[menuPos]).x - 8,(menus[menuPos]).y - 8,"P1",c_red,c_black);
+    exit;
 }
+draw_sprite_ext(sprite_index,-1,x,y,1,1,0,c_black,true);
+draw_sprite_ext(v_gfx,v_img,x,y,v_dir,1,0,c_white,true);
 </string>
           </argument>
         </arguments>

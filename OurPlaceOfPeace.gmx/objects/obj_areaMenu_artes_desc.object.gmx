@@ -55,13 +55,33 @@ depth = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(v_gfx != spr_menu_artes) {draw_sprite(v_gfx,global.subimg,view_xview[0] + 100,view_yview[0] + 100);}
-if(v_dmg != 0){draw_bold_text(view_xview[0] + 5,view_yview[0] + 5,"DAMAGE:" + str(v_dmg),c_white,c_black);}
-if(v_pow != 0){draw_bold_text(view_xview[0] + 100,view_yview[0] + 5,"POWER:" + str(v_pow),c_white,c_black);}
-if(v_wait != 0){draw_bold_text(view_xview[0] + 200,view_yview[0] + 5,"WAIT:" + str(v_wait),c_white,c_black);}
-if(v_cost != 0){draw_sp_blocks(v_cost,v_cost,view_xview[0] + 5,view_yview[0] + 40);}
-if(v_uses != 0){draw_bold_text(view_xview[0] + 300,view_yview[0] + 5,"USES:" + str(v_uses),c_white,c_black);}
-if(v_desc != ""){draw_bold_text(view_xview[0] + 5,view_yview[0] + 20,v_desc,c_white,c_black);}
+            <string>if(v_gfx != spr_menu_artes) {
+    draw_sprite(v_gfx,global.subimg,view_xview[0] + 100,view_yview[0] + 100);
+}
+
+var firstLine = "";
+if(v_dmg != 0) {
+    firstLine += " DAMAGE:" + str(v_dmg);
+}
+if(v_pow != 0) {
+    firstLine += " POWER:" + str(v_pow);
+}
+if(v_wait != 0) {
+    firstLine += " WAIT:" + str(v_wait);
+}
+if(v_uses != 0) {
+    firstLine += " USES:" + str(v_uses);
+}
+
+draw_bold_text(view_xview[0] + 5,view_yview[0] + 5,firstLine,c_white,c_black);
+
+if(v_cost != 0) {
+    draw_sp_blocks(v_cost,v_cost,view_xview[0] + 5,view_yview[0] + 40);
+}
+if(v_desc != "") {
+    draw_bold_text(view_xview[0] + 5,view_yview[0] + 20,v_desc,c_white,c_black);
+}
+
 </string>
           </argument>
         </arguments>

@@ -4,8 +4,8 @@ v_img += 1/3;
 v_vel = abs(v_vel);
 
 if(v_flyer) {
-    if(place_clear(x,y + SPD) == true){
-        y += SPD
+    if(place_clear(x,y + getMoveSpeed()) == true){
+        y += getMoveSpeed();
     };
     if(v_v != BTN_DOWN) {
         v_act = "idle";
@@ -40,7 +40,7 @@ switch(v_h)
         }
 
         //control direction
-        if(place_clear(x - SPD,y) == true){x -= SPD;}
+        if(place_clear(x - getMoveSpeed(),y) == true){x -= getMoveSpeed();}
     break;
     case BTN_RIGHT:
          //attack air sides
@@ -60,7 +60,7 @@ switch(v_h)
             if(player_arte_init()){exit;}
         }
          //control direction
-         if(place_clear(x + SPD,y) == true){x += SPD;}
+         if(place_clear(x + getMoveSpeed(),y) == true){x += getMoveSpeed();}
     break;
 }
 

@@ -46,9 +46,9 @@ if(target != -1)
         }
         
         // Special logic for the healer.
-        var p1HpRatio = (obj_camera.ids[1]).HP / (obj_camera.ids[1]).MHP;
-        var p2HpRatio = (obj_camera.ids[2]).HP / (obj_camera.ids[2]).MHP;
-        var p3HpRatio = (obj_camera.ids[3]).HP / (obj_camera.ids[3]).MHP;
+        var p1HpRatio = (obj_camera.ids[1]).rollHP / (obj_camera.ids[1]).stat[PLY_HP];
+        var p2HpRatio = (obj_camera.ids[2]).rollHP / (obj_camera.ids[2]).stat[PLY_HP];
+        var p3HpRatio = (obj_camera.ids[3]).rollHP / (obj_camera.ids[3]).stat[PLY_HP];
         if(SP >= skill[ARTE_COST] && 
             (p1HpRatio < 0.8 || p2HpRatio < 0.8 || p3HpRatio < 0.8))
         {
@@ -69,7 +69,7 @@ if(target != -1)
     
     // random attacking
     if(attackRandomly) {
-        if(SP >= MSP) {
+        if(SP >= stat[PLY_SP]) {
             press[choose(BTN_ARTES1, BTN_ARTES2, BTN_MAX)] = 1;
             press[choose(BTN_UP, BTN_RIGHT, BTN_LEFT, BTN_DOWN, BTN_MAX)] = 1;
         }

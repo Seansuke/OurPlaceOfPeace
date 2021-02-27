@@ -56,7 +56,10 @@ v_set = -1;
 {
     v_text2 = party_get(v_set,PTY_HMN);
     playerNum = party_get(v_set,PTY_PLAYER);
-    v_text = name_get(party_get(v_set,PTY_PLAYER)) + " " + str(global.pty[v_set,PTY_HP]) + "/" + str(player_get(playerNum,PLY_HP));
+    var maxHp = getStat(global.playerLevel, PLY_HP, player_get(playerNum,PLY_HP));
+    v_text = name_get(party_get(v_set,PTY_PLAYER)) + " " 
+        + str(global.pty[v_set,PTY_HP]) + "/" 
+        + str(maxHp);
     v_gfx = face_get(party_get(v_set,PTY_PLAYER));
 }
 </string>

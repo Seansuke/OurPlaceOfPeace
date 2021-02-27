@@ -1,5 +1,335 @@
+#define init_game
 init_party_and_players();
 init_game_controls();
 init_game_artes();
 init_game_gfx();
+init_game_monsters();
 init_game_misc();
+
+#define init_game_gfx
+
+new_gfx(Sean, spr_sean_face, spr_sean_idle, spr_sean_run, spr_sean_def, spr_sean_evade, 
+    spr_sean_dmg, spr_sean_dead, spr_sean_def, 
+    spr_sean_att, spr_sean_att_up, spr_sean_att_down, spr_sean_att_down, spr_sean_att_air);
+    
+new_gfx(AD, spr_ad_face, spr_ad_idle, spr_ad_run, spr_ad_def, spr_ad_def, 
+    spr_ad_dmg, spr_ad_dead, spr_ad_cast, 
+    spr_ad_att, spr_ad_att, spr_ad_att, spr_ad_att, spr_ad_att);
+    
+new_gfx(Dan, spr_dan_face, spr_dan_idle, spr_dan_run, spr_dan_def, spr_dan_evade, 
+    spr_dan_dmg, spr_dan_dead, spr_dan_knife, 
+    spr_dan_att, spr_dan_att, spr_dan_att, spr_dan_att, spr_dan_att);
+    
+new_gfx(John, spr_john_face, spr_john_idle, spr_john_run, spr_john_def, spr_john_evade, 
+    spr_john_dmg, spr_john_dead, spr_john_cast, 
+    spr_john_att, spr_john_att_up, spr_john_att_down, spr_john_att_down, spr_john_att_air);
+    
+new_gfx(Serena, spr_serena_face, spr_serena_idle, spr_serena_run, spr_serena_def, spr_serena_evade, 
+    spr_serena_dmg, spr_serena_dead, spr_serena_cast, 
+    spr_serena_att, spr_serena_att_up, spr_serena_att_down, spr_serena_att_down, spr_serena_att_air);
+    
+new_gfx(James, spr_james_face, spr_james_idle, spr_james_run, spr_james_def, spr_james_evade, 
+    spr_james_dmg, spr_james_dead, spr_james_cast, 
+    spr_james_att, spr_james_att_up, spr_james_att_down, spr_james_att_down, spr_james_att_air);
+    
+new_gfx(Taliko, TalikoFaceSprite, TalikoIdleSprite, TalikoRunSprite, TalikoDefendSprite, 
+    TalikoEvadeSprite, TalikoHurtSprite, TalikoDownSprite, TalikoCastSprite, 
+    TalikoAttackSprite, TalikoAttackSprite, TalikoAttackSprite, TalikoAttackSprite, TalikoAttackSprite);
+
+new_gfx(Alister, AlisterFaceSprite, AlisterIdleSprite, AlisterDashSprite, AlisterDefendSprite, 
+    AlisterDefendSprite, AlisterHurtSprite, AlisterDownSprite, AlisterGunsSprite, 
+    AlisterSlashSprite, AlisterSlashSprite, AlisterSlashSprite, AlisterSlashSprite, AlisterSlashSprite);
+
+new_gfx(Noel, NoelFaceSprite, NoelIdleSprite, NoelDashSprite, NoelDefendSprite, 
+    NoelDefendSprite, NoelHurtSprite, NoelDownSprite, NoelShoveSprite, 
+    NoelHammerSlashSprite, NoelHammerSlashSprite, NoelHammerSlashSprite, NoelHammerSlashSprite, NoelHammerSlashSprite);
+
+new_gfx(Raka, RakaFaceSprite, RakaIdleSprite, RakaFlyForward, RakaDefendSprite, 
+    RakaFlyBackwards, RakaHurtSprite, RakaDownSprite, RakaCastSprite, 
+    RakaHammerSwingSprite, RakaHammerSwingSprite, RakaHammerSwingSprite, RakaHammerSwingSprite, RakaHammerSwingSprite);
+
+new_gfx(Chloe, ChloeFaceSprite, ChloeIdleSprite, ChloeDashSprite, ChloeDefendSprite, 
+    ChloeDefendSprite, ChloeDefendSprite, ChloeDownSprite, ChloeGunsSprite, 
+    ChloeHammerSlashSprite, ChloeHammerSlashSprite, ChloeHammerSlashSprite, ChloeHammerSlashSprite, ChloeHammerSlashSprite);
+
+
+#define init_game_artes
+
+arte_init();
+
+//======================Sean======================
+//melee
+arte_new(Sean,"Smash",spr_sean_att_up,GFX_ATTACK_UP,    
+    1.0,3.0,   6,100,  1,
+    "Hold [ARTE] to charge attack to push foes back.",
+    ARTE_EFFECT_BACK);
+arte_new(Sean,"Wall",spr_wall,GFX_DEF,                  
+    0.4,2.0,    1,100,  3,
+    "Foes that melee will be sent flying.",
+    ARTE_EFFECT_BACK);
+arte_new(Sean,"Divide",spr_divide,GFX_ATTACK_AIR,                     
+    1.5,1.5,  9,300,  5,
+    "Hold [ARTE] to charge attack to push foes back.",
+    ARTE_EFFECT_NONE);
+//range
+arte_new(Sean,"Wave",spr_wave,GFX_ATTACK_UP,          
+    0.5,1.0,  6,50,   1,
+    "Produce a wave of pressure that pushes back foes.",
+    ARTE_EFFECT_BACK);
+arte_new(Sean,"Uprise",spr_uprise,GFX_ATTACK_UP,       
+    0.7,1.5,  6,200,  2,
+    "Force foes upward at a distance.",ARTE_EFFECT_LIFT);
+
+//======================AD======================
+//heal
+arte_new(AD,"Medic",spr_medic,GFX_CAST,          
+    0.2,1.0,  16,100, 1,
+    "Hold [ARTE] to regenerate an ally's HP.",
+    ARTE_EFFECT_HEAL);
+arte_new(AD,"Restore",spr_restore,GFX_CAST,      
+    1.0,5.0, 48,200, 5,
+    "Give an ally a burst of HP, hold [ARTE] to increase effect.",
+    ARTE_EFFECT_HEAL);
+//buff
+arte_new(AD,"Might",spr_might,GFX_CAST,          
+    1.0,2.0, 32,100, 3,
+    "Ally will give more damage to foes.",
+    ARTE_EFFECT_ATT_BUFF);     
+arte_new(AD,"Endure",spr_endure,GFX_CAST,        
+    1.0,2.0, 32,100, 2,
+    "Ally will recieve less damage from foes.",
+    ARTE_EFFECT_DEF_BUFF);
+//offense
+arte_new(AD,"Holy Beam",spr_holy,GFX_CAST,       
+    3.0,3.0,  48,200, 1,
+    "Blast foes with a condensation of holy energy.",
+    ARTE_EFFECT_NONE);
+
+//======================Dan======================
+//knife
+arte_new(Dan,"Combat Knife",spr_dan_knife,GFX_CAST,      
+    1.2,1.2,  3,100,  1,
+    "Quickly unleash a knife that pushes foes back.",
+    ARTE_EFFECT_NONE);
+//arrows
+arte_new(Dan,"Aimed Arrow",spr_arrow,GFX_ATTACK_SIDE,     
+    0.5,0.1,    9,100,  1,
+    "Fire an arrow diagonally.",
+    ARTE_EFFECT_NONE);
+arte_new(Dan,"Ice Arrow",spr_icearrow,GFX_ATTACK_SIDE,    
+    0.4,0.1,    9,100,  2,
+    "Fire a fast but weak arrow infused with ice.",
+    ARTE_EFFECT_NONE);
+arte_new(Dan,"Fire Arrow",spr_firearrow,GFX_ATTACK_SIDE,  
+    1.0,3.0,   9,100,  3,
+    "Fire a slow but strong arrow infused with fire.",
+    ARTE_EFFECT_NONE);
+
+//======================John======================
+//melee
+arte_new(John,"Incapacitate",spr_thrust,GFX_ATTACK_SIDE,  
+    1.0,0.1,   3,200,  1,
+    "Strike at such speed that stuns the opponent.",
+    ARTE_EFFECT_NONE);
+//range
+arte_new(John,"Jolt",spr_jolt,GFX_CAST,                   
+    1.0,0.1,   9,100,  1,
+    "Call lightning from the sky.",
+    ARTE_EFFECT_NONE);
+
+//======================Serena======================
+// movement
+arte_new(Serena,"Ocean's Whirlpool",spr_spin,GFX_ATTACK_AIR,            
+    1.0,0.2, 3,100, 1,
+    "Anti-aerial spin like flowing water.",
+    ARTE_EFFECT_NONE);
+arte_new(Serena,"Wind's Pierce",spr_thrust,GFX_ATTACK_SIDE,             
+    1.0,0.2, 3,100, 1,
+    "Slide through foes like the wind.",
+    ARTE_EFFECT_NONE);
+arte_new(Serena,"Raging Hurricane",spr_hurricane,GFX_ATTACK_UP,             
+    1.0,0.2, 3,100, 2,
+    "Tear through foes like a rising storm.",
+    ARTE_EFFECT_NONE);
+arte_new(Serena,"Retreating Flame",spr_flame,GFX_ATTACK_UP,             
+    0.5,1.0, 3,100, 3,
+    "Flicker from foes like a flame in the breeze.",
+    ARTE_EFFECT_NONE);
+arte_new(Serena,"Descending Waterfall",spr_waterfall,GFX_ATTACK_AIR,    
+    1.0,0.2, 3*4,200, 5,
+    "Rise above your foes and rush them like a falling river.",
+    ARTE_EFFECT_NONE);
+
+//======================James======================
+// magic
+arte_new(James,"Petal Storm",spr_petal_storm,GFX_CAST, 
+    1.5,0.5,   3,300,  1,
+    "Spin flaming petals around for anti-air.",
+    ARTE_EFFECT_NONE);
+arte_new(James,"Petal Beam",spr_petal_beam,GFX_CAST,   
+    1.5,0.5,   3,300,  1,
+    "Beam out flaming petals.",
+    ARTE_EFFECT_NONE);
+
+//======================Taliko======================
+arte_new(Taliko,"Chill Wounds",ClearIceBlockSprite,GFX_CAST,           
+    1.0,5.0,  32,200, 1,
+    "Heal an ally with a small burst of HP.",
+    ARTE_EFFECT_HEAL); 
+arte_new(Taliko,"Frosted Defense",ClearIceWallSprite,GFX_CAST,        
+    1.0,2.0, 32,100, 1,
+    "Ally will recieve less damage from foes.",
+    ARTE_EFFECT_DEF_BUFF);
+
+//======================Noel======================
+arte_new(Noel,"Shove",NoelShoveSprite,GFX_CAST, 
+    1.5,2.0,  12,100, 1,
+    "Push a foe far away.",
+    ARTE_EFFECT_BACK); 
+arte_new(Noel,"Tension",spr_might,GFX_DEF, 
+    1.0,1.0, 32,100, 1,
+    "Increase your attack power through tense combat.",
+    ARTE_EFFECT_ATT_BUFF);
+
+//======================Alister======================
+arte_new(Alister,"Bullet Blaze",BulletSprite,GFX_CAST, 
+    0.1,0.0,  3,20, 1,
+    "Fill your foes with lead.",
+    ARTE_EFFECT_BACK); 
+arte_new(Alister,"Cross Gun",BulletSprite,GFX_CAST, 
+    0.1,0.0,  3,20, 1,
+    "Fill foes with lead from both sides.",
+    ARTE_EFFECT_BACK);
+
+//======================Raka======================
+arte_new(Raka,"Rushing Leaves",ShortWindSprite,GFX_CAST,
+    0.3,1.0,  9,100, 1,
+    "Blow away your foes with the wind from your leaf fan.",ARTE_EFFECT_LIFT); 
+arte_new(Raka,"Falling Tree",spr_thrust,GFX_ATTACK_DOWN,        
+    1.0,3.0,  9,200, 1,
+    "Land a powerful strike on your foe from the sky.",
+    ARTE_EFFECT_BACK);
+
+//======================Chloe======================
+arte_new(Chloe,"Bullet Blaze",BulletSprite,GFX_CAST,           
+    0.1,0.0,  9,20, 1,
+    "Fill your foes with lead.",
+    ARTE_EFFECT_BACK); 
+arte_new(Chloe,"Cross Gun",BulletSprite,GFX_CAST,        
+    0.1,0.1,  9,20, 1,
+    "Fill foes with lead from both sides.",
+    ARTE_EFFECT_BACK);
+
+//======================Monsters======================
+arte_new(MAX_PLAYERS,"Strike",spr_thrust,GFX_ATTACK,
+    1.0,1.0,   6,100,  1,
+    "",
+    ARTE_EFFECT_NONE);
+
+#define init_game_controls
+
+//ctrl_new(num,"type". up,right,down,left, att,guard,arte1,arte2, target,action, menu);
+ctrl_new(1,"Keyboard", vk_up,vk_right,vk_down,vk_left, 
+    ord('Z'),ord('X'),ord('A'),ord('S'), 
+    ord('W'),ord('Q'), ord('C'));
+ctrl_new(2,"Keyboard", ord('9'),ord('0'),ord('9'),ord('0'), 
+    ord('9'),ord('0'),ord('9'),ord('0'), 
+    ord('9'),ord('0'), ord('9'));
+ctrl_new(3,"Keyboard", ord('9'),ord('0'),ord('9'),ord('0'), 
+    ord('9'),ord('0'),ord('9'),ord('0'), 
+    ord('9'),ord('0'), ord('9'));
+
+
+#define init_party_and_players
+/// init_party_and_players() 
+/// Initializes all party and player data in the system.
+
+//player_new(playerId,   name,hp,sp,att,aatt, pow, def,adef,spd);
+player_new(Sean,  "Naes",     11,12,  10,10,  15,  14,  14,    9);
+player_new(AD,    "Enneirda",  6,10,   5,15,   5,   5,  15,    6);
+player_new(Dan,   "Shashu",    7,15,   7, 7,   5,  10,  13,    7);
+player_new(John,  "Nooj",     12,15,  13,13,   5,  12,  13,   12);
+player_new(Serena,"Saruhime", 12,15,  13,13,   5,  15,  12,   12);
+player_new(James, "Nizzerus", 14,15,  12,12,  15,  12,   5,    7);
+player_new(Taliko,"Taliko",    6,10,   5,15,   5,   5,  15,    6);
+player_new(Noel,  "Noel",     15, 5,  15, 5,  15,  10,   8,    6);
+player_new(Alister,"Alister", 15, 5,  15, 5,  15,  10,   8,    6);
+player_new(Raka,  "Raka",     11,11,  11,11,  11,  11,  11,    9);
+player_new(Chloe, "Chloe",    12,15,  13, 5,   5,  12,  12,   12);
+
+
+// party_set(partyId, isHuman, currentHp, playerId, arteName,arteName,arteName,arteName, arteName,arteName,arteName,arteName);
+party_set_all(1, "Human",getLevel1HpStat(Sean),Sean,  "Wave", "", "", "", "Smash", "", "", "");
+party_set_all(2, "CPU",  getLevel1HpStat(AD),AD,    "Medic", "", "", "", "Holy Beam", "", "", "");
+party_set_all(3, "CPU",  getLevel1HpStat(Dan),Dan,   "Aimed Arrow", "", "", "", "Combat Knife", "", "", "");
+party_set_all(4, "CPU",  getLevel1HpStat(John),John,  "Incapacitate", "", "", "", "Jolt", "", "", "");
+party_set_all(5, "CPU",  getLevel1HpStat(Serena),Serena,"Ocean's Whirlpool", "", "", "", "Wind's Pierce", "", "", "");
+party_set_all(6, "CPU",  getLevel1HpStat(James),James, "Petal Storm", "", "", "", "Petal Beam", "", "", "");
+party_set_all(7, "CPU",  getLevel1HpStat(Taliko),Taliko,"Chill Wounds", "", "", "", "Frosted Defense", "", "", "");
+party_set_all(8, "CPU",  getLevel1HpStat(Noel),Noel,  "Shove", "", "", "", "Tension", "", "", "");
+party_set_all(9, "CPU",  getLevel1HpStat(Alister),Alister,"Bullet Blaze", "", "", "", "Cross Gun", "", "", "");
+party_set_all(10,"CPU",  getLevel1HpStat(Raka),Raka,  "Rushing Leaves", "", "", "", "Falling Tree", "", "", "");
+party_set_all(11,"CPU",  getLevel1HpStat(Chloe),Chloe, "Bullet Blaze", "", "", "", "Cross Gun", "", "", "");
+
+
+#define init_game_misc
+
+//other stuff
+global.touchList = ds_list_create();
+draw_set_color(c_white);
+draw_set_font(font_courier);
+draw_set_halign(fa_left);
+global.menu = false;
+global.areaPlayerX = 320;
+global.areaPlayerY = 240;
+global.currentMap = rm_area_outskirts;
+global.marker = -1;
+global.monsterLevel = 1;
+global.menu_plyr = -1;
+global.monFight[1] = MAX_MONSTERS;
+global.monFight[2] = MAX_MONSTERS;
+global.monFight[3] = MAX_MONSTERS;
+global.subimg = 0;
+cursor_sprite = IwikSprite;
+global.width_view = 640;
+global.height_view = 480;
+global.horizontal_border = 320;
+global.vertical_border = 240;
+global.audioLevel = 1;
+global.playerLevel = 1;
+global.maxPlayerLevel = 1;
+global.experience = 0;
+if(os_browser == browser_not_a_browser) {
+    TouchControlsOff();
+}
+else {
+    global.width_view = browser_width * 1.4;
+    global.height_view = browser_height * 1.4;
+    global.horizontal_border = global.width_view / 2;
+    global.vertical_border = global.height_view / 2;
+    TouchControlsOn();
+}
+
+#define init_game_monsters
+set_simple_monster_gfx(Arach, spr_arach_run, spr_arach_att);
+set_monster_stats(Arach, "Arach", 10,10, 10,10, 10, 10,10, 9);
+
+set_simple_monster_gfx(Zombie, spr_zombie_run, spr_zombie_att);
+set_monster_stats(Zombie, "Zombie", 15,5, 10,5, 5, 15,5, 6);
+
+set_simple_monster_gfx(Harpy, HarpyFlySprite, HarpyAttackSprite);
+set_monster_stats(Harpy, "Harpy", 12,12, 11,7, 5, 8,12, 12);
+
+set_simple_monster_gfx(Dragon, DragonFlySprite, DragonAttackSprite);
+set_monster_gfx(Dragon, GFX_ATTACK_UP, DragonAttackUpSprite);
+set_monster_gfx(Dragon, GFX_ATTACK_SIDE, DragonAttackSideSprite);
+set_monster_stats(Dragon, "Dragon", 15,15, 15,15, 15, 15,15, 12);
+
+set_simple_monster_gfx(Knight, spr_arach_run, spr_arach_att);
+set_monster_gfx(Knight, GFX_ATTACK_UP, KnightAttackUpSprite);
+set_monster_gfx(Knight, GFX_ATTACK_SIDE, KnightAttackSideSprite);
+set_monster_stats(Knight, "Knight", 11,8, 10,7, 12, 12,7, 12);
+
+set_simple_monster_gfx(Slime, SlimeWalkSprite, SlimeAttackSprite);
+set_monster_stats(Slime, "Slime", 5,5, 5,5, 5, 15,5, 6);
+

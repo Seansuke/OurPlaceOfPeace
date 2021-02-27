@@ -1,5 +1,4 @@
 //init
-v_gfx = GFX_MAX;//special exception
 v_img += 1/3;
 v_timer += 1;
 

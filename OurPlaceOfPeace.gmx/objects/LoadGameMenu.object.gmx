@@ -28,6 +28,7 @@
             <string>v_gfx = sprite_index;
 v_text = "Load Game";
 depth = -999;
+v_confirm = false;
 </string>
           </argument>
         </arguments>
@@ -50,7 +51,16 @@ depth = -999;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>load_settings();
+            <string>
+v_text = "Are you sure you want to load your file?  Current data may be lost.";
+if(v_confirm) {
+    room_set_persistent(room, false);
+    load_settings();
+}
+else {
+    v_confirm = true;
+}
+
 </string>
           </argument>
         </arguments>

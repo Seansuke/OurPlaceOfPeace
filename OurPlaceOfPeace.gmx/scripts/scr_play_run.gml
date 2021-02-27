@@ -15,11 +15,11 @@ switch(v_h)
 {
     case BTN_LEFT:
          v_dir = -1;
-         if(place_clear(x - SPD,y) == true){x -= SPD};
+         if(place_clear(x - getMoveSpeed(),y) == true){x -= getMoveSpeed()};
     break;
     case BTN_RIGHT:
          v_dir = 1;
-         if(place_clear(x + SPD,y) == true){x += SPD};
+         if(place_clear(x + getMoveSpeed(),y) == true){x += getMoveSpeed()};
     break;
     default:
         v_img = 0;

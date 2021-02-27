@@ -1,79 +1,123 @@
-//init
-v_gfx = GFX_MAX;//special exception
-v_img += 1/3;
-v_timer += 1;
 
-//maintain_falling();
-    
-// Actions on the first frame
+// Only attack at a certain speed.
+var totalAttackSubImages = 5;
+var framesPerSubimage = 3;
+
+// Faster characters have quicker attacks, slower characters have slower attacks.
+if(getMoveSpeed() < 8) {
+    framesPerSubimage++;
+}
+else if(getMoveSpeed() > 13) {
+    framesPerSubimage--;
+}
+
+// subImages move at a speed relative to the attack.
+var subImageSpeed = 1 / framesPerSubimage;
+
+// All melee fighters create the hitbox on the 3/5 mark on their total frame.
+var attackCreationFrame = floor(framesPerSubimage * totalAttackSubImages * 3/5);
+var movementStartFrame = floor(framesPerSubimage * totalAttackSubImages * 1/5);
+var movementEndFrame = floor(framesPerSubimage * totalAttackSubImages * 4/5);
+var interruptFrame = floor(framesPerSubimage * totalAttackSubImages * 4/5);
+var completionFrame = floor(framesPerSubimage * totalAttackSubImages);
+
+// All range fighters create the hitbox on the final subimage
+if(playerNum == AD || playerNum == Dan || playerNum == Taliko) {
+    attackCreationFrame = framesPerSubimage * totalAttackSubImages;
+}
+
+// Define action on the first frame
 if(floor(v_timer) == 1){
 
     // Store the attack type as the button held
-    if(v_v == BTN_UP)
-        {v_attType = PTY_A1_UP;}
-    else if(v_v == BTN_DOWN)
-        {v_attType = PTY_A1_DOWN;}
-    else if(v_h == BTN_RIGHT || v_h == BTN_LEFT)
-        {v_attType = PTY_A1_SIDE;}
-    else
-        {v_attType = PTY_A1_IDLE;}
-
-    // Store the graphic for this attack
-    switch(v_attType){
-        case PTY_A1_IDLE:v_gfx2 = gfx[GFX_ATTACK];break;
-        case PTY_A1_UP:v_gfx2 = gfx[GFX_ATTACK_UP];break;
-        case PTY_A1_SIDE:v_gfx2 = gfx[GFX_ATTACK_SIDE];break;
-        case PTY_A1_DOWN:v_gfx2 = gfx[GFX_ATTACK_DOWN];break;
+    if(v_v == BTN_UP) {
+        v_attType = PTY_A1_UP;
+        v_gfx = GFX_ATTACK_UP;
+    }
+    else if(v_v == BTN_DOWN) {
+        v_attType = PTY_A1_DOWN;
+        v_gfx = GFX_ATTACK_DOWN;
+    }
+    else if(v_h == BTN_RIGHT) {
+        v_attType = PTY_A1_SIDE;
+        v_dir = DIR_RIGHT;
+        v_gfx = GFX_ATTACK_SIDE;
+    }
+    else if(v_h == BTN_LEFT) {
+        v_attType = PTY_A1_SIDE;
+        v_dir = DIR_LEFT;
+        v_gfx = GFX_ATTACK_SIDE;
+    }
+    else {
+        v_attType = PTY_A1_IDLE;
+        v_gfx = GFX_ATTACK;
     }
 }
 
-if(playerNum == AD || playerNum == Dan || playerNum == Taliko) {
-    // All range fighters create the hitbox on the 15th frame
-    if(floor(v_timer) == 3*5) {
-        scr_player_attack_create(x,y);    
-    }
+// Hold to charge attack
+if(floor(v_timer) < movementStartFrame && ctrl_btn(BTN_ATTACK)){
+    // Charge can be held and interrupt the attack flow
+    v_charge = min(v_charge + 1, v_chargeMax);
+    exit;
 }
-else if(floor(v_timer) == 3*3){
-    // All melee fighters create the hitbox on the 9th frame.
+
+// The timer continues    
+v_timer += 1;
+
+// Only increase the subimage index by the speed we calculated.
+v_img += subImageSpeed;
+
+
+if(floor(v_timer) == attackCreationFrame){
     scr_player_attack_create(x,y);
 }
 
-if(floor(v_timer) >= 3*2 && floor(v_timer) <= 3*4) {
+// Falling attacks are faster
+if(v_attType == PTY_A1_DOWN) {
+    if(place_clear(x,y + getMoveSpeed()) == true) {
+        y += getMoveSpeed();
+    }
+    else if(place_clear(x,y + getMoveSpeed() / 2)) {
+        y += getMoveSpeed() / 2;
+    }
+}
+
+// Move while attacking during certain frames.
+if(floor(v_timer) >= movementStartFrame && floor(v_timer) <= movementEndFrame) {
     // Movement during attack
     switch(v_attType){
         case PTY_A1_SIDE:
-            if(place_clear(x + SPD / 2 * v_dir,y) == true){
-                x += SPD / 2 * v_dir;
+            if(place_clear(x + getMoveSpeed() / 2 * v_dir,y) == true){
+                x += getMoveSpeed() / 2 * v_dir;
             }
         break;
         case PTY_A1_DOWN:
-            if(place_clear(x,y + SPD / 2) == true){
-                y += SPD / 2;
-            }
-            else if(place_clear(x - SPD / 2 * v_dir,y) == true){
-                x -= SPD / 2 * v_dir;
+            if(place_clear(x - getMoveSpeed() * v_dir,y) == true
+                && place_clear(x,y + getMoveSpeed() / 2) == false){
+                x -= getMoveSpeed() * v_dir;
             }
         break;
         case PTY_A1_UP:
-            if(place_clear(x,y - SPD / 2) == true){
-                y -= SPD / 2;
+            if(place_clear(x,y - getMoveSpeed()) == true){
+                y -= getMoveSpeed();
             }
         break;
     }
 }
 
 // Attack interrupt to attack again
-if(v_timer >= 3*4){
+if(v_timer >= interruptFrame){
     if(ctrl_press(BTN_ATTACK)){
+        v_charge = 0;
         if(player_attack_init() ){
             exit;
         }
     }
 }
-            
-if(v_timer > 3*5) {
+
+if(v_timer > completionFrame) {
+    v_charge = 0;
     v_act = "idle";
     exit;
 }
 
-gfx[GFX_MAX] = v_gfx2;

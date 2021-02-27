@@ -1,6 +1,4 @@
-/*
-animate(sprite,time,spd,dir)
-*/
+///animate(sprite, time_or_0, image_speed_or_0, DIR_direction)
 tmp03 = instance_create(x,y,obj_animate);
 (tmp03).gfx = argument0;
 if(argument2 != 0)

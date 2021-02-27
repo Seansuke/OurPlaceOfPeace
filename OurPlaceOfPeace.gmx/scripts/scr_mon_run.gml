@@ -12,13 +12,13 @@ if(v_target == -1)
 //run to enemy
 if((v_target).x < x - 50)
 {
-    x -= SPD;
+    x -= stat[PLY_SPD];
     v_act = "run";
     v_dir = DIR_LEFT;
 }
 else if((v_target).x > x + 50)
 {
-    x += SPD;
+    x += stat[PLY_SPD];
     v_act = "run";
     v_dir = DIR_RIGHT;
 }

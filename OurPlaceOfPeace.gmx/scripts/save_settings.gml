@@ -1,3 +1,4 @@
+#define save_settings
 global.currentMap = room;
 global.areaPlayerX = obj_areaPlayer.x;
 global.areaPlayerY = obj_areaPlayer.y;
@@ -12,12 +13,16 @@ else {
     ds_map_add(saveDataMap, "horizontal_border", global.horizontal_border);
     ds_map_add(saveDataMap, "vertical_border", global.vertical_border);
     
+    ds_map_add(saveDataMap, "audioLevel", global.audioLevel);
     ds_map_add(saveDataMap, "currentMap", global.currentMap);
     ds_map_add(saveDataMap, "areaPlayerX", global.areaPlayerX);
     ds_map_add(saveDataMap, "areaPlayerY", global.areaPlayerY);
-    
+
+    ds_map_add(saveDataMap, "playerLevel", global.playerLevel);
+    ds_map_add(saveDataMap, "maxPlayerLevel", global.maxPlayerLevel);
+    ds_map_add(saveDataMap, "experience", global.experience);
+        
     ds_map_add(saveDataMap, "pty", global.pty);
-    ds_map_add(saveDataMap, "player", global.player);
     ds_map_add(saveDataMap, "arte", global.arte);
     ds_map_add(saveDataMap, "ctrl", global.ctrl);
     
@@ -25,3 +30,13 @@ else {
     ds_map_destroy(saveDataMap);
 }
 return true;
+
+#define audio_set_volume
+///audio_set_volume(volume_0_to_1)
+var num = audio_get_listener_count();
+ for( var i = 0; i < num; i++;)
+    {
+    var info = audio_get_listener_info(i);
+    audio_set_master_gain(info[? "index"], argument0);
+    ds_map_destroy(info);
+    }

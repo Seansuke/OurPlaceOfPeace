@@ -54,7 +54,7 @@ v_set = -1;
             <string>if(v_set != -1 &amp;&amp; v_text == "")
 {
     playerNum = party_get(v_set,PTY_PLAYER);
-    v_text = name_get(party_get(v_set,PTY_PLAYER)) + " " + str(global.pty[v_set,PTY_HP]) + "/" + str(player_get(playerNum,PLY_HP));
+    v_text = name_get(party_get(v_set,PTY_PLAYER)) + " " + str(global.pty[v_set,PTY_HP]) + "/" + str(getStat(global.playerLevel, PLY_HP, player_get(playerNum,PLY_HP)));
     v_gfx = face_get(party_get(v_set,PTY_PLAYER));
 }
 </string>

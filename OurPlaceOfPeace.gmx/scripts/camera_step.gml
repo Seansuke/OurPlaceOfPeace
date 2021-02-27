@@ -74,5 +74,6 @@ if(mon[1] == -1 && mon[2] == -1 && mon[3] == -1)
     for(partyNum = 1;partyNum <= 3;partyNum += 1)
         {party_set(partyNum, PTY_HP, (ids[partyNum]).rollHP);}
     room = rm_area_outskirts;
+    room_set_persistent(rm_area_outskirts, false);
     audio_stop_sound(AccionBgm);
 }

@@ -2,19 +2,19 @@
 switch(global.ctrl[plyr,BTN_TYPE])
 {
     case "Keyboard":
-        if(keyboard_check_direct(global.ctrl[plyr,BTN_ATTACK]) == true)
+        if(keyboard_check(global.ctrl[plyr,BTN_ATTACK]) == true)
         {
             return BTN_ATTACK;
         }
-        else if(keyboard_check_direct(global.ctrl[plyr,BTN_GUARD]) == true)
+        else if(keyboard_check(global.ctrl[plyr,BTN_GUARD]) == true)
         {
             return BTN_GUARD;
         }
-        else if(keyboard_check_direct(global.ctrl[plyr,BTN_ARTES1]) == true)
+        else if(keyboard_check(global.ctrl[plyr,BTN_ARTES1]) == true)
         {
             return BTN_ARTES1;
         }
-        else if(keyboard_check_direct(global.ctrl[plyr,BTN_ARTES2]) == true)
+        else if(keyboard_check(global.ctrl[plyr,BTN_ARTES2]) == true)
         {
             return BTN_ARTES2;
         }

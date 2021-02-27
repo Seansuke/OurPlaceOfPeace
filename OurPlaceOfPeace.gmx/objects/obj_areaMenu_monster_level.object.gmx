@@ -50,6 +50,7 @@ event_user(2);
           <argument>
             <kind>1</kind>
             <string>/// Display Message
+global.monsterLevel = min(99, max(global.monsterLevel, 1));
 message = "Monster Level: " + string(global.monsterLevel);
 </string>
           </argument>
@@ -99,7 +100,8 @@ event_user(2);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.monsterLevel -= 1;
+            <string>/// Lower Monster Level
+global.monsterLevel -= 1;
 
 /// Refresh Message
 event_user(2);

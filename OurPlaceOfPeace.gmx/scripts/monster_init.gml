@@ -1,15 +1,14 @@
 for(i = 0;i <= GFX_MAX;i += 1) {gfx[GFX_FACE] = spr_icon;}//init all graphics
 HP = 1;
 rollHP = 1;
-MHP = 1;
 SP = 100 * + 20 * global.monsterLevel;
-MSP = 100;
-ATT = 1 * global.monsterLevel;
-DEF = 1 * global.monsterLevel;
-ADEF = 1 * global.monsterLevel;
-SPD = 4 + 0.1 * global.monsterLevel;
+
+for(var statI = 0; statI < PLY_MAX; statI++) {
+    stat[statI] = 0;
+}
+
 //stats
-bonusATT = 0;bonusDEF = 0;bonusADEF = 0;bonusSPD = 0;rollHPSpeed = 0.5;//side stats
+bonusATT = 0;bonusDEF = 0;bonusSPD = 0;rollHPSpeed = 0.5;//side stats
 monsterNum = Arach;
 v_gfx = GFX_IDLE;v_gfx2 = spr_icon;v_img = 0;
 v_act = "idle";

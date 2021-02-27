@@ -51,73 +51,87 @@ switch(subMenu)
         tmp_arte = (menus[menuPos]).v_set;//index in arte array
         arteId = (menus[menuPos]).arteId;
         tmp_name = arte_get(arteId, ARTE_NAME);
+        arteEffect = arte_get(arteId, ARTE_EFFECT);
         obj_areaMenu_artes_desc.v_name = arte_get(tmp_arte,ARTE_NAME);
-        switch(menuPos)
-        {
-            case 1://dmg
-                if(tmp_name == "Medic" || tmp_name == "Restore" || tmp_name == "Chill Wounds"){
-                    with(obj_areaMenu_artes_desc) {
-                        v_desc = "Increase HP given to allies";
-                    }
-                }
-                else if(tmp_name == "Might" || tmp_name == "Endure") {
-                    with(obj_areaMenu_artes_desc) {
-                        v_desc = "Increase potency of buff";
-                    }
-                }
-                else {
-                    with(obj_areaMenu_artes_desc) {
-                        v_desc = "Increase damage to foes";
-                    }
-                }
-            break;
-            case 2://power
-                if(tmp_name == "Medic" || tmp_name == "Restore" || tmp_name == "Chill Wounds"){
-                    with(obj_areaMenu_artes_desc) {
-                        v_desc = "Increase speed of rolling HP";
-                    }
-                }
-                else if(tmp_name == "Might" || tmp_name == "Endure" || tmp_name == "Tension") {
-                    with(obj_areaMenu_artes_desc) {
-                        v_desc = "Increase duration of buffs";
-                    }
-                }
-                else {
-                    with(obj_areaMenu_artes_desc) {
-                        v_desc = "Push opponents farther away";
-                    }
-                }
-            break;
-            case 3://wait
-                with(obj_areaMenu_artes_desc) {
-                    v_desc = "Decrease time needed to execute skill";
-                }
-            break;
-            case 4://cost
-                with(obj_areaMenu_artes_desc) {
-                    v_desc = "Decrease SP usage to execute skill";
-                }
-            break;
+        with(obj_areaMenu_artes_desc) {
+            var desc = array_create(4);
+            
+            desc[0,ARTE_EFFECT_NONE] = "Increase damage to foes";
+            desc[0,ARTE_EFFECT_HEAL] = "Increase HP given to allies";
+            desc[0,ARTE_EFFECT_ATT_BUFF] = "Increase potency of buff";
+            desc[0,ARTE_EFFECT_DEF_BUFF] = desc[0,ARTE_EFFECT_ATT_BUFF];
+            desc[0,ARTE_EFFECT_BACK] = desc[0,ARTE_EFFECT_NONE];
+            desc[0,ARTE_EFFECT_LIFT] = desc[0,ARTE_EFFECT_NONE];
+            desc[1,ARTE_EFFECT_NONE] = "Pierce opponents defense";
+            desc[1,ARTE_EFFECT_HEAL] = "Increase speed of rolling HP";
+            desc[1,ARTE_EFFECT_ATT_BUFF] = "Increase duration of buffs";
+            desc[1,ARTE_EFFECT_DEF_BUFF] = desc[1,ARTE_EFFECT_ATT_BUFF];
+            desc[1,ARTE_EFFECT_BACK] = "Push opponents farther back";
+            desc[1,ARTE_EFFECT_LIFT] = "Push opponents farther upwards";
+            desc[2,ARTE_EFFECT_NONE] = "Decrease time needed to execute skill";
+            desc[2,ARTE_EFFECT_HEAL] = desc[2,ARTE_EFFECT_NONE];
+            desc[2,ARTE_EFFECT_ATT_BUFF] = desc[2,ARTE_EFFECT_NONE];
+            desc[2,ARTE_EFFECT_DEF_BUFF] = desc[2,ARTE_EFFECT_NONE];
+            desc[2,ARTE_EFFECT_BACK] = desc[2,ARTE_EFFECT_NONE];
+            desc[2,ARTE_EFFECT_LIFT] = desc[2,ARTE_EFFECT_NONE];
+            desc[3,ARTE_EFFECT_NONE] = "Decrease SP usage to execute skill";
+            desc[3,ARTE_EFFECT_HEAL] = desc[3,ARTE_EFFECT_NONE];
+            desc[3,ARTE_EFFECT_ATT_BUFF] = desc[3,ARTE_EFFECT_NONE];
+            desc[3,ARTE_EFFECT_DEF_BUFF] = desc[3,ARTE_EFFECT_NONE];
+            desc[3,ARTE_EFFECT_BACK] = desc[3,ARTE_EFFECT_NONE];
+            desc[3,ARTE_EFFECT_LIFT] = desc[3,ARTE_EFFECT_NONE];
+            
+            v_desc = desc[other.menuPos - 1, other.arteEffect]
         }
     break;
     case "Party":
-        for(tmp_i = 1;tmp_i < PLY_MAX;tmp_i += 1) {
+        for(tmp_i = 1; tmp_i < PLY_MAX; tmp_i += 1) {
+            if(tmp_i == PLY_NAME || tmp_i == PLY_LVL || tmp_i == PLY_XP) {
+                continue;
+            }
             with(obj_areaMenu_stats_desc) {
-                st[other.tmp_i] = player_get(other.menuPos - 1,other.tmp_i);
+                var STAT_id = other.tmp_i;
+                var playerId = other.menuPos - 1;
+                var baseStat = player_get(playerId, STAT_id);
+                var stat = baseStat;
+                if(is_real(stat)) {
+                    stat = getStat(global.playerLevel, STAT_id, baseStat);
+                }
+                st[other.tmp_i] = stat;
             }
         }
     break;
     case "Party Swap":
-        for(tmp_i = 1;tmp_i < PLY_MAX;tmp_i += 1) {
+        for(tmp_i = 1; tmp_i < PLY_MAX; tmp_i++) {
+            if(tmp_i == PLY_NAME || tmp_i == PLY_LVL || tmp_i == PLY_XP) {
+                continue;
+            }
             with(obj_areaMenu_stats_desc) {
-                st[other.tmp_i] = player_get(other.menuPos - 1,other.tmp_i);
+                var STAT_id = other.tmp_i;
+                var playerId = other.menuPos - 1;
+                var baseStat = player_get(playerId, STAT_id);
+                var stat = baseStat;
+                if(is_real(stat)) {
+                    stat = getStat(global.playerLevel, STAT_id, baseStat);
+                }
+                st[other.tmp_i] = stat;
             }
         }
     break;
     case "Stats":
-        for(tmp_i = 1;tmp_i < PLY_MAX;tmp_i += 1) {
+        for(tmp_i = 1; tmp_i < PLY_MAX; tmp_i += 1) {
+            if(tmp_i == PLY_NAME || tmp_i == PLY_LVL || tmp_i == PLY_XP) {
+                continue;
+            }
             with(obj_areaMenu_stats_desc) {
-                st[other.tmp_i] = player_get(other.menuPos - 1,other.tmp_i);
+                var STAT_id = other.tmp_i;
+                var playerId = other.menuPos - 1;
+                var baseStat = player_get(playerId, STAT_id);
+                var stat = baseStat;
+                if(is_real(stat)) {
+                    stat = getStat(global.playerLevel, STAT_id, baseStat);
+                }
+                st[other.tmp_i] = stat;
             }
         }
     break;

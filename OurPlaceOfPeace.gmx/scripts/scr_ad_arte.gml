@@ -35,7 +35,6 @@ switch(skill[ARTE_NAME])
     break;
     case "Chill Wounds":
         v_chargeMax = skill[ARTE_WAIT];
-        v_uberMax = 30;
         
         if(v_timer <= skill[ARTE_WAIT]) //charging the cast
         {
@@ -65,7 +64,6 @@ switch(skill[ARTE_NAME])
     break;
     case "Restore":
         v_chargeMax = skill[ARTE_WAIT];
-        v_uberMax = 30;
         
         if(v_timer <= skill[ARTE_WAIT]) //charging the cast
         {

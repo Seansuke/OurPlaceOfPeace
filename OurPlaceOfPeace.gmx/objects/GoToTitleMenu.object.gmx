@@ -28,6 +28,7 @@
             <string>v_gfx = sprite_index;
 v_text = "Go To Title Screen";
 depth = -999;
+v_confirm = false;
 </string>
           </argument>
         </arguments>
@@ -50,7 +51,16 @@ depth = -999;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_restart();
+            <string>
+v_text = "Are you sure you want to go to the title screen?";
+if(v_confirm) {
+    room_set_persistent(room, false);
+    game_restart();
+}
+else {
+    v_confirm = true;
+}
+
 </string>
           </argument>
         </arguments>

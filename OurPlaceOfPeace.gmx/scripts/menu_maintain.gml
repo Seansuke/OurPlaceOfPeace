@@ -9,6 +9,7 @@ if(ctrl_press(BTN_MENU) == true || (subMenu == "Main" && (ctrl_press(BTN_GUARD) 
     with(obj_areaMenu_artes_desc){instance_destroy();}
     with(obj_areaMenu_stats_desc){instance_destroy();}
     ds_map_destroy(lastMenuPos);
+    instance_deactivate_all(self);
     exit;
 }
 

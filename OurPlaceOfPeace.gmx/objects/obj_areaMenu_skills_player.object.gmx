@@ -51,10 +51,9 @@ v_set = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(v_set != -1 &amp;&amp; v_text == "")
-{
-    v_text = name_get(v_set);
+            <string>if(v_set != -1 &amp;&amp; v_text == "") {
     v_gfx = face_get(v_set);
+    v_text = name_get(v_set);
 }
 </string>
           </argument>

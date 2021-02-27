@@ -1,8 +1,7 @@
 switch(subMenu)
 {
     case "Main":
-        switch(menuPos)
-        {
+        switch(menuPos) {
             case 1://artes
                 menu_call("Artes Player");
             break;
@@ -12,16 +11,14 @@ switch(subMenu)
             case 3://party
                 menu_call("Party");
             break;
-            case 4://stats
-                menu_call("Stats");
-            break;
-            case 5://player
-                menu_call("Player");
-            break;
-            case 6://settings
+            case 4://settings
                 menu_call("Settings");
             break;
-            case 7://battle
+            case 5://battle
+                if(room == rm_arena_outskirts) {
+                    exit;
+                }
+                room_set_persistent(room, true);
                 global.menu = false;
                 global.monFight[1] = round(random(MAX_MONSTERS));
                 global.monFight[2] = round(random(MAX_MONSTERS));
@@ -58,15 +55,13 @@ switch(subMenu)
         tmp_arte = menuSubset[1];
         tmp_slct = (menus[menuPos]).v_set;
         tmp_cost = arte_upgrade_cost(arteId,tmp_slct);
-        switch(tmp_slct)
-        {
-            case ARTE_DMG:tmp_add = 1;break;
-            case ARTE_POW:tmp_add = 1;break;
+        switch(tmp_slct) {
+            case ARTE_DMG:tmp_add = 0.02;break;
+            case ARTE_POW:tmp_add = 0.02;break;
             case ARTE_WAIT:tmp_add = -1;break;
             case ARTE_COST:tmp_add = -10;break;
         }
-        if(arte_get(tmp_arte,ARTE_USES) >= tmp_cost && tmp_cost != -1)
-        {
+        if(arte_get(tmp_arte,ARTE_USES) >= tmp_cost && tmp_cost != -1) {
             global.arte[tmp_arte,ARTE_USES] -= tmp_cost;
             global.arte[tmp_arte,tmp_slct] += tmp_add;
             global.arte[tmp_arte,ARTE_POINTS] += 10;
@@ -84,10 +79,12 @@ switch(subMenu)
         menu_call("Party");
     break;
     case "Player":
-        if(global.pty[menuPos,PTY_HMN] == "CPU")
-        {global.pty[menuPos,PTY_HMN] = "Human"}
-        else
-        {global.pty[menuPos,PTY_HMN] = "CPU"}
+        if(global.pty[menuPos,PTY_HMN] == "CPU") {
+            global.pty[menuPos,PTY_HMN] = "Human";
+        }
+        else {
+            global.pty[menuPos,PTY_HMN] = "CPU"
+        }
         menu_call("Player");
     break;
     case "Settings":

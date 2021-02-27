@@ -1,4 +1,16 @@
 
+if(global.menu == true && global.menu_plyr == plyr)  //draw menu hand
+{
+    depth = -2000;
+    draw_sprite(spr_hand,-1,(menus[menuPos]).x,(menus[menuPos]).y);
+    draw_bold_text((menus[menuPos]).x - 8,(menus[menuPos]).y - 8,"P" + str(plyr),c_red,c_black);
+}
+
+
+if(global.menu) {
+    exit;
+}
+
 //draw player offscreen
 if(party_get(plyr,PTY_HMN) == "Human")
 {
@@ -29,20 +41,13 @@ draw_sprite_ext(gfx[v_gfx],v_img,x,y,v_dir,1,0,v_color,true);
 if(v_act == "guardian")  
     {draw_sprite_ext(spr_bubble,v_img,x,y - 30,1.5,1.5,0,c_aqua,0.6);}
 
-if(global.menu == true && global.menu_plyr == plyr)  //draw menu hand
-{
-    depth = -2000;
-    draw_sprite(spr_hand,-1,(menus[menuPos]).x,(menus[menuPos]).y);
-    draw_bold_text((menus[menuPos]).x - 8,(menus[menuPos]).y - 8,"P" + str(plyr),c_red,c_black);
-}
-
-if(v_chargeMax != 0 && v_act == "arte") //draw charge bar
+if(v_charge > 1) //draw charge bar
 {
     draw_rectangle_color(x - 30,y + 20, x + 30, y + 25, c_dkgray,c_gray,c_black,c_white, false);
     draw_rectangle_color(x - 30,y + 20, x - 30 + 60*(v_charge / v_chargeMax), y + 25, c_red,c_maroon,c_orange,c_yellow, false);
 }
 
-if(v_uberMax != 0 && v_act == "arte") //draw charge bar
+if(v_uber > 1) //draw charge bar
 {
     draw_rectangle_color(x - 30,y + 20, x - 30 + 60*(v_uber / v_uberMax), y + 25, c_green,c_teal,c_olive,c_teal, false);
 }

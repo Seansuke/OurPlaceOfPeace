@@ -11,7 +11,9 @@ if(global.menu == true)
 }
 else
 {
-    depth = - obj_camera.y;
+    with(obj_camera) {
+        other.depth = - y;
+    }
     if(init_menu() == true)
         {global.menu_plyr = plyr;exit;}
 }
@@ -27,12 +29,10 @@ if(party_get(plyr,PTY_HMN) == "CPU")
     ai_maintain();
 }
 
+// Only gain SP during certain actions.
 if(v_act == "idle" || v_act == "run" || v_act == "fall" || v_act == "jump" || v_act == "guard" || v_act == "guardian")
 {
-    if(SP < MSP)
-        {SP += 5;}
-    else
-        {SP = MSP;}
+    SP = min(SP + SP_GAINED_PER_FRAME, stat[PLY_SP]);
 }
 
 //determine action

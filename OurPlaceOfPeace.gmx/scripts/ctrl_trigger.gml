@@ -2,15 +2,15 @@
 switch(global.ctrl[plyr,BTN_TYPE])
 {
     case "Keyboard":
-        if(keyboard_check_direct(global.ctrl[plyr,BTN_ACTION]) == true)
+        if(keyboard_check(global.ctrl[plyr,BTN_ACTION]) == true)
         {
             return BTN_ACTION;
         }
-        else if(keyboard_check_direct(global.ctrl[plyr,BTN_TARGET]) == true)
+        else if(keyboard_check(global.ctrl[plyr,BTN_TARGET]) == true)
         {
             return BTN_TARGET;
         }
-        else if(keyboard_check_direct(global.ctrl[plyr,BTN_MENU]) == true)
+        else if(keyboard_check(global.ctrl[plyr,BTN_MENU]) == true)
         {
             return BTN_MENU;
         }

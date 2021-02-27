@@ -9,7 +9,7 @@ for(i=0;i<ARTE_MAX;i+=1)
 
 if(SP < skill[ARTE_COST]){return false;}
 
-skill[ARTE_GFX] = gfx[GFX_MAX];
+v_gfx = skill[ARTE_USER_GFX];
 SP -= skill[ARTE_COST];
 v_img = 0;
 v_timer = 0;

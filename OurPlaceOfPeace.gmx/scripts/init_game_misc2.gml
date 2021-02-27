@@ -15,18 +15,19 @@ global.monFight[1] = MAX_MONSTERS;
 global.monFight[2] = MAX_MONSTERS;
 global.monFight[3] = MAX_MONSTERS;
 global.subimg = 0;
-cursor_sprite = spr_hand;
+cursor_sprite = IwikSprite;
 global.width_view = 640;
 global.height_view = 480;
 global.horizontal_border = 320;
 global.vertical_border = 240;
+global.audioLevel = 1;
 
 if(os_browser == browser_not_a_browser) {
     TouchControlsOff();
 }
 else {
-    global.width_view = browser_width * 1.5;
-    global.height_view = browser_height * 1.5;
+    global.width_view = browser_width * 1.4;
+    global.height_view = browser_height * 1.4;
     global.horizontal_border = global.width_view / 2;
     global.vertical_border = global.height_view / 2;
     TouchControlsOn();

@@ -21,8 +21,6 @@ switch(subMenu)
         menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_artes); i++;
         menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_skills); i++;
         menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_party); i++;
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_stats); i++;
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_player); i++;
         menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,AreaMenuOptions); i++;
         menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_battle);i++;
         i--; menus[0] = i;
@@ -164,6 +162,12 @@ switch(subMenu)
         tmp_player = party_get(menuSubset[0],PTY_PLAYER);
         with(obj_areaMenu_artes_desc) {
             visible = true;
+            v_gfx = spr_menu_artes;
+            v_dmg = 0;
+            v_pow = 0;
+            v_wait = 0;
+            v_cost = 0;
+            v_uses = 0;
             v_desc = "Switch " + str(name_get(other.tmp_player)) + " with whom?";;
         }
         with(obj_areaMenu_stats_desc) {
@@ -187,12 +191,16 @@ switch(subMenu)
         }
     break;
     case "Settings":
-        // TODO - execute the action from the menu instead.  Revamp this.
-        // TODO - Make menu page scrolling happen when some menu items are offscreen.
         i = 1;
         menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,CameraZoomCycle); 
         i++;
         menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,obj_areaMenu_monster_level); 
+        i++;
+        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,obj_areaMenu_player);
+        i++;
+        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,PlayerLevelMenu); 
+        i++;
+        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,MusicLevelMenu); 
         i++;
         menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,SaveGameMenu); 
         i++;
