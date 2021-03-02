@@ -25,10 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// init
-// v_plyr = current player number;
+            <string>/// init
 
-v_type = "Keyboard";
+v_type = BTN_TYPE_KEYBOARD;
 v_text[0] = "";
 v_text[1] = "";
 v_text[2] = "";
@@ -41,6 +40,10 @@ for(i=1;i&lt;BTN_MAX;i+=1)
     ctrls[i] = 0;
 }
 alarm[1] = 3;
+types[BTN_TYPE_NONE] = "NONE";
+types[BTN_TYPE_KEYBOARD] = "Keyboard";
+types[BTN_TYPE_GAMEPAD] = "Gamepad";
+
 </string>
           </argument>
         </arguments>
@@ -64,7 +67,7 @@ alarm[1] = 3;
           <argument>
             <kind>1</kind>
             <string>v_text[0] = "Set";
-v_text[1] = "Player " + str(v_plyr);
+v_text[1] = "Player " + str(combatId+1);
 v_text[2] = "Controls";
 </string>
           </argument>
@@ -164,7 +167,7 @@ v_text[2] = "KEY";
 /* Set Key */
 switch(v_type)
 {
-    case "Keyboard":
+    case BTN_TYPE_KEYBOARD:
         ctrls[v_currentKey] = keyboard_key;
         
         /* Check if keyboard key is even pressed */
@@ -178,7 +181,7 @@ switch(v_type)
             }
         }
     break;
-    case "Gamepad1":
+    case BTN_TYPE_GAMEPAD:
         /* Cycle through joystick buttons to see if any are pressed */
         for(i = 1;i &lt;= joystick_buttons(1);i += 1)
         {
@@ -196,36 +199,18 @@ switch(v_type)
             }
         }
     break;
-    case "Gamepad2":
-        /* Cycle through joystick buttons to see if any are pressed */
-        for(i = 1;i &lt; joystick_buttons(2) + 1;i += 1)
-        {
-            if(joystick_check_button(2,i) == true &amp;&amp; alarm[0] &lt; 0)
-            {
-                /* if a later key, ensure the key is not a copy of the previous key */
-                if(v_currentKey == BTN_ATTACK || (v_currentKey != BTN_ATTACK &amp;&amp; i != ctrls[v_currentKey - 1]))
-                {
-                    ctrls[v_currentKey] = i;
-                    v_currentKey += 1;
-                    v_timer = 5;
-                    i = joystick_buttons(2);
-                    alarm[0] = 3;
-                }
-            }
-        }
-    break;
 }
 /* if keys are completed, finish up */
 if(v_currentKey &gt;= BTN_MAX)
 {
     /* Set the newly placed controls into the global array */
-    ctrl_new(v_plyr,v_type,
+    ctrl_new(combatId,v_type,
         ctrls[BTN_UP],ctrls[BTN_RIGHT],ctrls[BTN_DOWN],ctrls[BTN_LEFT],
         ctrls[BTN_ATTACK],ctrls[BTN_GUARD],ctrls[BTN_ARTES1],ctrls[BTN_ARTES2],
         ctrls[BTN_TARGET],ctrls[BTN_ACTION],ctrls[BTN_MENU]);   
     /* Reset data */
     v_type = "";
-    v_text[0] = "PLAYER " + str(v_plyr);
+    v_text[0] = "PLAYER " + str(combatId);
     v_text[1] = "CONTROLS";
     v_text[2] = "SET!";
     v_currentKey = 0;
@@ -258,15 +243,7 @@ if(v_currentKey &gt;= BTN_MAX)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>types[0] = "Keyboard";
-types[1] = "Gamepad1";
-types[2] = "Gamepad2";
-
-for(i=0;i &lt; 3;i+=1) {
-    if(types[i] == v_type) {
-        v_type = types[i + 1 mod 3];
-    }
-}
+            <string>v_type = types[v_type + 1 mod 3];
 </string>
           </argument>
         </arguments>
@@ -293,7 +270,11 @@ for(i=0;i &lt; 3;i+=1) {
 v_on = true;
 
 /* Begin setting keys, different for gamepad than for keyboard*/
-if(v_type == "Keyboard")
+if(v_type == BTN_TYPE_NONE)
+{
+    exit;
+}
+if(v_type == BTN_TYPE_KEYBOARD)
 {
     v_currentKey = BTN_UP;
 }
@@ -326,12 +307,13 @@ v_timer = 5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(ctrl_get(v_plyr,BTN_TYPE))
+            <string>if(combatId &lt; 0) exit;
+switch(ctrl_get(combatId,BTN_TYPE))
 {
-    case "n/a":
+    case BTN_TYPE_NONE:
         draw_sprite(spr_icon,0,x,y);
     break;
-    case "Keyboard":
+    case BTN_TYPE_KEYBOARD:
         draw_sprite(spr_key,0,x,y);
     break;
     default:

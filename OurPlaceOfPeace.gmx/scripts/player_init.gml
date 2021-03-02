@@ -11,8 +11,8 @@ bonusATT = 0;
 bonusDEF = 0;
 bonusSPD = 0;
 rollHPSpeed = 0.5;
-plyr = 1;
-playerNum = Sean;
+playerId = Sean;
+comabtId = 0
 v_gfx = GFX_IDLE;v_gfx2 = spr_icon;v_img = 0;
 v_act = "idle";
 v_dir = DIR_RIGHT;

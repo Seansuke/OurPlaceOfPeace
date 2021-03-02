@@ -79,12 +79,20 @@ switch(skill[ARTE_NAME])
         if(v_timer > skill[ARTE_WAIT] + 3*4)
             {v_act = "idle";}
     break;
+    case "Friendly Fowl":
+        
+        if(floor(v_timer) == skill[ARTE_WAIT] + 1)
+            {scr_player_arte_create();} //create attack
+
+        if(v_timer > skill[ARTE_WAIT] + 3*4)
+            {v_act = "idle";}
+    break;
     case "Falling Tree":
         if(floor(v_timer) < skill[ARTE_WAIT] + 1)
         {
             gfxId = GFX_RUN;
             v_gfx2 = gfx[gfxId];
-            if(place_clear(x,y - 1.5 * getMoveSpeed()) == true){y -= 1.5 * SPD};
+            if(place_clear(x,y - 1.5 * getMoveSpeed()) == true){y -= 1.5 * getMoveSpeed()};
         } //dash up
 
         if(floor(v_timer) == skill[ARTE_WAIT] + 1)

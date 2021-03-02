@@ -24,5 +24,6 @@ var effectiveDamageFromDefense = damageFromDefense * 0.75;
 // We add the 75% of this damage to the 25% of the max damage we already have.
 var someDamage = minDamage + effectiveDamageFromDefense;
 someDamage = min(someDamage, maxDamage);
+someDamage = max(someDamage, 1);
 
 return floor(someDamage);

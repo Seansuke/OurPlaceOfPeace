@@ -3,15 +3,18 @@ draw_set_color(c_black);
 draw_rectangle(view_xview[0], view_yview[0] + view_hview[0] - 70, 
     view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], false);
 
-var playerCount = 3;
 var guiGap = 8;
-var maxPlayerGuiWidth = view_wview[0] / playerCount;
+var maxPlayerGuiWidth = view_wview[0] / PTY_AMNT;
 var maxPlayerHpGuiWidth = maxPlayerGuiWidth - 34;
 var hpBarHeight = 10;
-for(i = 1;i <= playerCount;i += 1) {
-    v_x = view_xview[0] + guiGap + (i-1) * maxPlayerGuiWidth;
-    v_y = view_yview[0] + view_hview[0] - 64;
+
+for(i = 0;i < PTY_AMNT;i += 1) {
     me = ids[i];
+    if(!instance_exists(me)) {
+        continue;
+    }
+    v_x = view_xview[0] + guiGap + i * maxPlayerGuiWidth;
+    v_y = view_yview[0] + view_hview[0] - 64;
 
     //draw face
     draw_sprite((me).gfx[GFX_FACE],-1,v_x + 1,v_y + 1);
@@ -19,6 +22,15 @@ for(i = 1;i <= playerCount;i += 1) {
     draw_sprite_stretched(spr_hp_over,-1, v_x + 34,v_y + 9, (me).rollHP / (me).stat[PLY_HP] * maxPlayerHpGuiWidth,hpBarHeight);
     draw_sprite_stretched(spr_hp_top,-1, v_x + 34,v_y + 9, (me).HP / (me).stat[PLY_HP] * maxPlayerHpGuiWidth,hpBarHeight);
 
+    // Draw player cursor
+    if((ids[i]).v_ally_target >= 0 && (ids[i]).v_ally_target < PTY_AMNT)
+    {
+        v_target = (ids[i]).v_ally_target;
+       v_targetX = view_xview[0] + guiGap + v_target * maxPlayerGuiWidth;
+        draw_sprite(spr_hand, -1, v_targetX, v_y);
+        draw_bold_text(v_targetX, v_y,
+            "P" + str(i),c_red,c_black);
+    }
     //draw HP text
     draw_bold_text(v_x + 40,v_y + 2,string(floor((me).HP)) + "/" + string(floor((me).stat[PLY_HP])),c_white,c_black);
     

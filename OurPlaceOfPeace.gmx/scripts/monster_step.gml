@@ -1,6 +1,7 @@
 if(global.menu == true)
     {exit;}
-
+sprite_index = gfx[v_gfx];
+image_index = v_img;
 previousX = x;
 previousY = y;
 

@@ -2,8 +2,8 @@ switch(subMenu)
 {
     case "Artes Slot":
         tmp_pty = menuSubset[0];//current chosen PARTY member
-        tmp_pos = menuPos;//menu positions from 1~8
-        tmp_pos += PTY_A1_IDLE - 1;//current selected PARTY ARTES slot, -1 since menu pos from 1~8 and not 0~7
+        tmp_pos = menuPos;//menu positions from 0-7
+        tmp_pos += PTY_A1_IDLE;//current selected PARTY ARTES slot, -1 since menu pos from 0~7
         if(party_get(tmp_pty,tmp_pos) != "" && party_get(tmp_pty,tmp_pos) != "error")
         {
             tmp_arte = arte_find(party_get(tmp_pty,tmp_pos));
@@ -81,17 +81,17 @@ switch(subMenu)
             desc[3,ARTE_EFFECT_BACK] = desc[3,ARTE_EFFECT_NONE];
             desc[3,ARTE_EFFECT_LIFT] = desc[3,ARTE_EFFECT_NONE];
             
-            v_desc = desc[other.menuPos - 1, other.arteEffect]
+            v_desc = desc[other.menuPos, other.arteEffect]
         }
     break;
     case "Party":
         for(tmp_i = 1; tmp_i < PLY_MAX; tmp_i += 1) {
-            if(tmp_i == PLY_NAME || tmp_i == PLY_LVL || tmp_i == PLY_XP) {
+            if(tmp_i == PLY_NAME) {
                 continue;
             }
             with(obj_areaMenu_stats_desc) {
                 var STAT_id = other.tmp_i;
-                var playerId = other.menuPos - 1;
+                var playerId = other.menuPos;
                 var baseStat = player_get(playerId, STAT_id);
                 var stat = baseStat;
                 if(is_real(stat)) {
@@ -103,12 +103,12 @@ switch(subMenu)
     break;
     case "Party Swap":
         for(tmp_i = 1; tmp_i < PLY_MAX; tmp_i++) {
-            if(tmp_i == PLY_NAME || tmp_i == PLY_LVL || tmp_i == PLY_XP) {
+            if(tmp_i == PLY_NAME ) {
                 continue;
             }
             with(obj_areaMenu_stats_desc) {
                 var STAT_id = other.tmp_i;
-                var playerId = other.menuPos - 1;
+                var playerId = other.menuPos;
                 var baseStat = player_get(playerId, STAT_id);
                 var stat = baseStat;
                 if(is_real(stat)) {
@@ -120,12 +120,12 @@ switch(subMenu)
     break;
     case "Stats":
         for(tmp_i = 1; tmp_i < PLY_MAX; tmp_i += 1) {
-            if(tmp_i == PLY_NAME || tmp_i == PLY_LVL || tmp_i == PLY_XP) {
+            if(tmp_i == PLY_NAME) {
                 continue;
             }
             with(obj_areaMenu_stats_desc) {
                 var STAT_id = other.tmp_i;
-                var playerId = other.menuPos - 1;
+                var playerId = other.menuPos;
                 var baseStat = player_get(playerId, STAT_id);
                 var stat = baseStat;
                 if(is_real(stat)) {
@@ -138,7 +138,7 @@ switch(subMenu)
 }
 
 // Scroll menu items
-var previousVisibleMenuPosition = max(menuPos - 1, 1);
+var previousVisibleMenuPosition = max(menuPos - 1, 0);
 var previousMenuItemId = menus[previousVisibleMenuPosition];
 var previousMenuY = (previousMenuItemId).y;
 var menuHeight = 32;
@@ -150,7 +150,10 @@ if(previousMenuTopY < desiredMenuY) {
         y += other.menuYOffset;
     }
 }
-var nextVisibleMenuPosition = min(menuPos + 1, menus[0]);
+var nextVisibleMenuPosition = min(menuPos + 1, maxMenu - 1);
+if(nextVisibleMenuPosition) < 0 {
+    exit;
+}
 var nextMenuItemId = menus[nextVisibleMenuPosition];
 var nextMenuY = (nextMenuItemId).y;
 var nextMenuBottomY = nextMenuY + abs(menuHeight);

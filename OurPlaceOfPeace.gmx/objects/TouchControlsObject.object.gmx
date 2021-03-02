@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>// init
-// v_plyr = current player number;
 
 v_text[0] = "Toggle";
 v_text[1] = "Touch";

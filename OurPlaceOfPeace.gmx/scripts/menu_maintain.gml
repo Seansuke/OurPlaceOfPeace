@@ -10,6 +10,7 @@ if(ctrl_press(BTN_MENU) == true || (subMenu == "Main" && (ctrl_press(BTN_GUARD) 
     with(obj_areaMenu_stats_desc){instance_destroy();}
     ds_map_destroy(lastMenuPos);
     instance_deactivate_all(self);
+    ctrl_unpress(BTN_MENU);
     exit;
 }
 

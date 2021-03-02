@@ -2,24 +2,25 @@ switch(subMenu)
 {
     case "Main":
         switch(menuPos) {
-            case 1://artes
+            case 0://artes
                 menu_call("Artes Player");
             break;
-            case 2://skill
+            case 1://skill
                 menu_call("Skill Player");
             break;
-            case 3://party
+            case 2://party
                 menu_call("Party");
             break;
-            case 4://settings
+            case 3://settings
                 menu_call("Settings");
             break;
-            case 5://battle
+            case 4://battle
                 if(room == rm_arena_outskirts) {
                     exit;
                 }
                 room_set_persistent(room, true);
                 global.menu = false;
+                global.monFight[0] = round(random(MAX_MONSTERS));
                 global.monFight[1] = round(random(MAX_MONSTERS));
                 global.monFight[2] = round(random(MAX_MONSTERS));
                 global.monFight[3] = round(random(MAX_MONSTERS));
@@ -31,16 +32,16 @@ switch(subMenu)
         }
     break;
     case "Artes Player":
-        menuSubset[0] = menuPos;//TECHINCALLY party player selected for slot menu 1~3
+        menuSubset[0] = menuPos;//TECHINCALLY party player selected for slot menu
         menu_call("Artes Slot");
     break;
     case "Artes Slot":
-        menuSubset[1] = menuPos;//TECHINCALLY party slot position 1~8
+        menuSubset[1] = menuPos;//TECHINCALLY party slot position
         menu_call("Artes Slot Select");
     break;
     case "Artes Slot Select":
         tmp_arte = arte_get((menus[menuPos]).v_set,ARTE_NAME);
-        party_set(menuSubset[0],menuSubset[1] + PTY_A1_IDLE - 1,tmp_arte);//change party member's arte
+        party_set(menuSubset[0],menuSubset[1] + PTY_A1_IDLE,tmp_arte);//change party member's arte
         menu_call("Artes Slot");
     break;
     case "Skill Player":
@@ -70,22 +71,14 @@ switch(subMenu)
     break;
     case "Party":
         menuSubset[0] = menuPos;//certain party member selected
+        combatPartyIdSelected = menuPos;
         menu_call("Party Swap");
     break;
     case "Party Swap":
         if(instance_exists(obj_camera) == true) {obj_camera.fixPlayers = true;}
         menuSubset[1] = menuPos;//certain party member selected
-        party_swap(menuSubset[0],menuSubset[1]);
+        combatParty_swap(combatPartyIdSelected, menuPos);
         menu_call("Party");
-    break;
-    case "Player":
-        if(global.pty[menuPos,PTY_HMN] == "CPU") {
-            global.pty[menuPos,PTY_HMN] = "Human";
-        }
-        else {
-            global.pty[menuPos,PTY_HMN] = "CPU"
-        }
-        menu_call("Player");
     break;
     case "Settings":
         with(menus[menuPos]) {

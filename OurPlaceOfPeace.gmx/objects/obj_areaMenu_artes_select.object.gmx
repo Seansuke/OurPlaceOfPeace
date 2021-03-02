@@ -29,7 +29,7 @@
 v_text = "";
 depth = -999;
 v_set = -1;
-v_plyr = -1;
+combatId = -1;
 v_img = 0;
 </string>
           </argument>

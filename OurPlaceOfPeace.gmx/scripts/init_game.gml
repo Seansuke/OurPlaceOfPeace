@@ -59,183 +59,235 @@ arte_init();
 
 //======================Sean======================
 //melee
-arte_new(Sean,"Smash",spr_sean_att_up,GFX_ATTACK_UP,    
+arteId = arte_new(Sean,"Smash",spr_sean_att_up,GFX_ATTACK_UP,    
     1.0,3.0,   6,100,  1,
     "Hold [ARTE] to charge attack to push foes back.",
-    ARTE_EFFECT_BACK);
-arte_new(Sean,"Wall",spr_wall,GFX_DEF,                  
+    ARTE_EFFECT_BACK, TYPE_PHYSICAL, 3*5);
+arte_set(arteId, ARTE_VISIBLE, false);
+
+arteId = arte_new(Sean,"Wall",spr_wall,GFX_DEF,
     0.4,2.0,    1,100,  3,
     "Foes that melee will be sent flying.",
-    ARTE_EFFECT_BACK);
-arte_new(Sean,"Divide",spr_divide,GFX_ATTACK_AIR,                     
+    ARTE_EFFECT_BACK, TYPE_PHYSICAL, 3*7);
+arteId = arte_new(Sean,"Divide",spr_divide,GFX_ATTACK_AIR,                     
     1.5,1.5,  9,300,  5,
     "Hold [ARTE] to charge attack to push foes back.",
-    ARTE_EFFECT_NONE);
+    ARTE_EFFECT_NONE, TYPE_SELF, 3*4);
+    
 //range
-arte_new(Sean,"Wave",spr_wave,GFX_ATTACK_UP,          
-    0.5,1.0,  6,50,   1,
+arteId = arte_new(Sean,"Wave",spr_wave,GFX_ATTACK_UP,          
+    0.5,2.0,  6,50,   1,
     "Produce a wave of pressure that pushes back foes.",
-    ARTE_EFFECT_BACK);
-arte_new(Sean,"Uprise",spr_uprise,GFX_ATTACK_UP,       
+    ARTE_EFFECT_BACK, TYPE_SHOT, 3*5);
+arte_set(arteId, ARTE_MOVE_SPEED, 20);
+
+arteId = arte_new(Sean,"Uprise",spr_uprise,GFX_ATTACK_UP,       
     0.7,1.5,  6,200,  2,
-    "Force foes upward at a distance.",ARTE_EFFECT_LIFT);
+    "Force foes upward at a distance.",
+    ARTE_EFFECT_LIFT, TYPE_PLACE, 3*6);
+arte_set(arteId, ARTE_MOVE_SPEED, 60);
 
 //======================AD======================
 //heal
-arte_new(AD,"Medic",spr_medic,GFX_CAST,          
+arteId = arte_new(AD,"Medic",spr_medic,GFX_CAST,          
     0.2,1.0,  16,100, 1,
     "Hold [ARTE] to regenerate an ally's HP.",
-    ARTE_EFFECT_HEAL);
-arte_new(AD,"Restore",spr_restore,GFX_CAST,      
+    ARTE_EFFECT_HEAL, TYPE_ALLY_TARGET, 3*6);
+arteId = arte_new(AD,"Restore",spr_restore,GFX_CAST,      
     1.0,5.0, 48,200, 5,
     "Give an ally a burst of HP, hold [ARTE] to increase effect.",
-    ARTE_EFFECT_HEAL);
+    ARTE_EFFECT_HEAL, TYPE_ALLY_TARGET, 3*16);
 //buff
-arte_new(AD,"Might",spr_might,GFX_CAST,          
+arteId = arte_new(AD,"Might",spr_might,GFX_CAST,          
     1.0,2.0, 32,100, 3,
     "Ally will give more damage to foes.",
-    ARTE_EFFECT_ATT_BUFF);     
-arte_new(AD,"Endure",spr_endure,GFX_CAST,        
+    ARTE_EFFECT_ATT_BUFF, TYPE_ALLY_TARGET, 3*15);
+arteId = arte_new(AD,"Endure",spr_endure,GFX_CAST,        
     1.0,2.0, 32,100, 2,
     "Ally will recieve less damage from foes.",
-    ARTE_EFFECT_DEF_BUFF);
+    ARTE_EFFECT_DEF_BUFF, TYPE_ALLY_TARGET, 3*15);
 //offense
-arte_new(AD,"Holy Beam",spr_holy,GFX_CAST,       
+arteId = arte_new(AD,"Holy Beam",spr_holy,GFX_CAST,       
     3.0,3.0,  48,200, 1,
     "Blast foes with a condensation of holy energy.",
-    ARTE_EFFECT_NONE);
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*9);
 
 //======================Dan======================
 //knife
-arte_new(Dan,"Combat Knife",spr_dan_knife,GFX_CAST,      
+arteId = arte_new(Dan,"Combat Knife",spr_dan_knife,GFX_CAST,      
     1.2,1.2,  3,100,  1,
     "Quickly unleash a knife that pushes foes back.",
-    ARTE_EFFECT_NONE);
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*2);
+arte_set(arteId, ARTE_VISIBLE, false);
+
 //arrows
-arte_new(Dan,"Aimed Arrow",spr_arrow,GFX_ATTACK_SIDE,     
+arteId = arte_new(Dan,"Aimed Arrow",spr_arrow,GFX_ATTACK_SIDE,     
     0.5,0.1,    9,100,  1,
     "Fire an arrow diagonally.",
-    ARTE_EFFECT_NONE);
-arte_new(Dan,"Ice Arrow",spr_icearrow,GFX_ATTACK_SIDE,    
+    ARTE_EFFECT_NONE, TYPE_AIR_SHOT, 3*10);
+arte_set(arteId, ARTE_MOVE_SPEED, 15);
+
+arteId = arte_new(Dan,"Ice Arrow",spr_icearrow,GFX_ATTACK_SIDE,    
     0.4,0.1,    9,100,  2,
     "Fire a fast but weak arrow infused with ice.",
-    ARTE_EFFECT_NONE);
-arte_new(Dan,"Fire Arrow",spr_firearrow,GFX_ATTACK_SIDE,  
+    ARTE_EFFECT_NONE, TYPE_GRAVITY_SHOT, 3*10);
+arte_set(arteId, ARTE_MOVE_SPEED, 25);
+
+arteId = arte_new(Dan,"Fire Arrow",spr_firearrow,GFX_ATTACK_SIDE,  
     1.0,3.0,   9,100,  3,
     "Fire a slow but strong arrow infused with fire.",
-    ARTE_EFFECT_NONE);
+    ARTE_EFFECT_NONE, TYPE_GRAVITY_SHOT, 3*10);
+arte_set(arteId, ARTE_MOVE_SPEED, 10);
 
 //======================John======================
 //melee
-arte_new(John,"Incapacitate",spr_thrust,GFX_ATTACK_SIDE,  
+arteId = arte_new(John,"Incapacitate",spr_thrust,GFX_ATTACK_SIDE,  
     1.0,0.1,   3,200,  1,
     "Strike at such speed that stuns the opponent.",
-    ARTE_EFFECT_NONE);
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
 //range
-arte_new(John,"Jolt",spr_jolt,GFX_CAST,                   
+arteId = arte_new(John,"Jolt",spr_jolt,GFX_CAST,                   
     1.0,0.1,   9,100,  1,
+    "Fire a ball of lightning forward",
+    ARTE_EFFECT_NONE, TYPE_SHOT, 3*5);
+arte_set(arteId, ARTE_MOVE_SPEED, 20);
+
+arteId = arte_new(John,"Spark",SparkSprite,GFX_CAST,
+    2.0,0.1,  24,100,  2,
+    "Summon a live spark on the ground in front",
+    ARTE_EFFECT_NONE, TYPE_PLACE, 3*5);
+arte_set(arteId, ARTE_MOVE_SPEED, 64);
+
+arteId = arte_new(John,"Storm",StormSprite,GFX_CAST,
+    2.0,0.1,  32,200,  5,
     "Call lightning from the sky.",
-    ARTE_EFFECT_NONE);
+    ARTE_EFFECT_NONE, TYPE_PLACE, 3*5);
+arte_set(arteId, ARTE_MOVE_SPEED, 64);
 
 //======================Serena======================
 // movement
-arte_new(Serena,"Ocean's Whirlpool",spr_spin,GFX_ATTACK_AIR,            
+arteId = arte_new(Serena,"Ocean's Whirlpool",spr_spin,GFX_ATTACK_AIR,            
     1.0,0.2, 3,100, 1,
     "Anti-aerial spin like flowing water.",
-    ARTE_EFFECT_NONE);
-arte_new(Serena,"Wind's Pierce",spr_thrust,GFX_ATTACK_SIDE,             
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
+arteId = arte_new(Serena,"Wind's Pierce",spr_thrust,GFX_ATTACK_SIDE,             
     1.0,0.2, 3,100, 1,
     "Slide through foes like the wind.",
-    ARTE_EFFECT_NONE);
-arte_new(Serena,"Raging Hurricane",spr_hurricane,GFX_ATTACK_UP,             
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
+arteId = arte_new(Serena,"Raging Hurricane",spr_hurricane,GFX_ATTACK_UP,             
     1.0,0.2, 3,100, 2,
     "Tear through foes like a rising storm.",
-    ARTE_EFFECT_NONE);
-arte_new(Serena,"Retreating Flame",spr_flame,GFX_ATTACK_UP,             
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
+arteId = arte_new(Serena,"Retreating Flame",spr_flame,GFX_ATTACK_UP,             
     0.5,1.0, 3,100, 3,
     "Flicker from foes like a flame in the breeze.",
-    ARTE_EFFECT_NONE);
-arte_new(Serena,"Descending Waterfall",spr_waterfall,GFX_ATTACK_AIR,    
+    ARTE_EFFECT_NONE, TYPE_SELF, 3*5);
+arteId = arte_new(Serena,"Descending Waterfall",spr_waterfall,GFX_ATTACK_AIR,    
     1.0,0.2, 3*4,200, 5,
     "Rise above your foes and rush them like a falling river.",
-    ARTE_EFFECT_NONE);
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*8);
 
 //======================James======================
-// magic
-arte_new(James,"Petal Storm",spr_petal_storm,GFX_CAST, 
-    1.5,0.5,   3,300,  1,
-    "Spin flaming petals around for anti-air.",
-    ARTE_EFFECT_NONE);
-arte_new(James,"Petal Beam",spr_petal_beam,GFX_CAST,   
-    1.5,0.5,   3,300,  1,
-    "Beam out flaming petals.",
-    ARTE_EFFECT_NONE);
+// melee
+arteId = arte_new(James,"Rushing Reap",spr_spin,GFX_ATTACK_SIDE,             
+    1.0,0.2, 3,100, 3,
+    "Reap your opponents in one swing.",
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
 
+// magic
+arteId = arte_new(James,"Petal Beam",spr_petal_beam,GFX_CAST,   
+    1.5,0.5,   12,300,  1,
+    "Beam out flaming petals.",
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*9);
+arteId = arte_new(James,"Petal Storm",spr_petal_storm,GFX_CAST, 
+    1.5,0.5,   12,300,  5,
+    "Spin flaming petals around for anti-air.",
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*9);
+    
 //======================Taliko======================
-arte_new(Taliko,"Chill Wounds",ClearIceBlockSprite,GFX_CAST,           
+arteId = arte_new(Taliko,"Chill Wounds",ClearIceBlockSprite,GFX_CAST,           
     1.0,5.0,  32,200, 1,
     "Heal an ally with a small burst of HP.",
-    ARTE_EFFECT_HEAL); 
-arte_new(Taliko,"Frosted Defense",ClearIceWallSprite,GFX_CAST,        
+    ARTE_EFFECT_HEAL, TYPE_ALLY_TARGET, 3*16); 
+arteId = arte_new(Taliko,"Frosted Defense",ClearIceWallSprite,GFX_CAST,        
     1.0,2.0, 32,100, 1,
     "Ally will recieve less damage from foes.",
-    ARTE_EFFECT_DEF_BUFF);
+    ARTE_EFFECT_DEF_BUFF, TYPE_ALLY_TARGET, 3*15);
 
 //======================Noel======================
-arte_new(Noel,"Shove",NoelShoveSprite,GFX_CAST, 
+arteId = arte_new(Noel,"Shove",NoelShoveSprite,GFX_CAST, 
     1.5,2.0,  12,100, 1,
     "Push a foe far away.",
-    ARTE_EFFECT_BACK); 
-arte_new(Noel,"Tension",spr_might,GFX_DEF, 
+    ARTE_EFFECT_BACK, TYPE_PHYSICAL, 3); 
+arte_set(arteId, ARTE_VISIBLE, false);
+
+arteId = arte_new(Noel,"Tension",spr_might,GFX_DEF, 
     1.0,1.0, 32,100, 1,
     "Increase your attack power through tense combat.",
-    ARTE_EFFECT_ATT_BUFF);
+    ARTE_EFFECT_ATT_BUFF, TYPE_PHYSICAL, 3);
 
 //======================Alister======================
-arte_new(Alister,"Bullet Blaze",BulletSprite,GFX_CAST, 
+arteId = arte_new(Alister,"Bullet Blaze",BulletSprite,GFX_CAST, 
     0.1,0.0,  3,20, 1,
     "Fill your foes with lead.",
-    ARTE_EFFECT_BACK); 
-arte_new(Alister,"Cross Gun",BulletSprite,GFX_CAST, 
+    ARTE_EFFECT_BACK, TYPE_SHOT, 3*7); 
+arte_set(arteId, ARTE_MOVE_SPEED, 30);
+
+arteId = arte_new(Alister,"Cross Gun",BulletSprite,GFX_CAST, 
     0.1,0.0,  3,20, 1,
     "Fill foes with lead from both sides.",
-    ARTE_EFFECT_BACK);
+    ARTE_EFFECT_BACK, TYPE_SHOT, 3*7);
+arte_set(arteId, ARTE_MOVE_SPEED, 30);
+
 
 //======================Raka======================
-arte_new(Raka,"Rushing Leaves",ShortWindSprite,GFX_CAST,
-    0.3,1.0,  9,100, 1,
-    "Blow away your foes with the wind from your leaf fan.",ARTE_EFFECT_LIFT); 
-arte_new(Raka,"Falling Tree",spr_thrust,GFX_ATTACK_DOWN,        
+arteId = arte_new(Raka,"Rushing Leaves",ShortWindSprite,GFX_CAST,
+    0.5,1.5,  9,100, 1,
+    "Blow away your foes with the wind from your leaf fan.",
+    ARTE_EFFECT_LIFT, TYPE_SHOT, 3*7); 
+arteId = arte_new(Raka,"Falling Tree",spr_thrust,GFX_ATTACK_DOWN,        
     1.0,3.0,  9,200, 1,
     "Land a powerful strike on your foe from the sky.",
-    ARTE_EFFECT_BACK);
+    ARTE_EFFECT_BACK, TYPE_PHYSICAL, 3*5);
+    
+arteId = arte_new(Raka,"Friendly Fowl",EagleSprite,GFX_CAST,
+    0.7,2.0,  9,100, 2,
+    "Land a powerful strike on your foe from the sky.",
+    ARTE_EFFECT_OUT, TYPE_AIR_SHOT, 3*7);
+arte_set(arteId, ARTE_MOVE_SPEED, 15);
 
 //======================Chloe======================
-arte_new(Chloe,"Bullet Blaze",BulletSprite,GFX_CAST,           
+arteId = arte_new(Chloe,"Bullet Blaze",BulletSprite,GFX_CAST,           
     0.1,0.0,  9,20, 1,
     "Fill your foes with lead.",
-    ARTE_EFFECT_BACK); 
-arte_new(Chloe,"Cross Gun",BulletSprite,GFX_CAST,        
+    ARTE_EFFECT_BACK, TYPE_SHOT, 3*5); 
+arte_set(arteId, ARTE_MOVE_SPEED, 30);
+
+arteId = arte_new(Chloe,"Cross Gun",BulletSprite,GFX_CAST,        
     0.1,0.1,  9,20, 1,
     "Fill foes with lead from both sides.",
-    ARTE_EFFECT_BACK);
+    ARTE_EFFECT_BACK, TYPE_SHOT, 3*5);
+arte_set(arteId, ARTE_MOVE_SPEED, 30);
 
 //======================Monsters======================
-arte_new(MAX_PLAYERS,"Strike",spr_thrust,GFX_ATTACK,
+arteId = arte_new(MAX_PLAYERS,"Strike",spr_thrust,GFX_ATTACK,
     1.0,1.0,   6,100,  1,
     "",
-    ARTE_EFFECT_NONE);
+    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*2);
 
 #define init_game_controls
 
 //ctrl_new(num,"type". up,right,down,left, att,guard,arte1,arte2, target,action, menu);
-ctrl_new(1,"Keyboard", vk_up,vk_right,vk_down,vk_left, 
+ctrl_new(0, BTN_TYPE_KEYBOARD, vk_up,vk_right,vk_down,vk_left, 
     ord('Z'),ord('X'),ord('A'),ord('S'), 
     ord('W'),ord('Q'), ord('C'));
-ctrl_new(2,"Keyboard", ord('9'),ord('0'),ord('9'),ord('0'), 
+ctrl_new(1,BTN_TYPE_NONE, ord('9'),ord('0'),ord('9'),ord('0'), 
     ord('9'),ord('0'),ord('9'),ord('0'), 
     ord('9'),ord('0'), ord('9'));
-ctrl_new(3,"Keyboard", ord('9'),ord('0'),ord('9'),ord('0'), 
+ctrl_new(2,BTN_TYPE_NONE, ord('9'),ord('0'),ord('9'),ord('0'), 
+    ord('9'),ord('0'),ord('9'),ord('0'), 
+    ord('9'),ord('0'), ord('9'));
+ctrl_new(3,BTN_TYPE_NONE, ord('9'),ord('0'),ord('9'),ord('0'), 
     ord('9'),ord('0'),ord('9'),ord('0'), 
     ord('9'),ord('0'), ord('9'));
 
@@ -257,19 +309,28 @@ player_new(Alister,"Alister", 15, 5,  15, 5,  15,  10,   8,    6);
 player_new(Raka,  "Raka",     11,11,  11,11,  11,  11,  11,    9);
 player_new(Chloe, "Chloe",    12,15,  13, 5,   5,  12,  12,   12);
 
+party_set_all(Sean,   getLevel1HpStat(Sean),   "Wave","","","", "Smash","","","");
+party_set_all(AD,     getLevel1HpStat(AD),     "Medic","","","", "Holy Beam","","","");
+party_set_all(Dan,    getLevel1HpStat(Dan),    "Aimed Arrow","","","", "Combat Knife","","","");
+party_set_all(John,   getLevel1HpStat(John),   "Incapacitate","","", "", "Jolt", "", "", "");
+party_set_all(Serena, getLevel1HpStat(Serena), "Ocean's Whirlpool", "", "", "", "Wind's Pierce", "", "", "");
+party_set_all(James,  getLevel1HpStat(James),  "Petal Storm", "", "", "", "Petal Beam", "", "", "");
+party_set_all(Taliko, getLevel1HpStat(Taliko), "Chill Wounds", "", "", "", "Frosted Defense", "", "", "");
+party_set_all(Noel,   getLevel1HpStat(Noel),   "Shove", "", "", "", "Tension", "", "", "");
+party_set_all(Alister,getLevel1HpStat(Alister),"Bullet Blaze", "", "", "", "Cross Gun", "", "", "");
+party_set_all(Raka,   getLevel1HpStat(Raka),   "Rushing Leaves", "", "", "", "Falling Tree", "", "", "");
+party_set_all(Chloe,  getLevel1HpStat(Chloe),  "Bullet Blaze", "", "", "", "Cross Gun", "", "", "");
 
-// party_set(partyId, isHuman, currentHp, playerId, arteName,arteName,arteName,arteName, arteName,arteName,arteName,arteName);
-party_set_all(1, "Human",getLevel1HpStat(Sean),Sean,  "Wave", "", "", "", "Smash", "", "", "");
-party_set_all(2, "CPU",  getLevel1HpStat(AD),AD,    "Medic", "", "", "", "Holy Beam", "", "", "");
-party_set_all(3, "CPU",  getLevel1HpStat(Dan),Dan,   "Aimed Arrow", "", "", "", "Combat Knife", "", "", "");
-party_set_all(4, "CPU",  getLevel1HpStat(John),John,  "Incapacitate", "", "", "", "Jolt", "", "", "");
-party_set_all(5, "CPU",  getLevel1HpStat(Serena),Serena,"Ocean's Whirlpool", "", "", "", "Wind's Pierce", "", "", "");
-party_set_all(6, "CPU",  getLevel1HpStat(James),James, "Petal Storm", "", "", "", "Petal Beam", "", "", "");
-party_set_all(7, "CPU",  getLevel1HpStat(Taliko),Taliko,"Chill Wounds", "", "", "", "Frosted Defense", "", "", "");
-party_set_all(8, "CPU",  getLevel1HpStat(Noel),Noel,  "Shove", "", "", "", "Tension", "", "", "");
-party_set_all(9, "CPU",  getLevel1HpStat(Alister),Alister,"Bullet Blaze", "", "", "", "Cross Gun", "", "", "");
-party_set_all(10,"CPU",  getLevel1HpStat(Raka),Raka,  "Rushing Leaves", "", "", "", "Falling Tree", "", "", "");
-party_set_all(11,"CPU",  getLevel1HpStat(Chloe),Chloe, "Bullet Blaze", "", "", "", "Cross Gun", "", "", "");
+for(var i = 0; i < MAX_PLAYERS; i++) {
+    global.combatParty[CMBT_RESERVE, i] = i;
+    if(i < PTY_AMNT) {
+        global.combatParty[CMBT_RESERVE, i] = -1;
+    }
+}
+
+for(var i = 0; i < PTY_AMNT; i++) {
+    global.combatParty[CMBT_PARTY1, i] = i;
+}
 
 
 #define init_game_misc
@@ -285,7 +346,7 @@ global.areaPlayerY = 240;
 global.currentMap = rm_area_outskirts;
 global.marker = -1;
 global.monsterLevel = 1;
-global.menu_plyr = -1;
+global.menu_combatId = -1;
 global.monFight[1] = MAX_MONSTERS;
 global.monFight[2] = MAX_MONSTERS;
 global.monFight[3] = MAX_MONSTERS;
@@ -332,4 +393,3 @@ set_monster_stats(Knight, "Knight", 11,8, 10,7, 12, 12,7, 12);
 
 set_simple_monster_gfx(Slime, SlimeWalkSprite, SlimeAttackSprite);
 set_monster_stats(Slime, "Slime", 5,5, 5,5, 5, 15,5, 6);
-

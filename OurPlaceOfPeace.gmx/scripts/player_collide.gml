@@ -38,6 +38,16 @@ if(other.effect == ARTE_EFFECT_DEF_BUFF)
     exit;
 }
 
+if(other.effect == ARTE_EFFECT_SPD_BUFF)
+{
+    if(other.v_team == v_team)
+    {
+        bonusSPD += min(other.attack, 3);
+        new_dmg(other.id,other.v_timer[0] - other.v_timer[1]);
+    }
+    exit;
+}
+
 if(v_team == other.v_team)
     {exit;}
 

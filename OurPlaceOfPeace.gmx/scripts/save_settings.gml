@@ -21,11 +21,12 @@ else {
     ds_map_add(saveDataMap, "playerLevel", global.playerLevel);
     ds_map_add(saveDataMap, "maxPlayerLevel", global.maxPlayerLevel);
     ds_map_add(saveDataMap, "experience", global.experience);
+    ds_map_add(saveDataMap, "combatParty", global.combatParty);
         
     ds_map_add(saveDataMap, "pty", global.pty);
     ds_map_add(saveDataMap, "arte", global.arte);
     ds_map_add(saveDataMap, "ctrl", global.ctrl);
-    
+
     save_web_file(json_encode(saveDataMap));
     ds_map_destroy(saveDataMap);
 }

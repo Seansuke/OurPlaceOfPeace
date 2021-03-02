@@ -3,7 +3,7 @@ target = choose(obj_camera.mon[1], obj_camera.mon[2], obj_camera.mon[3])
 if(target != -1)
 {
     //closer to target if a fighter, farther if not
-    if(playerNum == AD || playerNum == Dan || playerNum == Taliko)
+    if(playerId == AD || playerId == Dan || playerId == Taliko)
     {    
         if(abs(x - target.x) < 200)
         {
@@ -32,10 +32,10 @@ if(target != -1)
     }
     
     var attackRandomly = true;
-    var isHealer = playerNum == AD || playerNum == Taliko;
+    var isHealer = playerId == AD || playerId == Taliko;
     if(isHealer)
     {
-        if(playerNum == AD) {
+        if(playerId == AD) {
             v_arteNum = arte_find("Restore");
         }
         else {
@@ -46,23 +46,24 @@ if(target != -1)
         }
         
         // Special logic for the healer.
-        var p1HpRatio = (obj_camera.ids[1]).rollHP / (obj_camera.ids[1]).stat[PLY_HP];
-        var p2HpRatio = (obj_camera.ids[2]).rollHP / (obj_camera.ids[2]).stat[PLY_HP];
-        var p3HpRatio = (obj_camera.ids[3]).rollHP / (obj_camera.ids[3]).stat[PLY_HP];
-        if(SP >= skill[ARTE_COST] && 
-            (p1HpRatio < 0.8 || p2HpRatio < 0.8 || p3HpRatio < 0.8))
-        {
+        var v_target = -1;
+        var v_targetHpRatio = 1;
+        for(var targetCombatId = 0; targetCombatId < PTY_AMNT; targetCombatId++) {
+            var targetInstanceId = obj_camera.ids[targetCombatId];
+            if(! instance_exists(targetInstanceId) || SP < skill[ARTE_COST]) {
+                continue;
+            }
+            
+            var hpRatio = (targetInstanceId).rollHP / (targetInstanceId).stat[PLY_HP];
+            if( hpRatio < 0.8 && hpRatio < v_targetHpRatio) {
+                v_target = targetCombatId;
+            }
+        }
+        if(v_target >= 0) {
             SP -= skill[ARTE_COST];
             global.arte[v_arteNum, ARTE_USES] += 1;
             v_btn = BTN_ARTES1;
             v_act = "arte";
-            v_ally_target = 1;
-            if(p2HpRatio < min(p1HpRatio, p3HpRatio)) {
-                v_ally_target = 2;
-            }
-            if(p3HpRatio > min(p1HpRatio, p2HpRatio)) {
-                v_ally_target = 2;
-            }
             attackRandomly = false;
         }
     }
@@ -79,8 +80,10 @@ if(target != -1)
         }
     }
     
-    if(target.x > x)
-        {v_dir = DIR_RIGHT;}
-    else
-        {v_dir = DIR_LEFT;}
+    if(target.x > x) {
+        v_dir = DIR_RIGHT;
+    }
+    else {
+        v_dir = DIR_LEFT;
+    }
 }

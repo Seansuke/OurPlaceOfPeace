@@ -1,1 +1,1 @@
-global.arte[0,ARTE_NAME] = "";
+global.maxArte = 0;

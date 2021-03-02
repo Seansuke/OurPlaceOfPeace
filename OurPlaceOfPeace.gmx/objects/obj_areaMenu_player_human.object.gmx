@@ -35,38 +35,6 @@ v_set = -1;
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(v_set != -1 &amp;&amp; v_text == "")
-{
-    v_text2 = party_get(v_set,PTY_HMN);
-    playerNum = party_get(v_set,PTY_PLAYER);
-    var maxHp = getStat(global.playerLevel, PLY_HP, player_get(playerNum,PLY_HP));
-    v_text = name_get(party_get(v_set,PTY_PLAYER)) + " " 
-        + str(global.pty[v_set,PTY_HP]) + "/" 
-        + str(maxHp);
-    v_gfx = face_get(party_get(v_set,PTY_PLAYER));
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>

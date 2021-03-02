@@ -6,7 +6,7 @@ v_timer += 1;
 //maintain_falling();
 var gfxId = skill[ARTE_USER_GFX];
 v_gfx2 = gfx[gfxId];
-switch(playerNum)
+switch(playerId)
 {
     case Dan: scr_dan_arte(); break;
     case John: scr_john_arte(); break;

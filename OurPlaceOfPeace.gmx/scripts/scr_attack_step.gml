@@ -17,9 +17,10 @@ if(v_timer[1] > v_timer[0]){
     exit;}
 
 //damage cancel
-if((ids).v_act == "damage" && v_type == "Physical"){
+if((ids).v_act == "damage" && v_type == TYPE_PHYSICAL) {
     scr_attack_destroy();
-    exit;}
+    exit;
+}
 
 //effect effects
 switch(effect)
@@ -32,20 +33,47 @@ switch(effect)
 //movement?
 switch(v_type)
 {
-    case "Simple":
-         scr_attack_simple();
-    break;
-    case "Physical":
+    case TYPE_PHYSICAL:
          scr_attack_physical();
     break;
-    case "Special":
-         scr_attack_special();
+    case TYPE_SELF:
+         scr_attack_self();
     break;
-    case "Tech":
+    case TYPE_SHOT:
+         x += v_dir * real(amove);
+    break;
+    case TYPE_GRAVITY_SHOT:
+         x += v_dir * real(amove);
+         y += 1;
+    break;
+    case TYPE_AIR_SHOT:
+        scr_attack_air_shot();
+    break;
+    case TYPE_DIAGONAL_SHOT:
+         if(v_timer[1] == 1 && real(amove) < 0)
+         {
+            v_dir *= -1;
+         }
+         x += v_dir * amove;
+         y -= real(amove);
+    break;
+    case TYPE_VERTICAL_SHOT:
+         y -= real(amove);
+    break;
+    case TYPE_PLACE:
+         if(v_timer[1] == 1) {
+            x += v_dir * real(amove);
+         }
+    break;
+    case TYPE_GROUND:
+         while(place_clear(x,y + 32) == true && y < room_height) {
+            y += 32;
+         }
+         while(place_clear(x,y + 1) == true && y < room_height) {
+            y += 1;
+         }
+    break;
+    case TYPE_AREA_TARGET:
          scr_attack_tech();
-    break;
-    default:
-            animate_text("Type not found: ", x,y);
-            scr_attack_destroy();
     break;
 }

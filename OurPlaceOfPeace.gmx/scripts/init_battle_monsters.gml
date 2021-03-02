@@ -1,4 +1,4 @@
-for(monI = 1; monI <= 3; monI++) {
+for(monI = 0; monI < PTY_AMNT; monI++) {
     mon[monI] = -1;
     if(global.monFight[monI] != MAX_MONSTERS) {
         foeInstance = instance_create(x + 100 + monI * 32,y - 10,obj_mon);
@@ -22,7 +22,7 @@ for(monI = 1; monI <= 3; monI++) {
             (foeInstance).gfx[i] = global.foeGfx[monsterNum, i];
         }
         
+        (foeInstance).combatId = monI;
         (foeInstance).monsterNum = global.monFight[monI];
-        (foeInstance).plyr = -1;
     }
 }

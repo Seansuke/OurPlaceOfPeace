@@ -75,8 +75,8 @@ switch(skill[ARTE_NAME])
             {v_act = "idle";}
     break;
     case "Shove": 
-        if(playerNum == Noel) {
-            v_gfx2 = Noel;
+        if(playerId == Noel) {
+            v_gfx2 = NoelShoveSprite;
         }
                 
         if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
@@ -114,10 +114,10 @@ switch(skill[ARTE_NAME])
 
     break;
     case "Cross Gun":
-        if(playerNum == Alister) {
+        if(playerId == Alister) {
             v_gfx2 = AlisterSideGunsSprite;
         }
-        else if(playerNum == Chloe) {
+        else if(playerId == Chloe) {
             v_gfx2 = ChloeSideGunsSprite;
         }
         

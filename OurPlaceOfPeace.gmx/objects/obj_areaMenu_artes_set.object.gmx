@@ -29,7 +29,7 @@
 v_text = "";
 depth = -999;
 v_set = -1;
-v_plyr = -1;
+combatId = -1;
 v_img = 0;
 </string>
           </argument>
@@ -82,10 +82,10 @@ v_img = 0;
             v_text = "[2]+DOWN";
         break;
     }
-    if(party_get(v_plyr,v_set) != "" &amp;&amp; party_get(v_plyr,v_set) != "error")
+    if(party_get(combatId,v_set) != "" &amp;&amp; party_get(combatId,v_set) != "error")
     {
-        v_num = arte_find(party_get(v_plyr,v_set));
-        v_name = party_get(v_plyr,v_set);
+        v_num = arte_find(party_get(combatId,v_set));
+        v_name = party_get(combatId,v_set);
         v_gfx = arte_get(v_num,ARTE_GFX);
     }
     else
@@ -117,7 +117,7 @@ v_img = 0;
           <argument>
             <kind>1</kind>
             <string>draw_sprite(sprite_index,-1,x,y);
-if(v_set == -1 || v_text == "" || v_plyr = -1){exit;}
+if(v_set == -1 || v_text == "" || combatId == -1){exit;}
 draw_bold_text(x + 16,y - 24,v_text + ":" + v_name,c_white,c_black);
 draw_sprite_stretched(v_gfx,global.subimg,x-sprite_width/2,y-sprite_height/2,sprite_width,sprite_height);
 </string>

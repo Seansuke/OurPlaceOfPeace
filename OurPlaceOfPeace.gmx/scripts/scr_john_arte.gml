@@ -13,11 +13,14 @@ switch(skill[ARTE_NAME])
         if(v_timer > 3*5)
             {v_act = "idle";}
     break;
-    case "Jolt":
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1)
-            {scr_player_arte_create();} //create attack
+}
+if(skill[ARTE_NAME] == "Jolt"
+    || skill[ARTE_NAME] == "Spark"
+    || skill[ARTE_NAME] == "Storm"
+) {
+    if(floor(v_timer) == skill[ARTE_WAIT] + 1)
+        {scr_player_arte_create();} //create attack
 
-        if(v_timer > 3*5)
-            {v_act = "idle";}
-    break;
+    if(v_timer > 3*5)
+        {v_act = "idle";}
 }

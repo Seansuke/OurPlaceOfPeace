@@ -22,12 +22,12 @@ var interruptFrame = floor(framesPerSubimage * totalAttackSubImages * 4/5);
 var completionFrame = floor(framesPerSubimage * totalAttackSubImages);
 
 // All range fighters create the hitbox on the final subimage
-if(playerNum == AD || playerNum == Dan || playerNum == Taliko) {
+if(playerId == AD || playerId == Dan || playerId == Taliko) {
     attackCreationFrame = framesPerSubimage * totalAttackSubImages;
 }
 
 // Define action on the first frame
-if(floor(v_timer) == 1){
+if(floor(v_timer) == 0){
 
     // Store the attack type as the button held
     if(v_v == BTN_UP) {

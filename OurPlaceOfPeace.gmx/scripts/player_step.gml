@@ -2,7 +2,7 @@ scr_level_check();
 
 if(global.menu == true)
 {    
-    if(global.menu_plyr != plyr)
+    if(global.menu_combatId != combatId)
         {exit;}
     depth = -10001;
     press_maintain();
@@ -15,7 +15,7 @@ else
         other.depth = - y;
     }
     if(init_menu() == true)
-        {global.menu_plyr = plyr;exit;}
+        {global.menu_combatId = combatId;exit;}
 }
 press_maintain();
 previousGfx = gfx[v_gfx];
@@ -24,7 +24,7 @@ previousY = y;
 rollHP_maintain();
 dmg_maintain();
 guard_maintain();
-if(party_get(plyr,PTY_HMN) == "CPU")
+if(ctrl_get(combatId,BTN_TYPE) == BTN_TYPE_NONE)
 {
     ai_maintain();
 }

@@ -9,5 +9,3 @@ global.player[argument0,PLY_POW] = argument6;
 global.player[argument0,PLY_DEF] = argument7;
 global.player[argument0,PLY_ADEF] = argument8;
 global.player[argument0,PLY_SPD] = argument9;
-global.player[argument0,PLY_LVL] = 1;
-global.player[argument0,PLY_XP] = 0;

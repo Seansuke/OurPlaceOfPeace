@@ -8,6 +8,8 @@ for(var statI = 0; statI < PLY_MAX; statI++) {
 }
 
 //stats
+
+image_speed = 0;
 bonusATT = 0;bonusDEF = 0;bonusSPD = 0;rollHPSpeed = 0.5;//side stats
 monsterNum = Arach;
 v_gfx = GFX_IDLE;v_gfx2 = spr_icon;v_img = 0;

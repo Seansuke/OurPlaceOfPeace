@@ -1,3 +1,4 @@
+#define load_settings
 if(os_browser == browser_not_a_browser) {
     game_load("save.sav");
 }
@@ -22,10 +23,14 @@ else {
     var maxPlayerLevel = ds_map_find_value(saveDataMap, "maxPlayerLevel");
     var experience = ds_map_find_value(saveDataMap, "experience");
     
+    
+    //var ptyMatrix = getObjectFromMap(saveDataMap[? "pty"]);
+    
+    
     var ptyMatrix = saveDataMap[? "pty"];
     
     // Ignore the first one because it is skipped :/
-    for(var i = 1; i < ds_list_size(ptyMatrix); i++) { 
+    for(var i = 0; i < ds_list_size(ptyMatrix); i++) { 
         // Retrieve row item i
         var ptyRow = ptyMatrix[| i];
         for(var j = 0; j < ds_list_size(ptyRow); j++) {
@@ -35,9 +40,9 @@ else {
         }
     }
     
+    
     var arteMatrix = saveDataMap[? "arte"];
     
-    // Ignore the first one because it is skipped :/
     for(var i = 0; i < ds_list_size(arteMatrix); i++) { 
         // Retrieve row item i
         var arteRow = arteMatrix[| i];
@@ -51,13 +56,26 @@ else {
     var ctrlMatrix = saveDataMap[? "ctrl"];
     
     // Ignore the first one because it is skipped :/
-    for(var i = 1; i < ds_list_size(ctrlMatrix); i++) { 
+    for(var i = 0; i < ds_list_size(ctrlMatrix); i++) { 
         // Retrieve row item i
         var ctrlRow = ctrlMatrix[| i];
         for(var j = 0; j < ds_list_size(ctrlRow); j++) {
             // Retrieve column item j
             var ctrlCell = ctrlRow[| j];
             ctrl[i, j] = ctrlCell;
+        }
+    }
+    
+    var combatPartyMatrix = saveDataMap[? "combatParty"];
+    
+    // Ignore the first one because it is skipped :/
+    for(var i = 0; i < ds_list_size(combatPartyMatrix); i++) { 
+        // Retrieve row item i
+        var combatPartyRow = combatPartyMatrix[| i];
+        for(var j = 0; j < ds_list_size(combatPartyRow); j++) {
+            // Retrieve column item j
+            var combatPartyCell = combatPartyRow[| j];
+            combatParty[i, j] = combatPartyCell;
         }
     }
     
@@ -72,18 +90,45 @@ else {
     if(string(areaPlayerY) == "0" || string(areaPlayerY) == "") {
         return "areaPlayerY save data invalid: " + string(areaPlayerY);        
     }
+    if(string(audioLevel) == "") {
+        return "audioLevel save data invalid: " + string(audioLevel);        
+    }
+    
+    if(string(playerLevel) == "0" || string(playerLevel) == "") {
+        return "playerLevel save data invalid: " + string(playerLevel);        
+    }
+    if(string(maxPlayerLevel) == "0" || string(maxPlayerLevel) == "") {
+        return "maxPlayerLevel save data invalid: " + string(maxPlayerLevel);        
+    }
+    if(string(experience) == "") {
+        return "experience save data invalid: " + string(experience);        
+    }
+    
+    if(string(width_view) == "0" || string(width_view) == "") {
+        return "width_view save data invalid: " + string(width_view);        
+    }
+    if(string(height_view) == "0" || string(height_view) == "") {
+        return "height_view save data invalid: " + string(height_view);        
+    }
+    if(string(horizontal_border) == "0" || string(horizontal_border) == "") {
+        return "horizontal_border save data invalid: " + string(horizontal_border);        
+    }
+    if(string(vertical_border) == "0" || string(vertical_border) == "") {
+        return "vertical_border save data invalid: " + string(vertical_border);        
+    }
+    
+    
     if(!is_array(pty)) {
         return "pty save data invalid, not an array: " + string(pty);
     }
     if(is_undefined(pty) || !is_array(pty) || array_height_2d(pty) == 0) {
         return "pty save data invalid: " + string(pty);
     }
-    if(is_undefined(player) || !is_array(player) || array_height_2d(player) == 0) {
-        return "player save data invalid: " + string(player);
-    }
+    
     if(is_undefined(arte) || !is_array(arte) || array_height_2d(arte) == 0) {
         return "arte save data invalid: " + string(arte);
     }
+    
     if(is_undefined(ctrl) || !is_array(ctrl) || array_height_2d(ctrl) == 0) {
         return "ctrl save data invalid: " + string(ctrl);
     }
@@ -97,8 +142,8 @@ else {
     global.maxPlayerLevel = maxPlayerLevel;
     global.experience = experience;
     
+    global.combatParty = combatParty;
     global.pty = pty;
-    global.player = player;
     global.arte = arte;
     global.ctrl = ctrl;
     
@@ -106,3 +151,35 @@ audio_set_volume(global.audioLevel)
     room_goto(global.currentMap);
 }
 return "Nothing happened?";
+
+#define getObjectFromMap
+var dsId = argument0;
+
+var dsMatrix = undefined;
+
+if(ds_exists(dsId, ds_type_map)) {
+    // iterate through all map items
+    var dsMatrix = saveDataMap[? "pty"];
+    return dsMatrix;
+}
+
+if(ds_exists(dsId, ds_type_list)) {
+    for(var i = 0; i < ds_list_size(dsId); i++) { 
+        // Retrieve row item i
+        var dsRow = dsId[| i];
+        
+        if(!ds_exists(dsRow, ds_type_list)) {
+            dsMatrix[i] = dsRow;
+        }
+        else {
+            for(var j = 0; j < ds_list_size(dsRow); j++) {
+                // Retrieve column item j
+                var dsCell = dsRow[| j];
+                dsMatrix[i, j] = dsCell;
+            }
+        }
+    }
+    return dsMatrix;
+}
+
+return dsId;
