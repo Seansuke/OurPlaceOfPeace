@@ -513,6 +513,7 @@
       <script>scripts\canvas_fullscreen.gml</script>
       <script>scripts\canvas_window.gml</script>
       <script>scripts\getMenuXPosition.gml</script>
+      <script>scripts\menu_close.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -564,10 +565,11 @@
         <objects name="player">
           <object>objects\obj_areaMenu_player_human</object>
         </objects>
+        <object>objects\SaveGameMenu</object>
+        <object>objects\FullscreenMenu</object>
         <object>objects\LoadGameMenu</object>
         <object>objects\QuitGameMenu</object>
         <object>objects\GoToTitleMenu</object>
-        <object>objects\SaveGameMenu</object>
       </objects>
     </objects>
     <objects name="area">

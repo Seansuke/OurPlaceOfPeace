@@ -7,7 +7,6 @@ tmp_id = instance_create(x,y,obj_attack);
 (tmp_id).sprite_index = skill[ARTE_GFX];//graphic
 (tmp_id).v_dir = v_dir;//direction
 (tmp_id).v_type = skill[ARTE_TYPE];
-(tmp_id).visible = true;//visible
 (tmp_id).amove = -1;
 (tmp_id).isArte = true;
 (tmp_id).effect = ARTE_EFFECT_OUT;
@@ -17,7 +16,7 @@ tmp_id = instance_create(x,y,obj_attack);
 (tmp_id).pushPower = stat[PLY_POW] * skill[ARTE_POW];
 (tmp_id).ids = id;
 (tmp_id).playerId = playerId;
-(tmp_id).v_team = "Players";
+(tmp_id).v_team = v_team;
 (tmp_id).amove = skill[ARTE_MOVE_SPEED];
 (tmp_id).visible = skill[ARTE_VISIBLE];
 (tmp_id).effect = skill[ARTE_EFFECT];
@@ -25,7 +24,6 @@ tmp_id = instance_create(x,y,obj_attack);
 for(var arteI = 0; arteI < ARTE_MAX; arteI++) {
     (tmp_id).arte[arteI] = skill[arteI];
 }
-
 
 switch(skill[ARTE_NAME]) {
     case "Smash":
@@ -36,19 +34,19 @@ switch(skill[ARTE_NAME]) {
     break;
 }
 
-if(skill[ARTE_TYPE] == ARTE_EFFECT_HEAL
-    || skill[ARTE_TYPE] == ARTE_EFFECT_ATT_BUFF
-    || skill[ARTE_TYPE] == ARTE_EFFECT_DEF_BUFF
-    || skill[ARTE_TYPE] == ARTE_EFFECT_SPD_BUFF
-) {
+if(skill[ARTE_TYPE] == TYPE_ALLY_TARGET) {
+    v_ally_target = (v_ally_target + PTY_AMNT) mod PTY_AMNT;
     var allyTargetInstanceId = obj_camera.ids[v_ally_target];
     if(instance_exists(allyTargetInstanceId)) {   
         (tmp_id).x = (allyTargetInstanceId).x;  
         (tmp_id).y = (allyTargetInstanceId).y;
     }
+    v_ally_target = -1;
 }
     
 v_charge = 0;
+v_maxCharge = 30;
 v_uber = 0;
+v_maxUber = 30;
 
 return tmp_id;

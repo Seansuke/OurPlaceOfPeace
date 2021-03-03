@@ -90,20 +90,20 @@ arte_set(arteId, ARTE_MOVE_SPEED, 60);
 //======================AD======================
 //heal
 arteId = arte_new(AD,"Medic",spr_medic,GFX_CAST,          
-    0.2,1.0,  16,100, 1,
+    0.1,1.0,  16,100, 1,
     "Hold [ARTE] to regenerate an ally's HP.",
     ARTE_EFFECT_HEAL, TYPE_ALLY_TARGET, 3*6);
 arteId = arte_new(AD,"Restore",spr_restore,GFX_CAST,      
-    1.0,5.0, 48,200, 5,
+    0.5,5.0, 48,200, 5,
     "Give an ally a burst of HP, hold [ARTE] to increase effect.",
     ARTE_EFFECT_HEAL, TYPE_ALLY_TARGET, 3*16);
 //buff
 arteId = arte_new(AD,"Might",spr_might,GFX_CAST,          
-    1.0,2.0, 32,100, 3,
+    1.4,2.0, 32,100, 3,
     "Ally will give more damage to foes.",
     ARTE_EFFECT_ATT_BUFF, TYPE_ALLY_TARGET, 3*15);
 arteId = arte_new(AD,"Endure",spr_endure,GFX_CAST,        
-    1.0,2.0, 32,100, 2,
+    1.4,2.0, 32,100, 2,
     "Ally will recieve less damage from foes.",
     ARTE_EFFECT_DEF_BUFF, TYPE_ALLY_TARGET, 3*15);
 //offense
@@ -193,7 +193,7 @@ arteId = arte_new(James,"Rushing Reap",spr_spin,GFX_ATTACK_SIDE,
     1.0,0.2, 3,100, 3,
     "Reap your opponents in one swing.",
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
-
+    
 // magic
 arteId = arte_new(James,"Petal Beam",spr_petal_beam,GFX_CAST,   
     1.5,0.5,   12,300,  1,
@@ -245,6 +245,7 @@ arteId = arte_new(Raka,"Rushing Leaves",ShortWindSprite,GFX_CAST,
     0.5,1.5,  9,100, 1,
     "Blow away your foes with the wind from your leaf fan.",
     ARTE_EFFECT_LIFT, TYPE_SHOT, 3*7); 
+    
 arteId = arte_new(Raka,"Falling Tree",spr_thrust,GFX_ATTACK_DOWN,        
     1.0,3.0,  9,200, 1,
     "Land a powerful strike on your foe from the sky.",
@@ -252,18 +253,18 @@ arteId = arte_new(Raka,"Falling Tree",spr_thrust,GFX_ATTACK_DOWN,
     
 arteId = arte_new(Raka,"Friendly Fowl",EagleSprite,GFX_CAST,
     0.7,2.0,  9,100, 2,
-    "Land a powerful strike on your foe from the sky.",
+    "Land a powerful strike on your foe in the sky.",
     ARTE_EFFECT_OUT, TYPE_AIR_SHOT, 3*7);
 arte_set(arteId, ARTE_MOVE_SPEED, 15);
 
 //======================Chloe======================
-arteId = arte_new(Chloe,"Bullet Blaze",BulletSprite,GFX_CAST,           
-    0.1,0.0,  9,20, 1,
+arteId = arte_new(Chloe,"Bullet Spray",BulletSprite,GFX_CAST,           
+    0.2,0.0,  12,20, 1,
     "Fill your foes with lead.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*5); 
 arte_set(arteId, ARTE_MOVE_SPEED, 30);
 
-arteId = arte_new(Chloe,"Cross Gun",BulletSprite,GFX_CAST,        
+arteId = arte_new(Chloe,"Pistol Cross",BulletSprite,GFX_CAST,
     0.1,0.1,  9,20, 1,
     "Fill foes with lead from both sides.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*5);
@@ -319,7 +320,7 @@ party_set_all(Taliko, getLevel1HpStat(Taliko), "Chill Wounds", "", "", "", "Fros
 party_set_all(Noel,   getLevel1HpStat(Noel),   "Shove", "", "", "", "Tension", "", "", "");
 party_set_all(Alister,getLevel1HpStat(Alister),"Bullet Blaze", "", "", "", "Cross Gun", "", "", "");
 party_set_all(Raka,   getLevel1HpStat(Raka),   "Rushing Leaves", "", "", "", "Falling Tree", "", "", "");
-party_set_all(Chloe,  getLevel1HpStat(Chloe),  "Bullet Blaze", "", "", "", "Cross Gun", "", "", "");
+party_set_all(Chloe,  getLevel1HpStat(Chloe),  "Bullet Spray", "", "", "", "Pistol Cross", "", "", "");
 
 for(var i = 0; i < MAX_PLAYERS; i++) {
     global.combatParty[CMBT_RESERVE, i] = i;

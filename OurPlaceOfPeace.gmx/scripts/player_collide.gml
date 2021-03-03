@@ -82,11 +82,11 @@ if(other.effect == ARTE_EFFECT_ATTACK)
 }
 rollHP -= damage;
 animate_text(damage, x, y - 40 - random(60));
-if(place_clear(x - v_dir * other.pushPower,y) == true)
-    {x -= v_dir * other.pushPower;}
+if(place_clear(x - v_dir * other.pushPower,y) == true) {
+    x -= v_dir * other.pushPower;
+}
 v_charge -= 5;
-if(other.pushPower > stat[PLY_DEF] + bonusDEF)
-{
+if(other.pushPower > stat[PLY_DEF] + bonusDEF) {
     if(other.x < x)
         {v_dir = DIR_LEFT;}
     else
@@ -94,6 +94,11 @@ if(other.pushPower > stat[PLY_DEF] + bonusDEF)
     v_timer = (other.pushPower - stat[PLY_DEF] + bonusDEF) * 1.5;
     v_act = "damage";
 }
+
+damageAlpha = 1;
+
 rollHPSpeed = 0.2;
+
 new_dmg(other.id,other.v_timer[0] - other.v_timer[1]);
+
 exit;

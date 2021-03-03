@@ -2,15 +2,7 @@ global.subimg = global.subimg + 1/3 mod 10000;
 
 if(ctrl_press(BTN_MENU) == true || (subMenu == "Main" && (ctrl_press(BTN_GUARD) == true || ctrl_press(BTN_ARTES1) == true)))    //exit menu
 {
-    global.menu = false;
-    with(obj_controls){instance_destroy();}
-    with(TouchControlsObject){instance_destroy();}
-    with(obj_areaMenu){instance_destroy();}
-    with(obj_areaMenu_artes_desc){instance_destroy();}
-    with(obj_areaMenu_stats_desc){instance_destroy();}
-    ds_map_destroy(lastMenuPos);
-    instance_deactivate_all(self);
-    ctrl_unpress(BTN_MENU);
+    menu_close();
     exit;
 }
 

@@ -1,10 +1,7 @@
 if(party_get(playerId, v_attType) == ""){return false;}
 
 // Search for a specific player's arte first.
-v_arteNum = arte_find_by_player(party_get(playerId, v_attType), playerId);
-if(array_length_1d(skill) >= v_arteNum) {
-    v_arteNum = arte_find(party_get(playerId, v_attType));
-}
+v_arteNum = arte_find(party_get(playerId, v_attType));
 
 for(i=0;i<ARTE_MAX;i+=1) {
     skill[i] = arte_get(v_arteNum,i);
@@ -19,6 +16,8 @@ SP -= skill[ARTE_COST];
 v_img = 0;
 v_timer = 0;
 v_act = "arte";
-v_ally_target = 0;
+if(skill[ARTE_TYPE] == TYPE_ALLY_TARGET) {
+    v_ally_target = combatId;
+}
 global.arte[v_arteNum, ARTE_USES] += 1;
 return true;

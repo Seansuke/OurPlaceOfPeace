@@ -12,9 +12,6 @@ switch(subMenu)
     case "Skill Upgrade":
         menu_call("Skill Arte");
     break;
-    case "Party Swap":
-        menu_call("Party");
-    break;
     case "Settings":
         menu_call("Main");
     break;

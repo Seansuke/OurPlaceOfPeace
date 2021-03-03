@@ -144,6 +144,7 @@ switch(subMenu)
             (menus[i]).v_set = i;
             (menus[i]).combatParty = CMBT_PARTY1;
             (menus[i]).positionInMenu = i;
+            (menus[i]).maxMenuPosition = maxMenu;
         }
         with(obj_areaMenu_artes_desc) {
             visible = true;
@@ -166,6 +167,7 @@ switch(subMenu)
             (menus[i]).v_set = i;
             (menus[i]).combatParty = CMBT_RESERVE;
             (menus[i]).positionInMenu = i;
+            (menus[i]).maxMenuPosition = maxMenu;
         }
         tmp_player = menuSubset[0];
         with(obj_areaMenu_artes_desc) {
@@ -199,6 +201,8 @@ switch(subMenu)
         menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,PlayerLevelMenu); 
         i++;
         menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,MusicLevelMenu); 
+        i++;
+        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,FullscreenMenu); 
         i++;
         menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,SaveGameMenu); 
         i++;

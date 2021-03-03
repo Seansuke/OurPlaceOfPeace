@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>v_gfx = sprite_index;
-v_text = "Save Game";
+v_text = "Toggle Fullscreen";
 depth = -999;
 </string>
           </argument>
@@ -50,9 +50,7 @@ depth = -999;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>save_settings();
-animate_text("Saved Game", x,y);
-menu_close();
+            <string>window_set_fullscreen(! window_get_fullscreen());
 </string>
           </argument>
         </arguments>

@@ -28,6 +28,7 @@
             <string>v_gfx = spr_sean_idle;
 v_dir = 1;
 combatId = 0;
+playerId = 0;
 v_speed = 5;//walking speed
 v_img = 0;//image index
 for(i = 0;i &lt;= BTN_MAX;i += 1)

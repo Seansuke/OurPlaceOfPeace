@@ -21,9 +21,9 @@ var movementEndFrame = floor(framesPerSubimage * totalAttackSubImages * 4/5);
 var interruptFrame = floor(framesPerSubimage * totalAttackSubImages * 4/5);
 var completionFrame = floor(framesPerSubimage * totalAttackSubImages);
 
-// All range fighters create the hitbox on the final subimage
+// All range fighters create the hitbox on one of the last subimages
 if(playerId == AD || playerId == Dan || playerId == Taliko) {
-    attackCreationFrame = framesPerSubimage * totalAttackSubImages;
+    attackCreationFrame = floor(framesPerSubimage * totalAttackSubImages * 4/5);
 }
 
 // Define action on the first frame

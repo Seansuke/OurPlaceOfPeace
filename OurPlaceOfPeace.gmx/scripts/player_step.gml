@@ -14,8 +14,10 @@ else
     with(obj_camera) {
         other.depth = - y;
     }
-    if(init_menu() == true)
-        {global.menu_combatId = combatId;exit;}
+    if(init_menu() == true) {
+        global.menu_combatId = combatId;
+        exit;
+    }
 }
 press_maintain();
 previousGfx = gfx[v_gfx];

@@ -31,6 +31,8 @@ v_v = -1;v_h = -1;v_btn = -1;v_trigger = -1;
 depth = -y;
 previousX = x;
 previousY = y;
+damageAlpha = 0;
 previousGfx = spr_icon;
 v_attType = 0;
 v_color = c_white;
+aiTarget = -1;

@@ -98,42 +98,41 @@ switch(skill[ARTE_NAME])
         }
         
     break;
-    case "Bullet Blaze":
+}
 
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
-            scr_player_arte_create();
-        }
+if(skill[ARTE_NAME] == "Bullet Blaze" || skill[ARTE_NAME] == "Bullet Spray") {
+    if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
+        scr_player_arte_create();
+    }
 
-        if(floor(v_timer) == skill[ARTE_WAIT] + 2) {
-            scr_player_arte_create();
-        }
+    if(floor(v_timer) == skill[ARTE_WAIT] + 2) {
+        scr_player_arte_create();
+    }
 
-        if(floor(v_timer) > skill[ARTE_WAIT] + 2) {
-            v_act = "idle";
-        }
+    if(floor(v_timer) > skill[ARTE_WAIT] + 2) {
+        v_act = "idle";
+    }
+}
 
-    break;
-    case "Cross Gun":
-        if(playerId == Alister) {
-            v_gfx2 = AlisterSideGunsSprite;
-        }
-        else if(playerId == Chloe) {
-            v_gfx2 = ChloeSideGunsSprite;
-        }
-        
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
-            // Turn Around
-            v_dir *= -1;
-            scr_player_arte_create();
+if(skill[ARTE_NAME] == "Cross Gun" || skill[ARTE_NAME] == "Pistol Cross") {
+    if(playerId == Alister) {
+        v_gfx2 = AlisterSideGunsSprite;
+    }
+    else if(playerId == Chloe) {
+        v_gfx2 = ChloeSideGunsSprite;
+    }
+    
+    if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
+        // Turn Around
+        v_dir *= -1;
+        scr_player_arte_create();
 
-            // Turn Around... myyyyy loooove
-            v_dir *= -1;
-            scr_player_arte_create();
-        }
+        // Turn Around... myyyyy loooove
+        v_dir *= -1;
+        scr_player_arte_create();
+    }
 
-        if(floor(v_timer) > skill[ARTE_WAIT] + 1) {
-            v_act = "idle";
-        }
-
-    break;
+    if(floor(v_timer) > skill[ARTE_WAIT] + 1) {
+        v_act = "idle";
+    }
 }

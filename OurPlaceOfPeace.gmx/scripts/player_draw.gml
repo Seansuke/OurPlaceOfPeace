@@ -1,7 +1,7 @@
 
 //draw menu hand
 if(global.menu == true && global.menu_combatId == combatId) {
-    depth = -2000;
+    depth = -3000;
     draw_sprite(spr_hand,-1,(menus[menuPos]).x,(menus[menuPos]).y);
     draw_bold_text((menus[menuPos]).x - 8,(menus[menuPos]).y - 8,"P" + str(combatId),c_red,c_black);
 }
@@ -35,7 +35,12 @@ if(previousX != x || previousY != y) {
 //draw player
 draw_sprite_ext(gfx[v_gfx],v_img,x,y,v_dir,1,0,v_color,true); 
 
-depth = -2000;
+if(damageAlpha > 0) {
+    // Draw damage.
+    draw_sprite_ext(gfx[v_gfx], v_img, x,y, v_dir, 1,0, c_red, damageAlpha); 
+}
+
+depth = -3000;
     
 //draw guardian
 if(v_act == "guardian") {

@@ -1,4 +1,5 @@
-depth = -9999;
+
+depth = -3000;
 fixPlayers = false;
 v_timer = -1;
 init_battle_players();
