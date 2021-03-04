@@ -25,7 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(global.areaPlayerX,global.areaPlayerY,obj_areaPlayer);
+            <string>for(var i = 0; i &lt; PTY_AMNT; i++) {
+    var instanceId = instance_create(global.areaPlayerX - i * 8,global.areaPlayerY,obj_areaPlayer);        
+    (instanceId).combatId = i;
+    (instanceId).playerId = global.combatParty[CMBT_PARTY1, i];
+}
+
 player_marker(global.marker);
 global.marker = -1;
 

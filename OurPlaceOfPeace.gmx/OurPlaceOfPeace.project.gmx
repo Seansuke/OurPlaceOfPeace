@@ -606,6 +606,7 @@
     <objects name="misc">
       <object>objects\PlayerObject</object>
       <object>objects\obj_animate</object>
+      <object>objects\EmptyObject</object>
     </objects>
   </objects>
   <rooms name="rooms">

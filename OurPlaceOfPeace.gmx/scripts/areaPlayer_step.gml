@@ -11,6 +11,35 @@ if(global.menu) {
 playerId = combat_get(CMBT_PARTY1, combatId);
 v_gfx = global.gfx[playerId, GFX_IDLE];
 v_img += 1/3;
+
+// if AI, follow player one.
+if(ctrl_get(combatId, BTN_TYPE) == BTN_TYPE_NONE) {
+    targetX = x;
+    targetY = y;
+    with(obj_areaPlayer) {
+        if(combatId == 0) {
+            other.targetX = x;
+            other.targetY = y;
+        }
+    }
+
+    if(distance_to_point(targetX,targetY) > 24) {
+        move_towards_point(targetX - 8 + random(16), 
+            targetY - 8 + random(16), v_speed);
+        v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_RUN];
+    }
+    else { 
+        speed = 0;
+    }
+    if(targetX < x) {
+        v_dir = DIR_LEFT;
+    }
+    else {
+        v_dir = DIR_RIGHT;
+    }
+    exit;
+}
+
 switch(ctrl_dir_h())
 {
     case BTN_RIGHT: 

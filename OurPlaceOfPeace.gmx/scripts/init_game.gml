@@ -205,7 +205,7 @@ arteId = arte_new(James,"Petal Storm",spr_petal_storm,GFX_CAST,
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*9);
     
 //======================Taliko======================
-arteId = arte_new(Taliko,"Chill Wounds",ClearIceBlockSprite,GFX_CAST,           
+arteId = arte_new(Taliko,"Chill Wounds",ClearIceBlockSprite,GFX_CAST,
     1.0,5.0,  32,200, 1,
     "Heal an ally with a small burst of HP.",
     ARTE_EFFECT_HEAL, TYPE_ALLY_TARGET, 3*16); 

@@ -22,6 +22,7 @@ v_vel = 0;//velocity
 v_arteNum = -1;
 v_flyer = false;
 v_team = "Baddy";
+playerId = -1;
 v_charge = 0;v_chargeMax = 30;v_uber = 0;v_uberMax = 30;
 for(tmp_i = 0;tmp_i < 20;tmp_i += 1){dmg[tmp_i,DMG_ID] = -1;dmg[tmp_i,DMG_TIMER] = -1;}//taken damage array
 for(tmp_i = 0;tmp_i < ARTE_MAX;tmp_i += 1){skill[tmp_i] = 0;}//current arte

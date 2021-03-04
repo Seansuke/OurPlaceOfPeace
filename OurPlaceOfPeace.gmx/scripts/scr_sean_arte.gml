@@ -1,15 +1,5 @@
 
-switch(skill[ARTE_NAME])
-{
-    case "Wave":
-        
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1)
-            {scr_player_arte_create();} //create attack
-
-        if(v_timer > 3*5)
-            {v_act = "idle";}
-            // TODO - prewait duration postwait (postwait comes right afte rprewait)
-    break;
+switch(skill[ARTE_NAME]) {
     case "Smash": 
         v_color = c_white;
         
@@ -28,8 +18,9 @@ switch(skill[ARTE_NAME])
             }
         }
         
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1)
-            {scr_player_arte_create();} //create attack
+        if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
+            scr_player_arte_create();
+        }
 
         if(v_timer > 3*5)
             {v_act = "idle";}
@@ -78,7 +69,7 @@ switch(skill[ARTE_NAME])
         if(playerId == Noel) {
             v_gfx2 = NoelShoveSprite;
         }
-                
+
         if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
             scr_player_arte_create();
         } //create attack
@@ -98,6 +89,16 @@ switch(skill[ARTE_NAME])
         }
         
     break;
+}
+
+if(skill[ARTE_NAME] == "Strike" || skill[ARTE_NAME] == "Wave") {
+    if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
+        scr_player_arte_create();
+    }
+    if(floor(v_timer) == skill[ARTE_WAIT] + 2*3) {
+        v_act = "idle";
+    }
+    // TODO - prewait duration postwait (postwait comes right afte rprewait)
 }
 
 if(skill[ARTE_NAME] == "Bullet Blaze" || skill[ARTE_NAME] == "Bullet Spray") {

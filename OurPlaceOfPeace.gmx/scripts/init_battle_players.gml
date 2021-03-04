@@ -1,7 +1,11 @@
 for(var combatId = 0; combatId < PTY_AMNT; combatId++) {
+    var playerId = combat_get(CMBT_PARTY1, combatId);
+    if(playerId == -1) {
+        ids[combatId] = -1;
+        continue;
+    }
     var playerInstanceId = instance_create(x - combatId * 32,y - 1,obj_player);
     ids[combatId] = playerInstanceId;
-    var playerId = combat_get(CMBT_PARTY1, combatId);
     (playerInstanceId).gfx[GFX_FACE] = face_get(playerId);
     (playerInstanceId).playerId = playerId;
     (playerInstanceId).combatId = combatId;

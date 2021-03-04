@@ -23,7 +23,7 @@ if(isHealer) {
     var v_targetHpRatio = 1;  
 
     // Available?  Time to heal
-    if(SP < skill[ARTE_COST]) {
+    if(SP >= skill[ARTE_COST]) {
         if(v_act == "idle" || v_act == "run") {
             for(var targetCombatId = 0; targetCombatId < PTY_AMNT; targetCombatId++) {
                 var targetInstanceId = obj_camera.ids[targetCombatId];
@@ -37,7 +37,7 @@ if(isHealer) {
                     v_targetHpRatio = hpRatio;
                 }
             }
-            if(v_target >= 0) {       
+            if(v_target >= 0) {
                 if(v_act != "arte") {
                     v_btn = BTN_ARTES1;
                     SP -= skill[ARTE_COST];
@@ -53,9 +53,7 @@ if(isHealer) {
     }          
 }
 
-if(instance_exists(aiTarget))
-{
-    
+if(instance_exists(aiTarget)) {
     // closer to target if a fighter, farther if not, and do not bother attacking if so.
     if(playerId == AD || playerId == Dan || playerId == Taliko)
     {    
