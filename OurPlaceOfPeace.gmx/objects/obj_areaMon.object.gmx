@@ -33,6 +33,7 @@ v_img = 0;//image index
 monFight[1] = Arach;
 monFight[2] = MAX_MONSTERS;
 monFight[3] = MAX_MONSTERS;
+monFight[4] = MAX_MONSTERS;
 
 </string>
           </argument>

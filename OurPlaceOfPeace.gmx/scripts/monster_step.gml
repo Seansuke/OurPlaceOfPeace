@@ -20,8 +20,7 @@ if(random(500) == 1 || v_target == -1 || (v_target).HP <= 0) {
     }
 }
 
-if(v_act == "idle" || v_act == "run" || v_act == "fall" || v_act == "jump" || v_act == "guard" || v_act == "guardian")
-{
+if(v_act == "idle" || v_act == "run" || v_act == "fall" || v_act == "jump" || v_act == "guard" || v_act == "guardian") {
     SP = min(SP + SP_GAINED_PER_FRAME, stat[PLY_SP]);
 }
 

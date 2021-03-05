@@ -23,9 +23,10 @@ if(ctrl_get(combatId, BTN_TYPE) == BTN_TYPE_NONE) {
         }
     }
 
-    if(distance_to_point(targetX,targetY) > 24) {
-        move_towards_point(targetX - 8 + random(16), 
-            targetY - 8 + random(16), v_speed);
+    var range = 16;
+    if(distance_to_point(targetX,targetY) > range * 1.5 + combatId * 24) {
+        move_towards_point(targetX - range + random(range*2), 
+            targetY - range + random(range*2), v_speed);
         v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_RUN];
     }
     else { 

@@ -90,10 +90,10 @@ switch(subMenu)
                 continue;
             }
             with(obj_areaMenu_stats_desc) {
-                var STAT_id = other.tmp_i;
-                var playerId = other.menuPos;
-                var baseStat = player_get(playerId, STAT_id);
-                var stat = baseStat;
+                STAT_id = other.tmp_i;
+                playerId = other.menus[other.menuPos].playerId;
+                baseStat = player_get(playerId, STAT_id);
+                stat = baseStat;
                 if(is_real(stat)) {
                     stat = getStat(global.playerLevel, STAT_id, baseStat);
                 }
@@ -140,6 +140,9 @@ switch(subMenu)
 // Scroll menu items
 var previousVisibleMenuPosition = max(menuPos - 1, 0);
 var previousMenuItemId = menus[previousVisibleMenuPosition];
+if(!instance_exists(previousMenuItemId)) {
+    exit;
+}
 var previousMenuY = (previousMenuItemId).y;
 var menuHeight = 32;
 var previousMenuTopY = previousMenuY - abs(menuHeight);

@@ -17,7 +17,22 @@ if(v_flyer) {
     
     if(v_v != BTN_UP) {
         v_act = "idle";
+        exit;
     }
+
+    if(ctrl_press(BTN_ATTACK)) {
+        v_attType = PTY_A1_UP;
+        if(player_attack_init()){exit;}
+    }
+    else if(ctrl_press(BTN_ARTES1)) {
+        v_attType = PTY_A1_UP;
+        if(player_arte_init()){exit;}
+    }
+    else if(ctrl_press(BTN_ARTES2)) {
+        v_attType = PTY_A2_UP;
+        if(player_arte_init()){exit;}
+    }
+
     exit;
 }
 

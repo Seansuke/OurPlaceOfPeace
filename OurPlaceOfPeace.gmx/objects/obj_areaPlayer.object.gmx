@@ -105,11 +105,17 @@ global.monFight[1] = other.monFight[1];
 global.monFight[2] = other.monFight[2];
 global.monFight[3] = other.monFight[3];
 global.menu = false;
-global.areaPlayerX = obj_areaPlayer.x;
-global.areaPlayerY = obj_areaPlayer.y;
+with(obj_areaPlayer) {
+    if(combatId == 0) {
+        global.areaPlayerX = x;
+        global.areaPlayerY = y;
+    }
+}
 global.currentMap = room;
 room = rm_arena_outskirts;
-with(other){ instance_destroy(); }
+with(other){ 
+    instance_destroy(); 
+}
 animate(spr_divide, 0,0,DIR_RIGHT);
 </string>
           </argument>

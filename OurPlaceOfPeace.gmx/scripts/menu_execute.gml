@@ -1,5 +1,4 @@
-switch(subMenu)
-{
+switch(subMenu) {
     case "Main":
         switch(menuPos) {
             case 0://artes
@@ -33,7 +32,9 @@ switch(subMenu)
     break;
     case "Artes Player":
         menuSubset[0] = menuPos;//TECHINCALLY party player selected for slot menu
-        menu_call("Artes Slot");
+        with(menus[menuPos]) {
+            event_user(1);
+        }
     break;
     case "Artes Slot":
         menuSubset[1] = menuPos;//TECHINCALLY party slot position

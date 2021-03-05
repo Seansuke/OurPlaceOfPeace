@@ -1,7 +1,6 @@
 scr_level_check();
 
-if(global.menu == true)
-{    
+if(global.menu == true) {    
     if(global.menu_combatId != combatId)
         {exit;}
     depth = -10001;
@@ -9,8 +8,7 @@ if(global.menu == true)
     menu_maintain();
     exit;
 }
-else
-{
+else {
     with(obj_camera) {
         other.depth = - y;
     }
@@ -26,20 +24,17 @@ previousY = y;
 rollHP_maintain();
 dmg_maintain();
 guard_maintain();
-if(ctrl_get(combatId,BTN_TYPE) == BTN_TYPE_NONE)
-{
+if(ctrl_get(combatId,BTN_TYPE) == BTN_TYPE_NONE) {
     ai_maintain();
 }
 
 // Only gain SP during certain actions.
-if(v_act == "idle" || v_act == "run" || v_act == "fall" || v_act == "jump" || v_act == "guard" || v_act == "guardian")
-{
+if(v_act == "idle" || v_act == "run" || v_act == "fall" || v_act == "jump" || v_act == "guard" || v_act == "guardian") {
     SP = min(SP + SP_GAINED_PER_FRAME, stat[PLY_SP]);
 }
 
 //determine action
-switch(v_act)
-{
+switch(v_act) {
     //navigate
     case "idle":
          scr_play_idle();

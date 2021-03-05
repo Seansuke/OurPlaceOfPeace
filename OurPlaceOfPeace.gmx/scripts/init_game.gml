@@ -245,6 +245,7 @@ arteId = arte_new(Raka,"Rushing Leaves",ShortWindSprite,GFX_CAST,
     0.5,1.5,  9,100, 1,
     "Blow away your foes with the wind from your leaf fan.",
     ARTE_EFFECT_LIFT, TYPE_SHOT, 3*7); 
+arte_set(arteId, ARTE_MOVE_SPEED, 7);
     
 arteId = arte_new(Raka,"Falling Tree",spr_thrust,GFX_ATTACK_DOWN,        
     1.0,3.0,  9,200, 1,

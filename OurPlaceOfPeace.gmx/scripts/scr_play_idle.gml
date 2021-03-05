@@ -4,16 +4,14 @@ v_img += 1/3;
 v_color = c_white;
 
 //fall check
-if(place_clear(x,y + 1) && !v_flyer)
-{
+if(place_clear(x,y + 1) && !v_flyer) {
     v_vel = 1;
     v_act = "fall";
     exit;
 }
 
 //control h
-switch(v_h)
-{
+switch(v_h) {
     case BTN_LEFT:
          v_img = 0;
          v_act = "run";
@@ -29,26 +27,21 @@ switch(v_h)
 }
 
 //control v
-switch(v_v)
-{
+switch(v_v) {
     case BTN_UP:
-        if(ctrl_press(BTN_ATTACK))
-        {
+        if(ctrl_press(BTN_ATTACK)) {
             v_attType = PTY_A1_UP;
             if(player_attack_init()){exit;}
         }
-        else if(ctrl_press(BTN_ARTES1))
-        {
+        else if(ctrl_press(BTN_ARTES1)) {
             v_attType = PTY_A1_UP;
             if(player_arte_init()){exit;}
         }
-        else if(ctrl_press(BTN_ARTES2))
-        {
+        else if(ctrl_press(BTN_ARTES2)) {
             v_attType = PTY_A2_UP;
             if(player_arte_init()){exit;}
         }
-        else
-        {
+        else {
             v_vel = 10;
             v_img = 0;
             if(!v_flyer) {

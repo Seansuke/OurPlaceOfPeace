@@ -74,7 +74,10 @@ for(i = 1;i &lt; PLY_MAX;i += 1) {
         continue;
     }
     if(str(st[i]) != "") {
-        draw_bold_text(getMenuXPosition(),view_yview[0] + j*15,v_txt[i] + ":" + str(st[i]),c_white,c_black);
+        draw_bold_text(getMenuXPosition(),
+            view_yview[0] + j*15,
+            v_txt[i] + ":" + str(st[i]),
+            c_white,c_black);
     }
     j++;
 }

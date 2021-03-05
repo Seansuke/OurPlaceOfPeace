@@ -1,11 +1,16 @@
-// Randomly change targets
-if(random(500) < 1 || ! instance_exists(aiTarget)) {
+// Randomly change targets unless needed
+if(instance_exists(aiTarget)) {
+    if(aiTarget.HP <= 0) {
+        aiTarget = obj_camera.mon[floor(random(PTY_AMNT))];
+    }
+}
+else if(random(500) < 1) {
     aiTarget = obj_camera.mon[floor(random(PTY_AMNT))];
 }
 
 var attackRandomly = (v_act == "idle" || v_act == "run");
 
-var isHealer = playerId == AD || playerId == Taliko;
+var isHealer = (playerId == AD || playerId == Taliko);
 if(isHealer) {
     if(playerId == AD) {
         v_arteNum = arte_find("Restore");

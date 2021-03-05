@@ -25,10 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>v_gfx = sprite_index;
-v_text = "";
+            <string>v_gfx = spr_icon;
+v_text = "EMPTY";
 depth = -999;
 v_set = -1;
+playerId = -1;
 </string>
           </argument>
         </arguments>
@@ -51,13 +52,55 @@ v_set = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(v_set != -1 &amp;&amp; v_text == "")
+            <string>if(v_set != -1)
 {
     playerId = v_set;
     v_text = name_get(playerId) + " " 
         + str(party_get(playerId, PTY_HP)) + "/" 
         + str(getStat(global.playerLevel, PLY_HP, player_get(playerId,PLY_HP)));
     v_gfx = face_get(playerId);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with(PlayerObject) {
+    if(other.playerId != -1) {
+        menuSubset[0] = other.playerId;
+        menu_call("Artes Slot");
+        
+        with(obj_areaMenu_artes_desc) {
+            visible = true;
+        }
+        var i = 0;
+        for(i = 0;i &lt; 8;i += 1)
+        {
+            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 140 + 40*i,obj_areaMenu_artes_set);
+            (menus[i]).v_set = PTY_A1_IDLE + i;
+            (menus[i]).combatId = menuSubset[0];
+        }
+        maxMenu = i;
+
+    }
+            
 }
 </string>
           </argument>

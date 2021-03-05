@@ -29,26 +29,28 @@ switch(subMenu)
         with(obj_areaMenu_artes_desc) {
             visible = true;
         }
-        var i = 0;
-        for(i = 0;i < MAX_PLAYERS;i += 1)
-        {
-            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_artes_player);
-            (menus[i]).v_set = i;
+        maxMenu = 0;
+        for(var i = 0; i < PTY_AMNT; i++) {
+            if(combat_get(CMBT_PARTY1, i) == -1) {
+                continue;
+            }
+            menus[maxMenu] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,
+                obj_areaMenu_artes_player);
+            (menus[maxMenu]).v_set = combat_get(CMBT_PARTY1, i);
+            maxMenu++;
+        }
+        for(var i = 0; i < MAX_PLAYERS; i++) {
+            if(combat_get(CMBT_RESERVE, i) == -1) {
+                continue;
+            }
+            menus[maxMenu] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,
+                obj_areaMenu_artes_player);
+            (menus[maxMenu]).v_set = combat_get(CMBT_RESERVE, i);
+            maxMenu++;
         }
         maxMenu = i;
     break;
     case "Artes Slot":
-        with(obj_areaMenu_artes_desc) {
-            visible = true;
-        }
-        var i = 0;
-        for(i = 0;i < 8;i += 1)
-        {
-            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 140 + 40*i,obj_areaMenu_artes_set);
-            (menus[i]).v_set = PTY_A1_IDLE + i;
-            (menus[i]).combatId = menuSubset[0];
-        }
-        maxMenu = i;
     break;
     case "Artes Slot Select":
         with(obj_areaMenu_artes_desc) {
@@ -144,6 +146,7 @@ switch(subMenu)
             (menus[i]).v_set = i;
             (menus[i]).combatParty = CMBT_PARTY1;
             (menus[i]).positionInMenu = i;
+            (menus[i]).playerId = combat_get(CMBT_PARTY1, i);
             (menus[i]).maxMenuPosition = maxMenu;
         }
         with(obj_areaMenu_artes_desc) {
@@ -167,6 +170,7 @@ switch(subMenu)
             (menus[i]).v_set = i;
             (menus[i]).combatParty = CMBT_RESERVE;
             (menus[i]).positionInMenu = i;
+            (menus[i]).playerId = combat_get(CMBT_RESERVE, i);
             (menus[i]).maxMenuPosition = maxMenu;
         }
         tmp_player = menuSubset[0];
@@ -186,10 +190,16 @@ switch(subMenu)
     break;
     case "Stats":
         maxMenu = MAX_PLAYERS;
-        for(i = 0;i < MAX_PLAYERS;i += 1)
-        {
-            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_skills_player);
-            (menus[i]).v_set = i;
+        var i = 0;
+        for(i = i; i < PTY_AMNT; i++) {
+            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,
+                obj_areaMenu_skills_player);
+            (menus[i]).v_set = combat_get(CMBT_PARTY1, i);
+        }
+        for(i = i;i < MAX_PLAYERS;i += 1) {
+            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,
+                obj_areaMenu_skills_player);
+            (menus[i]).v_set = combat_get(CMBT_RESERVE, i - PTY_AMNT);
         }
     break;
     case "Settings":
