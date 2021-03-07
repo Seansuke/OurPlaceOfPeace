@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_areaMenu</parentName>
+  <parentName>ClickableButton</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>v_gfx = sprite_index;
-v_text = "Quit Game";
+message = "Quit Game";
 depth = -999;
 v_confirm = false;
 </string>

@@ -141,6 +141,7 @@ animate(spr_divide, 0,0,DIR_RIGHT);
             <kind>1</kind>
             <string>depth = -y;
 if(global.menu == true 
+    &amp;&amp; combatId == 0
     &amp;&amp; menuPos &gt;= 0 
     &amp;&amp; menuPos &lt; maxMenu 
     &amp;&amp; instance_exists(menus[menuPos])) 

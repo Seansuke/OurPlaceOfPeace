@@ -92,12 +92,14 @@ switch(subMenu)
             with(obj_areaMenu_stats_desc) {
                 STAT_id = other.tmp_i;
                 playerId = other.menus[other.menuPos].playerId;
-                baseStat = player_get(playerId, STAT_id);
-                stat = baseStat;
-                if(is_real(stat)) {
-                    stat = getStat(global.playerLevel, STAT_id, baseStat);
+                if(playerId >= 0) {
+                    baseStat = player_get(playerId, STAT_id);
+                    stat = baseStat;
+                    if(is_real(stat)) {
+                        stat = getStat(global.playerLevel, STAT_id, baseStat);
+                    }
+                    st[other.tmp_i] = stat;
                 }
-                st[other.tmp_i] = stat;
             }
         }
     break;

@@ -514,6 +514,7 @@
       <script>scripts\canvas_window.gml</script>
       <script>scripts\getMenuXPosition.gml</script>
       <script>scripts\menu_close.gml</script>
+      <script>scripts\script126.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -618,7 +619,7 @@
       <room>rooms\rm_arena_outskirts</room>
     </rooms>
   </rooms>
-  <constants number="126">
+  <constants number="127">
     <constant name="Sean">0</constant>
     <constant name="AD">1</constant>
     <constant name="Dan">2</constant>
@@ -732,6 +733,7 @@
     <constant name="BTN_TYPE_NONE">0</constant>
     <constant name="BTN_TYPE_KEYBOARD">1</constant>
     <constant name="BTN_TYPE_GAMEPAD">2</constant>
+    <constant name="BTN_TYPE_MAX">3</constant>
     <constant name="CMBT_RESERVE">0</constant>
     <constant name="CMBT_PARTY1">1</constant>
     <constant name="TYPE_PHYSICAL">0</constant>

@@ -31,7 +31,6 @@ switch(subMenu) {
         }
     break;
     case "Artes Player":
-        menuSubset[0] = menuPos;//TECHINCALLY party player selected for slot menu
         with(menus[menuPos]) {
             event_user(1);
         }
@@ -42,8 +41,8 @@ switch(subMenu) {
     break;
     case "Artes Slot Select":
         tmp_arte = arte_get((menus[menuPos]).v_set,ARTE_NAME);
-        party_set(menuSubset[0],menuSubset[1] + PTY_A1_IDLE,tmp_arte);//change party member's arte
-        menu_call("Artes Slot");
+        party_set(selectedPlayerId, menuSubset[1] + PTY_A1_IDLE,tmp_arte);//change party member's arte
+        menu_call_artes_slot(selectedPlayerId);
     break;
     case "Skill Player":
         menuSubset[0] = menuPos;//certain player member selected+1

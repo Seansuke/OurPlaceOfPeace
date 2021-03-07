@@ -1,16 +1,7 @@
-// Save the last known menu position before switching
-ds_map_replace(lastMenuPos, subMenu, menuPos);
+#define menu_call
+/// menu_call(submenuName);
 
-subMenu = argument0;
-with(obj_areaMenu){instance_destroy();}
-
-// Reset the menu position to the last known value.
-if(!ds_map_exists(lastMenuPos, subMenu)) {
-    ds_map_add(lastMenuPos, subMenu, 1);
-}
-else {
-    menuPos = ds_map_find_value(lastMenuPos, subMenu);
-}
+subMenu = menu_clear(argument0);
 
 switch(subMenu)
 {
@@ -34,7 +25,8 @@ switch(subMenu)
             if(combat_get(CMBT_PARTY1, i) == -1) {
                 continue;
             }
-            menus[maxMenu] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,
+            menus[maxMenu] = instance_create(getMenuXPosition(),
+                view_yview[0] + 100 + 40*maxMenu,
                 obj_areaMenu_artes_player);
             (menus[maxMenu]).v_set = combat_get(CMBT_PARTY1, i);
             maxMenu++;
@@ -43,14 +35,12 @@ switch(subMenu)
             if(combat_get(CMBT_RESERVE, i) == -1) {
                 continue;
             }
-            menus[maxMenu] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,
+            menus[maxMenu] = instance_create(getMenuXPosition(),
+                view_yview[0] + 100 + 40*maxMenu,
                 obj_areaMenu_artes_player);
             (menus[maxMenu]).v_set = combat_get(CMBT_RESERVE, i);
             maxMenu++;
         }
-        maxMenu = i;
-    break;
-    case "Artes Slot":
     break;
     case "Artes Slot Select":
         with(obj_areaMenu_artes_desc) {
@@ -228,3 +218,46 @@ switch(subMenu)
 
 menu_wrapMenuPos();
 
+
+#define menu_call_artes_slot
+/// menu_call_artes_slot(selectedPlayerId);
+if(argument0 < 0) {
+    animate_text("Cannot select empty slot.", x,y);
+    exit;
+}
+
+subMenu = menu_clear("Artes Slot");
+
+selectedPlayerId = argument0;
+menuSubset[0] = selectedPlayerId;
+
+with(obj_areaMenu_artes_desc) {
+    visible = true;
+}
+
+for(var i = 0; i < 8; i += 1) {
+    menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 140 + 40*i,obj_areaMenu_artes_set);
+    (menus[i]).v_set = PTY_A1_IDLE + i;
+    (menus[i]).playerId = selectedPlayerId;
+    maxMenu++;
+}
+
+#define menu_clear
+///menu_clear(submenuDestination); 
+///Returns new submenu location.
+
+var submenuDestination = argument0;
+
+// Save the last known menu position before switching
+ds_map_replace(lastMenuPos, subMenu, menuPos);
+with(obj_areaMenu){instance_destroy();}
+
+// Reset the menu position to the last known value.
+if(!ds_map_exists(lastMenuPos, submenuDestination)) {
+    ds_map_add(lastMenuPos, submenuDestination, 0);
+}
+else {
+    menuPos = ds_map_find_value(lastMenuPos, submenuDestination);
+}
+maxMenu = 0;
+return submenuDestination;

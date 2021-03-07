@@ -1,14 +1,28 @@
 depth = -y;
 press_maintain();//maintain all controls
 
-if(global.menu) {
+if(global.menu && combatId == 0) {
     depth = -10001;
     menu_maintain();
     exit;
 }
 
-//running
 playerId = combat_get(CMBT_PARTY1, combatId);
+if(playerId < 0) {
+    visible = false;
+    with(PlayerObject) {
+        if(combatId == 0) {
+            other.x = x;
+            other.y = y;
+        }
+    }
+    exit;
+}
+else {
+    visible = true;
+}
+
+// idle
 v_gfx = global.gfx[playerId, GFX_IDLE];
 v_img += 1/3;
 

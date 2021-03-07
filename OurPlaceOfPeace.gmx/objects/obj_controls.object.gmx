@@ -27,16 +27,16 @@
             <kind>1</kind>
             <string>/// init
 
-v_type = BTN_TYPE_KEYBOARD;
+v_type = BTN_TYPE_NONE;
 v_text[0] = "";
 v_text[1] = "";
 v_text[2] = "";
 v_currentKey = 0;
 v_timer = 0;
 v_on = false;
+combatId = -1;
 depth = -999;
-for(i=1;i&lt;BTN_MAX;i+=1)
-{
+for(i = 1;i &lt; BTN_MAX;i += 1) {
     ctrls[i] = 0;
 }
 alarm[1] = 3;
@@ -67,8 +67,9 @@ types[BTN_TYPE_GAMEPAD] = "Gamepad";
           <argument>
             <kind>1</kind>
             <string>v_text[0] = "Set";
-v_text[1] = "Player " + str(combatId+1);
+v_text[1] = "Player " + str(combatId + 1);
 v_text[2] = "Controls";
+v_type = ctrl_get(combatId, BTN_TYPE);
 </string>
           </argument>
         </arguments>
@@ -117,11 +118,12 @@ v_text[2] = "Controls";
 v_timer -= 1;
 
 /* Exit if not on or timer is not run yet */
-if(v_on == false || v_timer &gt; 0)
-{
+if(v_on == false || v_timer &gt; 0) {
     exit;
 }
 
+// Disable Menu Controls to allow the controls to finish.
+instance_deactivate_object(obj_areaMenu);
 global.menu = true;//keep menu up
 
 /* Draw text relative to current key */
@@ -201,8 +203,7 @@ switch(v_type)
     break;
 }
 /* if keys are completed, finish up */
-if(v_currentKey &gt;= BTN_MAX)
-{
+if(v_currentKey &gt;= BTN_MAX) {
     /* Set the newly placed controls into the global array */
     ctrl_new(combatId,v_type,
         ctrls[BTN_UP],ctrls[BTN_RIGHT],ctrls[BTN_DOWN],ctrls[BTN_LEFT],
@@ -210,40 +211,18 @@ if(v_currentKey &gt;= BTN_MAX)
         ctrls[BTN_TARGET],ctrls[BTN_ACTION],ctrls[BTN_MENU]);   
     /* Reset data */
     v_type = "";
-    v_text[0] = "PLAYER " + str(combatId);
-    v_text[1] = "CONTROLS";
-    v_text[2] = "SET!";
+    v_text[0] = "Player " + str(combatId + 1);
+    v_text[1] = "Controls";
+    v_text[2] = "Set!";
     v_currentKey = 0;
     v_timer = 0;
     v_on = false;
-    for(i=BTN_UP;i&lt;BTN_MAX;i+=1)
-    {
+    for(i=BTN_UP;i&lt;BTN_MAX;i+=1) {
         ctrls[i] = 0;
     }
+        
+    instance_activate_object(obj_areaMenu);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>v_type = types[v_type + 1 mod 3];
 </string>
           </argument>
         </arguments>
@@ -266,24 +245,24 @@ if(v_currentKey &gt;= BTN_MAX)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* ensure ctrl set begins working */
-v_on = true;
+            <string>v_type = (v_type + 1) mod BTN_TYPE_MAX;
 
-/* Begin setting keys, different for gamepad than for keyboard*/
-if(v_type == BTN_TYPE_NONE)
-{
+/* ensure ctrl set begins working */
+if(v_type == BTN_TYPE_NONE) {
+    v_on = false;
     exit;
 }
-if(v_type == BTN_TYPE_KEYBOARD)
-{
+
+/* Begin setting keys, different for gamepad than for keyboard */
+if(v_type == BTN_TYPE_KEYBOARD) {
     v_currentKey = BTN_UP;
 }
-else
-{
+else {
     v_currentKey = BTN_ATTACK;
 }
 
 /* turn on the timer */
+v_on = true;
 v_timer = 5;
 </string>
           </argument>
@@ -308,7 +287,7 @@ v_timer = 5;
           <argument>
             <kind>1</kind>
             <string>if(combatId &lt; 0) exit;
-switch(ctrl_get(combatId,BTN_TYPE))
+switch(ctrl_get(combatId, BTN_TYPE))
 {
     case BTN_TYPE_NONE:
         draw_sprite(spr_icon,0,x,y);

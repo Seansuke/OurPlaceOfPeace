@@ -1,10 +1,13 @@
 // Randomly change targets unless needed
 if(instance_exists(aiTarget)) {
-    if(aiTarget.HP <= 0) {
+    if((aiTarget).HP <= 0) {
+        aiTarget = obj_camera.mon[floor(random(PTY_AMNT))];
+    }
+    else if(random(500) < 1) {
         aiTarget = obj_camera.mon[floor(random(PTY_AMNT))];
     }
 }
-else if(random(500) < 1) {
+else {
     aiTarget = obj_camera.mon[floor(random(PTY_AMNT))];
 }
 
@@ -37,7 +40,7 @@ if(isHealer) {
                 }
                 
                 var hpRatio = (targetInstanceId).rollHP / (targetInstanceId).stat[PLY_HP];
-                if( hpRatio < 0.8 && hpRatio < v_targetHpRatio) {
+                if( hpRatio < 0.8 && hpRatio < v_targetHpRatio && hpRatio > 0) {
                     v_target = targetCombatId;
                     v_targetHpRatio = hpRatio;
                 }
@@ -104,7 +107,7 @@ if(instance_exists(aiTarget)) {
         }
     }
     
-    if(aiTarget.x > x) {
+    if((aiTarget).x > x) {
         v_dir = DIR_RIGHT;
     }
     else {

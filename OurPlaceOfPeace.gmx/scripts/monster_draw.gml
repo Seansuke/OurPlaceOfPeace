@@ -11,6 +11,11 @@ if(previousX != x || previousY != y) {
 //draw monster
 draw_sprite_ext(gfx[v_gfx],v_img,x,y,v_dir,1,0,c_white,true); 
 
+if(damageAlpha > 0) {
+    // Draw damage.
+    draw_sprite_ext(gfx[v_gfx], v_img, x,y, v_dir, 1,0, c_red, damageAlpha); 
+}
+
 if(v_act == "guardian") {
     draw_sprite_ext(spr_bubble,v_img,x,y - 30,1.5,1.5,0,c_aqua,0.6);
 }

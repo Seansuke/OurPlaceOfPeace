@@ -4,7 +4,7 @@ switch(subMenu)
         menu_call("Artes Player");
     break;
     case "Artes Slot Select":
-        menu_call("Artes Slot");
+        menu_call_artes_slot(selectedPlayerId);
     break;
     case "Skill Arte":
         menu_call("Skill Player");
