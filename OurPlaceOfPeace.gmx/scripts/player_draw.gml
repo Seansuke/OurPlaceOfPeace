@@ -47,6 +47,11 @@ if(v_act == "guardian") {
     draw_sprite_ext(spr_bubble,v_img,x,y - 30,1.5,1.5,0,c_aqua,0.6);
 }
 
+//draw guardian
+if(v_act == "guard") {
+    draw_sprite_ext(GuardSprite,v_img,x,y,v_dir,1,0,c_white,0.6);
+}
+
 //draw charge bar
 if(v_charge > 1) {
     draw_rectangle_color(x - 30,y + 20, x + 30, y + 25, c_dkgray,c_gray,c_black,c_white, false);

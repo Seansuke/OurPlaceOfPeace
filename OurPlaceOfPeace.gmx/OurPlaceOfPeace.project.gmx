@@ -100,6 +100,7 @@
           <sprite>sprites\spr_wave</sprite>
           <sprite>sprites\spr_divide</sprite>
           <sprite>sprites\spr_wall</sprite>
+          <sprite>sprites\GuardSprite</sprite>
           <sprite>sprites\spr_uprise</sprite>
         </sprites>
       </sprites>
@@ -368,7 +369,6 @@
       <script>scripts\scr_attack_destroy.gml</script>
       <scripts name="uniques">
         <script>scripts\scr_attack_physical.gml</script>
-        <script>scripts\scr_attack_self.gml</script>
         <script>scripts\scr_attack_air_shot.gml</script>
         <script>scripts\scr_attack_tech.gml</script>
       </scripts>
@@ -498,6 +498,7 @@
       <script>scripts\set_monster_gfx.gml</script>
       <script>scripts\set_monster_stats.gml</script>
       <script>scripts\arte_set.gml</script>
+      <script>scripts\set_monster_attacks.gml</script>
     </scripts>
     <scripts name="MENUS">
       <script>scripts\init_menu.gml</script>

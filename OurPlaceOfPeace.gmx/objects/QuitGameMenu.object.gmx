@@ -51,8 +51,7 @@ v_confirm = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-v_text = "Are you sure you want to quit?";
+            <string>message = "Are you sure you want to quit?";
 if(v_confirm) {
     game_end();
 }

@@ -198,11 +198,11 @@ arteId = arte_new(James,"Rushing Reap",spr_spin,GFX_ATTACK_SIDE,
 arteId = arte_new(James,"Petal Beam",spr_petal_beam,GFX_CAST,   
     1.5,0.5,   12,300,  1,
     "Beam out flaming petals.",
-    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*9);
+    ARTE_EFFECT_NONE, TYPE_SELF, 3*6);
 arteId = arte_new(James,"Petal Storm",spr_petal_storm,GFX_CAST, 
     1.5,0.5,   12,300,  5,
     "Spin flaming petals around for anti-air.",
-    ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*9);
+    ARTE_EFFECT_NONE, TYPE_SELF, 3*6);
     
 //======================Taliko======================
 arteId = arte_new(Taliko,"Chill Wounds",ClearIceBlockSprite,GFX_CAST,
@@ -376,22 +376,32 @@ else {
 #define init_game_monsters
 set_simple_monster_gfx(Arach, spr_arach_run, spr_arach_att);
 set_monster_stats(Arach, "Arach", 10,10, 10,10, 10, 10,10, 9);
+set_monster_attacks(Arach, "Strike", "Descending Waterfall", "Ocean's Whirlpool");
 
 set_simple_monster_gfx(Zombie, spr_zombie_run, spr_zombie_att);
 set_monster_stats(Zombie, "Zombie", 15,5, 10,5, 5, 15,5, 6);
+set_monster_attacks(Zombie, "Strike", "Tension");
 
 set_simple_monster_gfx(Harpy, HarpyFlySprite, HarpyAttackSprite);
 set_monster_stats(Harpy, "Harpy", 12,12, 11,7, 5, 8,12, 12);
+set_monster_attacks(Harpy, "Rushing Reap", "Incapacitate", "Wind's Pierce", 
+    "Raging Hurricane", "Storm", "Rushing Leaves", "Falling Tree",
+    "Petal Beam", "Petal Storm");
 
 set_simple_monster_gfx(Dragon, DragonFlySprite, DragonAttackSprite);
 set_monster_gfx(Dragon, GFX_ATTACK_UP, DragonAttackUpSprite);
 set_monster_gfx(Dragon, GFX_ATTACK_SIDE, DragonAttackSideSprite);
 set_monster_stats(Dragon, "Dragon", 15,15, 15,15, 15, 15,15, 12);
+set_monster_attacks(Dragon, "Incapacitate", "Divide", "Retreating Flame", 
+    "Falling Tree");
 
-set_simple_monster_gfx(Knight, spr_arach_run, spr_arach_att);
+set_simple_monster_gfx(Knight, KnightRunSprite, KnightAttackSprite);
 set_monster_gfx(Knight, GFX_ATTACK_UP, KnightAttackUpSprite);
 set_monster_gfx(Knight, GFX_ATTACK_SIDE, KnightAttackSideSprite);
 set_monster_stats(Knight, "Knight", 11,8, 10,7, 12, 12,7, 12);
+set_monster_attacks(Knight, "Strike", "Smash", "Divide", "Uprise", 
+    "Incapacitate", "Tension");
 
 set_simple_monster_gfx(Slime, SlimeWalkSprite, SlimeAttackSprite);
 set_monster_stats(Slime, "Slime", 5,5, 5,5, 5, 15,5, 6);
+set_monster_attacks(Slime, "Strike", "Shove", "Tension");

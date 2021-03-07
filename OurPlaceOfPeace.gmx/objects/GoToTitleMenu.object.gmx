@@ -52,7 +52,7 @@ v_confirm = false;
           <argument>
             <kind>1</kind>
             <string>
-v_text = "Are you sure you want to go to the title screen?";
+message = "Are you sure you want to go to the title screen?";
 if(v_confirm) {
     room_set_persistent(room, false);
     game_restart();

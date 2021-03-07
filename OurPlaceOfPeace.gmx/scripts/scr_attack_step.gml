@@ -36,9 +36,6 @@ switch(v_type)
     case TYPE_PHYSICAL:
          scr_attack_physical();
     break;
-    case TYPE_SELF:
-         scr_attack_self();
-    break;
     case TYPE_SHOT:
          x += v_dir * real(amove);
     break;

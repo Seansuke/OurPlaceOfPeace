@@ -52,7 +52,7 @@ v_confirm = false;
           <argument>
             <kind>1</kind>
             <string>
-v_text = "Are you sure you want to load your file?  Current data may be lost.";
+message = "Are you sure you want to load your file?  Current data may be lost.";
 if(v_confirm) {
     room_set_persistent(room, false);
     load_settings();

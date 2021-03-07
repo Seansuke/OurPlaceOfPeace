@@ -20,6 +20,10 @@ if(v_act == "guardian") {
     draw_sprite_ext(spr_bubble,v_img,x,y - 30,1.5,1.5,0,c_aqua,0.6);
 }
 
+if(v_act == "guard") {
+    draw_sprite_ext(GuardSprite,v_img,x,y,v_dir,1,0,c_white,0.6);
+}
+
 //draw HP bars
 draw_sprite_stretched(spr_hp_under,-1,x,y + 39, 75,10);
 draw_sprite_stretched(spr_hp_over,-1,x,y + 39,rollHP / stat[PLY_HP] * 75,10);
