@@ -1,3 +1,4 @@
+/// ctrl_btn() returns button held
 //CONTROL
 switch(global.ctrl[combatId,BTN_TYPE])
 {

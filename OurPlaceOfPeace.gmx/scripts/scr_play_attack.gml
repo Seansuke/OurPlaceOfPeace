@@ -113,6 +113,10 @@ if(v_timer >= interruptFrame){
             exit;
         }
     }
+    else if(ctrl_btn() == BTN_GUARD) {
+        v_act = "guard";
+        exit;
+    }
 }
 
 if(v_timer > completionFrame) {

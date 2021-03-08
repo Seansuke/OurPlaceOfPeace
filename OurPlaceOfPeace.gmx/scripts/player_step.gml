@@ -29,7 +29,7 @@ if(ctrl_get(combatId,BTN_TYPE) == BTN_TYPE_NONE) {
 }
 
 // Only gain SP during certain actions.
-if(v_act == "idle" || v_act == "run" || v_act == "fall" || v_act == "jump" || v_act == "guard" || v_act == "guardian") {
+if(v_act == "idle" || v_act == "run" || v_act == "fall" || v_act == "jump") {
     SP = min(SP + SP_GAINED_PER_FRAME, stat[PLY_SP]);
 }
 

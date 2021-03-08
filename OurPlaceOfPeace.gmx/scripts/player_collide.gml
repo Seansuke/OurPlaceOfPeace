@@ -61,16 +61,25 @@ else {
 
 if(v_act == "guard")
 {
-    if(v_guard > damage)
+    if(SP > damage)
     {
-        v_guard -= damage / 2;
+        SP -= damage;
         new_dmg(other.id,other.v_timer[0] - other.v_timer[1]);
+    }
+    else {
+        if(other.x < x)
+            {v_dir = DIR_LEFT;}
+        else
+            {v_dir = DIR_RIGHT;}
+        v_timer = min(other.pushPower * 1.5, 64);
+        v_act = "damage";
     }
     exit;
 }
 
 if(v_act == "counter")
 {
+    SP += COUNTER_SP_GAIN;
     other.v_team = v_team;
     exit;
 }
@@ -91,13 +100,17 @@ if(other.pushPower > stat[PLY_DEF] + bonusDEF) {
         {v_dir = DIR_LEFT;}
     else
         {v_dir = DIR_RIGHT;}
-    v_timer = (other.pushPower - stat[PLY_DEF] + bonusDEF) * 1.5;
+    v_timer = min(64, (other.pushPower - stat[PLY_DEF] + bonusDEF) * 1.5);
     v_act = "damage";
 }
 
 damageAlpha = 1;
-
 rollHPSpeed = 0.2;
+
+// Opponent earns SP for the melee attack
+if(!other.isArte) {
+    (other.ids).SP += SP_MELEE_GAIN;
+}
 
 new_dmg(other.id,other.v_timer[0] - other.v_timer[1]);
 
