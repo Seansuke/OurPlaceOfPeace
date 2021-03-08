@@ -7,16 +7,26 @@ camx = room_width;
 cam2x = 0;
 
 // Smart camera
-for(var ctrlId = 0;ctrlId < PTY_AMNT;ctrlId += 1) {
-    if(instance_exists(ids[ctrlId])) {
-        if(ctrl_get(ctrlId, BTN_TYPE) != BTN_TYPE_NONE) {
-            if((ids[ctrlId]).x < camx) {
-                camx = (ids[ctrlId]).x;
+for(var index = 0;index < PTY_AMNT;index += 1) {
+    var playerObject = ids[index];
+    if(instance_exists(playerObject)) {
+        if(ctrl_get(playerObject.combatId, BTN_TYPE) != BTN_TYPE_NONE) {
+            if((playerObject).x < camx) {
+                camx = (playerObject).x;
             }
-            if((ids[ctrlId]).x > cam2x) {
-                cam2x = (ids[ctrlId]).x;
+            if((playerObject).x > cam2x) {
+                cam2x = (playerObject).x;
             }
         }
+    }
+}
+var nearestAliveFoe = instance_nearest(x, y, obj_mon);
+if(instance_exists(nearestAliveFoe)) {
+    if((nearestAliveFoe).x < camx) {
+        camx = (nearestAliveFoe).x;
+    }
+    if((nearestAliveFoe).x > cam2x) {
+        cam2x = (nearestAliveFoe).x;
     }
 }
 x = (camx + cam2x) / 2;
