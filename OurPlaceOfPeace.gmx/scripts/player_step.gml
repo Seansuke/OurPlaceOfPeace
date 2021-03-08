@@ -33,6 +33,10 @@ if(v_act == "idle" || v_act == "run" || v_act == "fall" || v_act == "jump" || v_
     SP = min(SP + SP_GAINED_PER_FRAME, stat[PLY_SP]);
 }
 
+if(v_act != "arte") {
+    v_ally_target = -1;
+}
+
 //determine action
 switch(v_act) {
     //navigate
