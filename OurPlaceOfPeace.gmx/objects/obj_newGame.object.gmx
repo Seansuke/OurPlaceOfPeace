@@ -50,7 +50,7 @@
             <kind>1</kind>
             <string>audio_stop_all();
 global.marker = 1;
-room = rm_area_outskirts;
+room_set_temporary_persistence(rm_area_outskirts);
 </string>
           </argument>
         </arguments>
@@ -75,29 +75,6 @@ room = rm_area_outskirts;
             <kind>1</kind>
             <string>draw_self();
 draw_text(x,y,"New Game");
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>canvas_fullscreen();
 </string>
           </argument>
         </arguments>

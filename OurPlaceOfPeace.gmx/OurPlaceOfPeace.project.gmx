@@ -496,6 +496,7 @@
       <script>scripts\getLevel1HpStat.gml</script>
       <script>scripts\play_slash_audio.gml</script>
       <script>scripts\combat_get.gml</script>
+      <script>scripts\room_set_temporary_persistence.gml</script>
     </scripts>
     <scripts name="init">
       <script>scripts\init_game.gml</script>
@@ -603,6 +604,7 @@
         <object>objects\obj_candy_rock2</object>
         <object>objects\obj_candy_rock3</object>
         <object>objects\obj_animate_text</object>
+        <object>objects\obj_animate</object>
       </objects>
       <objects name="areaItems">
         <object>objects\obj_marker1</object>
@@ -631,8 +633,8 @@
     </objects>
     <objects name="misc">
       <object>objects\PlayerObject</object>
-      <object>objects\obj_animate</object>
       <object>objects\EmptyObject</object>
+      <object>objects\PreviousRoomObject</object>
     </objects>
   </objects>
   <rooms name="rooms">
@@ -646,6 +648,7 @@
     <rooms name="arena">
       <room>rooms\rm_arena_outskirts</room>
     </rooms>
+    <room>rooms\EmptyRoom</room>
   </rooms>
   <constants number="133">
     <constant name="Sean">0</constant>

@@ -147,8 +147,8 @@ else {
     global.arte = arte;
     global.ctrl = ctrl;
     
-audio_set_volume(global.audioLevel)
-    room_goto(global.currentMap);
+    audio_set_volume(global.audioLevel)
+    room_set_temporary_persistence(global.currentMap);
 }
 return "Nothing happened?";
 

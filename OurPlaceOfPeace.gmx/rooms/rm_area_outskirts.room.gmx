@@ -7,7 +7,7 @@
   <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>audio_play_sound(RuinedPlanetBgm,0,true);
@@ -284,6 +284,7 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="AreaSlime" x="1536" y="448" name="inst_40C88C7E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="AreaSlime" x="2720" y="304" name="inst_FAD79793" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="AreaSlime" x="3248" y="432" name="inst_43823C8F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ParentBlock" x="1712" y="32" name="inst_44F11829" locked="0" code="" scaleX="100" scaleY="5.36170196533203" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_darksky" x="0" y="-224" w="1280" h="335" xo="0" yo="0" id="10001447" name="tile_0EAFDC90" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

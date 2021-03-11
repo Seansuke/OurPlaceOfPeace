@@ -3,7 +3,6 @@ scr_player_attack_create();
 */
 //create
 tmp_id = instance_create(x,y,obj_attack);
-(tmp_id).sprite_index = spr_icon;//graphic
 (tmp_id).v_dir = v_dir;//direction
 (tmp_id).v_type = TYPE_PHYSICAL;//attack type
 (tmp_id).v_visible = true;//visible
@@ -36,7 +35,7 @@ switch(playerId)
     break;
     case Dan:
         (tmp_id).sprite_index = spr_arrow;//graphic
-        (tmp_id).v_timer[0] = 3*10;//max time until departure
+        (tmp_id).v_timer[0] = 3*5;//max time until departure
         (tmp_id).v_type = TYPE_GRAVITY_SHOT;
         (tmp_id).amove = 20;
         (tmp_id).effect = ARTE_EFFECT_OUT;
