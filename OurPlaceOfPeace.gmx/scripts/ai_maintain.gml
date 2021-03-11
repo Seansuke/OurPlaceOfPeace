@@ -1,5 +1,5 @@
 // Randomly change targets unless needed
-if(instance_exists(aiTarget)) {
+if(instance_exists(aiTarget) && aiTarget != -1) {
     if((aiTarget).HP <= 0) {
         aiTarget = obj_camera.mon[floor(random(PTY_AMNT))];
     }
@@ -63,9 +63,8 @@ if(isHealer) {
 
 if(instance_exists(aiTarget)) {
     // closer to target if a fighter, farther if not, and do not bother attacking if so.
-    if(playerId == AD || playerId == Dan || playerId == Taliko)
-    {    
-        if(abs(x - aiTarget.x) < 100) {
+    if(playerId == AD || playerId == Dan || playerId == Taliko) {    
+        if(abs(x - (aiTarget).x) < 150) {
             attackRandomly = false;
             if(x < aiTarget.x) {
                 v_h = BTN_LEFT;
@@ -74,8 +73,8 @@ if(instance_exists(aiTarget)) {
                 v_h = BTN_RIGHT;
             }
         }
-        else if(abs(x - aiTarget.x) > 150) {
-            if(x < aiTarget.x) {
+        else if(abs(x - (aiTarget).x) > 180) {
+            if(x < (aiTarget).x) {
                 v_h = BTN_RIGHT;
             }
             else {
@@ -84,9 +83,9 @@ if(instance_exists(aiTarget)) {
         }
     }
     else {    
-        if(abs(x - aiTarget.x) > 30) {
+        if(abs(x - (aiTarget).x) > 32) {
             attackRandomly = false;
-            if(x < aiTarget.x) {
+            if(x < (aiTarget).x) {
                 v_h = BTN_RIGHT;
             }
             else {

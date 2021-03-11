@@ -1,6 +1,6 @@
 ///scr_player_arte_create( );
 
-animate_text(skill[ARTE_NAME], x,y+60);
+animate_text(skill[ARTE_NAME], x,y-64);
 
 //create
 tmp_id = instance_create(x,y,obj_attack);

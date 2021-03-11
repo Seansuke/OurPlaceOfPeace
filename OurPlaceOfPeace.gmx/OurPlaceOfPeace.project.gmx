@@ -74,6 +74,10 @@
       </sprites>
       <sprites name="areaObjects">
         <sprite>sprites\spr_item_save</sprite>
+        <sprite>sprites\TeleportSprite</sprite>
+      </sprites>
+      <sprites name="blocks">
+        <sprite>sprites\MountainBlockSprite</sprite>
       </sprites>
     </sprites>
     <sprites name="battle">
@@ -275,15 +279,21 @@
         </sprites>
       </sprites>
       <sprites name="noel">
-        <sprite>sprites\NoelFaceSprite</sprite>
-        <sprite>sprites\NoelIdleSprite</sprite>
-        <sprite>sprites\NoelDefendSprite</sprite>
-        <sprite>sprites\NoelPunchSprite</sprite>
-        <sprite>sprites\NoelShoveSprite</sprite>
-        <sprite>sprites\NoelDashSprite</sprite>
-        <sprite>sprites\NoelHammerSlashSprite</sprite>
-        <sprite>sprites\NoelHurtSprite</sprite>
-        <sprite>sprites\NoelDownSprite</sprite>
+        <sprites name="char">
+          <sprite>sprites\NoelPunchSprite</sprite>
+          <sprite>sprites\NoelIdleSprite</sprite>
+          <sprite>sprites\NoelDownSprite</sprite>
+          <sprite>sprites\NoelDefendSprite</sprite>
+          <sprite>sprites\NoelFaceSprite</sprite>
+          <sprite>sprites\NoelHammerSlashSprite</sprite>
+          <sprite>sprites\NoelShoveSprite</sprite>
+          <sprite>sprites\NoelDashSprite</sprite>
+          <sprite>sprites\NoelHurtSprite</sprite>
+        </sprites>
+        <sprites name="map">
+          <sprite>sprites\NoelMapIdleSprite</sprite>
+          <sprite>sprites\NoelMapWalkSprite</sprite>
+        </sprites>
       </sprites>
       <sprites name="iwik">
         <sprite>sprites\IwikSprite</sprite>
@@ -413,6 +423,7 @@
         <script>scripts\press_maintain.gml</script>
         <script>scripts\dmg_maintain.gml</script>
         <script>scripts\place_clear.gml</script>
+        <script>scripts\areaPlaceClear.gml</script>
         <script>scripts\move_clear.gml</script>
         <script>scripts\guard_maintain.gml</script>
         <script>scripts\maintain_falling.gml</script>
@@ -505,6 +516,7 @@
       <script>scripts\menu_call.gml</script>
       <script>scripts\menu_execute.gml</script>
       <script>scripts\menu_secondary_execute.gml</script>
+      <script>scripts\menu_tertiary_execute.gml</script>
       <script>scripts\menu_position_action.gml</script>
       <script>scripts\menu_maintain.gml</script>
       <script>scripts\menu_back.gml</script>
@@ -534,7 +546,6 @@
       <object>objects\obj_areaMenu_battle</object>
       <objects name="artes">
         <object>objects\obj_areaMenu_artes_player</object>
-        <object>objects\CombatPlayerMenu</object>
         <object>objects\obj_areaMenu_artes_set</object>
         <object>objects\obj_areaMenu_artes_select</object>
         <object>objects\obj_areaMenu_artes_desc</object>
@@ -573,11 +584,13 @@
         <object>objects\QuitGameMenu</object>
         <object>objects\GoToTitleMenu</object>
       </objects>
+      <objects name="party">
+        <object>objects\CombatPlayerMenu</object>
+      </objects>
     </objects>
     <objects name="area">
       <object>objects\obj_areaCam</object>
       <object>objects\obj_areaPlayer</object>
-      <object>objects\obj_areaMon</object>
       <objects name="Areawalls">
         <object>objects\obj_areaWall</object>
         <object>objects\obj_wall_debris1</object>
@@ -597,6 +610,17 @@
         <object>objects\obj_marker3</object>
         <object>objects\obj_marker4</object>
         <object>objects\obj_item_save</object>
+        <object>objects\AreaWarpParent</object>
+      </objects>
+      <objects name="blocks">
+        <object>objects\ParentBlock</object>
+        <object>objects\MountainBlock</object>
+      </objects>
+      <objects name="mon">
+        <object>objects\obj_areaMon</object>
+        <object>objects\AreaArach</object>
+        <object>objects\AreaZombie</object>
+        <object>objects\AreaSlime</object>
       </objects>
     </objects>
     <objects name="battle">
@@ -613,6 +637,9 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
+    <rooms name="map">
+      <room>rooms\SlumQuadrantRoom</room>
+    </rooms>
     <rooms name="area">
       <room>rooms\rm_area_outskirts</room>
     </rooms>
@@ -620,7 +647,7 @@
       <room>rooms\rm_arena_outskirts</room>
     </rooms>
   </rooms>
-  <constants number="129">
+  <constants number="133">
     <constant name="Sean">0</constant>
     <constant name="AD">1</constant>
     <constant name="Dan">2</constant>
@@ -723,6 +750,10 @@
     <constant name="SP_GAINED_PER_FRAME">3</constant>
     <constant name="SP_MELEE_GAIN">100</constant>
     <constant name="COUNTER_SP_GAIN">100</constant>
+    <constant name="EVADE_SP_GAIN">100</constant>
+    <constant name="MIN_HP_ROLL_SPEED">0.2</constant>
+    <constant name="HEALING_ROLL_SPEED_MULTIPLIER">0.005</constant>
+    <constant name="DAMAGE_AVERAGE_ROLLHP_SPEED">0.15</constant>
     <constant name="ARTE_EFFECT_NONE">0</constant>
     <constant name="ARTE_EFFECT_HEAL">1</constant>
     <constant name="ARTE_EFFECT_ATT_BUFF">2</constant>

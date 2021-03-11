@@ -3,7 +3,7 @@
 if(global.menu == true && global.menu_combatId == combatId) {
     depth = -3000;
     draw_sprite(spr_hand,-1,(menus[menuPos]).x,(menus[menuPos]).y);
-    draw_bold_text((menus[menuPos]).x - 8,(menus[menuPos]).y - 8,"P" + str(combatId),c_red,c_black);
+    draw_bold_text((menus[menuPos]).x - 8,(menus[menuPos]).y - 8,"P" + str(combatId + 1),c_red,c_black);
 }
 
 if(global.menu) {
@@ -47,7 +47,7 @@ if(v_act == "guardian") {
     draw_sprite_ext(spr_bubble,v_img,x,y - 30,1.5,1.5,0,c_aqua,0.6);
 }
 
-//draw guardian
+//draw guard
 if(v_act == "guard") {
     draw_sprite_ext(GuardSprite,v_img,x,y,v_dir,1,0,c_white,0.6);
 }

@@ -1,7 +1,14 @@
 global.subimg = global.subimg + 1/3 mod 10000;
 
-if(ctrl_press(BTN_MENU) == true || (subMenu == "Main" && (ctrl_press(BTN_GUARD) == true || ctrl_press(BTN_ARTES1) == true)))    //exit menu
-{
+if(ctrl_press(BTN_MENU) == true || 
+        (
+            subMenu == "Main" 
+            && (
+                ctrl_press(BTN_GUARD) == true 
+                || ctrl_press(BTN_ARTES1) == true
+            )
+        )
+) {
     menu_close();
     exit;
 }
@@ -21,10 +28,18 @@ menu_wrapMenuPos();
 
 menu_position_action();
 
-if(ctrl_press(BTN_ATTACK) == true || ctrl_press(BTN_RIGHT) == true)
+if(ctrl_press(BTN_ATTACK) == true)
 {
     audio_play_sound(sfx_zelda_select, 3, false);
     menu_execute();
+    with(obj_controls){instance_destroy();}
+    with(TouchControlsObject){instance_destroy();}
+    exit;
+}
+if(ctrl_press(BTN_RIGHT) == true)
+{
+    audio_play_sound(sfx_zelda_select, 3, false);
+    menu_tertiary_execute();
     with(obj_controls){instance_destroy();}
     with(TouchControlsObject){instance_destroy();}
     exit;
