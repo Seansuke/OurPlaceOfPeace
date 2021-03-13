@@ -31,7 +31,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="0">
+    <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -78,7 +78,7 @@ else {
             <kind>1</kind>
             <string>draw_self();
 if(variable_instance_exists(self, "message")) {
-    draw_text(x + 32,y-10,message);
+    draw_bold_text(x + 32,y-10,message, c_white, c_black);
 }
 </string>
           </argument>

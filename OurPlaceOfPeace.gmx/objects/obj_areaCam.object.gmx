@@ -33,12 +33,6 @@
 
 player_marker(global.marker);
 
-if(ds_list_size(global.touchList) &gt; 0) 
-{
-    // Refresh Touch Controls since the digital keys are not persistent.
-    TouchControlsOff();
-    TouchControlsOn();    
-}
 </string>
           </argument>
         </arguments>
@@ -97,6 +91,13 @@ if(ds_list_size(global.touchList) &gt; 0)
 }
 else {
     global.marker = 1;
+}
+
+if(ds_list_size(global.touchList) &gt; 0) 
+{
+    // Refresh Touch Controls since the digital keys are not persistent.
+    TouchControlsOff();
+    TouchControlsOn();    
 }
 </string>
           </argument>

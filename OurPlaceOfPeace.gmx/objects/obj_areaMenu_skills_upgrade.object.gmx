@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_areaMenu</parentName>
+  <parentName>ClickableButton</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -54,6 +54,45 @@ v_img = 0;
           <argument>
             <kind>1</kind>
             <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with(PlayerObject) {
+    tmp_arte = selectedArteId;
+    tmp_slct = other.v_set;
+    tmp_cost = arte_upgrade_cost(arteId,tmp_slct);
+    switch(tmp_slct) {
+        case ARTE_DMG:tmp_add = 0.02;break;
+        case ARTE_POW:tmp_add = 0.02;break;
+        case ARTE_WAIT:tmp_add = -1;break;
+        case ARTE_COST:tmp_add = -10;break;
+    }
+    if(arte_get(tmp_arte,ARTE_USES) &gt;= tmp_cost &amp;&amp; tmp_cost != -1) {
+        global.arte[tmp_arte,ARTE_USES] -= tmp_cost;
+        global.arte[tmp_arte,tmp_slct] += tmp_add;
+        global.arte[tmp_arte,ARTE_POINTS] += 10;
+    }
+    menu_call("Skill Upgrade");//reset all artes information
+}
+</string>
           </argument>
         </arguments>
       </action>

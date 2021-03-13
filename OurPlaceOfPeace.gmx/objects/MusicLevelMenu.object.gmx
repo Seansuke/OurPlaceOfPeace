@@ -26,7 +26,32 @@
           <argument>
             <kind>1</kind>
             <string>/// Refresh Message
-event_user(2);
+event_user(3);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set Volume and display message
+message = "Music Level: " + string(global.audioLevel);
+audio_set_volume(global.audioLevel)
 </string>
           </argument>
         </arguments>
@@ -49,9 +74,9 @@ event_user(2);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set Volume and display message
-message = "Music Level: " + string(global.audioLevel);
-audio_set_volume(global.audioLevel)
+            <string>/// Press Right - Copy Event 1
+
+event_user(1)
 </string>
           </argument>
         </arguments>
@@ -77,7 +102,7 @@ audio_set_volume(global.audioLevel)
             <string>///Increase the audio level
 global.audioLevel += 0.1;
 global.audioLevel = min(global.audioLevel, 1);
-event_user(2);
+event_user(3);
 </string>
           </argument>
         </arguments>
@@ -103,7 +128,7 @@ event_user(2);
             <string>/// Lower Audio Level
 global.audioLevel -= 0.3;
 global.audioLevel = max(0, global.audioLevel);
-event_user(2);
+event_user(3);
 </string>
           </argument>
         </arguments>

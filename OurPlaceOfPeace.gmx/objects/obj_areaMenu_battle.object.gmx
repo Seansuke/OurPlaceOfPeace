@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_areaMenu</parentName>
+  <parentName>ClickableButton</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,8 +26,46 @@
           <argument>
             <kind>1</kind>
             <string>v_gfx = sprite_index;
-v_text = "Enter Battle Mode";
+message = "Enter Battle Mode";
 depth = -999;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Press Confirm - Enter Menu
+with(PlayerObject) {
+                if(room == rm_arena_outskirts) {
+                    exit;
+                }
+                menu_close();
+                global.menu = false;
+                global.monFight[0] = round(random(MAX_MONSTERS));
+                global.monFight[1] = round(random(MAX_MONSTERS));
+                global.monFight[2] = round(random(MAX_MONSTERS));
+                global.monFight[3] = round(random(MAX_MONSTERS));
+                global.areaPlayerX = obj_areaPlayer.x;
+                global.areaPlayerY = obj_areaPlayer.y;
+                global.currentMap = room;
+                room = rm_arena_outskirts;
+}
 </string>
           </argument>
         </arguments>

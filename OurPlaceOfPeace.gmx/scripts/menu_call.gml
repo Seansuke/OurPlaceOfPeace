@@ -9,11 +9,24 @@ switch(subMenu)
         with(obj_areaMenu_artes_desc){visible = false;}
         with(obj_areaMenu_stats_desc){visible = false;}
         var i = 0;
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_artes); i++;
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_skills); i++;
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_party); i++;
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,AreaMenuOptions); i++;
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_battle);i++;
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,BackMenu); 
+        i++;
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,obj_areaMenu_artes); 
+        i++;
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,obj_areaMenu_skills); 
+        i++;
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,obj_areaMenu_party); 
+        i++;
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,AreaMenuOptions); 
+        i++;
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,obj_areaMenu_battle);
+        i++;
         maxMenu = i;
     break;
     case "Artes Player":
@@ -21,6 +34,9 @@ switch(subMenu)
             visible = true;
         }
         maxMenu = 0;
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,BackMenu); 
+        maxMenu++;
         for(var i = 0; i < PTY_AMNT; i++) {
             if(combat_get(CMBT_PARTY1, i) == -1) {
                 continue;
@@ -29,6 +45,10 @@ switch(subMenu)
                 view_yview[0] + 100 + 40*maxMenu,
                 obj_areaMenu_artes_player);
             (menus[maxMenu]).v_set = combat_get(CMBT_PARTY1, i);
+            (menus[maxMenu]).playerId = combat_get(CMBT_PARTY1, i);
+            (menus[maxMenu]).combatId = i;
+            (menus[maxMenu]).combatPartyType = CMBT_PARTY1;
+            (menus[maxMenu]).combatPartyIndex = i;
             maxMenu++;
         }
         for(var i = 0; i < MAX_PLAYERS; i++) {
@@ -39,6 +59,10 @@ switch(subMenu)
                 view_yview[0] + 100 + 40*maxMenu,
                 obj_areaMenu_artes_player);
             (menus[maxMenu]).v_set = combat_get(CMBT_RESERVE, i);
+            (menus[maxMenu]).playerId = combat_get(CMBT_RESERVE, i);
+            (menus[maxMenu]).combatId = -1;
+            (menus[maxMenu]).combatPartyType = CMBT_RESERVE;
+            (menus[maxMenu]).combatPartyIndex = i;
             maxMenu++;
         }
     break;
@@ -47,17 +71,20 @@ switch(subMenu)
             visible = true;
         }
         tmp_char = menuSubset[0];
-        tmp_cap = 0;
         maxMenu = 0;
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,BackMenu); 
+        maxMenu++;
         for(tmp_arte = 0;tmp_arte < global.maxArte;tmp_arte += 1)
         {
-            if(arte_get(tmp_arte,ARTE_PLAYER) == tmp_char && global.maxPlayerLevel >= arte_get(tmp_arte,ARTE_LVL))
+            if(arte_get(tmp_arte,ARTE_PLAYER) == tmp_char 
+                && global.maxPlayerLevel >= arte_get(tmp_arte,ARTE_LVL)
+            )
             {
-                tmp_cap = maxMenu;//current position in menu
-                menus[tmp_cap] = instance_create(
-                                    getMenuXPosition(),view_yview[0] + 100 + 40*tmp_cap,
-                                    obj_areaMenu_artes_select);
-                (menus[tmp_cap]).v_set = tmp_arte;
+                menus[maxMenu] = instance_create(
+                    getMenuXPosition(),view_yview[0] + 100 + 40*maxMenu,
+                    obj_areaMenu_artes_select);
+                (menus[maxMenu]).v_set = tmp_arte;
                 maxMenu++;
             }
         }
@@ -66,30 +93,59 @@ switch(subMenu)
         with(obj_areaMenu_artes_desc) {
             visible = true;
         }
-        var i = 0;
-        for(i = 0;i < MAX_PLAYERS;i += 1)
-        {
-            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_skills_player);
-            (menus[i]).v_set = i;
+        maxMenu = 0;
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,BackMenu); 
+        maxMenu++;
+        for(var i = 0; i < PTY_AMNT; i++) {
+            if(combat_get(CMBT_PARTY1, i) == -1) {
+                continue;
+            }
+            menus[maxMenu] = instance_create(getMenuXPosition(),
+                view_yview[0] + 100 + 40*maxMenu,
+                obj_areaMenu_skills_player);
+            (menus[maxMenu]).v_set = combat_get(CMBT_PARTY1, i);
+            (menus[maxMenu]).playerId = combat_get(CMBT_PARTY1, i);
+            (menus[maxMenu]).combatId = i;
+            (menus[maxMenu]).combatPartyType = CMBT_PARTY1;
+            (menus[maxMenu]).combatPartyIndex = i;
+            maxMenu++;
         }
-        maxMenu = i;
+        for(var i = 0; i < MAX_PLAYERS; i++) {
+            if(combat_get(CMBT_RESERVE, i) == -1) {
+                continue;
+            }
+            menus[maxMenu] = instance_create(getMenuXPosition(),
+                view_yview[0] + 100 + 40*maxMenu,
+                obj_areaMenu_skills_player);
+            (menus[maxMenu]).v_set = combat_get(CMBT_RESERVE, i);
+            (menus[maxMenu]).playerId = combat_get(CMBT_RESERVE, i);
+            (menus[maxMenu]).combatId = -1;
+            (menus[maxMenu]).combatPartyType = CMBT_RESERVE;
+            (menus[maxMenu]).combatPartyIndex = i;
+            maxMenu++;
+        }
     break;
     case "Skill Arte":
         with(obj_areaMenu_artes_desc) {
             visible = true;
         }
         maxMenu = 0;
-        tmp_char = menuSubset[0];//player member
-        tmp_cap = 0;
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,BackMenu); 
+        maxMenu++;
         for(tmp_arte = 0;tmp_arte < global.maxArte;tmp_arte += 1)
         {
-            if(arte_get(tmp_arte,ARTE_PLAYER) == tmp_char && global.maxPlayerLevel >= arte_get(tmp_arte,ARTE_LVL))
+            if(arte_get(tmp_arte,ARTE_PLAYER) == playerIdSelected 
+                && global.maxPlayerLevel >= arte_get(tmp_arte,ARTE_LVL)
+            )
             {
-                tmp_cap = maxMenu;
-                menus[tmp_cap] = instance_create(
-                                    getMenuXPosition(),view_yview[0] + 100 + 40*tmp_cap,
-                                    obj_areaMenu_skills_arte);
-                (menus[tmp_cap]).v_set = tmp_arte;
+                menus[maxMenu] = instance_create(
+                    getMenuXPosition(),view_yview[0] + 100 + 40*maxMenu,
+                    obj_areaMenu_skills_arte);
+                (menus[maxMenu]).v_set = tmp_arte;
+                (menus[maxMenu]).arteId = tmp_arte;
+                (menus[maxMenu]).playerId = playerIdSelected;
                 maxMenu++;
             }
         }
@@ -98,33 +154,41 @@ switch(subMenu)
         with(obj_areaMenu_artes_desc) {
             visible = true;
         }
-        arteId = menuSubset[1];
+        arteId = selectedArteId;
         i = 0;
         obj_areaMenu_artes_desc.visible = true;
         obj_areaMenu_artes_desc.v_uses = arte_get(arteId, ARTE_USES);
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
         (menus[i]).arteId = arteId;
         (menus[i]).v_set = ARTE_DMG;
         (menus[i]).v_text = "Damage: " + str(arte_get(arteId, ARTE_DMG));
-        (menus[i]).v_text2 = "Uses Needed: " + str(arte_upgrade_cost(arteId,ARTE_DMG));
+        (menus[i]).v_text2 = "Uses Needed: " 
+            + str(arte_upgrade_cost(arteId,ARTE_DMG));
         i += 1;
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
         (menus[i]).arteId = arteId;
         (menus[i]).v_set = ARTE_POW;
         (menus[i]).v_text = "Power: " + str(arte_get(arteId, ARTE_POW));
-        (menus[i]).v_text2 = "Uses Needed: " + str(arte_upgrade_cost(arteId,ARTE_POW));
+        (menus[i]).v_text2 = "Uses Needed: " 
+            + str(arte_upgrade_cost(arteId,ARTE_POW));
         i += 1;
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
         (menus[i]).arteId = arteId;
         (menus[i]).v_set = ARTE_WAIT;
         (menus[i]).v_text = "Wait: " + str(arte_get(arteId, ARTE_WAIT));
-        (menus[i]).v_text2 = "Uses Needed: " + str(arte_upgrade_cost(arteId,ARTE_WAIT));
+        (menus[i]).v_text2 = "Uses Needed: " 
+            + str(arte_upgrade_cost(arteId,ARTE_WAIT));
         i += 1;
-        menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
         (menus[i]).arteId = arteId;
         (menus[i]).v_set = ARTE_COST;
         (menus[i]).v_text = "Cost: " + str(arte_get(arteId, ARTE_COST));
-        (menus[i]).v_text2 = "Uses Needed: " + str(arte_upgrade_cost(arteId,ARTE_COST));
+        (menus[i]).v_text2 = "Uses Needed: " 
+            + str(arte_upgrade_cost(arteId,ARTE_COST));
         i += 1;
         
         maxMenu = i;
@@ -132,7 +196,8 @@ switch(subMenu)
     case "Party":
         maxMenu = PTY_AMNT;
         for(i = 0;i < PTY_AMNT;i += 1) {
-            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,CombatPlayerMenu);
+            menus[i] = instance_create(getMenuXPosition(),
+                view_yview[0] + 100 + 40*i,CombatPlayerMenu);
             (menus[i]).v_set = i;
             (menus[i]).combatParty = CMBT_PARTY1;
             (menus[i]).positionInMenu = i;
@@ -146,7 +211,8 @@ switch(subMenu)
                 + str(global.maxPlayerLevel) + "#"
                 + "Experience: " + str(global.experience) + " / "
                 + str(nextLevelAt()) + " #"
-                + "Next Level In: " + str(nextLevelAt() - global.experience);
+                + "Next Level In: " 
+                + str(nextLevelAt() - global.experience);
         }
         with(obj_areaMenu_stats_desc) {
             visible = true;
@@ -156,7 +222,8 @@ switch(subMenu)
     case "Party Swap":
         maxMenu = MAX_PLAYERS;
         for(i = 0;i < MAX_PLAYERS;i += 1){
-            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,CombatPlayerMenu);
+            menus[i] = instance_create(getMenuXPosition(),
+                view_yview[0] + 100 + 40*i,CombatPlayerSwapInMenu);
             (menus[i]).v_set = i;
             (menus[i]).combatParty = CMBT_RESERVE;
             (menus[i]).positionInMenu = i;
@@ -172,45 +239,44 @@ switch(subMenu)
             v_wait = 0;
             v_cost = 0;
             v_uses = 0;
-            v_desc = "Switch " + str(name_get(other.tmp_player)) + " with whom?";;
+            v_desc = "Switch " + str(name_get(other.playerId)) 
+                + " with whom?";;
         }
         with(obj_areaMenu_stats_desc) {
             visible = true;
         }
     break;
-    case "Stats":
-        maxMenu = MAX_PLAYERS;
-        var i = 0;
-        for(i = i; i < PTY_AMNT; i++) {
-            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,
-                obj_areaMenu_skills_player);
-            (menus[i]).v_set = combat_get(CMBT_PARTY1, i);
-        }
-        for(i = i;i < MAX_PLAYERS;i += 1) {
-            menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 100 + 40*i,
-                obj_areaMenu_skills_player);
-            (menus[i]).v_set = combat_get(CMBT_RESERVE, i - PTY_AMNT);
-        }
-    break;
     case "Settings":
         i = 0;
-        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,CameraZoomCycle); 
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,BackMenu); 
         i++;
-        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,obj_areaMenu_monster_level); 
+        menus[i] = instance_create(getMenuXPosition(),  
+            view_yview[0] + 100 + 40*i,CameraZoomCycle); 
         i++;
-        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,PlayerLevelMenu); 
+        menus[i] = instance_create(getMenuXPosition(), 
+            view_yview[0] + 100 + 40*i,obj_areaMenu_monster_level); 
         i++;
-        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,MusicLevelMenu); 
+        menus[i] = instance_create(getMenuXPosition(), 
+            view_yview[0] + 100 + 40*i,PlayerLevelMenu); 
         i++;
-        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,FullscreenMenu); 
+        menus[i] = instance_create(getMenuXPosition(), 
+            view_yview[0] + 100 + 40*i,MusicLevelMenu); 
         i++;
-        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,SaveGameMenu); 
+        menus[i] = instance_create(getMenuXPosition(), 
+            view_yview[0] + 100 + 40*i,FullscreenMenu); 
         i++;
-        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,LoadGameMenu); 
+        menus[i] = instance_create(getMenuXPosition(), 
+            view_yview[0] + 100 + 40*i,SaveGameMenu); 
         i++;
-        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,GoToTitleMenu); 
+        menus[i] = instance_create(getMenuXPosition(), 
+            view_yview[0] + 100 + 40*i,LoadGameMenu); 
         i++;
-        menus[i] = instance_create(getMenuXPosition(), view_yview[0] + 100 + 40*i,QuitGameMenu); 
+        menus[i] = instance_create(getMenuXPosition(), 
+            view_yview[0] + 100 + 40*i,GoToTitleMenu); 
+        i++;
+        menus[i] = instance_create(getMenuXPosition(), 
+            view_yview[0] + 100 + 40*i,QuitGameMenu); 
         i++;
         maxMenu = i;
     break;

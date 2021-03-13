@@ -318,6 +318,7 @@
       <sprite>sprites\SettingsMenuSprite</sprite>
       <sprite>sprites\spr_menu_battle</sprite>
       <sprite>sprites\spr_menu_empty</sprite>
+      <sprite>sprites\BackMenuSprite</sprite>
       <sprite>sprites\MusicMenuButtonSprite</sprite>
       <sprite>sprites\MenuTouchSprite</sprite>
       <sprite>sprites\spr_menu_empty_white</sprite>
@@ -539,10 +540,10 @@
       <object>objects\obj_areaMenu</object>
       <object>objects\CycleButtonParent</object>
       <object>objects\ClickableButton</object>
+      <object>objects\BackMenu</object>
       <object>objects\obj_areaMenu_artes</object>
       <object>objects\obj_areaMenu_skills</object>
       <object>objects\obj_areaMenu_party</object>
-      <object>objects\obj_areaMenu_stats</object>
       <object>objects\AreaMenuOptions</object>
       <object>objects\obj_areaMenu_battle</object>
       <objects name="artes">
@@ -575,7 +576,6 @@
         <object>objects\obj_areaMenu_monster_level</object>
         <object>objects\PlayerLevelMenu</object>
         <object>objects\MusicLevelMenu</object>
-        <object>objects\obj_areaMenu_player</object>
         <objects name="player">
           <object>objects\obj_areaMenu_player_human</object>
         </objects>
@@ -587,6 +587,7 @@
       </objects>
       <objects name="party">
         <object>objects\CombatPlayerMenu</object>
+        <object>objects\CombatPlayerSwapInMenu</object>
       </objects>
     </objects>
     <objects name="area">

@@ -43,13 +43,13 @@ res[i] = 3840;
 i++;
 maxRes = i;
 
-event_user(2);
+event_user(3);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="12">
+    <event eventtype="7" enumb="13">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -73,6 +73,31 @@ message = "Camera Zoom: " + string(view_wview[0]);
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Press Right - Zoom In
+
+event_user(1)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
@@ -90,7 +115,7 @@ message = "Camera Zoom: " + string(view_wview[0]);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Zoom In
+            <string>/// accept - Zoom In
 var previousWidth = res[0];
 for(var i = 0; res[i] &lt; view_wview[0] &amp;&amp; i &lt; maxRes; i++) {
     previousWidth = res[i];
@@ -107,7 +132,7 @@ global.height_view = view_hview[0];
 global.horizontal_border = view_hborder[0];
 global.vertical_border = view_vborder[0];
 
-event_user(2);
+event_user(3);
 </string>
           </argument>
         </arguments>
@@ -130,7 +155,7 @@ event_user(2);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Zoom Out
+            <string>/// left - Zoom Out
 var nextWidth = res[0];
 for(var i = 0; res[i] &lt;= view_wview[0] &amp;&amp; i &lt; maxRes; i++) {
     nextWidth = res[i];
@@ -143,7 +168,7 @@ view_hview[0] = nextHeight;
 view_hborder[0] = nextWidth / 2;
 view_vborder[0] = nextHeight / 2;
 
-event_user(2);
+event_user(3);
 </string>
           </argument>
         </arguments>

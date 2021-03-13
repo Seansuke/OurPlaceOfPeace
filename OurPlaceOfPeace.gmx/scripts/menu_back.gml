@@ -1,5 +1,8 @@
 switch(subMenu)
 {
+    case "Main":
+        menu_close();
+    break;
     case "Artes Slot":
         menu_call("Artes Player");
     break;
