@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1" name="datafiles">
+  <datafiles number="2" name="datafiles">
     <datafile>
       <name>saveAndLoadFile.js</name>
       <exists>-1</exists>
@@ -21,6 +21,23 @@
       </ConfigOptions>
       <filename>saveAndLoadFile.js</filename>
     </datafile>
+    <datafile>
+      <name>dialogue.json</name>
+      <exists>-1</exists>
+      <size>109</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>dialogue.json</filename>
+    </datafile>
   </datafiles>
   <NewExtensions>
     <extension index="0">extensions\WebSaveExtension</extension>
@@ -32,6 +49,7 @@
       </sounds>
       <sounds name="area">
         <sound>sound\RuinedPlanetBgm</sound>
+        <sound>sound\NewDawnBgm</sound>
       </sounds>
       <sounds name="title">
         <sound>sound\VoicesFromHeavenBgm</sound>
@@ -75,9 +93,13 @@
       <sprites name="areaObjects">
         <sprite>sprites\spr_item_save</sprite>
         <sprite>sprites\TeleportSprite</sprite>
+        <sprite>sprites\SignSprite</sprite>
       </sprites>
       <sprites name="blocks">
         <sprite>sprites\MountainBlockSprite</sprite>
+      </sprites>
+      <sprites name="hazards">
+        <sprite>sprites\FlameSprite</sprite>
       </sprites>
     </sprites>
     <sprites name="battle">
@@ -288,7 +310,10 @@
           <sprite>sprites\NoelHammerSlashSprite</sprite>
           <sprite>sprites\NoelShoveSprite</sprite>
           <sprite>sprites\NoelDashSprite</sprite>
+          <sprite>sprites\NoelWalkSprite</sprite>
+          <sprite>sprites\NoelRunSprite</sprite>
           <sprite>sprites\NoelHurtSprite</sprite>
+          <sprite>sprites\NoelGolfSwingSprite</sprite>
         </sprites>
         <sprites name="map">
           <sprite>sprites\NoelMapIdleSprite</sprite>
@@ -352,6 +377,9 @@
       <sprites name="slime">
         <sprite>sprites\SlimeWalkSprite</sprite>
         <sprite>sprites\SlimeAttackSprite</sprite>
+      </sprites>
+      <sprites name="pyre">
+        <sprite>sprites\PyreFlyingSprite</sprite>
       </sprites>
     </sprites>
     <sprites name="anims">
@@ -497,7 +525,10 @@
       <script>scripts\getLevel1HpStat.gml</script>
       <script>scripts\play_slash_audio.gml</script>
       <script>scripts\combat_get.gml</script>
+      <script>scripts\draw_wrapped_colored_text.gml</script>
       <script>scripts\room_set_temporary_persistence.gml</script>
+      <script>scripts\displayDialogue.gml</script>
+      <script>scripts\getChatText.gml</script>
     </scripts>
     <scripts name="init">
       <script>scripts\init_game.gml</script>
@@ -529,13 +560,58 @@
       <script>scripts\canvas_window.gml</script>
       <script>scripts\getMenuXPosition.gml</script>
       <script>scripts\menu_close.gml</script>
-      <script>scripts\script126.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_courier</font>
   </fonts>
   <objects name="objects">
+    <objects name="area">
+      <object>objects\obj_areaCam</object>
+      <object>objects\obj_areaPlayer</object>
+      <object>objects\AreaAttack</object>
+      <objects name="Areawalls">
+        <object>objects\obj_areaWall</object>
+        <object>objects\obj_wall_debris1</object>
+        <object>objects\obj_wall_debris2</object>
+        <object>objects\obj_wall_debris3</object>
+        <object>objects\obj_wall_debris4</object>
+      </objects>
+      <objects name="candy">
+        <object>objects\obj_candy_rock1</object>
+        <object>objects\obj_candy_rock2</object>
+        <object>objects\obj_candy_rock3</object>
+        <object>objects\obj_animate_text</object>
+        <object>objects\obj_animate</object>
+      </objects>
+      <objects name="areaItems">
+        <object>objects\obj_marker1</object>
+        <object>objects\obj_marker2</object>
+        <object>objects\obj_marker3</object>
+        <object>objects\obj_marker4</object>
+        <object>objects\obj_item_save</object>
+        <object>objects\AreaWarpParent</object>
+        <object>objects\DialogueParent</object>
+        <object>objects\SignDialogue</object>
+        <object>objects\CustomFoe</object>
+        <object>objects\MakeCustomFoe</object>
+      </objects>
+      <objects name="blocks">
+        <object>objects\ParentBlock</object>
+        <object>objects\MountainBlock</object>
+      </objects>
+      <objects name="mon">
+        <object>objects\obj_areaMon</object>
+        <object>objects\AreaArach</object>
+        <object>objects\AreaZombie</object>
+        <object>objects\AreaSlime</object>
+        <object>objects\AreaPyre</object>
+      </objects>
+      <objects name="hazard">
+        <object>objects\HazardParent</object>
+        <object>objects\FireHazard</object>
+      </objects>
+    </objects>
     <objects name="menu">
       <object>objects\obj_areaMenu</object>
       <object>objects\CycleButtonParent</object>
@@ -567,6 +643,7 @@
       <objects name="title">
         <object>objects\obj_init</object>
         <object>objects\obj_newGame</object>
+        <object>objects\CombatDemoButton</object>
         <object>objects\obj_loadGame</object>
         <object>objects\obj_quit</object>
         <object>objects\CreditsObject</object>
@@ -590,42 +667,6 @@
         <object>objects\CombatPlayerSwapInMenu</object>
       </objects>
     </objects>
-    <objects name="area">
-      <object>objects\obj_areaCam</object>
-      <object>objects\obj_areaPlayer</object>
-      <objects name="Areawalls">
-        <object>objects\obj_areaWall</object>
-        <object>objects\obj_wall_debris1</object>
-        <object>objects\obj_wall_debris2</object>
-        <object>objects\obj_wall_debris3</object>
-        <object>objects\obj_wall_debris4</object>
-      </objects>
-      <objects name="candy">
-        <object>objects\obj_candy_rock1</object>
-        <object>objects\obj_candy_rock2</object>
-        <object>objects\obj_candy_rock3</object>
-        <object>objects\obj_animate_text</object>
-        <object>objects\obj_animate</object>
-      </objects>
-      <objects name="areaItems">
-        <object>objects\obj_marker1</object>
-        <object>objects\obj_marker2</object>
-        <object>objects\obj_marker3</object>
-        <object>objects\obj_marker4</object>
-        <object>objects\obj_item_save</object>
-        <object>objects\AreaWarpParent</object>
-      </objects>
-      <objects name="blocks">
-        <object>objects\ParentBlock</object>
-        <object>objects\MountainBlock</object>
-      </objects>
-      <objects name="mon">
-        <object>objects\obj_areaMon</object>
-        <object>objects\AreaArach</object>
-        <object>objects\AreaZombie</object>
-        <object>objects\AreaSlime</object>
-      </objects>
-    </objects>
     <objects name="battle">
       <object>objects\obj_camera</object>
       <object>objects\obj_player</object>
@@ -644,6 +685,8 @@
       <room>rooms\SlumQuadrantRoom</room>
     </rooms>
     <rooms name="area">
+      <room>rooms\RuinedHomeRoom</room>
+      <room>rooms\CombatDemoRoom</room>
       <room>rooms\rm_area_outskirts</room>
     </rooms>
     <rooms name="arena">
@@ -651,7 +694,7 @@
     </rooms>
     <room>rooms\EmptyRoom</room>
   </rooms>
-  <constants number="133">
+  <constants number="134">
     <constant name="Sean">0</constant>
     <constant name="AD">1</constant>
     <constant name="Dan">2</constant>
@@ -670,7 +713,8 @@
     <constant name="Dragon">3</constant>
     <constant name="Knight">4</constant>
     <constant name="Slime">5</constant>
-    <constant name="MAX_MONSTERS">6</constant>
+    <constant name="Pyre">6</constant>
+    <constant name="MAX_MONSTERS">7</constant>
     <constant name="BTN_TYPE">0</constant>
     <constant name="BTN_UP">1</constant>
     <constant name="BTN_RIGHT">2</constant>

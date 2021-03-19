@@ -57,8 +57,8 @@ player_marker(global.marker);
             <kind>1</kind>
             <string>with(PlayerObject) {
     if(combatId == 0) {
-        obj_areaCam.x = obj_areaPlayer.x;
-        obj_areaCam.y = obj_areaPlayer.y;
+        other.x = x;
+        other.y = y;
         global.areaPlayerX = x;
         global.areaPlayerY = y;
     }

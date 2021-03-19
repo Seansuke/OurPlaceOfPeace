@@ -40,9 +40,9 @@ new_gfx(Alister, AlisterFaceSprite, AlisterIdleSprite, AlisterDashSprite, Aliste
     AlisterDefendSprite, AlisterHurtSprite, AlisterDownSprite, AlisterGunsSprite, 
     AlisterSlashSprite, AlisterSlashSprite, AlisterSlashSprite, AlisterSlashSprite, AlisterSlashSprite);
 
-new_gfx(Noel, NoelFaceSprite, NoelIdleSprite, NoelDashSprite, NoelDefendSprite, 
-    NoelDefendSprite, NoelHurtSprite, NoelDownSprite, NoelShoveSprite, 
-    NoelHammerSlashSprite, NoelHammerSlashSprite, NoelHammerSlashSprite, NoelHammerSlashSprite, NoelHammerSlashSprite);
+new_gfx(Noel, NoelFaceSprite, NoelIdleSprite, NoelRunSprite, NoelDefendSprite, 
+    NoelDashSprite, NoelHurtSprite, NoelDownSprite, NoelShoveSprite, 
+    NoelHammerSlashSprite, NoelGolfSwingSprite, NoelHammerSlashSprite, NoelHammerSlashSprite, NoelHammerSlashSprite);
 
 new_gfx(Raka, RakaFaceSprite, RakaIdleSprite, RakaFlyForward, RakaDefendSprite, 
     RakaFlyBackwards, RakaHurtSprite, RakaDownSprite, RakaCastSprite, 
@@ -324,16 +324,14 @@ party_set_all(Raka,   getLevel1HpStat(Raka),   "Rushing Leaves", "", "", "", "Fa
 party_set_all(Chloe,  getLevel1HpStat(Chloe),  "Bullet Spray", "", "", "", "Pistol Cross", "", "", "");
 
 for(var i = 0; i < MAX_PLAYERS; i++) {
-    global.combatParty[CMBT_RESERVE, i] = i;
+    global.combatParty[CMBT_RESERVE, i] = -1;
     if(i < PTY_AMNT) {
         global.combatParty[CMBT_RESERVE, i] = -1;
+        global.combatParty[CMBT_PARTY1, i] = -1;
     }
 }
 
-for(var i = 0; i < PTY_AMNT; i++) {
-    global.combatParty[CMBT_PARTY1, i] = i;
-}
-
+global.combatParty[CMBT_PARTY1, 0] = Noel;
 
 #define init_game_misc
 
@@ -345,10 +343,11 @@ draw_set_halign(fa_left);
 global.menu = false;
 global.areaPlayerX = 320;
 global.areaPlayerY = 240;
-global.currentMap = rm_area_outskirts;
+global.currentMap = RuinedHomeRoom;
 global.marker = -1;
 global.monsterLevel = 1;
 global.menu_combatId = -1;
+global.monFight[0] = MAX_MONSTERS;
 global.monFight[1] = MAX_MONSTERS;
 global.monFight[2] = MAX_MONSTERS;
 global.monFight[3] = MAX_MONSTERS;
@@ -405,3 +404,7 @@ set_monster_attacks(Knight, "Strike", "Smash", "Divide", "Uprise",
 set_simple_monster_gfx(Slime, SlimeWalkSprite, SlimeAttackSprite);
 set_monster_stats(Slime, "Slime", 5,5, 5,5, 5, 15,5, 6);
 set_monster_attacks(Slime, "Strike", "Shove", "Tension");
+
+set_simple_monster_gfx(Pyre, PyreFlyingSprite, PyreFlyingSprite);
+set_monster_stats(Pyre, "Pyre", 5,15, 5,5, 5, 5,5, 15);
+set_monster_attacks(Pyre, "Pyre", "Fire Arrow", "Tension", "Retreating Flame");

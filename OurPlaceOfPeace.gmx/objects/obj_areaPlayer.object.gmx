@@ -41,6 +41,52 @@ menuPos = 1;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+        v_img = 0; // Reset animation
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Hazard damage over</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -83,6 +129,33 @@ menuPos = 1;
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="HazardParent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(alarm[0] &lt;= 0 &amp;&amp; playerId &gt;= 0) {
+    alarm[0] = other.framesBetweenDamage;
+    var hp = party_get(playerId, PTY_HP);
+    party_set(playerId, PTY_HP, max(hp - other.damage, 0));
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_areaMon">
       <action>
         <libid>1</libid>
@@ -107,6 +180,7 @@ if(alarm[0] &gt; 0) {
     exit;
 }
 
+global.currentMap = room;
 global.monFight[0] = monFight[0];
 global.monFight[1] = monFight[1];
 global.monFight[2] = monFight[2];
@@ -119,7 +193,6 @@ with(obj_areaPlayer) {
     }
 }
 
-global.currentMap = room;
 alarm[0] = 6;
 room_set_persistent(room, true);
 room_goto(rm_arena_outskirts);
@@ -159,6 +232,22 @@ if(global.menu == true
 }
 draw_sprite_ext(sprite_index,-1,x,y,1,1,0,c_black,true);
 draw_sprite_ext(v_gfx,v_img,x,y,v_dir,1,0,c_white,true);
+
+if(alarm[0] &gt; 0) {
+    var hp = party_get(playerId, PTY_HP);
+    var baseHpStat = player_get(playerId, PLY_HP);
+    var maxHp = getStat(global.playerLevel, PLY_HP, baseHpStat);
+    var hpRatio = hp / maxHp;
+    draw_sprite_stretched(spr_hp_under,-1, x - 16,y + 9, 
+        50, 9);
+    draw_sprite_stretched(spr_hp_top,-1,x - 16,y + 9, 
+        50 * hpRatio, 9);
+
+    //draw HP text
+    draw_bold_text(x - 10,y + 16,
+        hp,c_lime,c_black);
+    
+}
 </string>
           </argument>
         </arguments>

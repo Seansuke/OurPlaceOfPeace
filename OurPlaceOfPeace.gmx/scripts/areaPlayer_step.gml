@@ -55,21 +55,41 @@ if(ctrl_get(combatId, BTN_TYPE) == BTN_TYPE_NONE) {
     exit;
 }
 
-switch(ctrl_dir_h())
-{
+var currentSpeed = v_speed;
+
+// Interruptable Attack
+if(ctrl_btn() == BTN_ATTACK && alarm[1] <= 3) {
+    alarm[1] = 5*3; // frameCount * (1/frameSpeed)
+    v_img = 0; // Reset animation
+}
+
+// Maintain lower speed
+if(alarm[1] > 0) {
+    currentSpeed = v_speed / 2;
+    if(alarm[1] == 2*3) {
+        // generate attack to walls and hazards
+        attackId = instance_create(x,y, AreaAttack);
+        (attackId).ownerId = id;
+        (attackId).alarm[0] = 6;
+        (attackId).image_yscale = 0.2;
+        (attackId).image_xscale = v_dir;
+    }
+}
+
+switch(ctrl_dir_h()) {
     case BTN_RIGHT: 
         v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_RUN];
-        if(areaPlaceClear(x + v_speed, y))
+        if(areaPlaceClear(x + currentSpeed, y))
         {
-            x += v_speed;
+            x += currentSpeed;
             v_dir = 1;
         }
     break;
     case BTN_LEFT:
         v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_RUN];
-        if(areaPlaceClear(x - v_speed,y))
+        if(areaPlaceClear(x - currentSpeed,y))
         {
-            x -= v_speed;
+            x -= currentSpeed;
             v_dir = -1;
         }
     break;
@@ -78,18 +98,23 @@ switch(ctrl_dir_v())
 {
     case BTN_DOWN: 
         v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_RUN];
-        if(areaPlaceClear(x,y + v_speed))
+        if(areaPlaceClear(x,y + currentSpeed))
         {
-            y += v_speed;
+            y += currentSpeed;
         }
     break;
     case BTN_UP:
         v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_RUN];
-        if(areaPlaceClear(x,y - v_speed))
+        if(areaPlaceClear(x,y - currentSpeed))
         {
-            y -= v_speed;
+            y -= currentSpeed;
         }
     break;
 }
+
+if(alarm[1] > 0) {
+        v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_ATTACK];
+}
+
 init_menu();
 

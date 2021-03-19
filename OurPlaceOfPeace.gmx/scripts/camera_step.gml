@@ -140,8 +140,7 @@ if(areAllPlayersDowned) {
         party_set(playerId, PTY_HP, min(rollHP, maxHP));
     }
 
-    room_goto_previous();
-    //room_set_persistent(rm_area_outskirts, false);
+    room = global.currentMap;
     audio_stop_sound(AccionBgm);
     exit;
 }
@@ -171,8 +170,7 @@ if(mon[0] == -1 && mon[1] == -1 && mon[2] == -1 && mon[3] == -1) {
         party_set(playerId, PTY_HP, min(rollHP, maxHP));
     }
 
-    room_goto_previous();
-    //room_set_persistent(rm_area_outskirts, false);
+    room = global.currentMap;
     audio_stop_sound(AccionBgm);
     exit;
 }
