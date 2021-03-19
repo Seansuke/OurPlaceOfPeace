@@ -155,54 +155,67 @@ switch(subMenu)
             visible = true;
         }
         arteId = selectedArteId;
-        i = 0;
         obj_areaMenu_artes_desc.visible = true;
         obj_areaMenu_artes_desc.v_uses = arte_get(arteId, ARTE_USES);
-        menus[i] = instance_create(getMenuXPosition(),
-            view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
-        (menus[i]).arteId = arteId;
-        (menus[i]).v_set = ARTE_DMG;
-        (menus[i]).v_text = "Damage: " + str(arte_get(arteId, ARTE_DMG));
-        (menus[i]).v_text2 = "Uses Needed: " 
-            + str(arte_upgrade_cost(arteId,ARTE_DMG));
-        i += 1;
-        menus[i] = instance_create(getMenuXPosition(),
-            view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
-        (menus[i]).arteId = arteId;
-        (menus[i]).v_set = ARTE_POW;
-        (menus[i]).v_text = "Power: " + str(arte_get(arteId, ARTE_POW));
-        (menus[i]).v_text2 = "Uses Needed: " 
-            + str(arte_upgrade_cost(arteId,ARTE_POW));
-        i += 1;
-        menus[i] = instance_create(getMenuXPosition(),
-            view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
-        (menus[i]).arteId = arteId;
-        (menus[i]).v_set = ARTE_WAIT;
-        (menus[i]).v_text = "Wait: " + str(arte_get(arteId, ARTE_WAIT));
-        (menus[i]).v_text2 = "Uses Needed: " 
-            + str(arte_upgrade_cost(arteId,ARTE_WAIT));
-        i += 1;
-        menus[i] = instance_create(getMenuXPosition(),
-            view_yview[0] + 100 + 40*i,obj_areaMenu_skills_upgrade);
-        (menus[i]).arteId = arteId;
-        (menus[i]).v_set = ARTE_COST;
-        (menus[i]).v_text = "Cost: " + str(arte_get(arteId, ARTE_COST));
-        (menus[i]).v_text2 = "Uses Needed: " 
-            + str(arte_upgrade_cost(arteId,ARTE_COST));
-        i += 1;
         
-        maxMenu = i;
+        maxMenu = 0;
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,BackMenu); 
+        maxMenu++;
+        
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
+        (menus[maxMenu]).arteId = arteId;
+        (menus[maxMenu]).v_set = ARTE_DMG;
+        (menus[maxMenu]).v_text = "Damage: " + str(arte_get(arteId, ARTE_DMG));
+        (menus[maxMenu]).v_text2 = "Uses Needed: " 
+            + str(arte_upgrade_cost(arteId,ARTE_DMG));
+        maxMenu++;
+        
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
+        (menus[maxMenu]).arteId = arteId;
+        (menus[maxMenu]).v_set = ARTE_POW;
+        (menus[maxMenu]).v_text = "Power: " + str(arte_get(arteId, ARTE_POW));
+        (menus[maxMenu]).v_text2 = "Uses Needed: " 
+            + str(arte_upgrade_cost(arteId,ARTE_POW));
+        maxMenu++;
+        
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
+        (menus[maxMenu]).arteId = arteId;
+        (menus[maxMenu]).v_set = ARTE_WAIT;
+        (menus[maxMenu]).v_text = "Wait: " + str(arte_get(arteId, ARTE_WAIT));
+        (menus[maxMenu]).v_text2 = "Uses Needed: " 
+            + str(arte_upgrade_cost(arteId,ARTE_WAIT));
+        maxMenu += 1;
+        
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
+        (menus[maxMenu]).arteId = arteId;
+        (menus[maxMenu]).v_set = ARTE_COST;
+        (menus[maxMenu]).v_text = "Cost: " + str(arte_get(arteId, ARTE_COST));
+        (menus[maxMenu]).v_text2 = "Uses Needed: " 
+            + str(arte_upgrade_cost(arteId,ARTE_COST));
+        maxMenu += 1;
     break;
     case "Party":
-        maxMenu = PTY_AMNT;
+        maxMenu = 0;
+        
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,BackMenu); 
+        maxMenu++;
+        
         for(i = 0;i < PTY_AMNT;i += 1) {
-            menus[i] = instance_create(getMenuXPosition(),
-                view_yview[0] + 100 + 40*i,CombatPlayerMenu);
-            (menus[i]).v_set = i;
-            (menus[i]).combatParty = CMBT_PARTY1;
-            (menus[i]).positionInMenu = i;
-            (menus[i]).playerId = combat_get(CMBT_PARTY1, i);
-            (menus[i]).maxMenuPosition = maxMenu;
+            menus[maxMenu] = instance_create(getMenuXPosition(),
+                view_yview[0] + 100 + 40*maxMenu,CombatPlayerMenu);
+            (menus[maxMenu]).v_set = i;
+            (menus[maxMenu]).combatPartyId = i;
+            (menus[maxMenu]).combatParty = CMBT_PARTY1;
+            (menus[maxMenu]).positionInMenu = maxMenu;
+            (menus[maxMenu]).playerId = combat_get(CMBT_PARTY1, i);
+            (menus[maxMenu]).maxCombatPartyId = PTY_AMNT;
+            maxMenu++;
         }
         with(obj_areaMenu_artes_desc) {
             visible = true;
@@ -220,15 +233,21 @@ switch(subMenu)
     break;
     
     case "Party Swap":
-        maxMenu = MAX_PLAYERS;
+        maxMenu = 0;
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,BackMenu); 
+        maxMenu++;
+        
         for(i = 0;i < MAX_PLAYERS;i += 1){
-            menus[i] = instance_create(getMenuXPosition(),
-                view_yview[0] + 100 + 40*i,CombatPlayerSwapInMenu);
-            (menus[i]).v_set = i;
-            (menus[i]).combatParty = CMBT_RESERVE;
-            (menus[i]).positionInMenu = i;
-            (menus[i]).playerId = combat_get(CMBT_RESERVE, i);
-            (menus[i]).maxMenuPosition = maxMenu;
+            menus[maxMenu] = instance_create(getMenuXPosition(),
+                view_yview[0] + 100 + 40*maxMenu,CombatPlayerSwapInMenu);
+            (menus[maxMenu]).v_set = i;
+            (menus[maxMenu]).combatPartyId = i;
+            (menus[maxMenu]).combatParty = CMBT_RESERVE;
+            (menus[maxMenu]).positionInMenu = maxMenu;
+            (menus[maxMenu]).playerId = combat_get(CMBT_RESERVE, i);
+            (menus[maxMenu]).maxMenuPosition = MAX_PLAYERS;
+            maxMenu++;
         }
         tmp_player = menuSubset[0];
         with(obj_areaMenu_artes_desc) {
@@ -301,10 +320,14 @@ with(obj_areaMenu_artes_desc) {
     visible = true;
 }
 
+maxMenu = 0;
+menus[maxMenu++] = instance_create(getMenuXPosition(),
+    view_yview[0] + 100 + 40*maxMenu,BackMenu); 
 for(var i = 0; i < 8; i += 1) {
-    menus[i] = instance_create(getMenuXPosition(),view_yview[0] + 140 + 40*i,obj_areaMenu_artes_set);
-    (menus[i]).v_set = PTY_A1_IDLE + i;
-    (menus[i]).playerId = selectedPlayerId;
+    menus[maxMenu] = instance_create(getMenuXPosition(),
+        view_yview[0] + 140 + 40*maxMenu,obj_areaMenu_artes_set);
+    (menus[maxMenu]).v_set = PTY_A1_IDLE + i;
+    (menus[maxMenu]).playerId = selectedPlayerId;
     maxMenu++;
 }
 

@@ -102,8 +102,7 @@ for(var idIndex = 0;idIndex < PTY_AMNT;idIndex += 1) {
         for(var j = 0; j < PTY_AMNT; j++) {
             var allyTargetInstanceId = ids[j];
             if(allyTargetInstanceId > 0 && instance_exists(allyTargetInstanceId)
-                && (allyTargetInstanceId).combatId == allyTargetCombatId
-            ) {
+                    && (allyTargetInstanceId).combatId == allyTargetCombatId) {
                 gui[i].targetVisible = true;
                 gui[i].iconTargetX = (gui[j]).v_x;
                 gui[i].targetX = (allyTargetInstanceId).x;

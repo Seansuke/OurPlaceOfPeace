@@ -91,7 +91,7 @@ switch(subMenu)
             }
             with(obj_areaMenu_stats_desc) {
                 STAT_id = other.tmp_i;
-                playerId = other.menus[other.menuPos].playerId;
+                playerId = (other.menus[other.menuPos]).playerId;
                 if(playerId >= 0) {
                     baseStat = player_get(playerId, STAT_id);
                     stat = baseStat;
@@ -110,13 +110,15 @@ switch(subMenu)
             }
             with(obj_areaMenu_stats_desc) {
                 var STAT_id = other.tmp_i;
-                var playerId = other.menuPos;
-                var baseStat = player_get(playerId, STAT_id);
-                var stat = baseStat;
-                if(is_real(stat)) {
-                    stat = getStat(global.playerLevel, STAT_id, baseStat);
+                var playerId = other.menus[other.menuPos].playerId;
+                if(playerId >= 0) {
+                    baseStat = player_get(playerId, STAT_id);
+                    stat = baseStat;
+                    if(is_real(stat)) {
+                        stat = getStat(global.playerLevel, STAT_id, baseStat);
+                    }
+                    st[other.tmp_i] = stat;
                 }
-                st[other.tmp_i] = stat;
             }
         }
     break;

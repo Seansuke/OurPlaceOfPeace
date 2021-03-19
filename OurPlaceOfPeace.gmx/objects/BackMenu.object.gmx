@@ -28,6 +28,7 @@
             <string>v_gfx = sprite_index;
 message = "Back";
 depth = -999;
+playerId = -1;
 </string>
           </argument>
         </arguments>

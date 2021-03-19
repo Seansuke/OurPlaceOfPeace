@@ -53,7 +53,7 @@ v_set = -1;
             <kind>1</kind>
             <string>if(v_set != -1 &amp;&amp; v_text == "")
 {
-    playerId = combat_get(combatParty, positionInMenu);
+    playerId = combat_get(combatParty, combatPartyId);
     if(playerId == -1) {
         v_text = "EMPTY";
         v_gfx = spr_icon;
@@ -88,9 +88,9 @@ v_set = -1;
             <kind>1</kind>
             <string>/// Back Action - Shift player forward
 
-var switchPlayerId = global.combatParty[combatParty, positionInMenu];
-var nextMenuPosition = (positionInMenu + 1 + maxMenuPosition) mod maxMenuPosition;
-global.combatParty[combatParty, positionInMenu] = global.combatParty[combatParty, nextMenuPosition];
+var switchPlayerId = global.combatParty[combatParty, combatPartyId];
+var nextMenuPosition = (combatPartyId + 1 + maxCombatPartyId) mod maxCombatPartyId;
+global.combatParty[combatParty, combatPartyId] = global.combatParty[combatParty, nextMenuPosition];
 global.combatParty[combatParty, nextMenuPosition] = switchPlayerId;
 
 // Refresh menu.
@@ -122,7 +122,7 @@ with(PlayerObject) {
             <kind>1</kind>
             <string>with(PlayerObject) {
     menuSubset[0] = menuPos;//certain party member selected
-    combatPartyIdSelected = menuPos;
+    combatPartyIdSelected = other.combatPartyId;
     menu_call("Party Swap");
 }
 </string>
@@ -149,9 +149,9 @@ with(PlayerObject) {
             <kind>1</kind>
             <string>/// Back Action - Shift player back
 
-var switchPlayerId = global.combatParty[combatParty, positionInMenu];
-var previousMenuPosition = (positionInMenu - 1 + maxMenuPosition) mod maxMenuPosition;
-global.combatParty[combatParty, positionInMenu] = global.combatParty[combatParty, previousMenuPosition];
+var switchPlayerId = global.combatParty[combatParty, combatPartyId];
+var previousMenuPosition = (combatPartyId - 1 + maxCombatPartyId) mod maxCombatPartyId;
+global.combatParty[combatParty, combatPartyId] = global.combatParty[combatParty, previousMenuPosition];
 global.combatParty[combatParty, previousMenuPosition] = switchPlayerId;
 
 // Refresh menu.

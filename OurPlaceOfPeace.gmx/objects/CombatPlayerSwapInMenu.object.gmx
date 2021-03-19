@@ -29,8 +29,8 @@
     if(instance_exists(obj_camera) == true) {
         obj_camera.fixPlayers = true;
     }
-    menuSubset[1] = menuPos;//certain party member selected
-    combatParty_swap(combatPartyIdSelected, menuPos);
+    menuSubset[1] = other.combatPartyId;//certain party member selected
+    combatParty_swap(combatPartyIdSelected, other.combatPartyId);
     menu_call("Party");
 }
 </string>
