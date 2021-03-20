@@ -21,23 +21,6 @@
       </ConfigOptions>
       <filename>saveAndLoadFile.js</filename>
     </datafile>
-    <datafile>
-      <name>dialogue.json</name>
-      <exists>-1</exists>
-      <size>109</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>dialogue.json</filename>
-    </datafile>
   </datafiles>
   <NewExtensions>
     <extension index="0">extensions\WebSaveExtension</extension>
@@ -74,6 +57,18 @@
         <sound>sound\Slash9Sfx</sound>
         <sound>sound\Slash10Sfx</sound>
         <sound>sound\Slash11Sfx</sound>
+      </sounds>
+      <sounds name="earth">
+        <sound>sound\Earth1Sfx</sound>
+        <sound>sound\Earth2Sfx</sound>
+        <sound>sound\Earth3Sfx</sound>
+        <sound>sound\Earth4Sfx</sound>
+        <sound>sound\Earth5Sfx</sound>
+        <sound>sound\Earth6Sfx</sound>
+        <sound>sound\Earth7Sfx</sound>
+        <sound>sound\Earth8Sfx</sound>
+        <sound>sound\Earth9Sfx</sound>
+        <sound>sound\Earth10Sfx</sound>
       </sounds>
     </sounds>
   </sounds>
@@ -694,7 +689,7 @@
     </rooms>
     <room>rooms\EmptyRoom</room>
   </rooms>
-  <constants number="134">
+  <constants number="143">
     <constant name="Sean">0</constant>
     <constant name="AD">1</constant>
     <constant name="Dan">2</constant>
@@ -829,6 +824,15 @@
     <constant name="TYPE_VERTICAL_SHOT">8</constant>
     <constant name="TYPE_GROUND">9</constant>
     <constant name="TYPE_AREA_TARGET">10</constant>
+    <constant name="CHAT_PLAYERID">0</constant>
+    <constant name="CHAT_TEXT_ENG">1</constant>
+    <constant name="CUT_INTRO">0</constant>
+    <constant name="CUT_MEET_NAEN">1</constant>
+    <constant name="CUT_JOIN_NAEN">2</constant>
+    <constant name="CUT_SLUM_STRT">3</constant>
+    <constant name="CUT_ENTER_MELIORATE">4</constant>
+    <constant name="CUT_LEAVE_MELIORATE">5</constant>
+    <constant name="CUT_ENTER_LAMPROPHYRE">6</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

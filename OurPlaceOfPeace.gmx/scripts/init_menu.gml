@@ -15,6 +15,7 @@ if(ctrl_press(BTN_MENU) == true)    //menu
     subMenu = "Main";
     subMenuPos = 1;
     maxMenu = 0;
+    previousMouseY = -1;
     lastMenuPos = ds_map_create();
     menu_call(subMenu);
     return true;

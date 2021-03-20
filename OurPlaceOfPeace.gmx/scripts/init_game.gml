@@ -361,6 +361,7 @@ global.audioLevel = 1;
 global.playerLevel = 1;
 global.maxPlayerLevel = 1;
 global.experience = 0;
+global.cutscene = -1;
 if(os_browser == browser_not_a_browser) {
     TouchControlsOff();
 }

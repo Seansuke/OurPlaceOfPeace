@@ -45,3 +45,28 @@ if(ctrl_press(BTN_GUARD) == true == true) {
     menu_back();
     exit;
 }
+
+// Scroll through items
+if(mouse_check_button(mb_left)) {
+    if(previousMouseY == -1) {
+        previousMouseY = mouse_y;
+    }
+    else {
+        var mouseYDelta = mouse_y - previousMouseY;
+        if(mouseYDelta > 32) {
+            audio_play_sound(sfx_zelda_select, 3, false);
+            menuPos--;
+            previousMouseY += 24;
+        }
+        else if(mouseYDelta < -32) {
+            audio_play_sound(sfx_zelda_select, 3, false);
+            menuPos++;
+            previousMouseY -= 24;
+        }
+        menu_wrapMenuPos();
+    }
+}
+else {
+    previousMouseY = -1;
+}
+
