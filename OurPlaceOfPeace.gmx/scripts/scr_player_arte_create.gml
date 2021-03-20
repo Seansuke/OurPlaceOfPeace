@@ -27,20 +27,30 @@ for(var arteI = 0; arteI < ARTE_MAX; arteI++) {
 
 switch(skill[ARTE_NAME]) {
     case "Smash":
-        (tmp_id).stat[PLY_POW] += 0.5 * stat[PLY_POW] * v_charge / v_chargeMax;
+        (tmp_id).stat[PLY_POW] += skill[ARTE_POW] * 0.5 * stat[PLY_POW] * v_charge / v_chargeMax;
     break;
     case "Divide":
-        (tmp_id).stat[PLY_POW] += 0.5 * stat[PLY_POW] * v_charge / v_chargeMax;
+        (tmp_id).stat[PLY_POW] += skill[ARTE_POW] * 0.5 * stat[PLY_POW] * v_charge / v_chargeMax;
     break;
 }
 
 if(skill[ARTE_TYPE] == TYPE_ALLY_TARGET) {
     v_ally_target = (v_ally_target + PTY_AMNT) mod PTY_AMNT;
-    var allyTargetInstanceId = obj_camera.ids[v_ally_target];
-    if(instance_exists(allyTargetInstanceId)) {   
-        (tmp_id).x = (allyTargetInstanceId).x;  
+    allyTargetInstanceId = -1;
+    
+    with(PlayerObject) {
+        // Compare with team and team if need be. 
+        // and then check with foes too if need to make this generic.
+        if(combatId == other.v_ally_target) {
+            other.allyTargetInstanceId = id;
+        }
+    }
+    
+    if(allyTargetInstanceId >= 0 && instance_exists(allyTargetInstanceId)) {
+        (tmp_id).x = (allyTargetInstanceId).x;
         (tmp_id).y = (allyTargetInstanceId).y;
     }
+    
     v_ally_target = -1;
 }
     

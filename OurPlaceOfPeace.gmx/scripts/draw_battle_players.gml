@@ -43,10 +43,10 @@ for(var i = 0;i < PTY_AMNT;i += 1) {
     if(gui[i].targetVisible) {
         draw_sprite(spr_hand, -1, gui[i].iconTargetX, gui[i].v_y);
         draw_bold_text(gui[i].iconTargetX, gui[i].v_y,
-            "P" + str(i + 1),c_red,c_black);
+            "P" + str(gui[i].combatId + 1),c_red,c_black);
 
         draw_sprite(spr_hand, -1, gui[i].targetX , gui[i].targetY);
         draw_bold_text(gui[i].targetX , gui[i].targetY,
-            "P" + str(i + 1),c_red,c_black);
+            "P" + str(gui[i].combatId + 1),c_red,c_black);
     }
 }

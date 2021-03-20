@@ -51,69 +51,78 @@ var hpBarHeight = 10;
 
 // Gui is in combatId order, but ids is in player generation order.  Could be different.
 var areAllPlayersDowned = true;
-for(var idIndex = 0;idIndex < PTY_AMNT;idIndex += 1) {
-    me = ids[idIndex];
-     // TODO - check this
-    if(!instance_exists(me) || me == -1) {
+for(var idIndex = 0;idIndex < PTY_AMNT; idIndex += 1) {
+    var player = ids[idIndex];
+    
+    if(!instance_exists(player) || player == -1) {
         continue;
     }
     
-    if((me).HP > 0) {
+    if((player).HP > 0) {
         areAllPlayersDowned = false;
     }
     
-    var i = me.combatId;
+    var combatId = (player).combatId;
 
-    gui[i].combatId = me.combatId;
+    gui[combatId].combatId = combatId;
     
-    v_x = view_xview[0] + guiGap + i * maxPlayerGuiWidth;
+    v_x = view_xview[0] + guiGap + combatId * maxPlayerGuiWidth;
     v_y = view_yview[0] + view_hview[0] - 64;
 
-    gui[i].visible = true;
-    gui[i].face = (me).gfx[GFX_FACE];
-    gui[i].v_x = v_x;
-    gui[i].v_y = v_y;
-    gui[i].maxPlayerHpGuiWidth = maxPlayerHpGuiWidth;
-    gui[i].hpBarHeight = hpBarHeight;
-    gui[i].rollHpBarLength = (me).rollHP / (me).stat[PLY_HP] * maxPlayerHpGuiWidth;
-    gui[i].hpBarLength = (me).HP / (me).stat[PLY_HP] * maxPlayerHpGuiWidth;
-    gui[i].hpText = string(floor((me).HP)) + "/" + string(floor((me).stat[PLY_HP]));
-    gui[i].SP = (me).SP;
-    gui[i].maxSP = (me).stat[PLY_SP];
+    gui[combatId].visible = true;
+    gui[combatId].face = (player).gfx[GFX_FACE];
+    gui[combatId].v_x = v_x;
+    gui[combatId].v_y = v_y;
+    gui[combatId].maxPlayerHpGuiWidth = maxPlayerHpGuiWidth;
+    gui[combatId].hpBarHeight = hpBarHeight;
+    gui[combatId].rollHpBarLength = 
+        (player).rollHP / (player).stat[PLY_HP] * maxPlayerHpGuiWidth;
+    gui[combatId].hpBarLength = 
+        (player).HP / (player).stat[PLY_HP] * maxPlayerHpGuiWidth;
+    gui[combatId].hpText = 
+        string(floor((player).HP)) + "/" + string(floor((player).stat[PLY_HP]));
+    gui[combatId].SP = (player).SP;
+    gui[combatId].maxSP = (player).stat[PLY_SP];
     
     //draw bonuses
     var buffText = "";
-    if(floor((me).bonusATT) != 0) {
-        buffText += "ATT:" + string(floor((me).bonusATT)) + " ";
+    if(floor((player).bonusATT) != 0) {
+        buffText += "ATT:" + string(floor((player).bonusATT)) + " ";
     }
-    if(floor((me).bonusDEF) != 0) {
-        buffText += "DF:" + string(floor((me).bonusDEF)) + " ";
+    if(floor((player).bonusDEF) != 0) {
+        buffText += "DF:" + string(floor((player).bonusDEF)) + " ";
     }
-    if(floor((me).bonusSPD) != 0) {
-        buffText += "SPD:" + string(floor((me).bonusSPD)) + " ";
+    if(floor((player).bonusSPD) != 0) {
+        buffText += "SPD:" + string(floor((player).bonusSPD)) + " ";
     }
     
-    gui[i].buffText = buffText;
-    gui[i].targetVisible = false;
+    gui[combatId].buffText = buffText;
+    gui[combatId].targetVisible = false;
 
-    var allyTargetCombatId = (me).v_ally_target;
+    var allyTargetCombatId = (player).v_ally_target;
 
+    // Only draw the icon if the player is targeting.
     if(allyTargetCombatId >= 0 && allyTargetCombatId < PTY_AMNT) {
-        for(var j = 0; j < PTY_AMNT; j++) {
-            var allyTargetInstanceId = ids[j];
-            if(allyTargetInstanceId > 0 && instance_exists(allyTargetInstanceId)
-                    && (allyTargetInstanceId).combatId == allyTargetCombatId) {
-                gui[i].targetVisible = true;
-                gui[i].iconTargetX = (gui[j]).v_x;
-                gui[i].targetX = (allyTargetInstanceId).x;
-                gui[i].targetY = (allyTargetInstanceId).y + 24;
+        
+        // Check all allies to find the specific instance
+        for(var innerIdIndex = 0; innerIdIndex < PTY_AMNT; innerIdIndex++) {
+            var allyTargetInstanceId = ids[innerIdIndex];
+            
+            // Find the Ally instance to put an icon on them
+            if(allyTargetInstanceId < 0 || !instance_exists(allyTargetInstanceId)
+                    || (allyTargetInstanceId).combatId != allyTargetCombatId) {
+                continue;
             }
+            
+            gui[combatId].targetVisible = true;
+            gui[combatId].targetX = (allyTargetInstanceId).x;
+            gui[combatId].targetY = (allyTargetInstanceId).y + 24;
+            gui[combatId].iconTargetX = gui[allyTargetCombatId].v_x;
         }
-    }
- 
-   
+    }   
 }
 
+ 
 //battle over
 if(areAllPlayersDowned) {
     if(v_timer == -1) {
