@@ -40,7 +40,7 @@ else {
         }
     }
     
-    
+    // TODO - upgrade
     var arteMatrix = saveDataMap[? "arte"];
     
     for(var i = 0; i < ds_list_size(arteMatrix); i++) { 

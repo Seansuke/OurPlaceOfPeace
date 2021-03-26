@@ -4,6 +4,7 @@
 var CUT_picked = argument0;
 var chatMap;
 
+// TODO - Optimize this now
 chatMap[CUT_INTRO] = getIntroChat();
 chatMap[CUT_MEET_NAEN] = getMeetNaEnChat();
 chatMap[CUT_JOIN_NAEN] = getJoinNaEnChat();
@@ -13,31 +14,37 @@ chatMap[CUT_ENTER_LAMPROPHYRE] = getEnterLamprophyreChat();
 
 return chatMap[CUT_picked];
 
+#define newChat
+/// newChat()
+var chat = instance_create(0,0, EmptyObject);
+(chat).count = 0;
+return chat;
+
 #define newChatLine
 ///newChatLine(chat, playerName, text);
 var chatObject = argument0;
 (chatObject).lines[(chatObject).count, CHAT_PLAYERID] = argument1;
 (chatObject).lines[(chatObject).count, CHAT_TEXT_ENG] = argument2;
 (chatObject).count++;
-return chat;
+return chatObject;
 
 #define newNarratorLine
 ///newNarratorLine(chat, text);
 var chatObject = argument0;
-(chatObject).lines[(chatObject).count, CHAT_PLAYERID] = -1;
+(chatObject).lines[(chatObject).count, CHAT_PLAYERID] = noone;
 (chatObject).lines[(chatObject).count, CHAT_TEXT_ENG] = argument1;
 (chatObject).count++;
-return chat;
+return chatObject;
 
 #define getIntroChat
-var chat = instance_create(0,0, EmptyObject);
+var chat = newChat();
 
 chat = newChatLine(chat, Noel, '"You fiend... you are to blame."');
 
 return chat;
 
 #define getMeetNaEnChat
-var chat = instance_create(0,0, EmptyObject);
+var chat = newChat();
 
 chat = newNarratorLine(chat, 
     "The clear sound of a couple footsteps was heard around a bend further ahead.");
@@ -67,7 +74,7 @@ chat = newChatLine(chat, Noel,
 return chat;
 
 #define getJoinNaEnChat
-var chat = instance_create(0,0, EmptyObject);
+var chat = newChat();
 
 chat = newChatLine(chat, Noel,
     '"Wait."');
@@ -91,7 +98,7 @@ chat = newChatLine(chat, Noel,
 return chat;
 
 #define getEnterMeliorateChat
-var chat = instance_create(0,0, EmptyObject);
+var chat = newChat();
 
 chat = newNarratorLine(chat, 
     "This place looks like crap.");
@@ -113,7 +120,7 @@ chat = newNarratorLine(chat,
 return chat;
 
 #define getLeaveMeliorateChat
-var chat = instance_create(0,0, EmptyObject);
+var chat = newChat();
 
 chat = newNarratorLine(chat, 
     "Lady Enne asks where we are going.");
@@ -135,7 +142,7 @@ chat = newNarratorLine(chat,
 return chat;
 
 #define getEnterLamprophyreChat
-var chat = instance_create(0,0, EmptyObject);
+var chat = newChat();
 
 chat = newNarratorLine(chat, 
     "Naes mentions that they will secure a route, pick up some iron deep within and then present it as proof to the town/");

@@ -64,15 +64,19 @@ arteId = arte_new(Sean,"Smash",spr_sean_att_up,GFX_ATTACK_UP,
     "Hold [ARTE] to charge attack to push foes back.",
     ARTE_EFFECT_BACK, TYPE_PHYSICAL, 3*5);
 arte_set(arteId, ARTE_VISIBLE, false);
+arte_set(arteId, ARTE_POST_WAIT, 3*5);
 
 arteId = arte_new(Sean,"Wall",spr_wall,GFX_DEF,
     0.4,2.0,    1,100,  3,
     "Foes that melee will be sent flying.",
     ARTE_EFFECT_BACK, TYPE_PHYSICAL, 3*7);
+arte_set(arteId, ARTE_POST_WAIT, 3*9);
+
 arteId = arte_new(Sean,"Divide",spr_divide,GFX_ATTACK_AIR,                     
     1.5,1.5,  9,300,  5,
     "Hold [ARTE] to charge attack to push foes back.",
     ARTE_EFFECT_NONE, TYPE_SELF, 3*4);
+arte_set(arteId, ARTE_POST_WAIT, 3*6);
     
 //range
 arteId = arte_new(Sean,"Wave",spr_wave,GFX_ATTACK_UP,          
@@ -80,12 +84,14 @@ arteId = arte_new(Sean,"Wave",spr_wave,GFX_ATTACK_UP,
     "Produce a wave of pressure that pushes back foes.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*5);
 arte_set(arteId, ARTE_MOVE_SPEED, 20);
+arte_set(arteId, ARTE_POST_WAIT, 3);
 
 arteId = arte_new(Sean,"Uprise",spr_uprise,GFX_ATTACK_UP,       
     0.7,1.5,  6,200,  2,
     "Force foes upward at a distance.",
     ARTE_EFFECT_LIFT, TYPE_PLACE, 3*6);
 arte_set(arteId, ARTE_MOVE_SPEED, 60);
+arte_set(arteId, ARTE_POST_WAIT, 3*8);
 
 //======================AD======================
 //heal
@@ -93,24 +99,33 @@ arteId = arte_new(AD,"Medic",spr_medic,GFX_CAST,
     0.1,1.0,  16,100, 1,
     "Hold [ARTE] to regenerate an ally's HP.",
     ARTE_EFFECT_HEAL, TYPE_ALLY_TARGET, 3*6);
+arte_set(arteId, ARTE_POST_WAIT, 3*6);
+
 arteId = arte_new(AD,"Restore",spr_restore,GFX_CAST,      
     0.5,5.0, 48,200, 5,
     "Give an ally a burst of HP, hold [ARTE] to increase effect.",
     ARTE_EFFECT_HEAL, TYPE_ALLY_TARGET, 3*16);
+arte_set(arteId, ARTE_POST_WAIT, 3*18);
+
 //buff
 arteId = arte_new(AD,"Might",spr_might,GFX_CAST,          
     1.4,2.0, 32,100, 3,
     "Ally will give more damage to foes.",
     ARTE_EFFECT_ATT_BUFF, TYPE_ALLY_TARGET, 3*15);
+arte_set(arteId, ARTE_POST_WAIT, 3*17);
+
 arteId = arte_new(AD,"Endure",spr_endure,GFX_CAST,        
     1.4,2.0, 32,100, 2,
     "Ally will recieve less damage from foes.",
     ARTE_EFFECT_DEF_BUFF, TYPE_ALLY_TARGET, 3*15);
+arte_set(arteId, ARTE_POST_WAIT, 3*17);
+
 //offense
 arteId = arte_new(AD,"Holy Beam",spr_holy,GFX_CAST,       
     3.0,3.0,  48,200, 1,
     "Blast foes with a condensation of holy energy.",
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*9);
+arte_set(arteId, ARTE_POST_WAIT, 3*11);
 
 //======================Dan======================
 //knife
@@ -119,6 +134,7 @@ arteId = arte_new(Dan,"Combat Knife",spr_dan_knife,GFX_CAST,
     "Quickly unleash a knife that pushes foes back.",
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*2);
 arte_set(arteId, ARTE_VISIBLE, false);
+arte_set(arteId, ARTE_POST_WAIT, 3*2);
 
 //arrows
 arteId = arte_new(Dan,"Aimed Arrow",spr_arrow,GFX_ATTACK_SIDE,     
@@ -126,18 +142,21 @@ arteId = arte_new(Dan,"Aimed Arrow",spr_arrow,GFX_ATTACK_SIDE,
     "Fire an arrow diagonally.",
     ARTE_EFFECT_NONE, TYPE_AIR_SHOT, 3*10);
 arte_set(arteId, ARTE_MOVE_SPEED, 15);
+arte_set(arteId, ARTE_POST_WAIT, 3*12);
 
 arteId = arte_new(Dan,"Ice Arrow",spr_icearrow,GFX_ATTACK_SIDE,    
     0.4,0.1,    9,100,  2,
     "Fire a fast but weak arrow infused with ice.",
     ARTE_EFFECT_NONE, TYPE_GRAVITY_SHOT, 3*10);
 arte_set(arteId, ARTE_MOVE_SPEED, 25);
+arte_set(arteId, ARTE_POST_WAIT, 3*12);
 
 arteId = arte_new(Dan,"Fire Arrow",spr_firearrow,GFX_ATTACK_SIDE,  
     1.0,3.0,   9,100,  3,
     "Fire a slow but strong arrow infused with fire.",
     ARTE_EFFECT_NONE, TYPE_GRAVITY_SHOT, 3*10);
 arte_set(arteId, ARTE_MOVE_SPEED, 10);
+arte_set(arteId, ARTE_POST_WAIT, 3*12);
 
 //======================John======================
 //melee
@@ -145,24 +164,29 @@ arteId = arte_new(John,"Incapacitate",spr_thrust,GFX_ATTACK_SIDE,
     1.0,0.1,   3,200,  1,
     "Strike at such speed that stuns the opponent.",
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
+arte_set(arteId, ARTE_POST_WAIT, 3*6);
+
 //range
 arteId = arte_new(John,"Jolt",spr_jolt,GFX_CAST,                   
     1.0,0.1,   9,100,  1,
     "Fire a ball of lightning forward",
     ARTE_EFFECT_NONE, TYPE_SHOT, 3*5);
 arte_set(arteId, ARTE_MOVE_SPEED, 20);
+arte_set(arteId, ARTE_POST_WAIT, 3*6);
 
 arteId = arte_new(John,"Spark",SparkSprite,GFX_CAST,
     2.0,0.1,  24,100,  2,
     "Summon a live spark on the ground in front",
     ARTE_EFFECT_NONE, TYPE_PLACE, 3*5);
 arte_set(arteId, ARTE_MOVE_SPEED, 64);
+arte_set(arteId, ARTE_POST_WAIT, 3*8);
 
 arteId = arte_new(John,"Storm",StormSprite,GFX_CAST,
     2.0,0.1,  32,200,  5,
     "Call lightning from the sky.",
     ARTE_EFFECT_NONE, TYPE_PLACE, 3*5);
 arte_set(arteId, ARTE_MOVE_SPEED, 64);
+arte_set(arteId, ARTE_POST_WAIT, 3*7);
 
 //======================Serena======================
 // movement
@@ -170,22 +194,31 @@ arteId = arte_new(Serena,"Ocean's Whirlpool",spr_spin,GFX_ATTACK_AIR,
     1.0,0.2, 3,100, 1,
     "Anti-aerial spin like flowing water.",
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
+arte_set(arteId, ARTE_POST_WAIT, 3*6);
+
 arteId = arte_new(Serena,"Wind's Pierce",spr_thrust,GFX_ATTACK_SIDE,             
     1.0,0.2, 3,100, 1,
     "Slide through foes like the wind.",
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
+arte_set(arteId, ARTE_POST_WAIT, 3*6);
+
 arteId = arte_new(Serena,"Raging Hurricane",spr_hurricane,GFX_ATTACK_UP,             
     1.0,0.2, 3,100, 2,
     "Tear through foes like a rising storm.",
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
+arte_set(arteId, ARTE_POST_WAIT, 3*6);
+
 arteId = arte_new(Serena,"Retreating Flame",spr_flame,GFX_ATTACK_UP,             
     0.5,1.0, 3,100, 3,
     "Flicker from foes like a flame in the breeze.",
     ARTE_EFFECT_NONE, TYPE_SELF, 3*5);
+arte_set(arteId, ARTE_POST_WAIT, 3*6);
+
 arteId = arte_new(Serena,"Descending Waterfall",spr_waterfall,GFX_ATTACK_AIR,    
     1.0,0.2, 3*4,200, 5,
     "Rise above your foes and rush them like a falling river.",
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*8);
+arte_set(arteId, ARTE_POST_WAIT, 3*9);
 
 //======================James======================
 // melee
@@ -193,38 +226,47 @@ arteId = arte_new(James,"Rushing Reap",spr_spin,GFX_ATTACK_SIDE,
     1.0,0.2, 3,100, 3,
     "Reap your opponents in one swing.",
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*5);
+arte_set(arteId, ARTE_POST_WAIT, 3*6);
     
 // magic
 arteId = arte_new(James,"Petal Beam",spr_petal_beam,GFX_CAST,   
     1.5,0.5,   12,300,  1,
     "Beam out flaming petals.",
     ARTE_EFFECT_NONE, TYPE_SELF, 3*6);
+arte_set(arteId, ARTE_POST_WAIT, 3*7);
+
 arteId = arte_new(James,"Petal Storm",spr_petal_storm,GFX_CAST, 
     1.5,0.5,   12,300,  5,
     "Spin flaming petals around for anti-air.",
     ARTE_EFFECT_NONE, TYPE_SELF, 3*6);
+arte_set(arteId, ARTE_POST_WAIT, 3*8);
     
 //======================Taliko======================
 arteId = arte_new(Taliko,"Chill Wounds",ClearIceBlockSprite,GFX_CAST,
     1.0,5.0,  32,200, 1,
     "Heal an ally with a small burst of HP.",
     ARTE_EFFECT_HEAL, TYPE_ALLY_TARGET, 3*16); 
+arte_set(arteId, ARTE_POST_WAIT, 3*18);
+
 arteId = arte_new(Taliko,"Frosted Defense",ClearIceWallSprite,GFX_CAST,        
     1.0,2.0, 32,100, 1,
     "Ally will recieve less damage from foes.",
     ARTE_EFFECT_DEF_BUFF, TYPE_ALLY_TARGET, 3*15);
+arte_set(arteId, ARTE_POST_WAIT, 3*17);
 
 //======================Noel======================
 arteId = arte_new(Noel,"Shove",NoelShoveSprite,GFX_CAST, 
-    1.5,2.0,  12,100, 1,
+    1.5,2.0,  3,100, 1,
     "Push a foe far away.",
     ARTE_EFFECT_BACK, TYPE_PHYSICAL, 3); 
 arte_set(arteId, ARTE_VISIBLE, false);
+arte_set(arteId, ARTE_POST_WAIT, 3*3);
 
 arteId = arte_new(Noel,"Tension",spr_might,GFX_DEF, 
-    1.0,1.0, 32,100, 1,
+    1.0,1.0, 3,100, 1,
     "Increase your attack power through tense combat.",
-    ARTE_EFFECT_ATT_BUFF, TYPE_PHYSICAL, 3);
+    ARTE_EFFECT_ATT_BUFF, TYPE_PHYSICAL, 3*3);
+arte_set(arteId, ARTE_POST_WAIT, 3*6);
 
 //======================Alister======================
 arteId = arte_new(Alister,"Bullet Blaze",BulletSprite,GFX_CAST, 
@@ -232,12 +274,14 @@ arteId = arte_new(Alister,"Bullet Blaze",BulletSprite,GFX_CAST,
     "Fill your foes with lead.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*7); 
 arte_set(arteId, ARTE_MOVE_SPEED, 30);
+arte_set(arteId, ARTE_POST_WAIT, 3*3);
 
 arteId = arte_new(Alister,"Cross Gun",BulletSprite,GFX_CAST, 
     0.1,0.0,  3,20, 1,
     "Fill foes with lead from both sides.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*7);
 arte_set(arteId, ARTE_MOVE_SPEED, 30);
+arte_set(arteId, ARTE_POST_WAIT, 3*3);
 
 
 //======================Raka======================
@@ -246,17 +290,20 @@ arteId = arte_new(Raka,"Rushing Leaves",ShortWindSprite,GFX_CAST,
     "Blow away your foes with the wind from your leaf fan.",
     ARTE_EFFECT_LIFT, TYPE_SHOT, 3*7); 
 arte_set(arteId, ARTE_MOVE_SPEED, 7);
+arte_set(arteId, ARTE_POST_WAIT, 3*9);
     
 arteId = arte_new(Raka,"Falling Tree",spr_thrust,GFX_ATTACK_DOWN,        
     1.0,3.0,  9,200, 1,
     "Land a powerful strike on your foe from the sky.",
     ARTE_EFFECT_BACK, TYPE_PHYSICAL, 3*5);
+arte_set(arteId, ARTE_POST_WAIT, 3*7);
     
 arteId = arte_new(Raka,"Friendly Fowl",EagleSprite,GFX_CAST,
     0.7,2.0,  9,100, 2,
     "Land a powerful strike on your foe in the sky.",
     ARTE_EFFECT_OUT, TYPE_AIR_SHOT, 3*7);
 arte_set(arteId, ARTE_MOVE_SPEED, 15);
+arte_set(arteId, ARTE_POST_WAIT, 3*9);
 
 //======================Chloe======================
 arteId = arte_new(Chloe,"Bullet Spray",BulletSprite,GFX_CAST,           
@@ -264,12 +311,14 @@ arteId = arte_new(Chloe,"Bullet Spray",BulletSprite,GFX_CAST,
     "Fill your foes with lead.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*5); 
 arte_set(arteId, ARTE_MOVE_SPEED, 30);
+arte_set(arteId, ARTE_POST_WAIT, 3*4);
 
 arteId = arte_new(Chloe,"Pistol Cross",BulletSprite,GFX_CAST,
     0.1,0.1,  9,20, 1,
     "Fill foes with lead from both sides.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*5);
 arte_set(arteId, ARTE_MOVE_SPEED, 30);
+arte_set(arteId, ARTE_POST_WAIT, 3*4);
 
 //======================Monsters======================
 arteId = arte_new(MAX_PLAYERS,"Strike",spr_thrust,GFX_ATTACK,
@@ -362,6 +411,7 @@ global.playerLevel = 1;
 global.maxPlayerLevel = 1;
 global.experience = 0;
 global.cutscene = -1;
+global.preempt = false;
 if(os_browser == browser_not_a_browser) {
     TouchControlsOff();
 }

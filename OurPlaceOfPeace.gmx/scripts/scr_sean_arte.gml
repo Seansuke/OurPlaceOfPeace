@@ -22,24 +22,27 @@ switch(skill[ARTE_NAME]) {
             scr_player_arte_create();
         }
 
-        if(v_timer > 3*5)
-            {v_act = "idle";}
+        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+            v_act = "idle";
+        }
     break;
     case "Uprise": 
         
         if(floor(v_timer) == skill[ARTE_WAIT] + 1)
             {scr_player_arte_create();} //create attack
 
-        if(v_timer > 3*6)
-            {v_act = "idle";}
+        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+            v_act = "idle";
+        }
     break;
     case "Wall": 
         
         if(floor(v_timer) == skill[ARTE_WAIT] + 1)
             {scr_player_arte_create();} //create attack
 
-        if(v_timer > 3*7)
-            {v_act = "idle";}
+        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+            v_act = "idle";
+        }
     break;
     case "Divide": 
         v_color = c_white;
@@ -62,8 +65,9 @@ switch(skill[ARTE_NAME]) {
         if(floor(v_timer) == skill[ARTE_WAIT] + 1)
             {scr_player_arte_create();} //create attack
 
-        if(v_timer > 3*5)
-            {v_act = "idle";}
+        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+            v_act = "idle";
+        }
     break;
     case "Shove": 
         if(playerId == Noel) {
@@ -74,7 +78,7 @@ switch(skill[ARTE_NAME]) {
             scr_player_arte_create();
         } //create attack
 
-        if(v_timer > skill[ARTE_WAIT] + 3) {
+        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
             v_act = "idle";
         }
     break;
@@ -84,10 +88,9 @@ switch(skill[ARTE_NAME]) {
             scr_player_arte_create();
         }
 
-        if(v_timer > skill[ARTE_WAIT] + 3) {
+        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
             v_act = "idle";
         }
-        
     break;
 }
 
@@ -95,10 +98,9 @@ if(skill[ARTE_NAME] == "Strike" || skill[ARTE_NAME] == "Wave") {
     if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
         scr_player_arte_create();
     }
-    if(floor(v_timer) == skill[ARTE_WAIT] + 2*3) {
+    if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
         v_act = "idle";
     }
-    // TODO - prewait duration postwait (postwait comes right afte rprewait)
 }
 
 if(skill[ARTE_NAME] == "Bullet Blaze" || skill[ARTE_NAME] == "Bullet Spray") {
@@ -110,7 +112,7 @@ if(skill[ARTE_NAME] == "Bullet Blaze" || skill[ARTE_NAME] == "Bullet Spray") {
         scr_player_arte_create();
     }
 
-    if(floor(v_timer) > skill[ARTE_WAIT] + 2) {
+    if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
         v_act = "idle";
     }
 }
@@ -133,7 +135,7 @@ if(skill[ARTE_NAME] == "Cross Gun" || skill[ARTE_NAME] == "Pistol Cross") {
         scr_player_arte_create();
     }
 
-    if(floor(v_timer) > skill[ARTE_WAIT] + 1) {
+    if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
         v_act = "idle";
     }
 }

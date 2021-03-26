@@ -24,6 +24,7 @@ else {
     ds_map_add(saveDataMap, "combatParty", global.combatParty);
         
     ds_map_add(saveDataMap, "pty", global.pty);
+    // TODO - upgrade
     ds_map_add(saveDataMap, "arte", global.arte);
     ds_map_add(saveDataMap, "ctrl", global.ctrl);
 

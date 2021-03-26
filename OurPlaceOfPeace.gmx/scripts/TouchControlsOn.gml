@@ -28,8 +28,7 @@ ds_list_add(global.touchList,
 ds_list_add(global.touchList,   
     virtual_key_add(x2Set, yUpperSet, size, size, ord('C')));
     
-for(var i = 0; i < ds_list_size(global.touchList); i += 1)
-{
+for(var i = 0; i < ds_list_size(global.touchList); i += 1) {
     var node = ds_list_find_value(global.touchList, i);
     virtual_key_show(node);
 }

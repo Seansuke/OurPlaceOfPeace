@@ -10,6 +10,7 @@ arte_replace_by_id(i, argument0, argument1, argument2, argument3,
 
 global.arte[i, ARTE_USES] = 0;
 global.arte[i, ARTE_MOVE_SPEED] = 0;
+global.arte[i, ARTE_POST_WAIT] = 0;
 
 // Default the visibility
 global.arte[i, ARTE_VISIBLE] = true;
@@ -17,5 +18,9 @@ global.arte[i, ARTE_VISIBLE] = true;
 // Set the arte cost now that the arte has been created.
 global.arte[i, ARTE_POINTS] = 0;
 global.maxArte++;
+
+for(var j = 0; j < ARTE_MAX; j++) {
+    upgrade_set(i, j, 0);
+}
 
 return i;

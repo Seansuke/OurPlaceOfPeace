@@ -16,7 +16,11 @@ for(var combatId = 0; combatId < PTY_AMNT; combatId++) {
     }
     (playerInstanceId).HP = party_get(playerId, PTY_HP);
     (playerInstanceId).rollHP = (playerInstanceId).HP;
-    (playerInstanceId).SP = (playerInstanceId).stat[PLY_SP];
+    (playerInstanceId).SP = 0;
+    
+    if(global.preempt) {
+        (playerInstanceId).SP = (playerInstanceId).stat[PLY_SP];
+    }
     
     if((playerInstanceId).playerId == Raka) {
         (playerInstanceId).v_flyer = true;

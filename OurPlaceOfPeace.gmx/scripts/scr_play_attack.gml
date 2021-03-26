@@ -4,10 +4,16 @@ var totalAttackSubImages = 5;
 var framesPerSubimage = 3;
 
 // Faster characters have quicker attacks, slower characters have slower attacks.
+if(getMoveSpeed() < 5) {
+    framesPerSubimage++;
+}
 if(getMoveSpeed() < 8) {
     framesPerSubimage++;
 }
 else if(getMoveSpeed() > 13) {
+    framesPerSubimage--;
+}
+if(getMoveSpeed() > 16) {
     framesPerSubimage--;
 }
 

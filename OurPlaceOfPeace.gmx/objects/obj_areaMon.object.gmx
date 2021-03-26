@@ -78,7 +78,8 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = -y;
+            <string>/// Run to nearest player if within line of sight
+depth = -y;
 if(global.menu) {
     depth = -10001;
     exit;
@@ -113,6 +114,98 @@ else if((closestPlayer).y &lt; y) {
     }
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="AreaAttack">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Call Event 1 and wasAttacked
+event_user(1);
+global.preempt = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_areaPlayer">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Call Event 1
+event_user(1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Encounter 
+if(alarm[0] &gt; 0) {
+    exit;
+}
+
+global.currentMap = room;
+global.monFight[0] = monFight[0];
+global.monFight[1] = monFight[1];
+global.monFight[2] = monFight[2];
+global.monFight[3] = monFight[3];
+
+with(obj_areaPlayer) {
+    if(combatId == 0) {
+        global.areaPlayerX = x;
+        global.areaPlayerY = y;
+    }
+}
+
+alarm[0] = 6;
+room_set_persistent(room, true);
+room_goto(rm_arena_outskirts);
 </string>
           </argument>
         </arguments>

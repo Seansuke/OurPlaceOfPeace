@@ -92,6 +92,7 @@
       </sprites>
       <sprites name="blocks">
         <sprite>sprites\MountainBlockSprite</sprite>
+        <sprite>sprites\EmptySprite</sprite>
       </sprites>
       <sprites name="hazards">
         <sprite>sprites\FlameSprite</sprite>
@@ -343,6 +344,7 @@
       <sprite>sprites\MenuTouchSprite</sprite>
       <sprite>sprites\spr_menu_empty_white</sprite>
       <sprite>sprites\spr_menu_down_up</sprite>
+      <sprite>sprites\CutsceneSprite</sprite>
     </sprites>
     <sprites name="monster">
       <sprites name="arach">
@@ -524,6 +526,8 @@
       <script>scripts\room_set_temporary_persistence.gml</script>
       <script>scripts\displayDialogue.gml</script>
       <script>scripts\getChatText.gml</script>
+      <script>scripts\upgrade_get.gml</script>
+      <script>scripts\upgrade_set.gml</script>
     </scripts>
     <scripts name="init">
       <script>scripts\init_game.gml</script>
@@ -590,6 +594,7 @@
         <object>objects\SignDialogue</object>
         <object>objects\CustomFoe</object>
         <object>objects\MakeCustomFoe</object>
+        <object>objects\Cutscene</object>
       </objects>
       <objects name="blocks">
         <object>objects\ParentBlock</object>
@@ -681,15 +686,15 @@
     </rooms>
     <rooms name="area">
       <room>rooms\RuinedHomeRoom</room>
-      <room>rooms\CombatDemoRoom</room>
       <room>rooms\rm_area_outskirts</room>
+      <room>rooms\CombatDemoRoom</room>
     </rooms>
     <rooms name="arena">
       <room>rooms\rm_arena_outskirts</room>
     </rooms>
     <room>rooms\EmptyRoom</room>
   </rooms>
-  <constants number="143">
+  <constants number="144">
     <constant name="Sean">0</constant>
     <constant name="AD">1</constant>
     <constant name="Dan">2</constant>
@@ -740,7 +745,8 @@
     <constant name="ARTE_DURATION">14</constant>
     <constant name="ARTE_MOVE_SPEED">15</constant>
     <constant name="ARTE_VISIBLE">16</constant>
-    <constant name="ARTE_MAX">17</constant>
+    <constant name="ARTE_POST_WAIT">17</constant>
+    <constant name="ARTE_MAX">18</constant>
     <constant name="PLY_NAME">0</constant>
     <constant name="PLY_HP">1</constant>
     <constant name="PLY_SP">2</constant>

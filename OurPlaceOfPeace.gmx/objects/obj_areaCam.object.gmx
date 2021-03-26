@@ -55,13 +55,43 @@ player_marker(global.marker);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(PlayerObject) {
+            <string>minX = room_width;
+minY = room_height;
+
+maxX = 0;
+maxY = 0;
+
+with(PlayerObject) {
+    if(ctrl_get(combatId, BTN_TYPE) == BTN_TYPE_NONE) {
+        other.minX = min(x, other.minX);
+        other.minY = min(y, other.minY);
+        other.maxX = max(x, other.maxX);
+        other.maxY = max(y, other.maxY);
+    }
     if(combatId == 0) {
-        other.x = x;
-        other.y = y;
         global.areaPlayerX = x;
         global.areaPlayerY = y;
+        other.minX = min(x + 128 * v_dir, other.minX);
+        other.maxX = max(x + 128 * v_dir, other.maxX);
     }
+}
+
+var distanceToPoint = distance_to_point((minX+maxX)/2, (minY+maxY)/2);
+if(distanceToPoint &gt; 256) {
+    speed = 0;
+    x = (minX+maxX)/2;
+    y = (minY+maxY)/2;
+}
+else if(distanceToPoint &gt; 128) {
+    move_towards_point((minX+maxX)/2, (minY+maxY)/2, 32);
+}
+else if(distanceToPoint &gt; 32) {
+    move_towards_point((minX+maxX)/2, (minY+maxY)/2, 24);
+}
+else {
+    speed = 0;
+    x = (minX+maxX)/2;
+    y = (minY+maxY)/2;
 }
 </string>
           </argument>

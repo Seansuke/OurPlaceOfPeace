@@ -161,6 +161,8 @@ switch(subMenu)
         maxMenu = 0;
         menus[maxMenu] = instance_create(getMenuXPosition(),
             view_yview[0] + 100 + 40*maxMenu,BackMenu); 
+        (menus[maxMenu]).arteId = 0;
+        (menus[maxMenu]).v_set = ARTE_PLAYER;
         maxMenu++;
         
         menus[maxMenu] = instance_create(getMenuXPosition(),
@@ -197,6 +199,24 @@ switch(subMenu)
         (menus[maxMenu]).v_text = "Cost: " + str(arte_get(arteId, ARTE_COST));
         (menus[maxMenu]).v_text2 = "Uses Needed: " 
             + str(arte_upgrade_cost(arteId,ARTE_COST));
+        maxMenu += 1;
+        
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
+        (menus[maxMenu]).arteId = arteId;
+        (menus[maxMenu]).v_set = ARTE_DURATION;
+        (menus[maxMenu]).v_text = "Duration: " + str(arte_get(arteId, ARTE_DURATION));
+        (menus[maxMenu]).v_text2 = "Uses Needed: " 
+            + str(arte_upgrade_cost(arteId,ARTE_DURATION));
+        maxMenu += 1;
+        
+        menus[maxMenu] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
+        (menus[maxMenu]).arteId = arteId;
+        (menus[maxMenu]).v_set = ARTE_POST_WAIT;
+        (menus[maxMenu]).v_text = "After Wait: " + str(arte_get(arteId, ARTE_POST_WAIT));
+        (menus[maxMenu]).v_text2 = "Uses Needed: " 
+            + str(arte_upgrade_cost(arteId,ARTE_POST_WAIT));
         maxMenu += 1;
     break;
     case "Party":

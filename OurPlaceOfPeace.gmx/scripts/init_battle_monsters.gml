@@ -16,6 +16,9 @@ for(monI = 0; monI < PTY_AMNT; monI++) {
         (foeInstance).XP *= global.monsterLevel;
         (foeInstance).stat[PLY_SP] = (foeInstance).stat[PLY_SP] * 10;
         (foeInstance).SP = (foeInstance).stat[PLY_SP];
+        if(global.preempt) {
+            (foeInstance).SP = 0;
+        }
         (foeInstance).rollHP = (foeInstance).stat[PLY_HP];
         (foeInstance).HP = (foeInstance).stat[PLY_HP];
         

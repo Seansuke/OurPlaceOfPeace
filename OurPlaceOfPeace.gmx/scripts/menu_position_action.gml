@@ -54,32 +54,56 @@ switch(subMenu)
         arteEffect = arte_get(arteId, ARTE_EFFECT);
         obj_areaMenu_artes_desc.v_name = arte_get(tmp_arte,ARTE_NAME);
         with(obj_areaMenu_artes_desc) {
-            var desc = array_create(4);
+            var desc = array_create(5);
             
-            desc[0,ARTE_EFFECT_NONE] = "Increase damage to foes";
-            desc[0,ARTE_EFFECT_HEAL] = "Increase HP given to allies";
-            desc[0,ARTE_EFFECT_ATT_BUFF] = "Increase potency of buff";
-            desc[0,ARTE_EFFECT_DEF_BUFF] = desc[0,ARTE_EFFECT_ATT_BUFF];
-            desc[0,ARTE_EFFECT_BACK] = desc[0,ARTE_EFFECT_NONE];
-            desc[0,ARTE_EFFECT_LIFT] = desc[0,ARTE_EFFECT_NONE];
-            desc[1,ARTE_EFFECT_NONE] = "Pierce opponents defense";
-            desc[1,ARTE_EFFECT_HEAL] = "Increase speed of rolling HP";
-            desc[1,ARTE_EFFECT_ATT_BUFF] = "Increase duration of buffs";
+            desc[0,ARTE_EFFECT_NONE] = "";
+            desc[0,ARTE_EFFECT_HEAL] = "";
+            desc[0,ARTE_EFFECT_ATT_BUFF] = "";
+            desc[0,ARTE_EFFECT_DEF_BUFF] = "";
+            desc[0,ARTE_EFFECT_BACK] = "";
+            desc[0,ARTE_EFFECT_LIFT] = "";
+            
+            desc[1,ARTE_EFFECT_NONE] = "Increase damage to foes";
+            desc[1,ARTE_EFFECT_HEAL] = "Increase HP given to allies";
+            desc[1,ARTE_EFFECT_ATT_BUFF] = "Increase potency of buff";
             desc[1,ARTE_EFFECT_DEF_BUFF] = desc[1,ARTE_EFFECT_ATT_BUFF];
-            desc[1,ARTE_EFFECT_BACK] = "Push opponents farther back";
-            desc[1,ARTE_EFFECT_LIFT] = "Push opponents farther upwards";
-            desc[2,ARTE_EFFECT_NONE] = "Decrease time needed to execute skill";
-            desc[2,ARTE_EFFECT_HEAL] = desc[2,ARTE_EFFECT_NONE];
-            desc[2,ARTE_EFFECT_ATT_BUFF] = desc[2,ARTE_EFFECT_NONE];
-            desc[2,ARTE_EFFECT_DEF_BUFF] = desc[2,ARTE_EFFECT_NONE];
-            desc[2,ARTE_EFFECT_BACK] = desc[2,ARTE_EFFECT_NONE];
-            desc[2,ARTE_EFFECT_LIFT] = desc[2,ARTE_EFFECT_NONE];
-            desc[3,ARTE_EFFECT_NONE] = "Decrease SP usage to execute skill";
+            desc[1,ARTE_EFFECT_BACK] = desc[1,ARTE_EFFECT_NONE];
+            desc[1,ARTE_EFFECT_LIFT] = desc[1,ARTE_EFFECT_NONE];
+            
+            desc[2,ARTE_EFFECT_NONE] = "Pierce opponents defense";
+            desc[2,ARTE_EFFECT_HEAL] = "Increase speed of rolling HP";
+            desc[2,ARTE_EFFECT_ATT_BUFF] = "Increase duration of buffs";
+            desc[2,ARTE_EFFECT_DEF_BUFF] = desc[2,ARTE_EFFECT_ATT_BUFF];
+            desc[2,ARTE_EFFECT_BACK] = "Push opponents farther back";
+            desc[2,ARTE_EFFECT_LIFT] = "Push opponents farther upwards";
+            
+            desc[3,ARTE_EFFECT_NONE] = "Decrease time needed to execute arte.";
             desc[3,ARTE_EFFECT_HEAL] = desc[3,ARTE_EFFECT_NONE];
             desc[3,ARTE_EFFECT_ATT_BUFF] = desc[3,ARTE_EFFECT_NONE];
             desc[3,ARTE_EFFECT_DEF_BUFF] = desc[3,ARTE_EFFECT_NONE];
             desc[3,ARTE_EFFECT_BACK] = desc[3,ARTE_EFFECT_NONE];
             desc[3,ARTE_EFFECT_LIFT] = desc[3,ARTE_EFFECT_NONE];
+            
+            desc[4,ARTE_EFFECT_NONE] = "Decrease SP usage to execute arte";
+            desc[4,ARTE_EFFECT_HEAL] = desc[4,ARTE_EFFECT_NONE];
+            desc[4,ARTE_EFFECT_ATT_BUFF] = desc[4,ARTE_EFFECT_NONE];
+            desc[4,ARTE_EFFECT_DEF_BUFF] = desc[4,ARTE_EFFECT_NONE];
+            desc[4,ARTE_EFFECT_BACK] = desc[4,ARTE_EFFECT_NONE];
+            desc[4,ARTE_EFFECT_LIFT] = desc[4,ARTE_EFFECT_NONE];
+            
+            desc[5,ARTE_EFFECT_NONE] = "Artes last longer.";
+            desc[5,ARTE_EFFECT_HEAL] = desc[5,ARTE_EFFECT_NONE];
+            desc[5,ARTE_EFFECT_ATT_BUFF] = desc[5,ARTE_EFFECT_NONE];
+            desc[5,ARTE_EFFECT_DEF_BUFF] = desc[5,ARTE_EFFECT_NONE];
+            desc[5,ARTE_EFFECT_BACK] = desc[5,ARTE_EFFECT_NONE];
+            desc[5,ARTE_EFFECT_LIFT] = desc[5,ARTE_EFFECT_NONE];
+            
+            desc[6,ARTE_EFFECT_NONE] = "Decrease wait after using an arte.";
+            desc[6,ARTE_EFFECT_HEAL] = desc[6,ARTE_EFFECT_NONE];
+            desc[6,ARTE_EFFECT_ATT_BUFF] = desc[6,ARTE_EFFECT_NONE];
+            desc[6,ARTE_EFFECT_DEF_BUFF] = desc[6,ARTE_EFFECT_NONE];
+            desc[6,ARTE_EFFECT_BACK] = desc[6,ARTE_EFFECT_NONE];
+            desc[6,ARTE_EFFECT_LIFT] = desc[6,ARTE_EFFECT_NONE];
             
             v_desc = desc[other.menuPos, other.arteEffect]
         }
@@ -97,7 +121,7 @@ switch(subMenu)
                     stat = baseStat;
                     if(is_real(stat)) {
                         stat = getStat(global.playerLevel, STAT_id, baseStat);
-                    }
+                    }   
                     st[other.tmp_i] = stat;
                 }
             }
