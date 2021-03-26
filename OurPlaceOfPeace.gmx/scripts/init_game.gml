@@ -60,7 +60,7 @@ arte_init();
 //======================Sean======================
 //melee
 arteId = arte_new(Sean,"Smash",spr_sean_att_up,GFX_ATTACK_UP,    
-    1.0,3.0,   6,100,  1,
+    1.2,3.0,   6,100,  1,
     "Hold [ARTE] to charge attack to push foes back.",
     ARTE_EFFECT_BACK, TYPE_PHYSICAL, 3*5);
 arte_set(arteId, ARTE_VISIBLE, false);
@@ -80,7 +80,7 @@ arte_set(arteId, ARTE_POST_WAIT, 3*6);
     
 //range
 arteId = arte_new(Sean,"Wave",spr_wave,GFX_ATTACK_UP,          
-    0.5,2.0,  6,50,   1,
+    0.3,2.0,  6,50,   1,
     "Produce a wave of pressure that pushes back foes.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*5);
 arte_set(arteId, ARTE_MOVE_SPEED, 20);

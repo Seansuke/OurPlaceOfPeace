@@ -347,6 +347,7 @@ for(var i = 0; i < 8; i += 1) {
     menus[maxMenu] = instance_create(getMenuXPosition(),
         view_yview[0] + 140 + 40*maxMenu,obj_areaMenu_artes_set);
     (menus[maxMenu]).v_set = PTY_A1_IDLE + i;
+    (menus[maxMenu]).partyArteSlotId = PTY_A1_IDLE + i;
     (menus[maxMenu]).playerId = selectedPlayerId;
     maxMenu++;
 }

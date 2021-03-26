@@ -29,6 +29,8 @@
 message = "Back";
 depth = -999;
 playerId = -1;
+partyArteSlotId = -1;
+v_set = -1;
 </string>
           </argument>
         </arguments>
