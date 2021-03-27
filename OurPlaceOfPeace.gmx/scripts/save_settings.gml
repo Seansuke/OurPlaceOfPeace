@@ -18,6 +18,7 @@ else {
     ds_map_add(saveDataMap, "areaPlayerX", global.areaPlayerX);
     ds_map_add(saveDataMap, "areaPlayerY", global.areaPlayerY);
 
+    ds_map_add(saveDataMap, "monsterLevel", global.monsterLevel);
     ds_map_add(saveDataMap, "playerLevel", global.playerLevel);
     ds_map_add(saveDataMap, "maxPlayerLevel", global.maxPlayerLevel);
     ds_map_add(saveDataMap, "experience", global.experience);

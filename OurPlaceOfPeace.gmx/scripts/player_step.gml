@@ -17,13 +17,28 @@ else {
         exit;
     }
 }
+
 press_maintain();
+
 previousGfx = gfx[v_gfx];
 previousX = x;
 previousY = y;
+
 rollHP_maintain();
 dmg_maintain();
 guard_maintain();
+
+if(v_act == "damage") {
+    if(x > room_width - 32) {
+        x = 64;
+        v_act = "idle";
+    }
+    else if(x < 32) {
+        x = room_width - 64;
+        v_act = "idle";
+    }
+}
+
 if(ctrl_get(combatId,BTN_TYPE) == BTN_TYPE_NONE) {
     ai_maintain();
 }

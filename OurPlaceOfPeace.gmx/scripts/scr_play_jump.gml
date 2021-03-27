@@ -10,9 +10,11 @@ if(v_flyer) {
 
     if(v_h == BTN_LEFT && place_clear(x - getMoveSpeed()/2, y)) {
         x -= getMoveSpeed()/2;
+        v_dir = DIR_LEFT;
     }
     else if(v_h == BTN_RIGHT && place_clear(x + getMoveSpeed()/2, y)) {
         x += getMoveSpeed()/2;
+        v_dir = DIR_RIGHT;
     }
     
     if(v_v != BTN_UP) {
@@ -54,10 +56,12 @@ if(place_clear(x,y - v_vel) == false || v_vel <= 0 || v_v == BTN_DOWN)
     if(place_clear(x + getMoveSpeed(),y) == true && v_h == BTN_RIGHT)
     {
         x += getMoveSpeed();
+        v_dir = DIR_LEFT;
     }
     else if(place_clear(x - getMoveSpeed(),y) == true && v_h == BTN_LEFT)
     {
         x -= getMoveSpeed();
+        v_dir = DIR_RIGHT;
     }
     exit;
 }
@@ -87,6 +91,7 @@ switch(v_h)
         if(place_clear(x - getMoveSpeed(),y) == true)
         {
             x -= getMoveSpeed();
+            v_dir = DIR_LEFT;
         }
     break;
     case BTN_RIGHT:
@@ -111,6 +116,7 @@ switch(v_h)
          if(place_clear(x + getMoveSpeed(),y) == true)
          {
             x += getMoveSpeed();
+            v_dir = DIR_RIGHT;
          }
     break;
 }

@@ -19,6 +19,7 @@ else {
     var areaPlayerX = ds_map_find_value(saveDataMap, "areaPlayerX");
     var areaPlayerY = ds_map_find_value(saveDataMap, "areaPlayerY");
     
+    var monsterLevel = ds_map_find_value(saveDataMap, "monsterLevel");
     var playerLevel = ds_map_find_value(saveDataMap, "playerLevel");
     var maxPlayerLevel = ds_map_find_value(saveDataMap, "maxPlayerLevel");
     var experience = ds_map_find_value(saveDataMap, "experience");
@@ -130,6 +131,13 @@ else {
     
     if(is_undefined(ctrl) || !is_array(ctrl) || array_height_2d(ctrl) == 0) {
         return "ctrl save data invalid: " + string(ctrl);
+    }
+    
+    if(string(monsterLevel) != "0" 
+        && string(monsterLevel) != "" 
+        && monsterLevel != undefined
+    ) {
+        global.monsterLevel = monsterLevel;
     }
 
     global.audioLevel = audioLevel;

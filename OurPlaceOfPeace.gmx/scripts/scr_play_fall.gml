@@ -10,9 +10,11 @@ if(v_flyer) {
     
     if(v_h == BTN_LEFT && place_clear(x - getMoveSpeed()/2, y)) {
         x -= getMoveSpeed()/2;
+        v_dir = DIR_LEFT;
     }
     else if(v_h == BTN_RIGHT && place_clear(x + getMoveSpeed()/2, y)) {
         x += getMoveSpeed()/2;
+        v_dir = DIR_RIGHT;
     }
     
     if(v_v != BTN_DOWN) {
@@ -63,7 +65,10 @@ switch(v_h)
         }
 
         //control direction
-        if(place_clear(x - getMoveSpeed(),y) == true){x -= getMoveSpeed();}
+        if(place_clear(x - getMoveSpeed(),y) == true){
+            x -= getMoveSpeed();
+            v_dir = DIR_LEFT;
+        }
     break;
     case BTN_RIGHT:
          //attack air sides
@@ -82,8 +87,12 @@ switch(v_h)
             v_attType = PTY_A2_SIDE;
             if(player_arte_init()){exit;}
         }
-         //control direction
-         if(place_clear(x + getMoveSpeed(),y) == true){x += getMoveSpeed();}
+        
+        //control direction
+        if(place_clear(x + getMoveSpeed(),y) == true) {
+            x += getMoveSpeed();
+            v_dir = DIR_RIGHT;
+        }
     break;
 }
 

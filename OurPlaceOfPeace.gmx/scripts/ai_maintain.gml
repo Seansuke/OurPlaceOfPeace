@@ -11,7 +11,7 @@ else {
     aiTarget = obj_camera.mon[floor(random(PTY_AMNT))];
 }
 
-var attackRandomly = (v_act == "idle" || v_act == "run");
+var attackRandomly = (v_act == "idle" || v_act == "run") && random(30) < 4;
 
 var isHealer = (playerId == AD || playerId == Taliko);
 if(isHealer) {
@@ -56,7 +56,7 @@ if(isHealer) {
                     upgrade_add_one(v_arteNum, ARTE_USES);
                     exit;
                 }
-            }         
+            }
         }
     }          
 }
@@ -94,7 +94,6 @@ if(instance_exists(aiTarget)) {
         }
     }
     
-    // random attacking
     if(attackRandomly) {
         if(SP >= stat[PLY_SP]) {
             press[choose(BTN_ARTES1, BTN_ARTES2, BTN_MAX)] = 1;
@@ -103,6 +102,11 @@ if(instance_exists(aiTarget)) {
         else {
             press[choose(BTN_ATTACK, BTN_GUARD, BTN_MAX)] = 1;
             press[choose(BTN_UP, BTN_RIGHT, BTN_LEFT, BTN_DOWN, BTN_MAX)] = 1;
+        }
+    }
+    else {
+        for(var i = 0; i < BTN_MAX; i++) {
+            press[i] = 0;
         }
     }
     

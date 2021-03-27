@@ -72,6 +72,14 @@ switch(skill[ARTE_NAME]) {
         if(playerId == Noel) {
             v_gfx2 = NoelShoveSprite;
         }
+        
+        //step forward
+        if(floor(v_timer) <= ceil(skill[ARTE_WAIT])) {
+            if(place_clear(x + getMoveSpeed() * 2, y) == true) {
+                x += getMoveSpeed();
+            }
+        } 
+
         if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
             scr_player_arte_create();
         }

@@ -9,6 +9,17 @@ rollHP_maintain();
 dmg_maintain();
 guard_maintain();
 
+if(v_act == "damage") {
+    if(x > room_width - 32) {
+        x = 64;
+        v_act = "idle";
+    }
+    else if(x < 32) {
+        x = room_width - 64;
+        v_act = "idle";
+    }
+}
+
 // Randomly choose a new target, unless they are downed.
 // TODO - add aggro.
 if(random(500) == 1 || v_target == -1 || (v_target).HP <= 0) {

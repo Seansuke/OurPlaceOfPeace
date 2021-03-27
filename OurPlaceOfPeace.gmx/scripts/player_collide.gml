@@ -117,7 +117,7 @@ if(other.pushPower > stat[PLY_DEF] + bonusDEF) {
     else {
         v_dir = DIR_RIGHT;
     }
-    v_timer = min(64, (other.pushPower - stat[PLY_DEF] + bonusDEF) * 1.5);
+    v_timer = min(24, (other.pushPower - (stat[PLY_DEF] + bonusDEF)) * 1.5);
     v_act = "damage";
 }
 
