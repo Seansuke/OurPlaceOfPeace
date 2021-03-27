@@ -270,14 +270,14 @@ arte_set(arteId, ARTE_POST_WAIT, 3*6);
 
 //======================Alister======================
 arteId = arte_new(Alister,"Bullet Blaze",BulletSprite,GFX_CAST, 
-    0.1,0.0,  3,20, 1,
+    0.1,0.0,  3,30, 1,
     "Fill your foes with lead.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*7); 
 arte_set(arteId, ARTE_MOVE_SPEED, 30);
 arte_set(arteId, ARTE_POST_WAIT, 3*3);
 
 arteId = arte_new(Alister,"Cross Gun",BulletSprite,GFX_CAST, 
-    0.1,0.0,  3,20, 1,
+    0.1,0.0,  3,30, 1,
     "Fill foes with lead from both sides.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*7);
 arte_set(arteId, ARTE_MOVE_SPEED, 30);
@@ -307,14 +307,14 @@ arte_set(arteId, ARTE_POST_WAIT, 3*9);
 
 //======================Chloe======================
 arteId = arte_new(Chloe,"Bullet Spray",BulletSprite,GFX_CAST,           
-    0.2,0.0,  12,20, 1,
+    0.2,0.0,  12,30, 1,
     "Fill your foes with lead.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*5); 
 arte_set(arteId, ARTE_MOVE_SPEED, 30);
 arte_set(arteId, ARTE_POST_WAIT, 3*4);
 
 arteId = arte_new(Chloe,"Pistol Cross",BulletSprite,GFX_CAST,
-    0.1,0.1,  9,20, 1,
+    0.2,0.1,  9,30, 1,
     "Fill foes with lead from both sides.",
     ARTE_EFFECT_BACK, TYPE_SHOT, 3*5);
 arte_set(arteId, ARTE_MOVE_SPEED, 30);

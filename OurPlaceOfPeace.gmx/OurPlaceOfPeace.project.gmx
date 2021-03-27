@@ -528,6 +528,8 @@
       <script>scripts\getChatText.gml</script>
       <script>scripts\upgrade_get.gml</script>
       <script>scripts\upgrade_set.gml</script>
+      <script>scripts\upgrade_add_one.gml</script>
+      <script>scripts\arte_get_upgraded.gml</script>
     </scripts>
     <scripts name="init">
       <script>scripts\init_game.gml</script>

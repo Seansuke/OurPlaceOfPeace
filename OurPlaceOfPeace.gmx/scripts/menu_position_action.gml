@@ -7,13 +7,13 @@ switch(subMenu)
         if(playerId >= 0 && partyArteSlotId >= 0) {
             tmp_arte = arte_find(party_get(playerId, partyArteSlotId));
             obj_areaMenu_artes_desc.visible = true;
-            obj_areaMenu_artes_desc.v_gfx = arte_get(tmp_arte,ARTE_GFX);
-            obj_areaMenu_artes_desc.v_dmg = arte_get(tmp_arte,ARTE_DMG);
-            obj_areaMenu_artes_desc.v_pow = arte_get(tmp_arte,ARTE_POW);
-            obj_areaMenu_artes_desc.v_wait = arte_get(tmp_arte,ARTE_WAIT);
-            obj_areaMenu_artes_desc.v_cost = arte_get(tmp_arte,ARTE_COST);
-            obj_areaMenu_artes_desc.v_uses = arte_get(tmp_arte,ARTE_USES);
-            obj_areaMenu_artes_desc.v_desc = arte_get(tmp_arte,ARTE_DESC);
+            obj_areaMenu_artes_desc.v_gfx = arte_get_upgraded(tmp_arte,ARTE_GFX);
+            obj_areaMenu_artes_desc.v_dmg = arte_get_upgraded(tmp_arte,ARTE_DMG);
+            obj_areaMenu_artes_desc.v_pow = arte_get_upgraded(tmp_arte,ARTE_POW);
+            obj_areaMenu_artes_desc.v_wait = arte_get_upgraded(tmp_arte,ARTE_WAIT);
+            obj_areaMenu_artes_desc.v_cost = arte_get_upgraded(tmp_arte,ARTE_COST);
+            obj_areaMenu_artes_desc.v_uses = upgrade_get(tmp_arte,ARTE_USES);
+            obj_areaMenu_artes_desc.v_desc = arte_get_upgraded(tmp_arte,ARTE_DESC);
         }
         else
         {
@@ -29,34 +29,34 @@ switch(subMenu)
     case "Artes Slot Select":
         tmp_arte = (menus[menuPos]).v_set;//index in arte array
         if(tmp_arte >= 0) {
-            obj_areaMenu_artes_desc.v_gfx = arte_get(tmp_arte,ARTE_GFX);
-            obj_areaMenu_artes_desc.v_dmg = arte_get(tmp_arte,ARTE_DMG);
-            obj_areaMenu_artes_desc.v_pow = arte_get(tmp_arte,ARTE_POW);
-            obj_areaMenu_artes_desc.v_wait = arte_get(tmp_arte,ARTE_WAIT);
-            obj_areaMenu_artes_desc.v_cost = arte_get(tmp_arte,ARTE_COST);
-            obj_areaMenu_artes_desc.v_uses = arte_get(tmp_arte,ARTE_USES);
-            obj_areaMenu_artes_desc.v_desc = arte_get(tmp_arte,ARTE_DESC);
+            obj_areaMenu_artes_desc.v_gfx = arte_get_upgraded(tmp_arte,ARTE_GFX);
+            obj_areaMenu_artes_desc.v_dmg = arte_get_upgraded(tmp_arte,ARTE_DMG);
+            obj_areaMenu_artes_desc.v_pow = arte_get_upgraded(tmp_arte,ARTE_POW);
+            obj_areaMenu_artes_desc.v_wait = arte_get_upgraded(tmp_arte,ARTE_WAIT);
+            obj_areaMenu_artes_desc.v_cost = arte_get_upgraded(tmp_arte,ARTE_COST);
+            obj_areaMenu_artes_desc.v_uses = upgrade_get(tmp_arte,ARTE_USES);
+            obj_areaMenu_artes_desc.v_desc = arte_get_upgraded(tmp_arte,ARTE_DESC);
         }
     break;
     case "Skill Arte":
         tmp_arte = (menus[menuPos]).v_set;//index in arte array
         if(tmp_arte >= 0) {
-            obj_areaMenu_artes_desc.v_gfx = arte_get(tmp_arte,ARTE_GFX);
-            obj_areaMenu_artes_desc.v_dmg = arte_get(tmp_arte,ARTE_DMG);
-            obj_areaMenu_artes_desc.v_pow = arte_get(tmp_arte,ARTE_POW);
-            obj_areaMenu_artes_desc.v_wait = arte_get(tmp_arte,ARTE_WAIT);
-            obj_areaMenu_artes_desc.v_cost = arte_get(tmp_arte,ARTE_COST);
-            obj_areaMenu_artes_desc.v_uses = arte_get(tmp_arte,ARTE_USES);
-            obj_areaMenu_artes_desc.v_desc = arte_get(tmp_arte,ARTE_DESC);
+            obj_areaMenu_artes_desc.v_gfx = arte_get_upgraded(tmp_arte,ARTE_GFX);
+            obj_areaMenu_artes_desc.v_dmg = arte_get_upgraded(tmp_arte,ARTE_DMG);
+            obj_areaMenu_artes_desc.v_pow = arte_get_upgraded(tmp_arte,ARTE_POW);
+            obj_areaMenu_artes_desc.v_wait = arte_get_upgraded(tmp_arte,ARTE_WAIT);
+            obj_areaMenu_artes_desc.v_cost = arte_get_upgraded(tmp_arte,ARTE_COST);
+            obj_areaMenu_artes_desc.v_uses = upgrade_get(tmp_arte,ARTE_USES);
+            obj_areaMenu_artes_desc.v_desc = arte_get_upgraded(tmp_arte,ARTE_DESC);
         }
     break;
     case "Skill Upgrade":
         tmp_arte = (menus[menuPos]).v_set;//index in arte array
         if(tmp_arte >= 0) {
             arteId = (menus[menuPos]).arteId;
-            tmp_name = arte_get(arteId, ARTE_NAME);
-            arteEffect = arte_get(arteId, ARTE_EFFECT);
-            obj_areaMenu_artes_desc.v_name = arte_get(tmp_arte,ARTE_NAME);
+            tmp_name = arte_get_upgraded(arteId, ARTE_NAME);
+            arteEffect = arte_get_upgraded(arteId, ARTE_EFFECT);
+            obj_areaMenu_artes_desc.v_name = arte_get_upgraded(tmp_arte,ARTE_NAME);
             with(obj_areaMenu_artes_desc) {
                 var desc = array_create(5);
                 

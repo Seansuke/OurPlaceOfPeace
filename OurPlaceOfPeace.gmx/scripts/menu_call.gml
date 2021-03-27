@@ -77,8 +77,8 @@ switch(subMenu)
         maxMenu++;
         for(tmp_arte = 0;tmp_arte < global.maxArte;tmp_arte += 1)
         {
-            if(arte_get(tmp_arte,ARTE_PLAYER) == tmp_char 
-                && global.maxPlayerLevel >= arte_get(tmp_arte,ARTE_LVL)
+            if(arte_get_upgraded(tmp_arte,ARTE_PLAYER) == tmp_char 
+                && global.maxPlayerLevel >= arte_get_upgraded(tmp_arte,ARTE_LVL)
             )
             {
                 menus[maxMenu] = instance_create(
@@ -136,8 +136,8 @@ switch(subMenu)
         maxMenu++;
         for(tmp_arte = 0;tmp_arte < global.maxArte;tmp_arte += 1)
         {
-            if(arte_get(tmp_arte,ARTE_PLAYER) == playerIdSelected 
-                && global.maxPlayerLevel >= arte_get(tmp_arte,ARTE_LVL)
+            if(arte_get_upgraded(tmp_arte,ARTE_PLAYER) == playerIdSelected 
+                && global.maxPlayerLevel >= arte_get_upgraded(tmp_arte,ARTE_LVL)
             )
             {
                 menus[maxMenu] = instance_create(
@@ -156,7 +156,7 @@ switch(subMenu)
         }
         arteId = selectedArteId;
         obj_areaMenu_artes_desc.visible = true;
-        obj_areaMenu_artes_desc.v_uses = arte_get(arteId, ARTE_USES);
+        obj_areaMenu_artes_desc.v_uses = upgrade_get(arteId, ARTE_USES);
         
         maxMenu = 0;
         menus[maxMenu] = instance_create(getMenuXPosition(),
@@ -169,54 +169,66 @@ switch(subMenu)
             view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
         (menus[maxMenu]).arteId = arteId;
         (menus[maxMenu]).v_set = ARTE_DMG;
-        (menus[maxMenu]).v_text = "Damage: " + str(arte_get(arteId, ARTE_DMG));
+        (menus[maxMenu]).v_text = "Damage: " 
+            + str(upgrade_get(arteId, ARTE_DMG)) 
+            + "/5 (" + str(arte_get_upgraded(arteId, ARTE_DMG)) + ")";
         (menus[maxMenu]).v_text2 = "Uses Needed: " 
-            + str(arte_upgrade_cost(arteId,ARTE_DMG));
+            + str(arte_upgrade_cost(arteId, ARTE_DMG));
         maxMenu++;
         
         menus[maxMenu] = instance_create(getMenuXPosition(),
             view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
         (menus[maxMenu]).arteId = arteId;
         (menus[maxMenu]).v_set = ARTE_POW;
-        (menus[maxMenu]).v_text = "Power: " + str(arte_get(arteId, ARTE_POW));
+        (menus[maxMenu]).v_text = "Power: " 
+            + str(upgrade_get(arteId, ARTE_POW)) 
+            + "/5 (" + str(arte_get_upgraded(arteId, ARTE_POW)) + ")";
         (menus[maxMenu]).v_text2 = "Uses Needed: " 
-            + str(arte_upgrade_cost(arteId,ARTE_POW));
+            + str(arte_upgrade_cost(arteId, ARTE_POW));
         maxMenu++;
         
         menus[maxMenu] = instance_create(getMenuXPosition(),
             view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
         (menus[maxMenu]).arteId = arteId;
         (menus[maxMenu]).v_set = ARTE_WAIT;
-        (menus[maxMenu]).v_text = "Wait: " + str(arte_get(arteId, ARTE_WAIT));
+        (menus[maxMenu]).v_text = "Wait: " 
+            + str(upgrade_get(arteId, ARTE_WAIT)) 
+            + "/5 (" + str(arte_get_upgraded(arteId, ARTE_WAIT)) + ")";
         (menus[maxMenu]).v_text2 = "Uses Needed: " 
-            + str(arte_upgrade_cost(arteId,ARTE_WAIT));
+            + str(arte_upgrade_cost(arteId, ARTE_WAIT));
         maxMenu += 1;
         
         menus[maxMenu] = instance_create(getMenuXPosition(),
             view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
         (menus[maxMenu]).arteId = arteId;
         (menus[maxMenu]).v_set = ARTE_COST;
-        (menus[maxMenu]).v_text = "Cost: " + str(arte_get(arteId, ARTE_COST));
+        (menus[maxMenu]).v_text = "Cost: " 
+            + str(upgrade_get(arteId, ARTE_COST)) 
+            + "/5 (" + str(arte_get_upgraded(arteId, ARTE_COST)) + ")";
         (menus[maxMenu]).v_text2 = "Uses Needed: " 
-            + str(arte_upgrade_cost(arteId,ARTE_COST));
+            + str(arte_upgrade_cost(arteId, ARTE_COST));
         maxMenu += 1;
         
         menus[maxMenu] = instance_create(getMenuXPosition(),
             view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
         (menus[maxMenu]).arteId = arteId;
         (menus[maxMenu]).v_set = ARTE_DURATION;
-        (menus[maxMenu]).v_text = "Duration: " + str(arte_get(arteId, ARTE_DURATION));
+        (menus[maxMenu]).v_text = "Duration: " 
+            + str(upgrade_get(arteId, ARTE_DURATION)) 
+            + "/5 (" + str(arte_get_upgraded(arteId, ARTE_DURATION)) + ")";
         (menus[maxMenu]).v_text2 = "Uses Needed: " 
-            + str(arte_upgrade_cost(arteId,ARTE_DURATION));
+            + str(arte_upgrade_cost(arteId, ARTE_DURATION));
         maxMenu += 1;
         
         menus[maxMenu] = instance_create(getMenuXPosition(),
             view_yview[0] + 100 + 40*maxMenu,obj_areaMenu_skills_upgrade);
         (menus[maxMenu]).arteId = arteId;
         (menus[maxMenu]).v_set = ARTE_POST_WAIT;
-        (menus[maxMenu]).v_text = "After Wait: " + str(arte_get(arteId, ARTE_POST_WAIT));
+        (menus[maxMenu]).v_text = "After Wait: " 
+            + str(upgrade_get(arteId, ARTE_POST_WAIT)) 
+            + "/5 (" + str(arte_get_upgraded(arteId, ARTE_POST_WAIT)) + ")";
         (menus[maxMenu]).v_text2 = "Uses Needed: " 
-            + str(arte_upgrade_cost(arteId,ARTE_POST_WAIT));
+            + str(arte_upgrade_cost(arteId, ARTE_POST_WAIT));
         maxMenu += 1;
     break;
     case "Party":

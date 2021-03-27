@@ -17,30 +17,29 @@ switch(skill[ARTE_NAME]) {
                     {v_color = c_orange;}
             }
         }
-        
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
+        if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
             scr_player_arte_create();
         }
-
-        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+    
+        if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
             v_act = "idle";
         }
     break;
     case "Uprise": 
-        
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1)
-            {scr_player_arte_create();} //create attack
-
-        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+        if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
+            scr_player_arte_create();
+        }
+    
+        if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
             v_act = "idle";
         }
     break;
     case "Wall": 
-        
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1)
-            {scr_player_arte_create();} //create attack
-
-        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+        if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
+            scr_player_arte_create();
+        }
+    
+        if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
             v_act = "idle";
         }
     break;
@@ -61,11 +60,11 @@ switch(skill[ARTE_NAME]) {
                     {v_color = c_orange;}
             }
         }
-        
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1)
-            {scr_player_arte_create();} //create attack
-
-        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+        if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
+            scr_player_arte_create();
+        }
+    
+        if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
             v_act = "idle";
         }
     break;
@@ -73,46 +72,44 @@ switch(skill[ARTE_NAME]) {
         if(playerId == Noel) {
             v_gfx2 = NoelShoveSprite;
         }
-
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
+        if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
             scr_player_arte_create();
-        } //create attack
-
-        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+        }
+    
+        if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
             v_act = "idle";
         }
     break;
     case "Tension":
-
-        if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
+        if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
             scr_player_arte_create();
         }
-
-        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+    
+        if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
             v_act = "idle";
         }
     break;
 }
 
 if(skill[ARTE_NAME] == "Strike" || skill[ARTE_NAME] == "Wave") {
-    if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
+    if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
         scr_player_arte_create();
     }
-    if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+
+    if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
         v_act = "idle";
     }
 }
 
 if(skill[ARTE_NAME] == "Bullet Blaze" || skill[ARTE_NAME] == "Bullet Spray") {
-    if(floor(v_timer) == skill[ARTE_WAIT] + 1) {
+    if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
+        scr_player_arte_create();
+    }
+    if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 2)) {
         scr_player_arte_create();
     }
 
-    if(floor(v_timer) == skill[ARTE_WAIT] + 2) {
-        scr_player_arte_create();
-    }
-
-    if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+    if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
         v_act = "idle";
     }
 }
@@ -135,7 +132,7 @@ if(skill[ARTE_NAME] == "Cross Gun" || skill[ARTE_NAME] == "Pistol Cross") {
         scr_player_arte_create();
     }
 
-    if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+    if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
         v_act = "idle";
     }
 }

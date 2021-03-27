@@ -40,8 +40,7 @@ else {
         }
     }
     
-    // TODO - upgrade
-    var arteMatrix = saveDataMap[? "arte"];
+    var arteMatrix = saveDataMap[? "upgrade"];
     
     for(var i = 0; i < ds_list_size(arteMatrix); i++) { 
         // Retrieve row item i
@@ -126,7 +125,7 @@ else {
     }
     
     if(is_undefined(arte) || !is_array(arte) || array_height_2d(arte) == 0) {
-        return "arte save data invalid: " + string(arte);
+        return "upgrade save data invalid: " + string(arte);
     }
     
     if(is_undefined(ctrl) || !is_array(ctrl) || array_height_2d(ctrl) == 0) {
@@ -144,7 +143,7 @@ else {
     
     global.combatParty = combatParty;
     global.pty = pty;
-    global.arte = arte;
+    global.upgrade = arte;
     global.ctrl = ctrl;
     
     audio_set_volume(global.audioLevel)

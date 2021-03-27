@@ -16,14 +16,14 @@ var attackRandomly = (v_act == "idle" || v_act == "run");
 var isHealer = (playerId == AD || playerId == Taliko);
 if(isHealer) {
     if(playerId == AD) {
-        v_arteNum = arte_find("Restore");
+        v_arteNum = arte_find("Medic");
     }
     else {
         v_arteNum = arte_find("Chill Wounds");
     }
 
     for(i = 0; i < ARTE_MAX; i++) {
-        skill[i] = arte_get(v_arteNum,i);
+        skill[i] = arte_get_upgraded(v_arteNum,i);
     }
     
     // Special logic for the healer.
@@ -53,7 +53,7 @@ if(isHealer) {
                     v_timer = 0;
                     v_act = "arte";
                     v_ally_target = v_target;
-                    global.arte[v_arteNum, ARTE_USES] += 1;
+                    upgrade_add_one(v_arteNum, ARTE_USES);
                     exit;
                 }
             }         

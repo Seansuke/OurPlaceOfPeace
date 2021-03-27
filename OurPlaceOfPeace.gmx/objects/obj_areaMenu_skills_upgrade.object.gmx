@@ -79,20 +79,8 @@ v_img = 0;
     tmp_arte = selectedArteId;
     tmp_slct = other.v_set;
     tmp_cost = arte_upgrade_cost(arteId,tmp_slct);
-    switch(tmp_slct) {
-        case ARTE_DMG:tmp_add = 0.02;break;
-        case ARTE_POW:tmp_add = 0.02;break;
-        case ARTE_WAIT:tmp_add = -1;break;
-        case ARTE_COST:tmp_add = -10;break;
-        case ARTE_DURATION:tmp_add = 1;break;
-        case ARTE_POST_WAIT:tmp_add = -1;break;
-        default: exit; break;
-    }
-    if(arte_get(tmp_arte,ARTE_USES) &gt;= tmp_cost &amp;&amp; tmp_cost != -1) {
-        // TODO - Set to upgrade instead. use 0-5
-        global.arte[tmp_arte,ARTE_USES] -= tmp_cost;
-        global.arte[tmp_arte,tmp_slct] += tmp_add;
-        global.arte[tmp_arte,ARTE_POINTS] += 10;
+    if(upgrade_get(tmp_arte,ARTE_USES) &gt;= tmp_cost &amp;&amp; tmp_cost != -1) {
+        upgrade_add_one(tmp_arte, tmp_slct);
     }
     menu_call("Skill Upgrade");//reset all artes information
 }

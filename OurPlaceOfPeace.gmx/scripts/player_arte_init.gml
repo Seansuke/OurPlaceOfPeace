@@ -4,7 +4,7 @@ if(party_get(playerId, v_attType) == ""){return false;}
 v_arteNum = arte_find(party_get(playerId, v_attType));
 
 for(i=0;i<ARTE_MAX;i+=1) {
-    skill[i] = arte_get(v_arteNum,i);
+    skill[i] = arte_get_upgraded(v_arteNum, i);
 }
 
 if(SP < skill[ARTE_COST]) {
@@ -19,5 +19,5 @@ v_act = "arte";
 if(skill[ARTE_TYPE] == TYPE_ALLY_TARGET) {
     v_ally_target = combatId;
 }
-global.arte[v_arteNum, ARTE_USES] += 1;
+upgrade_add_one(v_arteNum, ARTE_USES);
 return true;

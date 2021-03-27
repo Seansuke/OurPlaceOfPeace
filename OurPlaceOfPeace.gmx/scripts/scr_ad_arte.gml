@@ -23,10 +23,8 @@ if(skill[ARTE_NAME] == "Holy Beam") {
             v_timer = skill[ARTE_WAIT] + 1;
             v_charge++;
         }
-
-        if(floor(v_timer) > skill[ARTE_WAIT] + skill[ARTE_POST_WAIT] + 1) {
+        if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
             v_act = "idle";
-            exit;
         }
     }
 }

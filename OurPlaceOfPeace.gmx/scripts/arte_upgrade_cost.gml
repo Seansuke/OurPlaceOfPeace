@@ -1,28 +1,19 @@
 ///arte_upgrade_cost(arteId, ARTE_statPicked);
-var temp_arteId = argument0;
-var temp_up = argument1;
+var arteId = argument0;
+var ARTE_statType = argument1;
 
-if(arte_get(temp_arteId, ARTE_POINTS) > 200) {
+if(upgrade_get(arteId, ARTE_statType) >= 5) {
     return -1;
 }
 
-if(temp_up = ARTE_DMG  && arte_get(temp_arteId, ARTE_DMG) >= 1.5) {
-    return -1;
-}
-if(temp_up = ARTE_POW  && arte_get(temp_arteId, ARTE_POW) >= 1.5) {
-    return -1;
-}
-if(temp_up = ARTE_WAIT && arte_get(temp_arteId,ARTE_WAIT) <= 1)   {
-    return -1;
-}
-if(temp_up = ARTE_COST && arte_get(temp_arteId,ARTE_COST) <= 25)  {
-    return -1;
-}
-if(temp_up = ARTE_DURATION && arte_get(temp_arteId,ARTE_DURATION) <= 1)   {
-    return -1;
-}
-if(temp_up = ARTE_POST_WAIT && arte_get(temp_arteId,ARTE_POST_WAIT) <= 1)   {
-    return -1;
-}
-// TODO - do it by upgrade level 0-5
-return floor(arte_get(temp_arteId, ARTE_POINTS));
+var cost = power(2 * upgrade_get(arteId, ARTE_DMG), 2)
+    + power(2 * upgrade_get(arteId, ARTE_POW), 2)
+    + power(2 * upgrade_get(arteId,ARTE_WAIT), 2)
+    + power(2 * upgrade_get(arteId,ARTE_COST), 2)
+    + power(2 * upgrade_get(arteId,ARTE_DURATION), 2)
+    + power(2 * upgrade_get(arteId,ARTE_POST_WAIT), 2);
+    
+cost += power(2 * upgrade_get(arteId, ARTE_statType) + 1, 2)
+    - power(2 * upgrade_get(arteId, ARTE_statType), 2);
+
+return cost;
