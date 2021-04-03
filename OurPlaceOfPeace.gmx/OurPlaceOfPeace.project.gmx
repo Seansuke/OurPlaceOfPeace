@@ -339,6 +339,8 @@
       <sprite>sprites\SettingsMenuSprite</sprite>
       <sprite>sprites\spr_menu_battle</sprite>
       <sprite>sprites\spr_menu_empty</sprite>
+      <sprite>sprites\MenuTrailMixButtonSprite</sprite>
+      <sprite>sprites\MenuItemsButtonSprite</sprite>
       <sprite>sprites\BackMenuSprite</sprite>
       <sprite>sprites\MusicMenuButtonSprite</sprite>
       <sprite>sprites\MenuTouchSprite</sprite>
@@ -798,7 +800,7 @@
     <constant name="DMG_TIMER">1</constant>
     <constant name="FALL_RATE">0.7</constant>
     <constant name="SP_REQUIRED_TO_ATTACK">0</constant>
-    <constant name="SP_GAINED_PER_FRAME">3</constant>
+    <constant name="SP_GAINED_PER_FRAME">1</constant>
     <constant name="SP_MELEE_GAIN">100</constant>
     <constant name="COUNTER_SP_GAIN">100</constant>
     <constant name="EVADE_SP_GAIN">100</constant>
