@@ -194,10 +194,10 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="obj_candy_rock2" x="2960" y="272" name="inst_EB8FAEBE" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="2832" y="336" name="inst_6E7436E6" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="2432" y="128" name="inst_86035592" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_areaCam" x="144" y="240" name="inst_DA7A13E3" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_areaCam" x="144" y="240" name="inst_DA7A13E3" locked="-1" code="" scaleX="1" scaleY="1" colour="4294934528" rotation="0"/>
     <instance objName="obj_marker1" x="144" y="288" name="inst_AA1848FF" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_marker2" x="3728" y="304" name="inst_9DB883FC" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_item_save" x="1808" y="288" name="inst_2D4A4B1D" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_item_save" x="1808" y="288" name="inst_2D4A4B1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_item_save" x="3424" y="320" name="inst_F23D8060" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="3168" y="400" name="inst_27779313" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="3216" y="224" name="inst_B0036795" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -284,12 +284,12 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="AreaSlime" x="1536" y="448" name="inst_40C88C7E" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="AreaSlime" x="2720" y="304" name="inst_FAD79793" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="AreaSlime" x="3248" y="432" name="inst_43823C8F" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ParentBlock" x="1712" y="32" name="inst_44F11829" locked="-1" code="" scaleX="100" scaleY="5.36170196533203" colour="4294967295" rotation="0"/>
+    <instance objName="ParentBlock" x="1952" y="-64" name="inst_44F11829" locked="0" code="" scaleX="132.387100219727" scaleY="10.15625" colour="4294967295" rotation="0"/>
     <instance objName="AreaWarpParent" x="64" y="288" name="inst_F371CEAE" locked="-1" code="message = &quot;Ruined Home&quot;;&#xA;warpRoom = RuinedHomeRoom;&#xA;marker = 2;&#xA;" scaleX="1.30379748344421" scaleY="0.701298713684082" colour="4294967295" rotation="0"/>
     <instance objName="AreaPyre" x="752" y="400" name="inst_6AD2EA69" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="AreaPyre" x="1712" y="160" name="inst_D417AEFD" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="AreaPyre" x="2352" y="368" name="inst_3BEDDF9E" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Cutscene" x="1200" y="288" name="inst_6E618D09" locked="0" code="cutsceneId = CUT_JOIN_NAEN;&#xA;pauseMove = true;" scaleX="3.35483860969543" scaleY="12.0625" colour="4294967295" rotation="0"/>
+    <instance objName="Cutscene" x="1648" y="304" name="inst_6E618D09" locked="0" code="cutsceneId = CUT_JOIN_NAEN;&#xA;pauseMove = true;&#xA;newPlayerId1 = Sean;&#xA;newPlayerId2 = AD;&#xA;&#xA;" scaleX="3.35483860969543" scaleY="12.0625" colour="4294967295" rotation="0"/>
     <instance objName="Cutscene" x="400" y="288" name="inst_81AE0665" locked="0" code="cutsceneId = CUT_MEET_NAEN;&#xA;pauseMove = true;" scaleX="3.35483860969543" scaleY="12.0625" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>

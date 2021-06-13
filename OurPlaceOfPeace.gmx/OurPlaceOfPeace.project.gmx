@@ -347,6 +347,7 @@
       <sprite>sprites\spr_menu_empty_white</sprite>
       <sprite>sprites\spr_menu_down_up</sprite>
       <sprite>sprites\CutsceneSprite</sprite>
+      <sprite>sprites\BlockSprite</sprite>
     </sprites>
     <sprites name="monster">
       <sprites name="arach">
@@ -419,6 +420,7 @@
       <script>scripts\init_battle_monsters.gml</script>
       <script>scripts\init_battle_players.gml</script>
       <script>scripts\init_camera.gml</script>
+      <script>scripts\draw_sp_blocks.gml</script>
     </scripts>
     <scripts name="battle - monster">
       <scripts name="externals">
@@ -501,18 +503,9 @@
       <script>scripts\arte_find.gml</script>
       <script>scripts\arte_get.gml</script>
       <script>scripts\draw_bold_text.gml</script>
-      <script>scripts\draw_sp_blocks.gml</script>
-      <script>scripts\face_get.gml</script>
-      <script>scripts\name_get.gml</script>
-      <script>scripts\party_find.gml</script>
-      <script>scripts\party_get.gml</script>
-      <script>scripts\party_set_all.gml</script>
-      <script>scripts\party_set.gml</script>
-      <script>scripts\player_get.gml</script>
       <script>scripts\str.gml</script>
       <script>scripts\animate_text.gml</script>
       <script>scripts\animate.gml</script>
-      <script>scripts\combatParty_swap.gml</script>
       <script>scripts\sound_area.gml</script>
       <script>scripts\sound_arena.gml</script>
       <script>scripts\write.gml</script>
@@ -523,7 +516,6 @@
       <script>scripts\getStat.gml</script>
       <script>scripts\getLevel1HpStat.gml</script>
       <script>scripts\play_slash_audio.gml</script>
-      <script>scripts\combat_get.gml</script>
       <script>scripts\draw_wrapped_colored_text.gml</script>
       <script>scripts\room_set_temporary_persistence.gml</script>
       <script>scripts\displayDialogue.gml</script>
@@ -546,6 +538,7 @@
       <script>scripts\set_monster_stats.gml</script>
       <script>scripts\arte_set.gml</script>
       <script>scripts\set_monster_attacks.gml</script>
+      <script>scripts\item_init.gml</script>
     </scripts>
     <scripts name="MENUS">
       <script>scripts\init_menu.gml</script>
@@ -563,6 +556,28 @@
       <script>scripts\canvas_window.gml</script>
       <script>scripts\getMenuXPosition.gml</script>
       <script>scripts\menu_close.gml</script>
+    </scripts>
+    <scripts name="items">
+      <script>scripts\increment_item_count.gml</script>
+      <script>scripts\decrement_item_count.gml</script>
+      <script>scripts\get_item_count.gml</script>
+      <script>scripts\get_item_attack.gml</script>
+      <script>scripts\get_item_type.gml</script>
+      <script>scripts\get_item_name.gml</script>
+      <script>scripts\get_item_description.gml</script>
+    </scripts>
+    <scripts name="party">
+      <script>scripts\party_get.gml</script>
+      <script>scripts\party_find.gml</script>
+      <script>scripts\party_set_all.gml</script>
+      <script>scripts\party_set.gml</script>
+      <script>scripts\player_get.gml</script>
+      <script>scripts\name_get.gml</script>
+      <script>scripts\face_get.gml</script>
+      <script>scripts\combatParty_swap.gml</script>
+      <script>scripts\combat_get.gml</script>
+      <script>scripts\combat_set.gml</script>
+      <script>scripts\combat_party_add.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -698,7 +713,7 @@
     </rooms>
     <room>rooms\EmptyRoom</room>
   </rooms>
-  <constants number="144">
+  <constants number="145">
     <constant name="Sean">0</constant>
     <constant name="AD">1</constant>
     <constant name="Dan">2</constant>
@@ -837,12 +852,13 @@
     <constant name="CHAT_PLAYERID">0</constant>
     <constant name="CHAT_TEXT_ENG">1</constant>
     <constant name="CUT_INTRO">0</constant>
-    <constant name="CUT_MEET_NAEN">1</constant>
-    <constant name="CUT_JOIN_NAEN">2</constant>
-    <constant name="CUT_SLUM_STRT">3</constant>
-    <constant name="CUT_ENTER_MELIORATE">4</constant>
-    <constant name="CUT_LEAVE_MELIORATE">5</constant>
-    <constant name="CUT_ENTER_LAMPROPHYRE">6</constant>
+    <constant name="CUT_HOUSE_FIRE">1</constant>
+    <constant name="CUT_MEET_NAEN">2</constant>
+    <constant name="CUT_JOIN_NAEN">3</constant>
+    <constant name="CUT_SLUM_STRT">4</constant>
+    <constant name="CUT_ENTER_MELIORATE">5</constant>
+    <constant name="CUT_LEAVE_MELIORATE">6</constant>
+    <constant name="CUT_ENTER_LAMPROPHYRE">7</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

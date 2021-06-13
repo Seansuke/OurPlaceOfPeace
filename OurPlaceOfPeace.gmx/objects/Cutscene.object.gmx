@@ -34,6 +34,8 @@ text = "";
 playerSprite = noone;
 buttonHeld = false;
 sprite_index = EmptySprite;
+newPlayerId1 = undefined;
+newPlayerId2 = undefined;
 </string>
           </argument>
         </arguments>
@@ -119,6 +121,13 @@ if(cutsceneId &gt; global.cutscene &amp;&amp; ! isCutsceneRunning) {
     isCutsceneRunning = true;
     chat = getChatText(cutsceneId);
     global.cutscene = cutsceneId;
+    
+    if(newPlayerId1 != undefined) {
+        combat_party_add(newPlayerId1);
+    }
+    if(newPlayerId2 != undefined) {
+        combat_party_add(newPlayerId2);
+    }
 }
 </string>
           </argument>

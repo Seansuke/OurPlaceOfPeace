@@ -6,6 +6,7 @@ var chatMap;
 
 // TODO - Optimize this now
 chatMap[CUT_INTRO] = getIntroChat();
+chatMap[CUT_HOUSE_FIRE] = getHouseFireChat();
 chatMap[CUT_MEET_NAEN] = getMeetNaEnChat();
 chatMap[CUT_JOIN_NAEN] = getJoinNaEnChat();
 chatMap[CUT_ENTER_MELIORATE] = getEnterMeliorateChat();
@@ -39,7 +40,22 @@ return chatObject;
 #define getIntroChat
 var chat = newChat();
 
-chat = newChatLine(chat, Noel, '"You fiend... you are to blame."');
+chat = newChatLine(chat, Noel, 
+    '"Ugh, after working two doubles in a row, I can finally go home and get some sleep..."');
+chat = newNarratorLine(chat, 
+    'You can destroy obstacles on the field with the attack button.');
+
+return chat;
+
+#define getHouseFireChat
+var chat = newChat();
+
+chat = newChatLine(chat, Noel, '"A total of 6 hours of sleep through the last three days, but TODAY was the day someone sets my house on fire."');
+chat = newChatLine(chat, Noel, '"I wouldn`t be nearly as upset except my bed is in there.  A bed I should be sleeping in."');
+chat = newChatLine(chat, Noel, '"Time to let off some steam against the creepy shadow bat thing."');
+chat = newNarratorLine(chat, 
+    'Touching foes will initiate combat mode.');
+
 
 return chat;
 
@@ -51,7 +67,7 @@ chat = newNarratorLine(chat,
 chat = newNarratorLine(chat, 
     "The faint echo indicated that the pace was slow with the intention of stealth.");
 chat = newChatLine(chat, Noel, 
-    '"There`s no point in hiding," he bellowed confidently in the direction of the approaching noise.');
+    '"If you are here to jump me, I have no money and my house just burned down.');
 chat = newChatLine(chat, Sean, 
     '"Apologies, I was unsure if you were hostile or not. I`m sure you can understand why we air on the side of caution in this vicinity," replied an appearring figure. ');
 chat = newChatLine(chat, Sean, 
@@ -59,7 +75,7 @@ chat = newChatLine(chat, Sean,
 chat = newChatLine(chat, AD, 
     'Behind him stood a shorter, but elegant looking lady.  For such a dusty terrain, her clothes appearred unrealistically clean.');
 chat = newChatLine(chat, Noel,
-    '"I understand," he responded abruptly. ');
+    '"It would be much more believable if you didn`t tiptoe around," he responded abruptly. ');
 chat = newChatLine(chat, Sean,
     'His tone would clearly end any normal conversation, but it seemed the recipient was equally strange. ');
 chat = newNarratorLine(chat, 
@@ -67,17 +83,19 @@ chat = newNarratorLine(chat,
 chat = newChatLine(chat, Sean,
     '"Well, we will be on our way."');
 chat = newNarratorLine(chat, 
-    'The two walk away at a brisk pace.');
+    'The two walk away at a brisk pace.  Noel takes the moment to rest, but the sense of danger in the area puts him on edge.');
 chat = newChatLine(chat, Noel,
-    '"Perhaps I should have asked for their help.  This area could get dangerous if too many of those vile fiends appear."');
+    '"I probably should have joined up with them... maybe I can catch up with them."');
 
 return chat;
 
 #define getJoinNaEnChat
 var chat = newChat();
 
+chat = newNarratorLine(chat,
+    'Noel captures line of sight with the couple.');
 chat = newChatLine(chat, Noel,
-    '"Wait."');
+    '"Hey, paladin and cleric... person," his presentation holding very weak direction.');
 chat = newChatLine(chat, Noel,
     '"The creatures around here are really aggressive."');
 chat = newChatLine(chat, Noel,
@@ -88,12 +106,12 @@ chat = newChatLine(chat, Sean,
     '"Well..." the warrior stated as he trailed his words.');
 chat = newNarratorLine(chat, 
     'The man and young lady simply looked at each other without saying a word.');
-chat = newNarratorLine(chat, 
-    'Though no words were said, the two simply looked at other to make a concensus');
 chat = newChatLine(chat, Sean,
-    '"Alright, let`s cooperate!  My name is Naes and thie is Lasy Enne."');
+    '"Alright, let`s cooperate!  I`m Naes and thie is Lady Enne."');
 chat = newChatLine(chat, Noel,
-    '"I`m Noel.  Thanks for your help."');
+    '"They call me Noel back at home.  You know, the one in ashes."');
+chat = newNarratorLine(chat, 
+    'Naes and Enneirda have joined the party!');
 
 return chat;
 
@@ -101,21 +119,27 @@ return chat;
 var chat = newChat();
 
 chat = newNarratorLine(chat, 
-    "This place looks like crap.");
+    "The town bellows with the sound of tedious labor.");
 chat = newNarratorLine(chat, 
-    "This is Meliorate village");
+    'An older gentleman greets the travellers upon arrival, "Welcome to the Town of Meliorate, strangers."');
+chat = newChatLine(chat, Sean,
+    '"Greetings friend, I`m hoping you could give us a very simple explanation of the state of things here?", Naes swiftly requested.');
 chat = newNarratorLine(chat, 
-    "Villages talk about how they get attacked so frequently.");
+    'The gnarled man chuckles, "Straight to the point then, eh?  Well..."');
 chat = newNarratorLine(chat, 
-    "Naes asks about any mines in the area.");
+    '"-we have zero excess food supply"');
 chat = newNarratorLine(chat, 
-    "Villager states there is one in the area.");
+    '"-our tools are at least forty percent rust"');
 chat = newNarratorLine(chat, 
-    "Naes asks about any mines in the area.");
+    '"-and a handful of youngsters with pitchforks stand between us and the fiends that attack on practically a daily basis."');
 chat = newNarratorLine(chat, 
-    "Villager responds how it is likely overrun by aggressive creatures.");
+    '"A real paradise," he concludes with a vat of sarcasm.');
+chat = newChatLine(chat, Sean,
+    'Naes then thinks to himself for a moment then pipes up, "Are there any functioning mines in the area?"');
 chat = newNarratorLine(chat, 
-    "Naes thanks .");
+    '"There`s a fiend invested source of iron to the west," the archaic human bluntly responds.');
+chat = newChatLine(chat, Noel,
+    '"`ppreciate the info, gramps!"');
 
 return chat;
 
@@ -123,21 +147,17 @@ return chat;
 var chat = newChat();
 
 chat = newNarratorLine(chat, 
-    "Lady Enne asks where we are going.");
-chat = newNarratorLine(chat, 
-    "Naes mentions that we could secure a route to the mines.");
-chat = newNarratorLine(chat, 
-    "Lady Enne asks why he even asked about the mines");
-chat = newNarratorLine(chat, 
-    "Naes explains that this village will not survive a large raid.");
-chat = newNarratorLine(chat, 
-    "Naes states if they could get a steady flow of resources, the village can improve.");
-chat = newNarratorLine(chat, 
-    "Naes states how everything here is old dilapidated wood.");
-chat = newNarratorLine(chat, 
-    "Noel states that he thinks that they could use some steel.");
-chat = newNarratorLine(chat, 
-    "Enne responds that she trusts Naes's judgement.");
+    "Naes immediately begins heading west, clearly towards the previously mentioned mines.");
+chat = newChatLine(chat, AD,
+    '"Naes, why are we going this way?" the shy cleric questions.');
+chat = newChatLine(chat, Sean,
+    '"Look at this town.  Everything is dilapidated wood.  It wouldn`t survive if there were a large raid, therefore-"');
+chat = newChatLine(chat, Sean,
+    '"-we are heading to the mines.  If we can secure a route, we can create a steady flow of resources.  The ore can be used to create significantly better tools for defenses and rate of food creation. "');
+chat = newChatLine(chat, Noel,
+    '"Some steel would give this giant fossil called a town some backbone.  As long as I can take out my traumatic memories on a couple fiends, I`m for it," Noel huffs as he marches much further.');
+chat = newChatLine(chat, AD, 
+    'Once Noel is out of audible range, Lady Enne whispers to herself, "Naes... why are you really helping them?"');
 
 return chat;
 

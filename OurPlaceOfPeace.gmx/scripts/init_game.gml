@@ -4,6 +4,7 @@ init_game_controls();
 init_game_artes();
 init_game_gfx();
 init_game_monsters();
+init_game_items();
 init_game_misc();
 
 #define init_game_gfx
@@ -459,3 +460,50 @@ set_monster_attacks(Slime, "Strike", "Shove", "Tension");
 set_simple_monster_gfx(Pyre, PyreFlyingSprite, PyreFlyingSprite);
 set_monster_stats(Pyre, "Pyre", 5,15, 5,5, 5, 5,5, 15);
 set_monster_attacks(Pyre, "Pyre", "Fire Arrow", "Tension", "Retreating Flame");
+#define init_game_items
+///init_game_items
+
+
+item_init(ITEM_HALITE, ARTE_EFFECT_HEAL, 10, "Halite", 
+    "One tasty solid rock and not very nutrious by itself.");
+item_init(ITEM_ROOT, ARTE_EFFECT_HEAL, 30, "Tree Root", 
+    "Tasteless and tough but a great source of fiber!");
+item_init(ITEM_LEGUME, ARTE_EFFECT_HEAL, 90, "Legume", 
+    "A rough nut great for any diet.");
+item_init(ITEM_CHARD, ARTE_EFFECT_HEAL, 180, "Chard", 
+    "Full of nutrients but could use dressing.");
+item_init(ITEM_COCOA, ARTE_EFFECT_HEAL, 400, "Cocoa", 
+    "The ultimate snack good for any occasion.");
+    
+item_init(ITEM_GEL, ARTE_EFFECT_DEF_BUFF, 3, "Gooey Gel", 
+    "Gooey texture that grants discomfort to the touch.");
+item_init(ITEM_WOOD, ARTE_EFFECT_DEF_BUFF, 6, "Wood Board", 
+    "Not the most durable board, but better than nothing.");
+item_init(ITEM_RUBBER, ARTE_EFFECT_DEF_BUFF, 12, "Rubber Chunk", 
+    "Heavily absorbant of blows and sound.");
+item_init(ITEM_STEEL, ARTE_EFFECT_DEF_BUFF, 20, "Steel Guard", 
+    "A heavy but reliable piece of armor.");
+item_init(ITEM_TITANIUM, ARTE_EFFECT_DEF_BUFF, 40, "Titanium Plate", 
+    "The best and lightest defense available.");
+    
+item_init(ITEM_WING, ARTE_EFFECT_SPD_BUFF, 3, "Broken Wing", 
+    "An aero-dynamic beast wing meant for swift flight.");
+item_init(ITEM_FAN, ARTE_EFFECT_SPD_BUFF, 6, "Wind Fan", 
+    "A fan meant to create wind-based speed.");
+item_init(ITEM_FIN, ARTE_EFFECT_SPD_BUFF, 12, "Swift Fin", 
+    "Glide through and cut the air like butter.");
+item_init(ITEM_CLEAT, ARTE_EFFECT_SPD_BUFF, 20, "Natural Cleats", 
+    "Rough sole bottom traction straight from nature.");
+item_init(ITEM_FEATHER, ARTE_EFFECT_SPD_BUFF, 40, "Aerodynamic Feather", 
+    "The most efficient method of transportation.");
+    
+item_init(ITEM_NAIL, ARTE_EFFECT_ATT_BUFF, 3, "Dull Nail", 
+    "An offensive piece of a beast that's sharp enough.");
+item_init(ITEM_FANG, ARTE_EFFECT_ATT_BUFF, 6, "Beast Fang", 
+    "A tooth meant to assist consuming meat.");
+item_init(ITEM_CLAW, ARTE_EFFECT_ATT_BUFF, 12, "Strong Claw", 
+    "Three powerful claws meant to draw blood.");
+item_init(ITEM_TALON, ARTE_EFFECT_ATT_BUFF, 20, "Aviation Talon", 
+    "Powerful enough to lift a bison into the air.");
+item_init(ITEM_SPIKE, ARTE_EFFECT_ATT_BUFF, 40, "Sharp Spike", 
+    "A single graze from this would tear through the roughest hide.");
