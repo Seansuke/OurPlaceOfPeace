@@ -289,7 +289,7 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="AreaPyre" x="752" y="400" name="inst_6AD2EA69" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="AreaPyre" x="1712" y="160" name="inst_D417AEFD" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="AreaPyre" x="2352" y="368" name="inst_3BEDDF9E" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Cutscene" x="1648" y="304" name="inst_6E618D09" locked="0" code="cutsceneId = CUT_JOIN_NAEN;&#xA;pauseMove = true;&#xA;newPlayerId1 = Sean;&#xA;newPlayerId2 = AD;&#xA;&#xA;" scaleX="3.35483860969543" scaleY="12.0625" colour="4294967295" rotation="0"/>
+    <instance objName="Cutscene" x="1648" y="304" name="inst_6E618D09" locked="0" code="cutsceneId = CUT_JOIN_NAEN;&#xA;pauseMove = true;&#xA;newPlayerId1 = Sean;&#xA;newPlayerId2 = AD;" scaleX="3.35483860969543" scaleY="12.0625" colour="4294967295" rotation="0"/>
     <instance objName="Cutscene" x="400" y="288" name="inst_81AE0665" locked="0" code="cutsceneId = CUT_MEET_NAEN;&#xA;pauseMove = true;" scaleX="3.35483860969543" scaleY="12.0625" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>

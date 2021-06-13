@@ -81,10 +81,10 @@ switch(subMenu)
                 desc[2,ARTE_EFFECT_BACK] = "Push opponents farther back";
                 desc[2,ARTE_EFFECT_LIFT] = "Push opponents farther upwards";
                 
-                desc[3,ARTE_EFFECT_NONE] = "Decrease time needed to execute arte.";
-                desc[3,ARTE_EFFECT_HEAL] = desc[3,ARTE_EFFECT_NONE];
-                desc[3,ARTE_EFFECT_ATT_BUFF] = desc[3,ARTE_EFFECT_NONE];
-                desc[3,ARTE_EFFECT_DEF_BUFF] = desc[3,ARTE_EFFECT_NONE];
+                desc[3,ARTE_EFFECT_NONE] = "Decrease time between button push and arte appearing.";
+                desc[3,ARTE_EFFECT_HEAL] = "Decrease the casting time before executing an arte.";
+                desc[3,ARTE_EFFECT_ATT_BUFF] = desc[3,ARTE_EFFECT_HEAL];
+                desc[3,ARTE_EFFECT_DEF_BUFF] = desc[3,ARTE_EFFECT_HEAL];
                 desc[3,ARTE_EFFECT_BACK] = desc[3,ARTE_EFFECT_NONE];
                 desc[3,ARTE_EFFECT_LIFT] = desc[3,ARTE_EFFECT_NONE];
                 
@@ -96,13 +96,13 @@ switch(subMenu)
                 desc[4,ARTE_EFFECT_LIFT] = desc[4,ARTE_EFFECT_NONE];
                 
                 desc[5,ARTE_EFFECT_NONE] = "Artes last longer.";
-                desc[5,ARTE_EFFECT_HEAL] = desc[5,ARTE_EFFECT_NONE];
-                desc[5,ARTE_EFFECT_ATT_BUFF] = desc[5,ARTE_EFFECT_NONE];
-                desc[5,ARTE_EFFECT_DEF_BUFF] = desc[5,ARTE_EFFECT_NONE];
+                desc[5,ARTE_EFFECT_HEAL] = "Increase the time the heal arte is on the field.";
+                desc[5,ARTE_EFFECT_ATT_BUFF] = "Increases the time the buff arte is on the field";
+                desc[5,ARTE_EFFECT_DEF_BUFF] = desc[5,ARTE_EFFECT_ATT_BUFF];
                 desc[5,ARTE_EFFECT_BACK] = desc[5,ARTE_EFFECT_NONE];
                 desc[5,ARTE_EFFECT_LIFT] = desc[5,ARTE_EFFECT_NONE];
                 
-                desc[6,ARTE_EFFECT_NONE] = "Decrease wait after using an arte.";
+                desc[6,ARTE_EFFECT_NONE] = "Decrease wait after using an arte to gain control again.";
                 desc[6,ARTE_EFFECT_HEAL] = desc[6,ARTE_EFFECT_NONE];
                 desc[6,ARTE_EFFECT_ATT_BUFF] = desc[6,ARTE_EFFECT_NONE];
                 desc[6,ARTE_EFFECT_DEF_BUFF] = desc[6,ARTE_EFFECT_NONE];

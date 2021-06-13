@@ -1,8 +1,10 @@
 ///areaPlaceClear(x, y)
-return !place_meeting(argument0,argument1,obj_areaWall)
-    && !place_meeting(argument0,argument1,ParentBlock
-    && argument0 < 0
-    && argument0 > room_width
-    && argument1 < 0
-    && argument1 > room_height
-);
+var requestedX = argument0;
+var requestedY = argument1;
+return !place_meeting(requestedX,requestedY,obj_areaWall)
+    && !place_meeting(requestedX,requestedY,ParentBlock)
+    && requestedX > 0
+    && requestedX < room_width
+    && requestedY > 64
+    && requestedY < room_height
+;

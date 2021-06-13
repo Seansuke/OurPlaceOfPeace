@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>isCutsceneRunning = false;
-cutsceneId = CUT_INTRO;
+            <string>cutsceneId = CUT_INTRO;
+isMyCutsceneRunning = false;
 pauseMove = false;
 chat = -1;
 lineIndex = 0;
@@ -34,8 +34,8 @@ text = "";
 playerSprite = noone;
 buttonHeld = false;
 sprite_index = EmptySprite;
-newPlayerId1 = undefined;
-newPlayerId2 = undefined;
+newPlayerId1 = -1;
+newPlayerId2 = -1;
 </string>
           </argument>
         </arguments>
@@ -59,7 +59,7 @@ newPlayerId2 = undefined;
           <argument>
             <kind>1</kind>
             <string>/// Cycle Scene
-if(!isCutsceneRunning) {
+if(! isMyCutsceneRunning) {
     exit;
 }
 
@@ -114,18 +114,19 @@ with(PlayerObject) {
           <argument>
             <kind>1</kind>
             <string>/// Initiate scene
-if(cutsceneId &gt; global.cutscene &amp;&amp; ! isCutsceneRunning) {
+if(cutsceneId &gt; global.cutscene &amp;&amp; ! global.isCutsceneRunning) {
     if(pauseMove) {
         global.menu = true;
     }
-    isCutsceneRunning = true;
+    global.isCutsceneRunning = true;
+    isMyCutsceneRunning = true;
     chat = getChatText(cutsceneId);
     global.cutscene = cutsceneId;
     
-    if(newPlayerId1 != undefined) {
+    if(!newPlayerId1 &gt; -1) {
         combat_party_add(newPlayerId1);
     }
-    if(newPlayerId2 != undefined) {
+    if(!newPlayerId2 &gt; -1) {
         combat_party_add(newPlayerId2);
     }
 }
@@ -152,7 +153,7 @@ if(cutsceneId &gt; global.cutscene &amp;&amp; ! isCutsceneRunning) {
           <argument>
             <kind>1</kind>
             <string>/// Cycle Scene
-if(!isCutsceneRunning) {
+if(!global.isCutsceneRunning) {
     exit;
 }
 
@@ -182,6 +183,7 @@ lineIndex++;
             <string>/// End scene
 
 global.menu = false;
+global.isCutsceneRunning = false;
 instance_destroy();
 </string>
           </argument>

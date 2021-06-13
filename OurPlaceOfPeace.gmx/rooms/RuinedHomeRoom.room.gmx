@@ -169,7 +169,7 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="obj_wall_debris1" x="864" y="272" name="inst_497A398B" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_debris1" x="704" y="464" name="inst_7A0EA432" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ParentBlock" x="1385" y="176" name="inst_9A93B159" locked="-1" code="" scaleX="4.59375" scaleY="4.03125" colour="4294967295" rotation="0"/>
-    <instance objName="ParentBlock" x="1248" y="16" name="inst_79A35417" locked="-1" code="" scaleX="84.5" scaleY="6.96774196624756" colour="4294967295" rotation="0"/>
+    <instance objName="ParentBlock" x="1248" y="16" name="inst_79A35417" locked="0" code="" scaleX="84.5" scaleY="6.96774196624756" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_debris1" x="2160" y="240" name="inst_6C4AEEF8" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_debris1" x="2352" y="432" name="inst_B3595253" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_debris1" x="2336" y="176" name="inst_B088C85C" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

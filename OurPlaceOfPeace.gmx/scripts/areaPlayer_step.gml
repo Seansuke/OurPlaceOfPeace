@@ -3,7 +3,9 @@ press_maintain();//maintain all controls
 
 if(global.menu && combatId == 0) {
     depth = -10001;
-    menu_maintain();
+    if(!global.isCutsceneRunning) {
+        menu_maintain();
+    }
     exit;
 }
 
@@ -79,16 +81,14 @@ if(alarm[1] > 0) {
 switch(ctrl_dir_h()) {
     case BTN_RIGHT: 
         v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_RUN];
-        if(areaPlaceClear(x + currentSpeed, y))
-        {
+        if(areaPlaceClear(x + currentSpeed, y)) {
             x += currentSpeed;
             v_dir = 1;
         }
     break;
     case BTN_LEFT:
         v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_RUN];
-        if(areaPlaceClear(x - currentSpeed,y))
-        {
+        if(areaPlaceClear(x - currentSpeed,y)) {
             x -= currentSpeed;
             v_dir = -1;
         }
@@ -98,22 +98,20 @@ switch(ctrl_dir_v())
 {
     case BTN_DOWN: 
         v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_RUN];
-        if(areaPlaceClear(x,y + currentSpeed))
-        {
+        if(areaPlaceClear(x,y + currentSpeed)) {
             y += currentSpeed;
         }
     break;
     case BTN_UP:
         v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_RUN];
-        if(areaPlaceClear(x,y - currentSpeed))
-        {
+        if(areaPlaceClear(x,y - currentSpeed)) {
             y -= currentSpeed;
         }
     break;
 }
 
 if(alarm[1] > 0) {
-        v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_ATTACK];
+    v_gfx = global.gfx[combat_get(CMBT_PARTY1, combatId), GFX_ATTACK];
 }
 
 init_menu();

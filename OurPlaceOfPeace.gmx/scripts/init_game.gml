@@ -413,6 +413,7 @@ global.maxPlayerLevel = 1;
 global.experience = 0;
 global.cutscene = -1;
 global.preempt = false;
+global.isCutsceneRunning = false;
 if(os_browser == browser_not_a_browser) {
     TouchControlsOff();
 }
