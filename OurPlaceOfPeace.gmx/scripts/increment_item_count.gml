@@ -1,2 +1,2 @@
-///increment_item_count(itemId);
-global.itemCount[argument0]++;
+///increment_item_count(itemId, amount);
+global.itemCount[argument0] += argument1;

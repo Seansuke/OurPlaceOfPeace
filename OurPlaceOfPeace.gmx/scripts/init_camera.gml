@@ -14,8 +14,7 @@ audio_play_arena();
 
 global.preempt = false;
 
-if(ds_list_size(global.touchList) > 0) 
-{
+if(ds_exists(global.touchList, ds_type_list) && ds_list_size(global.touchList) > 0)  {
     // Refresh Touch Controls since the digital keys are not persistent.
     TouchControlsOff();
     TouchControlsOn();    

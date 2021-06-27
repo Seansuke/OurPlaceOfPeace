@@ -89,6 +89,7 @@
         <sprite>sprites\spr_item_save</sprite>
         <sprite>sprites\TeleportSprite</sprite>
         <sprite>sprites\SignSprite</sprite>
+        <sprite>sprites\TrailMixSprite</sprite>
       </sprites>
       <sprites name="blocks">
         <sprite>sprites\MountainBlockSprite</sprite>
@@ -445,7 +446,7 @@
         <script>scripts\player_init.gml</script>
         <script>scripts\player_step.gml</script>
         <script>scripts\player_draw.gml</script>
-        <script>scripts\player_collide.gml</script>
+        <script>scripts\player_attack_collide.gml</script>
         <script>scripts\player_mon_collide.gml</script>
       </scripts>
       <scripts name="functions">
@@ -611,6 +612,7 @@
         <object>objects\AreaWarpParent</object>
         <object>objects\DialogueParent</object>
         <object>objects\SignDialogue</object>
+        <object>objects\AreaTrailMix</object>
         <object>objects\CustomFoe</object>
         <object>objects\MakeCustomFoe</object>
         <object>objects\Cutscene</object>

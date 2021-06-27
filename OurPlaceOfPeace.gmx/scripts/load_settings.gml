@@ -30,7 +30,6 @@ else {
     
     var ptyMatrix = saveDataMap[? "pty"];
     
-    // Ignore the first one because it is skipped :/
     for(var i = 0; i < ds_list_size(ptyMatrix); i++) { 
         // Retrieve row item i
         var ptyRow = ptyMatrix[| i];
@@ -55,7 +54,6 @@ else {
     
     var ctrlMatrix = saveDataMap[? "ctrl"];
     
-    // Ignore the first one because it is skipped :/
     for(var i = 0; i < ds_list_size(ctrlMatrix); i++) { 
         // Retrieve row item i
         var ctrlRow = ctrlMatrix[| i];
@@ -68,7 +66,6 @@ else {
     
     var combatPartyMatrix = saveDataMap[? "combatParty"];
     
-    // Ignore the first one because it is skipped :/
     for(var i = 0; i < ds_list_size(combatPartyMatrix); i++) { 
         // Retrieve row item i
         var combatPartyRow = combatPartyMatrix[| i];
@@ -78,7 +75,15 @@ else {
             combatParty[i, j] = combatPartyCell;
         }
     }
+
+    var itemCountMatrix = saveDataMap[? "itemCount"];
     
+    itemCount = global.itemCount;
+    for(var i = 0; i < ds_list_size(itemCountMatrix); i++) { 
+        itemCount[i] = itemCountMatrix[| i];
+    }
+
+                
     ds_map_destroy(saveDataMap);
     
     if(!room_exists(currentMap)) {
@@ -117,7 +122,6 @@ else {
         return "vertical_border save data invalid: " + string(vertical_border);        
     }
     
-    
     if(!is_array(pty)) {
         return "pty save data invalid, not an array: " + string(pty);
     }
@@ -153,7 +157,8 @@ else {
     global.pty = pty;
     global.upgrade = arte;
     global.ctrl = ctrl;
-    
+    global.itemCount = itemCount;
+
     audio_set_volume(global.audioLevel)
     room_set_temporary_persistence(global.currentMap);
 }

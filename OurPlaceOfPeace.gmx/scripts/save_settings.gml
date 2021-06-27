@@ -27,6 +27,7 @@ else {
     ds_map_add(saveDataMap, "pty", global.pty);
     ds_map_add(saveDataMap, "upgrade", global.upgrade);
     ds_map_add(saveDataMap, "ctrl", global.ctrl);
+    ds_map_add(saveDataMap, "itemCount", global.itemCount);
 
     save_web_file(json_encode(saveDataMap));
     ds_map_destroy(saveDataMap);

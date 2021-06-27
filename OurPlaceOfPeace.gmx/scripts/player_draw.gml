@@ -69,3 +69,7 @@ if(v_target >= 1 && v_target <= 8)  {
     draw_bold_text((obj_camera.bad[v_target]).x - 8,(obj_camera.bad[v_target]).y - 8,"P" + str(combatId),c_red,c_black);
 }
 
+// Draw death roll
+if(rollHP <= 0 && HP > 0) {
+    draw_bold_text(x,y - 64,"DEATH ROLL: " + str(HP),c_red,c_black);
+}

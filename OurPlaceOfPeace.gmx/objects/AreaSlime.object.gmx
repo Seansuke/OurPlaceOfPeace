@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>v_speed = 2;
 monFight[0] = Slime;
+itemId = ITEM_GEL;
+itemCount = 1;
+
 </string>
           </argument>
         </arguments>

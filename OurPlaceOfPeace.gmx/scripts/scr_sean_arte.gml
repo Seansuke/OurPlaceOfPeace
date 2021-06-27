@@ -108,8 +108,7 @@ if(skill[ARTE_NAME] == "Strike" || skill[ARTE_NAME] == "Wave") {
         v_act = "idle";
     }
 }
-
-if(skill[ARTE_NAME] == "Bullet Blaze" || skill[ARTE_NAME] == "Bullet Spray") {
+else if(skill[ARTE_NAME] == "Bullet Blaze" || skill[ARTE_NAME] == "Bullet Spray") {
     if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
         scr_player_arte_create();
     }
@@ -121,8 +120,7 @@ if(skill[ARTE_NAME] == "Bullet Blaze" || skill[ARTE_NAME] == "Bullet Spray") {
         v_act = "idle";
     }
 }
-
-if(skill[ARTE_NAME] == "Cross Gun" || skill[ARTE_NAME] == "Pistol Cross") {
+else if(skill[ARTE_NAME] == "Cross Gun" || skill[ARTE_NAME] == "Pistol Cross") {
     if(playerId == Alister) {
         v_gfx2 = AlisterSideGunsSprite;
     }

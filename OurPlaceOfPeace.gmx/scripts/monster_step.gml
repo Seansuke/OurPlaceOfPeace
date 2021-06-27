@@ -9,14 +9,33 @@ rollHP_maintain();
 dmg_maintain();
 guard_maintain();
 
-if(v_act == "damage") {
-    if(x > room_width - 32) {
-        x = 64;
-        v_act = "idle";
+// The player has been thrown off-screen.  Re-align everyone to the center of the map as if it were cycling.
+if(x > room_width - 32) {
+    with(obj_camera) {
+        x = max(32, x - room_width / 2);
     }
-    else if(x < 32) {
-        x = room_width - 64;
-        v_act = "idle";
+    with(obj_player) {
+        x = max(32, x - room_width / 2);
+    }
+    with(obj_mon) {
+        x = max(32, x - room_width / 2);
+    }
+    with(obj_attack) {
+        x = max(32, x - room_width / 2);
+    }
+}
+else if(x < 32) {
+    with(obj_camera) {
+        x = min(room_width - 32, x + room_width / 2);
+    }
+    with(obj_player) {
+        x = min(room_width - 32, x + room_width / 2);
+    }
+    with(obj_mon) {
+        x = min(room_width - 32, x + room_width / 2);
+    }
+    with(obj_attack) {
+        x = min(room_width - 32, x + room_width / 2);
     }
 }
 

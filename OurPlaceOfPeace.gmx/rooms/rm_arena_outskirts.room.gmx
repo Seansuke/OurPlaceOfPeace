@@ -35,7 +35,7 @@ view_vborder[0] = global.vertical_border;</code>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="bg_darksky" x="0" y="0" htiled="-1" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
-    <background visible="-1" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -67,28 +67,28 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="obj_candy_rock1" x="1136" y="236" name="inst_AAE59B0B" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock1" x="1232" y="268" name="inst_C5680FEC" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall_debris4" x="1200" y="236" name="inst_6F0416FD" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris4" x="128" y="412" name="inst_21A8574B" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris4" x="1040" y="380" name="inst_BD786CDB" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_debris4" x="128" y="412" name="inst_21A8574B" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
+    <instance objName="obj_wall_debris4" x="1040" y="380" name="inst_BD786CDB" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
     <instance objName="obj_wall_debris1" x="768" y="236" name="inst_750DC61C" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris1" x="1200" y="348" name="inst_8851DD80" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris1" x="432" y="412" name="inst_A8404B01" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_debris1" x="1200" y="348" name="inst_8851DD80" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
+    <instance objName="obj_wall_debris1" x="432" y="412" name="inst_A8404B01" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
     <instance objName="obj_wall_debris1" x="32" y="236" name="inst_7B151A4F" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris2" x="288" y="348" name="inst_4DFCFEEA" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_debris2" x="288" y="348" name="inst_4DFCFEEA" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
     <instance objName="obj_wall_debris2" x="576" y="236" name="inst_3D47940D" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris3" x="880" y="364" name="inst_E0075833" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris3" x="704" y="348" name="inst_80DD467B" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_debris3" x="880" y="364" name="inst_E0075833" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
+    <instance objName="obj_wall_debris3" x="704" y="348" name="inst_80DD467B" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
     <instance objName="obj_wall_debris3" x="960" y="236" name="inst_B82FB505" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris3" x="992" y="380" name="inst_37DA64E1" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris3" x="1040" y="396" name="inst_241DB86E" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris3" x="864" y="380" name="inst_9A5B82CF" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_debris3" x="992" y="380" name="inst_37DA64E1" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
+    <instance objName="obj_wall_debris3" x="1040" y="396" name="inst_241DB86E" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
+    <instance objName="obj_wall_debris3" x="864" y="380" name="inst_9A5B82CF" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
     <instance objName="obj_wall_debris3" x="608" y="236" name="inst_54922067" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris3" x="256" y="364" name="inst_19DD7DA8" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris3" x="224" y="380" name="inst_6EB0FF9D" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_debris3" x="256" y="364" name="inst_19DD7DA8" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
+    <instance objName="obj_wall_debris3" x="224" y="380" name="inst_6EB0FF9D" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
     <instance objName="obj_wall_debris1" x="528" y="252" name="inst_F7BF56D1" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris1" x="720" y="364" name="inst_3C156434" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris1" x="688" y="380" name="inst_F643B66A" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_debris1" x="720" y="364" name="inst_3C156434" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
+    <instance objName="obj_wall_debris1" x="688" y="380" name="inst_F643B66A" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
     <instance objName="obj_wall_debris1" x="1216" y="252" name="inst_F967089E" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall_debris1" x="560" y="348" name="inst_8E2EA3CA" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_debris1" x="560" y="348" name="inst_8E2EA3CA" locked="-1" code="" scaleX="1" scaleY="1" colour="2097151999" rotation="0"/>
     <instance objName="obj_candy_rock2" x="96" y="300" name="inst_1F6775E8" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="448" y="316" name="inst_1210343E" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="272" y="220" name="inst_6D1C67DD" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -109,7 +109,8 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="obj_candy_rock3" x="816" y="252" name="inst_69FD0C78" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock3" x="944" y="284" name="inst_A9548881" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock3" x="1152" y="300" name="inst_87262B75" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera" x="560" y="268" name="inst_48C3BFF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera" x="624" y="272" name="inst_48C3BFF0" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ParentBlock" x="640" y="352" name="inst_272BBBB9" locked="0" code="" scaleX="60" scaleY="5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tile_rm2k" x="0" y="364" w="16" h="16" xo="416" yo="112" id="10000001" name="tile_397657EA" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

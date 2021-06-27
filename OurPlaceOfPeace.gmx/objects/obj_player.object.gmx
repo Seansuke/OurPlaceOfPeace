@@ -109,7 +109,7 @@
         <arguments>
           <argument>
             <kind>9</kind>
-            <script>player_collide</script>
+            <script>player_attack_collide</script>
           </argument>
           <argument>
             <kind>0</kind>

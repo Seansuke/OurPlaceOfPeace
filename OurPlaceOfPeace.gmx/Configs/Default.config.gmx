@@ -678,7 +678,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="166">
+    <constants number="168">
       <constant name="Sean">0</constant>
       <constant name="AD">1</constant>
       <constant name="Dan">2</constant>
@@ -786,6 +786,8 @@
       <constant name="EVADE_SP_GAIN">100</constant>
       <constant name="MIN_HP_ROLL_SPEED">0.2</constant>
       <constant name="HEALING_ROLL_SPEED_MULTIPLIER">0.005</constant>
+      <constant name="DEATH_ROLL_MAX_HP">6</constant>
+      <constant name="DEATH_ROLL_HP_SPEED">0.02</constant>
       <constant name="DAMAGE_AVERAGE_ROLLHP_SPEED">0.15</constant>
       <constant name="ARTE_EFFECT_NONE">0</constant>
       <constant name="ARTE_EFFECT_HEAL">1</constant>

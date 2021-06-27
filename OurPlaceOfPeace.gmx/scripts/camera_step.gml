@@ -11,7 +11,7 @@ for(var index = 0;index < PTY_AMNT;index += 1) {
     var playerObject = ids[index];
     if(playerObject != -1 && instance_exists(playerObject)) {
         if(ctrl_get(playerObject.combatId, BTN_TYPE) != BTN_TYPE_NONE 
-                && (playerObject).rollHP > 0) {
+                && (playerObject).HP > 0) {
             if((playerObject).x < camx) {
                 camx = (playerObject).x;
             }
@@ -23,7 +23,7 @@ for(var index = 0;index < PTY_AMNT;index += 1) {
 }
 var nearestAliveFoe = instance_nearest(x, y, obj_mon);
 if(instance_exists(nearestAliveFoe)) {
-    if((nearestAliveFoe).rollHP > 0
+    if((nearestAliveFoe).HP > 0
             && distance_to_object(nearestAliveFoe) < 320) 
     {
         if((nearestAliveFoe).x < camx) {
@@ -34,7 +34,17 @@ if(instance_exists(nearestAliveFoe)) {
         }
     }
 }
-x = (camx + cam2x) / 2;
+
+// Move camera naturally.
+if(abs(x - (camx + cam2x)/2) > 125) {
+    move_towards_point((camx + cam2x) / 2, y, 15);
+}
+else if(abs(x - (camx + cam2x)/2) > 15) {
+    move_towards_point((camx + cam2x) / 2, y, 8);
+}
+else {
+    speed = 0;
+}
 
 //monsters dead?
 for(var i = 0;i < PTY_AMNT;i++) {

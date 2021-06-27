@@ -95,8 +95,46 @@ else if(ctrl_press(BTN_ARTES2))
     if(player_arte_init()){exit;}
 }
 
-if(v_btn == BTN_GUARD)
-{
+// Use Trail Mix
+if(ctrl_press(BTN_ACTION)) {
+    // TODO - change this trigger to be something more effective.
+    if(rollHP == HP || rollHP <= 0) {
+        // In a state in which can use it.
+        var itemSelected = ITEM_HALITE;
+        if((HP >= stat[PLY_HP] || rollHP >= stat[PLY_HP]) && get_item_type(itemSelected) == ARTE_EFFECT_HEAL) {
+            animate_text("HP Full", x, y);
+        }
+        else {
+            // HP isn't full, so can use it.
+            if(get_item_count(itemSelected) > 0) {
+                decrement_item_count(itemSelected);
+                animate_text(get_item_name(itemSelected) + " used (" + string(get_item_count(itemSelected)) + " left)", x, y);
+                switch(get_item_type(itemSelected)) {
+                    case ARTE_EFFECT_ATT_BUFF: 
+                        bonusATT += get_item_attack(itemSelected);
+                        break;
+                    case ARTE_EFFECT_DEF_BUFF: 
+                        bonusDEF += get_item_attack(itemSelected);
+                        break;
+                    case ARTE_EFFECT_SPD_BUFF: 
+                        bonusSPD += get_item_attack(itemSelected);
+                        break;
+                }
+                rollHP += get_item_attack(itemSelected);
+                rollHPSpeed = get_item_attack(itemSelected) / 20;
+           }
+            else {
+                animate_text("Out of " + string(get_item_name(itemSelected)) + "!", x, y);
+            }
+        }        
+        exit;
+    }
+    else {
+        animate_text("HP is still rolling.", x, y);
+    }
+}
+
+if(v_btn == BTN_GUARD) {
     v_img = 0;
     v_act = "guard";
     exit;

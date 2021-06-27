@@ -20,6 +20,7 @@ else {
 
 press_maintain();
 
+// For a trailing display.
 previousGfx = gfx[v_gfx];
 previousX = x;
 previousY = y;
@@ -28,17 +29,37 @@ rollHP_maintain();
 dmg_maintain();
 guard_maintain();
 
-if(v_act == "damage") {
-    if(x > room_width - 32) {
-        x = 64;
-        v_act = "idle";
+// The player has been thrown off-screen.  Re-align everyone to the center of the map as if it were cycling.
+if(x > room_width - 32) {
+    with(obj_camera) {
+        x = max(32, x - room_width / 2);
     }
-    else if(x < 32) {
-        x = room_width - 64;
-        v_act = "idle";
+    with(obj_player) {
+        x = max(32, x - room_width / 2);
+    }
+    with(obj_mon) {
+        x = max(32, x - room_width / 2);
+    }
+    with(obj_attack) {
+        x = max(32, x - room_width / 2);
+    }
+}
+else if(x < 32) {
+    with(obj_camera) {
+        x = min(room_width - 32, x + room_width / 2);
+    }
+    with(obj_player) {
+        x = min(room_width - 32, x + room_width / 2);
+    }
+    with(obj_mon) {
+        x = min(room_width - 32, x + room_width / 2);
+    }
+    with(obj_attack) {
+        x = min(room_width - 32, x + room_width / 2);
     }
 }
 
+// AI pushes their own buttons.
 if(ctrl_get(combatId,BTN_TYPE) == BTN_TYPE_NONE) {
     ai_maintain();
 }
@@ -48,6 +69,7 @@ if(v_act == "idle" || v_act == "run" || v_act == "fall" || v_act == "jump") {
     SP = min(SP + SP_GAINED_PER_FRAME, stat[PLY_SP]);
 }
 
+// Reset the ally target.
 if(v_act != "arte") {
     v_ally_target = -1;
 }

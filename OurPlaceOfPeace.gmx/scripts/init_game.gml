@@ -251,9 +251,27 @@ arte_set(arteId, ARTE_POST_WAIT, 3*18);
 
 arteId = arte_new(Taliko,"Frosted Defense",ClearIceWallSprite,GFX_CAST,        
     1.0,2.0, 32,100, 1,
-    "Ally will recieve less damage from foes.",
+    "Ally will receive less damage from foes.",
     ARTE_EFFECT_DEF_BUFF, TYPE_ALLY_TARGET, 3*15);
 arte_set(arteId, ARTE_POST_WAIT, 3*17);
+
+arteId = arte_new(Taliko,"Mild Recovery",ClearIceBlockSprite,GFX_CAST,
+    3.0,0.2,  64,100, 2,
+    "Heal self incredibly slowly but for a moderate amount of HP.",
+    ARTE_EFFECT_HEAL, TYPE_SELF, 3*2); 
+arte_set(arteId, ARTE_POST_WAIT, 3*3);
+
+arteId = arte_new(Taliko,"Ice Wall",ClearIceWallSprite,GFX_CAST,
+    1.0,2.0, 16,100, 3,
+    "The caster will receive less damage from foes.",
+    ARTE_EFFECT_DEF_BUFF, TYPE_SELF, 3*10);
+arte_set(arteId, ARTE_POST_WAIT, 3*4);
+
+arteId = arte_new(Taliko,"Cool Injury",ClearIceBlockSprite,GFX_CAST,
+    1.8,8.0,  64,400, 4,
+    "Heal an ally with a moderate but quick burst of HP.",
+    ARTE_EFFECT_HEAL, TYPE_ALLY_TARGET, 3*16); 
+arte_set(arteId, ARTE_POST_WAIT, 3*18);
 
 //======================Noel======================
 arteId = arte_new(Noel,"Shove",NoelShoveSprite,GFX_CAST, 
@@ -328,8 +346,9 @@ arteId = arte_new(MAX_PLAYERS,"Strike",spr_thrust,GFX_ATTACK,
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*2);
 
 #define init_game_controls
-
-//ctrl_new(num,"type". up,right,down,left, att,guard,arte1,arte2, target,action, menu);
+/// ctrl_new(num,"type". up,right,down,left, 
+///   att,guard,arte1,arte2, 
+///   target,action, menu);
 ctrl_new(0, BTN_TYPE_KEYBOARD, vk_up,vk_right,vk_down,vk_left, 
     ord('Z'),ord('X'),ord('A'),ord('S'), 
     ord('W'),ord('Q'), ord('C'));

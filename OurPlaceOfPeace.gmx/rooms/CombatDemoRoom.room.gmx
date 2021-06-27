@@ -114,6 +114,26 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="SignDialogue" x="208" y="672" name="inst_B83CB482" locked="0" code="message = &quot;This tests a player id face.&quot;;&#xA;//display = true; // This displays the message immediately until a player touches the object.&#xA;//yOffset = -24; // Make the text go further away&#xA;//frontColor = c_white;&#xA;//backColor = c_black;&#xA;facePlayerId = Noel;&#xA;//spriteDisplayed = spr_menu_empty;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="SignDialogue" x="272" y="672" name="inst_363B03A7" locked="0" code="message = &quot;This tests a random sprite.&quot;;&#xA;//display = true; // This displays the message immediately until a player touches the object.&#xA;//yOffset = -24; // Make the text go further away&#xA;//frontColor = c_white;&#xA;//backColor = c_black;&#xA;//facePlayerId = Noel;&#xA;spriteDisplayed = spr_sean_run;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="SignDialogue" x="336" y="672" name="inst_7A6F92D7" locked="0" code="message = &quot;This tests a random sprite and player face.&quot;;&#xA;//display = true; // This displays the message immediately until a player touches the object.&#xA;//yOffset = -24; // Make the text go further away&#xA;//frontColor = c_white;&#xA;//backColor = c_black;&#xA;facePlayerId = Sean;&#xA;spriteDisplayed = spr_sean_run;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="800" y="704" name="inst_8C0D1513" locked="0" code="itemCount = 5;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="896" y="704" name="inst_0C33A814" locked="0" code="itemId = ITEM_GEL;&#xA;itemCount = 5;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="960" y="640" name="inst_95696BA9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="960" y="656" name="inst_132E1A94" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="976" y="624" name="inst_47753A4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="848" y="704" name="inst_69DBD7BC" locked="0" code="itemId = ITEM_GEL;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="944" y="656" name="inst_7DF2C346" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="928" y="624" name="inst_CE5BB945" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="1056" y="672" name="inst_E8FF010A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="992" y="672" name="inst_88C848B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="1008" y="640" name="inst_B974763B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="1040" y="672" name="inst_1A73277B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="1024" y="624" name="inst_A41C3569" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="1056" y="640" name="inst_0DDC18EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="SignDialogue" x="848" y="656" name="inst_6381D072" locked="0" code="message = &quot;This tests trail mix&quot;;&#xA;//display = true; // This displays the message immediately until a player touches the object.&#xA;//yOffset = -24; // Make the text go further away&#xA;//frontColor = c_white;&#xA;//backColor = c_black;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaTrailMix" x="912" y="624" name="inst_29BFF13A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ParentBlock" x="352" y="176" name="inst_5B33F6AA" locked="0" code="" scaleX="5.93548393249512" scaleY="3.32258057594299" colour="4294967295" rotation="0"/>
+    <instance objName="ParentBlock" x="448" y="176" name="inst_2592C8F4" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="ParentBlock" x="592" y="48" name="inst_D0FEF751" locked="0" code="" scaleX="38" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="ParentBlock" x="256" y="192" name="inst_FC888BEC" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_darksky" x="0" y="-224" w="1280" h="335" xo="0" yo="0" id="10001447" name="tile_0EAFDC90" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

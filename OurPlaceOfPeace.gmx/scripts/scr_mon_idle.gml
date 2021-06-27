@@ -11,12 +11,12 @@ if(v_target == -1)
     {exit}
 
 //run to enemy
-if((v_target).x < x - 50)
+if((v_target).x < x - sprite_width)
 {
     v_act = "run";
     v_dir = DIR_LEFT;
 }
-else if((v_target).x > x + 50)
+else if((v_target).x > x + sprite_width)
 {
     v_act = "run";
     v_dir = DIR_RIGHT;

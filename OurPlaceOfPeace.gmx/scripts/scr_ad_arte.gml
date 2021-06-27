@@ -67,4 +67,16 @@ else if(skill[ARTE_TYPE] == TYPE_ALLY_TARGET) {
         exit;
     }
 }
+else if(skill[ARTE_NAME] == "Mild Recovery"
+   || skill[ARTE_NAME] == "Ice Wall"
+   || skill[ARTE_NAME] == "Cool Injury")
+{
+    if(floor(v_timer) == ceil(skill[ARTE_WAIT] + 1)) {
+        scr_player_arte_create();
+    }
+
+    if(floor(v_timer) > ceil(skill[ARTE_WAIT] + skill[ARTE_POST_WAIT])) {
+        v_act = "idle";
+    }
+}
 

@@ -123,8 +123,7 @@ else {
     global.marker = 1;
 }
 
-if(ds_list_size(global.touchList) &gt; 0) 
-{
+if(ds_exists(global.touchList, ds_type_list) &amp;&amp; ds_list_size(global.touchList) &gt; 0)  {
     // Refresh Touch Controls since the digital keys are not persistent.
     TouchControlsOff();
     TouchControlsOn();    
