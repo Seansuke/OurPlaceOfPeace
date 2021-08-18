@@ -1,4 +1,9 @@
 //CONTROLS
+if(combatId == 0 && virtualHorizontalDirection >= 0) {
+    var tempVirtualHorizontalDirection = virtualHorizontalDirection
+    virtualHorizontalDirection = -1;
+    return tempVirtualHorizontalDirection;
+}
 switch(global.ctrl[combatId,BTN_TYPE])
 {
     case BTN_TYPE_KEYBOARD:

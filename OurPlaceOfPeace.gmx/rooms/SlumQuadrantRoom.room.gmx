@@ -1340,7 +1340,6 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="MountainBlock" x="1104" y="1104" name="inst_AE02FCB8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="1104" y="1280" name="inst_DBBE164E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="960" y="1264" name="inst_6663F7B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="848" y="1200" name="inst_6B19289C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="976" y="1120" name="inst_1F2DC0A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="624" y="1248" name="inst_08A190A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="704" y="1200" name="inst_5D814F8C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

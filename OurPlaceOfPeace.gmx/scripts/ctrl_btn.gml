@@ -1,5 +1,10 @@
 /// ctrl_btn() returns button held
 //CONTROL
+if(combatId == 0 && virtualAction >= 0) {
+    var tempVirtualAction = virtualAction
+    virtualAction = -1;
+    return tempVirtualAction;
+}
 switch(global.ctrl[combatId,BTN_TYPE])
 {
     case BTN_TYPE_KEYBOARD:

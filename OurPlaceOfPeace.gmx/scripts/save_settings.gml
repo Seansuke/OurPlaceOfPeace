@@ -12,6 +12,7 @@ else {
     ds_map_add(saveDataMap, "height_view", global.height_view);
     ds_map_add(saveDataMap, "horizontal_border", global.horizontal_border);
     ds_map_add(saveDataMap, "vertical_border", global.vertical_border);
+    ds_map_add(saveDataMap, "selectedItemId", global.selectedItemId);
     
     ds_map_add(saveDataMap, "audioLevel", global.audioLevel);
     ds_map_add(saveDataMap, "currentMap", global.currentMap);

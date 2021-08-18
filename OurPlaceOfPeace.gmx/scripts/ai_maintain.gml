@@ -28,7 +28,7 @@ if(isHealer) {
     
     // Special logic for the healer.
     var v_target = -1;
-    var v_targetHpRatio = 1;  
+    var v_targetHpRatio = 1;
 
     // Available?  Time to heal
     if(SP >= skill[ARTE_COST]) {
@@ -83,7 +83,7 @@ if(instance_exists(aiTarget)) {
         }
     }
     else {    
-        if(abs(x - (aiTarget).x) > 32) {
+        if(abs(x - (aiTarget).x - (aiTarget).sprite_width / 2) > 32) {
             attackRandomly = false;
             if(x < (aiTarget).x) {
                 v_h = BTN_RIGHT;

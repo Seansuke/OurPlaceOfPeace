@@ -13,6 +13,7 @@ else {
     var height_view = ds_map_find_value(saveDataMap, "height_view");
     var horizontal_border = ds_map_find_value(saveDataMap, "horizontal_border");
     var vertical_border = ds_map_find_value(saveDataMap, "vertical_border");
+    var selectedItemId = ds_map_find_value(saveDataMap, "selectedItemId");
     
     var audioLevel = ds_map_find_value(saveDataMap, "audioLevel");
     var currentMap = ds_map_find_value(saveDataMap, "currentMap");
@@ -158,9 +159,14 @@ else {
     global.upgrade = arte;
     global.ctrl = ctrl;
     global.itemCount = itemCount;
+    global.selectedItemId = selectedItemId;
 
     audio_set_volume(global.audioLevel)
     room_set_temporary_persistence(global.currentMap);
+    
+    if(global.selectedItemId == undefined) {
+        selectedItemId = ITEM_HALITE;
+    }
 }
 return "Nothing happened?";
 

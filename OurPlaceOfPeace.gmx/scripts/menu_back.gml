@@ -3,6 +3,9 @@ switch(subMenu)
     case "Main":
         menu_close();
     break;
+    case "Trail Mix":
+        menu_call("Main");
+    break;
     case "Artes Slot":
         menu_call("Artes Player");
     break;

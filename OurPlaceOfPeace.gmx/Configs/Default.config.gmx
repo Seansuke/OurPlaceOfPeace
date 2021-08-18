@@ -678,7 +678,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="168">
+    <constants number="171">
       <constant name="Sean">0</constant>
       <constant name="AD">1</constant>
       <constant name="Dan">2</constant>
@@ -847,6 +847,9 @@
       <constant name="ITEM_TALON">18</constant>
       <constant name="ITEM_SPIKE">19</constant>
       <constant name="MAX_ITEM">20</constant>
+      <constant name="MOBILE_GML_VIRTUAL_KEYS">0</constant>
+      <constant name="MOBILE_CUSTOM_KEYS">1</constant>
+      <constant name="MOBILE_CURRENT_KEYS">0</constant>
     </constants>
   </ConfigConstants>
 </Config>

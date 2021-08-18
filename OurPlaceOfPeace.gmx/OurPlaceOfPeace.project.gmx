@@ -93,6 +93,7 @@
       </sprites>
       <sprites name="blocks">
         <sprite>sprites\MountainBlockSprite</sprite>
+        <sprite>sprites\MineRockSprite</sprite>
         <sprite>sprites\EmptySprite</sprite>
       </sprites>
       <sprites name="hazards">
@@ -340,12 +341,22 @@
       <sprite>sprites\SettingsMenuSprite</sprite>
       <sprite>sprites\spr_menu_battle</sprite>
       <sprite>sprites\spr_menu_empty</sprite>
+      <sprite>sprites\MenuShoeButtonSprite</sprite>
+      <sprite>sprites\MenuShieldButtonSprite</sprite>
+      <sprite>sprites\MenuSwordButtonSprite</sprite>
+      <sprite>sprites\MenuWideSwordButtonSprite</sprite>
       <sprite>sprites\MenuTrailMixButtonSprite</sprite>
       <sprite>sprites\MenuItemsButtonSprite</sprite>
       <sprite>sprites\BackMenuSprite</sprite>
+      <sprite>sprites\DirectionalButtonSprite</sprite>
+      <sprite>sprites\TransparentDirectionButtonsSprite</sprite>
+      <sprite>sprites\AttackSuiteButtonSprite</sprite>
+      <sprite>sprites\TransparentAttackSuiteButtonSprite</sprite>
       <sprite>sprites\MusicMenuButtonSprite</sprite>
       <sprite>sprites\MenuTouchSprite</sprite>
+      <sprite>sprites\MenuHeartButtonSprite</sprite>
       <sprite>sprites\spr_menu_empty_white</sprite>
+      <sprite>sprites\MenuPauseButtonSprite</sprite>
       <sprite>sprites\spr_menu_down_up</sprite>
       <sprite>sprites\CutsceneSprite</sprite>
       <sprite>sprites\BlockSprite</sprite>
@@ -620,6 +631,7 @@
       <objects name="blocks">
         <object>objects\ParentBlock</object>
         <object>objects\MountainBlock</object>
+        <object>objects\MineRockBlock</object>
       </objects>
       <objects name="mon">
         <object>objects\obj_areaMon</object>
@@ -639,6 +651,7 @@
       <object>objects\ClickableButton</object>
       <object>objects\BackMenu</object>
       <object>objects\obj_areaMenu_artes</object>
+      <object>objects\AreaMenuTrailMix</object>
       <object>objects\obj_areaMenu_skills</object>
       <object>objects\obj_areaMenu_party</object>
       <object>objects\AreaMenuOptions</object>
@@ -687,12 +700,23 @@
         <object>objects\CombatPlayerMenu</object>
         <object>objects\CombatPlayerSwapInMenu</object>
       </objects>
+      <objects name="items">
+        <object>objects\SelectItemMenu</object>
+      </objects>
     </objects>
     <objects name="battle">
       <object>objects\obj_camera</object>
       <object>objects\obj_player</object>
       <object>objects\obj_mon</object>
       <object>objects\obj_attack</object>
+      <objects name="virtual keys">
+        <object>objects\VirtualKeyParent</object>
+        <object>objects\AttackVirtualKey</object>
+        <object>objects\DirectionButtonVirtualKey</object>
+        <object>objects\AttackSuiteVirtualKey</object>
+        <object>objects\TrailMixButtonVirtualKey</object>
+        <object>objects\PauseButtonVirtualKey</object>
+      </objects>
     </objects>
     <objects name="misc">
       <object>objects\PlayerObject</object>
@@ -707,6 +731,7 @@
     </rooms>
     <rooms name="area">
       <room>rooms\RuinedHomeRoom</room>
+      <room>rooms\LamprophyreMineRoom</room>
       <room>rooms\rm_area_outskirts</room>
       <room>rooms\CombatDemoRoom</room>
     </rooms>

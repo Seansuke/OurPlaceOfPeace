@@ -1,5 +1,8 @@
 for(i = 0;i <= GFX_MAX;i += 1) {gfx[GFX_FACE] = spr_icon;}//init all graphics
 
+virtualAction = -1;
+virtualHorizontalDirection = -1;
+virtualVerticalDirection = -1;
 HP = 1;
 rollHP = 1;
 SP = 100;

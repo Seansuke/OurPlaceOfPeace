@@ -100,7 +100,7 @@ if(ctrl_press(BTN_ACTION)) {
     // TODO - change this trigger to be something more effective.
     if(rollHP == HP || rollHP <= 0) {
         // In a state in which can use it.
-        var itemSelected = ITEM_HALITE;
+        var itemSelected = global.selectedItemId;
         if((HP >= stat[PLY_HP] || rollHP >= stat[PLY_HP]) && get_item_type(itemSelected) == ARTE_EFFECT_HEAL) {
             animate_text("HP Full", x, y);
         }

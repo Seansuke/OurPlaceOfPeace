@@ -1,5 +1,11 @@
 switch(subMenu)
 {
+    case "Trail Mix":
+        var selectedSlotButton = menus[menuPos];
+        if((selectedSlotButton).itemId >= 0) {
+            obj_areaMenu_artes_desc.v_desc = get_item_description((selectedSlotButton).itemId);
+        }
+    break;
     case "Artes Slot":
         var selectedSlotButton = menus[menuPos];
         var partyArteSlotId = (selectedSlotButton).partyArteSlotId;

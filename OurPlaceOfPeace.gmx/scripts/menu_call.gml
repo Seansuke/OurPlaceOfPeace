@@ -13,6 +13,9 @@ switch(subMenu)
             view_yview[0] + 100 + 40*i,BackMenu); 
         i++;
         menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i,AreaMenuTrailMix); 
+        i++;
+        menus[i] = instance_create(getMenuXPosition(),
             view_yview[0] + 100 + 40*i,obj_areaMenu_artes); 
         i++;
         menus[i] = instance_create(getMenuXPosition(),
@@ -27,6 +30,29 @@ switch(subMenu)
         menus[i] = instance_create(getMenuXPosition(),
             view_yview[0] + 100 + 40*i,obj_areaMenu_battle);
         i++;
+        maxMenu = i;
+    break;
+    case "Trail Mix":            
+        with(obj_areaMenu_artes_desc) {
+            visible = true;
+            v_desc = "";
+        }
+        var i = 0;
+        var itemId = 0;
+    
+        menus[i] = instance_create(getMenuXPosition(),
+            view_yview[0] + 100 + 40*i, BackMenu); 
+        i++;
+    
+        for(var itemId = 0; itemId < array_length_1d(global.itemCount); itemId++) {
+            if(get_item_count(itemId) > 0) {
+                menus[i] = instance_create(getMenuXPosition(),
+                    view_yview[0] + 100 + 40*i, SelectItemMenu); 
+                (menus[i]).itemId = itemId;
+                i++;
+            }
+        }
+        
         maxMenu = i;
     break;
     case "Artes Player":

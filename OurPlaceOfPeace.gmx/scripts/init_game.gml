@@ -368,17 +368,17 @@ ctrl_new(3,BTN_TYPE_NONE, ord('9'),ord('0'),ord('9'),ord('0'),
 /// Initializes all party and player data in the system.
 
 //player_new(playerId,   name,hp,sp,att,aatt, pow, def,adef,spd);
-player_new(Sean,  "Naes",     11,12,  10,10,  15,  14,  14,    9);
-player_new(AD,    "Enneirda",  6,10,   5,15,   5,   5,  15,    6);
-player_new(Dan,   "Shashu",    7,15,   7, 7,   5,  10,  13,    7);
-player_new(John,  "Nooj",     12,15,  13,13,   5,  12,  13,   12);
-player_new(Serena,"Saruhime", 12,15,  13,13,   5,  15,  12,   12);
-player_new(James, "Nizzerus", 14,15,  12,12,  15,  12,   5,    7);
-player_new(Taliko,"Taliko",    6,10,   5,15,   5,   5,  15,    6);
-player_new(Noel,  "Noel",     15, 5,  15, 5,  15,  10,   8,    6);
-player_new(Alister,"Alister", 15, 5,  15, 5,  15,  10,   8,    6);
-player_new(Raka,  "Raka",     11,11,  11,11,  11,  11,  11,    9);
-player_new(Chloe, "Chloe",    12,15,  13, 5,   5,  12,  12,   12);
+player_new(Sean,   "Naes",     12,12,  10,10,  15,  15,  15,    9);
+player_new(AD,     "Enneirda",  6,10,   5,15,   5,   5,  15,    6);
+player_new(Dan,    "Shashu",    7,15,   7, 7,   5,  10,  13,    7);
+player_new(John,   "Nooj",     12,15,  13,13,   5,   8,   8,   12);
+player_new(Serena, "Saruhime", 12,15,  13,13,   5,   8,   8,   12);
+player_new(James,  "Nizzerus", 14,15,  12,12,  15,  12,   5,    7);
+player_new(Taliko, "Taliko",    6,10,   5,15,   5,   5,  15,    6);
+player_new(Noel,   "Noel",     15, 5,  15, 5,  15,  10,   8,    6);
+player_new(Alister,"Alister",  15, 5,  15, 5,  15,  10,   8,    6);
+player_new(Raka,   "Raka",     11,11,  11,11,  11,  11,  11,    9);
+player_new(Chloe,  "Chloe",     8,15,  13, 5,   5,  12,  12,   12);
 
 party_set_all(Sean,   getLevel1HpStat(Sean),   "Wave","","","", "Smash","","","");
 party_set_all(AD,     getLevel1HpStat(AD),     "Medic","","","", "Holy Beam","","","");
@@ -483,6 +483,7 @@ set_monster_attacks(Pyre, "Pyre", "Fire Arrow", "Tension", "Retreating Flame");
 #define init_game_items
 ///init_game_items
 
+global.selectedItemId = ITEM_HALITE;
 
 item_init(ITEM_HALITE, ARTE_EFFECT_HEAL, 10, "Halite", 
     "One tasty solid rock and not very nutrious by itself.");
