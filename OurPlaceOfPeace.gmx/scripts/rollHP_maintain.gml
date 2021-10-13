@@ -8,7 +8,7 @@ if(HP < rollHP) {
     HP += rollHPSpeed;
 }
 else if(rollHP < HP) {
-    if(rollHP <= 0 && HP < DEATH_ROLL_MAX_HP) {
+    if(rollHP <= 0 && HP < DEATH_ROLL_MAX_HP && v_team != "Baddy") {
         // Your death roll is much slower and your color incites fear.
         HP -= DEATH_ROLL_HP_SPEED;
         v_color = c_maroon;

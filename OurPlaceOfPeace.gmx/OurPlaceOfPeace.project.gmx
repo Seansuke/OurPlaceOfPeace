@@ -740,7 +740,7 @@
     </rooms>
     <room>rooms\EmptyRoom</room>
   </rooms>
-  <constants number="145">
+  <constants number="146">
     <constant name="Sean">0</constant>
     <constant name="AD">1</constant>
     <constant name="Dan">2</constant>
@@ -886,6 +886,7 @@
     <constant name="CUT_ENTER_MELIORATE">5</constant>
     <constant name="CUT_LEAVE_MELIORATE">6</constant>
     <constant name="CUT_ENTER_LAMPROPHYRE">7</constant>
+    <constant name="CUT_END_LAMPROPHYRE">8</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

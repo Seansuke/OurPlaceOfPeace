@@ -3,7 +3,7 @@ if(instance_exists(aiTarget) && aiTarget != -1) {
     if((aiTarget).HP <= 0) {
         aiTarget = obj_camera.mon[floor(random(PTY_AMNT))];
     }
-    else if(random(500) < 1) {
+    else if(random(200) < 1) {
         aiTarget = obj_camera.mon[floor(random(PTY_AMNT))];
     }
 }

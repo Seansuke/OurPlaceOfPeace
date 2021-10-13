@@ -12,6 +12,7 @@ chatMap[CUT_JOIN_NAEN] = getJoinNaEnChat();
 chatMap[CUT_ENTER_MELIORATE] = getEnterMeliorateChat();
 chatMap[CUT_LEAVE_MELIORATE] = getLeaveMeliorateChat();
 chatMap[CUT_ENTER_LAMPROPHYRE] = getEnterLamprophyreChat();
+chatMap[CUT_END_LAMPROPHYRE] = getEndLamprophyreChat();
 
 return chatMap[CUT_picked];
 
@@ -164,17 +165,30 @@ return chat;
 #define getEnterLamprophyreChat
 var chat = newChat();
 
+chat = newChatLine(chat, Sean,
+    '"Let`s secure a route and bring ore back as proof," Naes states with assertion.');
+chat = newChatLine(chat, Noel,
+    '"You`re pretty attached to a town you`ve never lived in to endanger youself like this," as Noel insinuates more.');
+chat = newChatLine(chat, Sean,
+    '"Well... from a strategic point of view, we can`t stay at an unfortified village."');
+chat = newChatLine(chat, AD,
+    '"-well I don`t want to leave these people in such danger!"');
+chat = newChatLine(chat, AD,
+    '"I know it is selfish Noel, but you don`t have to put yourself in harm`s way too."');
+chat = newChatLine(chat, Noel,
+    '"I will stay.  You could say I am also doing this to make up for things I could not do before."');
+chat = newChatLine(chat, Sean,
+    '"Happy to have you on board."');
+
+return chat;
+
+#define getEndLamprophyreChat
+
+var chat = newChat();
+
 chat = newNarratorLine(chat, 
-    "Naes mentions that they will secure a route, pick up some iron deep within and then present it as proof to the town/");
+    "Yep, that's the demo.");
 chat = newNarratorLine(chat, 
-    "Noel asks why they are endangering yourself for this town");
-chat = newNarratorLine(chat, 
-    "Naes mentions that they need a safe village to stay at that is well fortified if looked at from a strategic point of view.");
-chat = newNarratorLine(chat, 
-    "Enne mentions that more than that, she will do anything she can to improve the well being of the people.");
-chat = newNarratorLine(chat, 
-    "Enne mentions that Noel had no need to come, even though he is welcome.");
-chat = newNarratorLine(chat, 
-    "Noel states that it is a sense of repenting for things he could not do.");
+    "That's it.  Go save and level up or something.");
 
 return chat;

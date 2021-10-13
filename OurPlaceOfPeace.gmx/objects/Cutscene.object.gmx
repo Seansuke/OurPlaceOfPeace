@@ -123,10 +123,10 @@ if(cutsceneId &gt; global.cutscene &amp;&amp; ! global.isCutsceneRunning) {
     chat = getChatText(cutsceneId);
     global.cutscene = cutsceneId;
     
-    if(!newPlayerId1 &gt; -1) {
+    if(newPlayerId1 &gt; -1) {
         combat_party_add(newPlayerId1);
     }
-    if(!newPlayerId2 &gt; -1) {
+    if(newPlayerId2 &gt; -1) {
         combat_party_add(newPlayerId2);
     }
 }
