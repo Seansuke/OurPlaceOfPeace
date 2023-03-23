@@ -138,6 +138,7 @@
           <sprite>sprites\spr_ad_cast</sprite>
           <sprite>sprites\spr_ad_dmg</sprite>
           <sprite>sprites\spr_ad_dead</sprite>
+          <sprite>sprites\AdBowSprite</sprite>
         </sprites>
         <sprites name="artes">
           <sprite>sprites\spr_wand</sprite>
@@ -146,6 +147,7 @@
           <sprite>sprites\spr_might</sprite>
           <sprite>sprites\spr_endure</sprite>
           <sprite>sprites\spr_holy</sprite>
+          <sprite>sprites\HolyArrowSprite</sprite>
         </sprites>
       </sprites>
       <sprites name="dan">
@@ -320,6 +322,17 @@
       </sprites>
       <sprites name="iwik">
         <sprite>sprites\IwikSprite</sprite>
+      </sprites>
+      <sprites name="aether">
+        <sprites name="char">
+          <sprite>sprites\AetherIdleSprite</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="stella">
+        <sprites name="char">
+          <sprite>sprites\StellaIdleSprite</sprite>
+          <sprite>sprites\StellaVictorySprite</sprite>
+        </sprites>
       </sprites>
     </sprites>
     <sprites name="menu">

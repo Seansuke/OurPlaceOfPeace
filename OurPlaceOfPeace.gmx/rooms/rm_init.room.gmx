@@ -55,12 +55,13 @@ audio_play_sound(VoicesFromHeavenBgm,0,true);</code>
     <instance objName="obj_init" x="192" y="32" name="inst_42FCF6EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_newGame" x="192" y="128" name="inst_2A08176B" locked="0" code="" scaleX="1.93548381328583" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_loadGame" x="272" y="240" name="inst_953DEE28" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_controls" x="32" y="96" name="inst_1CF47351" locked="0" code="combatId = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_controls" x="32" y="144" name="inst_229D0F1E" locked="0" code="combatId = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_controls" x="32" y="192" name="inst_190DBBB7" locked="0" code="combatId = 3;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_controls" x="32" y="144" name="inst_1CF47351" locked="0" code="combatId = 1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_controls" x="32" y="192" name="inst_229D0F1E" locked="0" code="combatId = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_controls" x="32" y="240" name="inst_190DBBB7" locked="0" code="combatId = 3;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="TouchControlsObject" x="32" y="32" name="inst_D81D6D21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="CreditsObject" x="480" y="448" name="inst_1AD4D623" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="CombatDemoButton" x="368" y="352" name="inst_960A832B" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_controls" x="32" y="96" name="inst_F51C740B" locked="0" code="combatId = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tile_rm2k" x="0" y="336" w="16" h="16" xo="304" yo="32" id="10001450" name="inst_634E50A7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

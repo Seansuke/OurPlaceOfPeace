@@ -1,4 +1,4 @@
-if(ctrl_press(BTN_MENU) == true)    //menu
+if(ctrl_press(BTN_MENU) == true || (keyboard_check(vk_escape)) )    //menu
 {
     instance_deactivate_all(self);
     global.menu = true;

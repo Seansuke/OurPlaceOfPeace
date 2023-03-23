@@ -52,19 +52,19 @@ depth = -999;
             <kind>1</kind>
             <string>/// Press Confirm - Enter Menu
 with(PlayerObject) {
-                if(room == rm_arena_outskirts) {
-                    exit;
-                }
-                menu_close();
-                global.menu = false;
-                global.monFight[0] = round(random(MAX_MONSTERS));
-                global.monFight[1] = round(random(MAX_MONSTERS));
-                global.monFight[2] = round(random(MAX_MONSTERS));
-                global.monFight[3] = round(random(MAX_MONSTERS));
-                global.areaPlayerX = obj_areaPlayer.x;
-                global.areaPlayerY = obj_areaPlayer.y;
-                global.currentMap = room;
-                room = rm_arena_outskirts;
+    if(room == rm_arena_outskirts) {
+        exit;
+    }
+    menu_close();
+    global.menu = false;
+    global.monFight[0] = round(random(MAX_MONSTERS));
+    global.monFight[1] = round(random(MAX_MONSTERS));
+    global.monFight[2] = round(random(MAX_MONSTERS));
+    global.monFight[3] = round(random(MAX_MONSTERS));
+    global.areaPlayerX = obj_areaPlayer.x;
+    global.areaPlayerY = obj_areaPlayer.y;
+    global.currentMap = room;
+    room = rm_arena_outskirts;
 }
 </string>
           </argument>

@@ -40,6 +40,7 @@ subMenu = "Main";
 menuPos = 0;
 maxMenu = 0;
 menus[0] = -1;
+previousMouseY = -1;
 </string>
           </argument>
         </arguments>

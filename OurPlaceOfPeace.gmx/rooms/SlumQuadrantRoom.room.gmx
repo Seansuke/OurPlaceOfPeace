@@ -519,17 +519,17 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="MountainBlock" x="32" y="32" name="inst_D33006CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="32" y="80" name="inst_B6AA04A3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="16" y="144" name="inst_45376612" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="0" y="192" name="inst_687DC64A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="0" y="256" name="inst_A4369E24" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="48" y="224" name="inst_AAA77CC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="48" y="176" name="inst_697764EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="MountainBlock" x="240" y="528" name="inst_687DC64A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="MountainBlock" x="208" y="480" name="inst_A4369E24" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="MountainBlock" x="224" y="496" name="inst_AAA77CC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="MountainBlock" x="320" y="448" name="inst_697764EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="64" y="128" name="inst_331750A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="80" y="80" name="inst_6EFCB26E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="96" y="32" name="inst_E17BF93F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="80" y="48" name="inst_E38C8606" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="MountainBlock" x="192" y="448" name="inst_E38C8606" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="48" y="112" name="inst_F22308E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="0" y="272" name="inst_5AB4FEF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="80" y="96" name="inst_036E67F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="MountainBlock" x="320" y="480" name="inst_5AB4FEF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="MountainBlock" x="320" y="416" name="inst_036E67F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="112" y="48" name="inst_049DC586" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="144" y="32" name="inst_9E4D99EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="176" y="32" name="inst_54AF5B3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -561,8 +561,8 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="MountainBlock" x="352" y="80" name="inst_95984AD0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="320" y="64" name="inst_EA014F0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="272" y="64" name="inst_B294C0B9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="192" y="64" name="inst_93CF9E3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="112" y="64" name="inst_F91796FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="MountainBlock" x="304" y="320" name="inst_93CF9E3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="MountainBlock" x="192" y="368" name="inst_F91796FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="0" y="96" name="inst_58518BA8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="16" y="112" name="inst_C0D80DEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="96" y="144" name="inst_FF3C01F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1108,7 +1108,7 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="obj_candy_rock2" x="240" y="944" name="inst_12621493" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="208" y="816" name="inst_C94ED914" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="352" y="640" name="inst_EE32643D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_candy_rock2" x="480" y="560" name="inst_C8F5D1F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_candy_rock2" x="224" y="480" name="inst_C8F5D1F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="704" y="960" name="inst_FC868759" locked="0" code="" scaleX="1.32000005245209" scaleY="-0.370000004768372" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="976" y="752" name="inst_67315F4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="800" y="576" name="inst_B88B68A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1139,7 +1139,7 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="obj_candy_rock2" x="496" y="336" name="inst_BD53F173" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="560" y="208" name="inst_9B869DD9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="272" y="272" name="inst_C03D5391" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_candy_rock2" x="304" y="464" name="inst_6050897C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_candy_rock2" x="320" y="480" name="inst_6050897C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="880" y="656" name="inst_036950FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="1136" y="896" name="inst_4C30025C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_candy_rock2" x="1376" y="1008" name="inst_ED762ECE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1377,7 +1377,7 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="MountainBlock" x="496" y="896" name="inst_B98ACF5B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="432" y="800" name="inst_792DF6C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="368" y="656" name="inst_452EF5B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="MountainBlock" x="288" y="592" name="inst_A80D81AE" locked="0" code="" scaleX="3.23404264450073" scaleY="2.95744681358337" colour="4294967295" rotation="0"/>
+    <instance objName="MountainBlock" x="304" y="576" name="inst_A80D81AE" locked="0" code="" scaleX="3.23404264450073" scaleY="2.95744681358337" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="304" y="640" name="inst_D1ACFFE1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="352" y="720" name="inst_1160FE92" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="MountainBlock" x="352" y="800" name="inst_95D5FD13" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1468,8 +1468,8 @@ view_vborder[0] = global.vertical_border;</code>
     <instance objName="AreaWarpParent" x="528" y="1680" name="inst_67AB637B" locked="0" code="message = &quot;Slum Outskirts&quot;;&#xA;warpRoom = rm_area_outskirts;&#xA;marker = 2;&#xA;" scaleX="2.32911396026611" scaleY="0.701298713684082" colour="4294967295" rotation="0"/>
     <instance objName="AreaWarpParent" x="1632" y="1712" name="inst_6CBA212C" locked="0" code="message = &quot;Combat Demo&quot;;&#xA;warpRoom = CombatDemoRoom;&#xA;marker = 1;&#xA;" scaleX="0.544303774833679" scaleY="0.15384615957737" colour="4294967295" rotation="0"/>
     <instance objName="obj_marker2" x="1568" y="1712" name="inst_8938136F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="AreaWarpParent" x="272" y="496" name="inst_79CED04C" locked="0" code="message = &quot;Lamprophyre Mine&quot;;&#xA;warpRoom = LamprophyreMineRoom;&#xA;marker = 1;&#xA;" scaleX="0.544303774833679" scaleY="0.15384615957737" colour="4294967295" rotation="0"/>
-    <instance objName="obj_marker4" x="256" y="432" name="inst_21BD5BE1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="AreaWarpParent" x="264" y="445" name="inst_79CED04C" locked="0" code="message = &quot;Lamprophyre Mine&quot;;&#xA;warpRoom = LamprophyreMineRoom;&#xA;marker = 1;&#xA;" scaleX="0.544303774833679" scaleY="0.15384615957737" colour="4294967295" rotation="0"/>
+    <instance objName="obj_marker4" x="256" y="400" name="inst_21BD5BE1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

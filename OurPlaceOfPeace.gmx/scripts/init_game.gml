@@ -128,6 +128,13 @@ arteId = arte_new(AD,"Holy Beam",spr_holy,GFX_CAST,
     ARTE_EFFECT_NONE, TYPE_PHYSICAL, 3*9);
 arte_set(arteId, ARTE_POST_WAIT, 3*11);
 
+arteId = arte_new(AD,"Light Arrow",HolyArrowSprite,GFX_FACE,       
+    0.4,0.1,  3*7,50,  6,
+    "Fire a magic bow from afar.",
+    ARTE_EFFECT_NONE, TYPE_GRAVITY_SHOT, 3*10);
+arte_set(arteId, ARTE_MOVE_SPEED, 25);
+arte_set(arteId, ARTE_POST_WAIT, 3);
+
 //======================Dan======================
 //knife
 arteId = arte_new(Dan,"Combat Knife",spr_dan_knife,GFX_CAST,      
@@ -139,7 +146,7 @@ arte_set(arteId, ARTE_POST_WAIT, 3*2);
 
 //arrows
 arteId = arte_new(Dan,"Aimed Arrow",spr_arrow,GFX_ATTACK_SIDE,     
-    0.5,0.1,    9,100,  1,
+    3.0,0.1,    9,100,  1,
     "Fire an arrow diagonally.",
     ARTE_EFFECT_NONE, TYPE_AIR_SHOT, 3*10);
 arte_set(arteId, ARTE_MOVE_SPEED, 15);

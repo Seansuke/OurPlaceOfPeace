@@ -65,7 +65,7 @@ if(instance_exists(aiTarget)) {
     // closer to target if a fighter, farther if not, and do not bother attacking if so.
     if(playerId == AD || playerId == Dan || playerId == Taliko) {    
         if(abs(x - (aiTarget).x) < 150) {
-            attackRandomly = false;
+            attackRandomly = true;
             if(x < aiTarget.x) {
                 v_h = BTN_LEFT;
             }
